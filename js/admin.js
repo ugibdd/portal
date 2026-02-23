@@ -55,6 +55,8 @@ const Admin = (function() {
 
     // Открыть модальное окно для редактирования сотрудника
     async function openEditEmployeeModal(id) {
+        Auth.ping(); // Сбрасываем таймер
+        
         const employee = employeesCache.find(emp => emp.id === id);
         if (!employee) return;
 
@@ -97,6 +99,8 @@ const Admin = (function() {
         document.getElementById('cancelEditBtn').onclick = () => modal.remove();
 
         document.getElementById('saveEditBtn').onclick = async () => {
+            Auth.ping(); // Сбрасываем таймер при сохранении
+            
             const nickname = document.getElementById('edit_nickname')?.value.trim();
             const password = document.getElementById('edit_password')?.value.trim();
             const rank = document.getElementById('edit_rank')?.value.trim();
@@ -104,7 +108,7 @@ const Admin = (function() {
             const category = document.getElementById('edit_category')?.value;
 
             if (!nickname || !rank || !department) {
-                alert('Заполните все обязательные поля');
+                UI.showNotification('Заполните все обязательные поля', 'error');
                 return;
             }
 
@@ -119,44 +123,74 @@ const Admin = (function() {
                 .eq('id', id);
 
             if (error) {
-                alert('Ошибка при обновлении: ' + error.message);
+                UI.showNotification('Ошибка при обновлении: ' + error.message, 'error');
                 return;
             }
 
-            alert('Данные сотрудника обновлены');
+            UI.showNotification('Данные сотрудника обновлены', 'success');
             modal.remove();
             await loadEmployeesList();
             renderEmployeesManagementList();
-            renderEmployeesCreateList(); // Обновляем и список создания
+            renderEmployeesCreateList();
         };
     }
 
     // Удаление сотрудника
     async function deleteEmployee(id) {
+        Auth.ping(); // Сбрасываем таймер
+        
         const employee = employeesCache.find(emp => emp.id === id);
         if (!employee) return;
 
-        if (!confirm(`Вы уверены, что хотите удалить сотрудника ${employee.nickname}?`)) {
-            return;
-        }
+        const confirmModal = document.createElement('div');
+        confirmModal.className = 'modal-overlay';
+        confirmModal.innerHTML = `
+            <div class="modal-container" style="max-width: 400px;">
+                <div class="modal-header">
+                    <h3>Подтверждение удаления</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-content">
+                    <p style="margin-bottom: 20px;">Вы уверены, что хотите удалить сотрудника <strong>${employee.nickname}</strong>?</p>
+                    <div class="flex-row" style="justify-content: flex-end;">
+                        <button id="cancelDeleteBtn" class="secondary">Отмена</button>
+                        <button id="confirmDeleteBtn" style="background: #dc3545;">Удалить</button>
+                    </div>
+                </div>
+            </div>
+        `;
 
-        const { error } = await supabaseClient
-            .from('employees')
-            .delete()
-            .eq('id', id);
+        document.body.appendChild(confirmModal);
 
-        if (error) {
-            alert('Ошибка при удалении: ' + error.message);
-            return;
-        }
+        confirmModal.querySelector('.modal-close').onclick = () => confirmModal.remove();
+        confirmModal.onclick = (e) => {
+            if (e.target === confirmModal) confirmModal.remove();
+        };
+        document.getElementById('cancelDeleteBtn').onclick = () => confirmModal.remove();
 
-        alert('Сотрудник удалён');
-        await loadEmployeesList();
-        renderEmployeesManagementList();
-        renderEmployeesCreateList();
+        document.getElementById('confirmDeleteBtn').onclick = async () => {
+            Auth.ping(); // Сбрасываем таймер при подтверждении
+            
+            const { error } = await supabaseClient
+                .from('employees')
+                .delete()
+                .eq('id', id);
+
+            if (error) {
+                UI.showNotification('Ошибка при удалении: ' + error.message, 'error');
+                confirmModal.remove();
+                return;
+            }
+
+            UI.showNotification('Сотрудник удалён', 'success');
+            confirmModal.remove();
+            await loadEmployeesList();
+            renderEmployeesManagementList();
+            renderEmployeesCreateList();
+        };
     }
 
-    // Отображение списка сотрудников для создания (упрощённый вид)
+    // Отображение списка сотрудников для создания
     function renderEmployeesCreateList() {
         const ul = document.getElementById('employeesList');
         if (!ul) return;
@@ -180,6 +214,8 @@ const Admin = (function() {
 
     // Создание нового сотрудника
     async function createEmployee() {
+        Auth.ping(); // Сбрасываем таймер
+        
         if (!Auth.isAdmin()) return;
 
         const nickname = document.getElementById('nickname')?.value.trim();
@@ -189,7 +225,7 @@ const Admin = (function() {
         const category = document.getElementById('category')?.value;
 
         if (!nickname || !password || !rank || !department) {
-            alert('Заполните все поля');
+            UI.showNotification('Заполните все поля', 'error');
             return false;
         }
 
@@ -198,13 +234,12 @@ const Admin = (function() {
             .insert([{ nickname, password, rank, department, category }]);
 
         if (error) {
-            alert(error.message);
+            UI.showNotification(error.message, 'error');
             return false;
         }
 
-        alert('Сотрудник добавлен');
+        UI.showNotification('Сотрудник добавлен', 'success');
         
-        // Очистка формы
         document.getElementById('nickname').value = '';
         document.getElementById('newPassword').value = '';
         document.getElementById('rank').value = '';
@@ -220,6 +255,8 @@ const Admin = (function() {
 
     // Переключение между вкладками управления
     function switchManagementTab(tab) {
+        Auth.ping(); // Сбрасываем таймер при переключении вкладок
+        
         const manageSection = document.getElementById('manageAccountsSection');
         const createSection = document.getElementById('createAccountSection');
         const manageBtn = document.getElementById('manageTabBtn');
@@ -241,32 +278,28 @@ const Admin = (function() {
 
     // Инициализация панели администратора
     async function initAdminPanel() {
+        Auth.ping(); // Сбрасываем таймер при входе в админку
+        
         const clone = UI.loadTemplate('admin');
         UI.clearMain();
         document.getElementById('mainApp').appendChild(clone);
         
         await loadEmployeesList();
         
-        // Переименовываем заголовок
         const title = document.querySelector('#mainApp h2');
-        if (title) title.textContent = 'Управление персоналом';
+        if (title) title.textContent = 'Управление сотрудниками';
         
-        // Инициализация вкладок
         renderEmployeesManagementList();
         renderEmployeesCreateList();
         
-        // Обработчики для вкладок
         document.getElementById('manageTabBtn').onclick = () => switchManagementTab('manage');
         document.getElementById('createTabBtn').onclick = () => switchManagementTab('create');
         
-        // Обработчик создания сотрудника
         document.getElementById('createUserBtn').onclick = createEmployee;
         
-        // Устанавливаем активную вкладку
         UI.setActiveTab(UI.getElements().navAdmin);
     }
 
-    // Получить кэш сотрудников
     function getEmployeesCache() {
         return employeesCache;
     }

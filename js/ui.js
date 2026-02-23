@@ -20,11 +20,11 @@ const UI = (function() {
 
     // Шаблоны
     const templates = {
-        home: document.getElementById('homeTemplate').content,
-        profile: document.getElementById('profileTemplate').content,
-        admin: document.getElementById('adminTemplate').content,
-        kuspList: document.getElementById('kuspListTemplate').content,
-        kuspCreate: document.getElementById('kuspCreateTemplate').content
+        home: document.getElementById('homeTemplate')?.content,
+        profile: document.getElementById('profileTemplate')?.content,
+        admin: document.getElementById('adminTemplate')?.content,
+        kuspList: document.getElementById('kuspListTemplate')?.content,
+        kuspCreate: document.getElementById('kuspCreateTemplate')?.content
     };
 
     // Показать режим авторизации
@@ -82,6 +82,70 @@ const UI = (function() {
         return elements;
     }
 
+    // Показать уведомление (всплывающее окно)
+    function showNotification(message, type = 'info') {
+        // Проверяем, не открыто ли уже модальное окно
+        const existingModal = document.querySelector('.modal-overlay');
+        if (existingModal) {
+            existingModal.remove();
+        }
+
+        const modal = document.createElement('div');
+        modal.className = 'modal-overlay';
+        
+        // Определяем цвет и заголовок в зависимости от типа
+        let headerColor = '#1e3a5f';
+        let title = 'Информация';
+        
+        if (type === 'success') {
+            headerColor = '#28a745';
+            title = '✓ Успешно';
+        } else if (type === 'error') {
+            headerColor = '#dc3545';
+            title = '✗ Ошибка';
+        } else if (type === 'warning') {
+            headerColor = '#ffc107';
+            title = '⚠ Внимание';
+        }
+        
+        modal.innerHTML = `
+            <div class="modal-container" style="max-width: 400px;">
+                <div class="modal-header" style="background: ${headerColor}; color: white;">
+                    <h3 style="color: white; margin: 0;">${title}</h3>
+                    <button class="modal-close" style="color: white;">&times;</button>
+                </div>
+                <div class="modal-content">
+                    <p style="margin: 20px 0; font-size: 1.1rem;">${message}</p>
+                    <div class="flex-row" style="justify-content: flex-end;">
+                        <button id="closeNotificationBtn" class="secondary" style="padding: 8px 24px;">OK</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Обработчики
+        const closeBtn = modal.querySelector('.modal-close');
+        const okBtn = document.getElementById('closeNotificationBtn');
+        
+        closeBtn.onclick = () => modal.remove();
+        okBtn.onclick = () => modal.remove();
+        
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.remove();
+        };
+
+        // Автоматическое закрытие для успешных операций
+        if (type === 'success') {
+            setTimeout(() => {
+                if (document.body.contains(modal)) {
+                    modal.remove();
+                }
+            }, 2000);
+        }
+    }
+
     return {
         showAuthMode,
         showAppMode,
@@ -90,6 +154,10 @@ const UI = (function() {
         getStatusBadge,
         clearMain,
         loadTemplate,
-        getElements
+        getElements,
+        showNotification
     };
 })();
+
+// Делаем глобально доступным
+window.UI = UI;

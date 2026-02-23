@@ -28,6 +28,8 @@ const App = (function() {
             return;
         }
 
+        Auth.ping(); // Сбрасываем таймер при смене страницы
+
         const hash = window.location.hash.slice(1) || 'home';
         
         switch(hash) {
@@ -57,7 +59,6 @@ const App = (function() {
         elements.loginBtn.onclick = handleLogin;
         elements.navLogout.onclick = handleLogout;
         
-        // Навигация через кнопки с изменением hash
         elements.navHome.onclick = (e) => {
             e.preventDefault();
             window.location.hash = 'home';
@@ -86,14 +87,18 @@ const App = (function() {
         const login = elements.loginInput.value.trim();
         const pass = elements.passwordInput.value.trim();
 
-        if (!login || !pass) return;
+        if (!login || !pass) {
+            UI.showNotification('Введите логин и пароль', 'warning');
+            return;
+        }
 
         try {
             const user = await Auth.login(login, pass);
             UI.showAppMode(user);
             window.location.hash = 'home';
+            UI.showNotification('Добро пожаловать, ' + user.nickname, 'success');
         } catch (error) {
-            alert(error.message);
+            UI.showNotification(error.message, 'error');
         }
     }
 
@@ -133,7 +138,6 @@ const App = (function() {
         UI.setActiveTab(elements.navProfile);
     }
 
-    // Запуск приложения
     return {
         init
     };

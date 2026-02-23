@@ -63,6 +63,8 @@ const KUSP = (function() {
 
     // Открыть модальное окно с формой создания
     function openCreateModal() {
+        Auth.ping(); // Сбрасываем таймер при открытии модалки
+        
         const modal = document.createElement('div');
         modal.className = 'modal-overlay';
         modal.id = 'kuspModal';
@@ -99,6 +101,8 @@ const KUSP = (function() {
 
     // Открыть модальное окно с деталями КУСП
     async function openKuspModal(id) {
+        Auth.ping(); // Сбрасываем таймер при открытии модалки
+        
         const { data, error } = await supabaseClient
             .from('kusps')
             .select('*')
@@ -182,6 +186,8 @@ const KUSP = (function() {
         };
 
         document.getElementById('saveKuspChanges').onclick = async () => {
+            Auth.ping(); // Сбрасываем таймер при сохранении
+            
             const assigned = assignSelect.value || null;
             const status = document.getElementById('statusSelect').value;
             const note = `Обновление: статус ${status}, ответственный ${assigned || '—'}`;
@@ -193,17 +199,25 @@ const KUSP = (function() {
             };
             const updatedHistory = [...(data.history || []), newEntry];
             
-            await supabaseClient
+            const { error } = await supabaseClient
                 .from('kusps')
                 .update({ assigned_to: assigned, status, history: updatedHistory })
                 .eq('id', id);
             
+            if (error) {
+                UI.showNotification('Ошибка при сохранении: ' + error.message, 'error');
+                return;
+            }
+            
+            UI.showNotification('Изменения сохранены', 'success');
             await loadKuspList();
             filterAndRenderKusp();
             modal.remove();
         };
 
         document.getElementById('addNoteBtn').onclick = async () => {
+            Auth.ping(); // Сбрасываем таймер при добавлении заметки
+            
             const note = document.getElementById('noteText').value.trim();
             if (!note) return;
             
@@ -215,11 +229,17 @@ const KUSP = (function() {
             };
             const updatedHistory = [...(data.history || []), newEntry];
             
-            await supabaseClient
+            const { error } = await supabaseClient
                 .from('kusps')
                 .update({ history: updatedHistory })
                 .eq('id', id);
             
+            if (error) {
+                UI.showNotification('Ошибка при добавлении заметки: ' + error.message, 'error');
+                return;
+            }
+            
+            UI.showNotification('Заметка добавлена', 'success');
             await loadKuspList();
             filterAndRenderKusp();
             
@@ -239,6 +259,8 @@ const KUSP = (function() {
 
     // Создание новой записи КУСП
     async function createKusp() {
+        Auth.ping(); // Сбрасываем таймер при создании
+        
         const reporter = document.getElementById('new_reporter')?.value.trim();
         const contact = document.getElementById('new_contact')?.value.trim();
         const type = document.getElementById('new_type')?.value;
@@ -248,7 +270,7 @@ const KUSP = (function() {
         const currentUser = Auth.getCurrentUser();
 
         if (!reporter || !description) {
-            alert('Заявитель и описание обязательны');
+            UI.showNotification('Заявитель и описание обязательны', 'error');
             return false;
         }
 
@@ -276,10 +298,11 @@ const KUSP = (function() {
             .insert([payload]);
 
         if (error) {
-            alert('Ошибка при создании записи');
+            UI.showNotification('Ошибка при создании записи: ' + error.message, 'error');
             return false;
         }
 
+        UI.showNotification('Запись КУСП создана', 'success');
         await loadKuspList();
         filterAndRenderKusp();
         
@@ -296,6 +319,8 @@ const KUSP = (function() {
 
     // Инициализация списка КУСП
     async function initKuspList() {
+        Auth.ping(); // Сбрасываем таймер при входе в раздел
+        
         const clone = UI.loadTemplate('kuspList');
         UI.clearMain();
         document.getElementById('mainApp').appendChild(clone);
