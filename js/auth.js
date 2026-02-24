@@ -94,28 +94,71 @@ const Auth = (function() {
         return currentMode === 'guest';
     }
 
+    // -------------------- Проверки прав --------------------
+    function isAdmin() { 
+        return currentMode === 'employee' && currentUser?.category === 'Администратор'; 
+    }
+
+    function isVRS() {
+        return currentMode === 'employee' && currentUser?.category === 'ВРС';
+    }
+
+    function isAdminOrVRS() {
+        return currentMode === 'employee' && 
+               (currentUser?.category === 'Администратор' || currentUser?.category === 'ВРС');
+    }
+
+    function canManageUsers() {
+        return isAdminOrVRS();
+    }
+
+    function canDeleteUser(targetUser) {
+        if (!currentUser) return false;
+        // Администратор может удалять всех
+        if (isAdmin()) return true;
+        // ВРС может удалять всех, кроме администраторов
+        if (isVRS() && targetUser.category !== 'Администратор') return true;
+        return false;
+    }
+
+    function canEditUser(targetUser) {
+        if (!currentUser) return false;
+        // Администратор может редактировать всех
+        if (isAdmin()) return true;
+        // ВРС может редактировать всех, кроме администраторов
+        if (isVRS() && targetUser.category !== 'Администратор') return true;
+        return false;
+    }
+
     // -------------------- Режим сотрудника --------------------
     async function login(nickname, password) {
-        const email = `${nickname}@app.local`;
-        const { data: authData, error: authError } = await supabaseClient.auth.signInWithPassword({
-            email, password
-        });
-        
-        if (authError || !authData.user) throw new Error('Неверные данные для входа');
+		const email = `${nickname}@app.local`;
+		const { data: authData, error: authError } = await supabaseClient.auth.signInWithPassword({
+			email, password
+		});
+		
+		if (authError || !authData.user) {
+			const localizedError = ErrorHandler.localizeError(authError, 'Неверные данные для входа');
+			throw new Error(localizedError);
+		}
 
-        const userId = authData.user.id;
-        const { data, error } = await supabaseClient
-            .from('employees')
-            .select('*')
-            .eq('auth_user_id', userId)
-            .maybeSingle();
+		const userId = authData.user.id;
+		const { data, error } = await supabaseClient
+			.from('employees')
+			.select('*')
+			.eq('auth_user_id', userId)
+			.maybeSingle();
 
-        if (error) throw new Error(`Ошибка базы данных: ${error.message}`);
-        if (!data) throw new Error('Пользователь не найден в системе');
+		if (error) {
+			const localizedError = ErrorHandler.localizeError(error, 'Ошибка базы данных');
+			throw new Error(localizedError);
+		}
+		
+		if (!data) throw new Error('Пользователь не найден в системе');
 
-        saveSession(data);
-        return data;
-    }
+		saveSession(data);
+		return data;
+	}
 
     async function register({ nickname, password, rank, department, category }) {
         const email = `${nickname}@app.local`;
@@ -201,7 +244,6 @@ const Auth = (function() {
     }
 
     function getCurrentUser() { return currentUser; }
-    function isAdmin() { return currentMode === 'employee' && currentUser?.category === 'Администратор'; }
     function ping() { resetInactivityTimer(); }
     function getCurrentMode() { return currentMode; }
 
@@ -212,6 +254,11 @@ const Auth = (function() {
         logout,
         getCurrentUser,
         isAdmin,
+        isVRS,
+        isAdminOrVRS,
+        canManageUsers,
+        canDeleteUser,
+        canEditUser,
         ping,
         secureRequest,
         startGuestSession,

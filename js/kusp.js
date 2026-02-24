@@ -1,13 +1,24 @@
-// Модуль КУСП (БЕЗОПАСНАЯ ВЕРСИЯ)
+// Модуль КУСП (ПОЛНОСТЬЮ ПЕРЕРАБОТАНАЯ ВЕРСИЯ)
 const KUSP = (function() {
     let kuspListCache = [];
 
-    // Загрузка списка КУСП через secureRequest
+    // Статусы КУСП
+    const KUSP_STATUS = {
+        NEW: 'new',
+        IN_PROGRESS: 'in_progress',
+        UNDER_REVIEW: 'under_review',
+        CLOSED: 'closed'
+    };
+
+    // Загрузка списка КУСП
     async function loadKuspList() {
         try {
-            Auth.ping(); // Сбрасываем таймер
+            Auth.ping();
             
-            const { data, error } = await Auth.secureRequest('kusps', 'select');
+            const { data, error } = await supabaseClient
+                .from('kusps')
+                .select('*')
+                .order('created_at', { ascending: false });
             
             if (error) {
                 console.error('Error loading kusps:', error);
@@ -15,23 +26,66 @@ const KUSP = (function() {
                 return [];
             }
             
-            // Сортируем по дате создания (новые сверху)
-            kuspListCache = (data || []).sort((a, b) => 
-                new Date(b.created_at) - new Date(a.created_at)
-            ).slice(0, 200);
-            
+            kuspListCache = data || [];
             return kuspListCache;
         } catch (error) {
             console.error('Error in loadKuspList:', error);
-            UI.showNotification('Ошибка загрузки КУСП: ' + error.message, 'error');
+            ErrorHandler.showError(error, 'Ошибка загрузки КУСП');
             return [];
         }
     }
 
-    // Генерация номера КУСП
-    function generateKuspNumber() {
-        const d = new Date();
-        return `${d.getFullYear()}${(d.getMonth()+1).toString().padStart(2,'0')}${d.getDate().toString().padStart(2,'0')}-${String(d.getTime()).slice(-6)}`;
+    // Генерация номера КУСП (порядковый номер за день)
+    async function generateKuspNumber() {
+        const today = new Date();
+        const dateStr = today.toISOString().split('T')[0]; // YYYY-MM-DD
+        
+        // Получаем все записи за сегодня
+        const { data } = await supabaseClient
+            .from('kusps')
+            .select('kusp_number')
+            .gte('created_at', `${dateStr}T00:00:00`)
+            .lte('created_at', `${dateStr}T23:59:59`);
+        
+        let maxNumber = 0;
+        if (data && data.length > 0) {
+            data.forEach(item => {
+                if (item.kusp_number) {
+                    // Предполагаем формат: ГГГГ-ММ-ДД-XXX
+                    const parts = item.kusp_number.split('-');
+                    if (parts.length === 4) {
+                        const num = parseInt(parts[3]);
+                        if (!isNaN(num) && num > maxNumber) maxNumber = num;
+                    }
+                }
+            });
+        }
+        
+        const nextNumber = (maxNumber + 1).toString().padStart(3, '0');
+        return `${today.getFullYear()}-${(today.getMonth()+1).toString().padStart(2,'0')}-${today.getDate().toString().padStart(2,'0')}-${nextNumber}`;
+    }
+
+    // Проверка прав на редактирование КУСП
+    function canEditKusp(kusp) {
+        const user = Auth.getCurrentUser();
+        if (!user) return false;
+        
+        // РС и выше могут редактировать любые записи
+        if (user.category === 'РС' || user.category === 'ВРС' || user.category === 'Администратор') {
+            return true;
+        }
+        
+        // Создатель может редактировать свою запись
+        return kusp.created_by_id === user.id;
+    }
+
+    // Проверка прав на удаление КУСП
+    function canDeleteKusp() {
+        const user = Auth.getCurrentUser();
+        if (!user) return false;
+        
+        // РС и выше могут удалять записи
+        return user.category === 'РС' || user.category === 'ВРС' || user.category === 'Администратор';
     }
 
     // Фильтрация списка
@@ -39,8 +93,9 @@ const KUSP = (function() {
         return kuspListCache.filter(k => 
             (!status || k.status === status) &&
             (!search || (
-                k.kusp_number?.toLowerCase().includes(search.toLowerCase()) || 
-                k.reporter_name?.toLowerCase().includes(search.toLowerCase())
+                k.kusp_number?.toLowerCase().includes(search.toLowerCase()) ||
+                k.reporter_name?.toLowerCase().includes(search.toLowerCase()) ||
+                k.short_content?.toLowerCase().includes(search.toLowerCase())
             ))
         );
     }
@@ -60,303 +115,808 @@ const KUSP = (function() {
         filteredList.forEach(k => {
             const div = document.createElement('div');
             div.className = 'list-item';
+            
+            const canEdit = canEditKusp(k);
+            const canDelete = canDeleteKusp();
+            
             div.innerHTML = `
-                <div>
-                    <div class="item-title">${escapeHtml(k.kusp_number || 'б/н')} ${UI.getStatusBadge(k.status)}</div>
-                    <div class="item-meta">${escapeHtml(k.reporter_name || '—')} · ${escapeHtml(k.type || '')}</div>
+                <div style="flex:1;">
+                    <div class="item-title">
+                        КУСП №${escapeHtml(k.kusp_number || 'б/н')} ${UI.getStatusBadge(k.status)}
+                    </div>
+                    <div class="item-meta">
+                        ${escapeHtml(k.reporter_name || '—')} · ${UI.formatDate(k.received_datetime)}<br>
+                        <small>Принял: ${escapeHtml(k.received_by_name || '—')}</small>
+                    </div>
                 </div>
-                <button class="small" data-id="${k.id}" data-action="view">Открыть</button>
+                <div class="flex-row" style="gap: 8px;">
+                    <button class="small" data-id="${k.id}" data-action="view">👁️ Просмотр</button>
+                    ${canEdit ? `<button class="small" data-id="${k.id}" data-action="edit">✏️ Редактировать</button>` : ''}
+                    ${canDelete ? `<button class="small secondary" data-id="${k.id}" data-action="delete">🗑️ Удалить</button>` : ''}
+                </div>
             `;
             container.appendChild(div);
         });
 
+        // Обработчики
         container.querySelectorAll('button[data-action="view"]').forEach(btn => {
-            btn.onclick = () => openKuspModal(btn.dataset.id);
+            btn.onclick = () => openKuspModal(btn.dataset.id, 'view');
+        });
+        
+        container.querySelectorAll('button[data-action="edit"]').forEach(btn => {
+            btn.onclick = () => openKuspModal(btn.dataset.id, 'edit');
+        });
+        
+        container.querySelectorAll('button[data-action="delete"]').forEach(btn => {
+            btn.onclick = () => deleteKusp(btn.dataset.id);
         });
     }
 
-    // Открыть модальное окно с формой создания
-    function openCreateModal() {
-        Auth.ping(); // Сбрасываем таймер при открытии модалки
+    // Функция для сохранения талона как PNG
+    async function saveTicketAsPNG(kuspId, ticketType) {
+        const kusp = kuspListCache.find(k => k.id == kuspId);
+        if (!kusp) return;
         
-        const modal = document.createElement('div');
-        modal.className = 'modal-overlay';
-        modal.id = 'kuspModal';
+        // Создаем временный контейнер для талона
+        const ticketContainer = document.createElement('div');
+        ticketContainer.style.position = 'fixed';
+        ticketContainer.style.left = '-9999px';
+        ticketContainer.style.top = '0';
+        ticketContainer.style.width = '500px';
+        ticketContainer.style.backgroundColor = 'white';
+        ticketContainer.style.padding = '30px';
+        ticketContainer.style.fontFamily = "'Courier New', monospace";
+        ticketContainer.style.borderRadius = '8px';
+        ticketContainer.style.boxShadow = '0 0 20px rgba(0,0,0,0.2)';
         
-        const form = UI.loadTemplate('kuspCreate');
+        const now = new Date().toLocaleString();
         
-        modal.innerHTML = `
-            <div class="modal-container">
-                <div class="modal-header">
-                    <h3>Новая запись КУСП</h3>
-                    <button class="modal-close">&times;</button>
-                </div>
-                <div class="modal-content"></div>
-            </div>
-        `;
-        
-        modal.querySelector('.modal-content').appendChild(form);
-        document.body.appendChild(modal);
-        
-        // Обработчики
-        modal.querySelector('.modal-close').onclick = () => modal.remove();
-        modal.onclick = (e) => {
-            if (e.target === modal) modal.remove();
-        };
-        
-        document.getElementById('cancelCreateBtn').onclick = () => modal.remove();
-        document.getElementById('createKuspBtn').onclick = async () => {
-            const success = await createKusp();
-            if (success) {
-                modal.remove();
-            }
-        };
-    }
-
-    // Открыть модальное окно с деталями КУСП
-    async function openKuspModal(id) {
-        Auth.ping(); // Сбрасываем таймер при открытии модалки
-        
-        try {
-            // Используем secureRequest для получения конкретной записи
-            const { data, error } = await Auth.secureRequest('kusps', 'select');
-            
-            if (error || !data) {
-                UI.showNotification('Ошибка загрузки записи', 'error');
-                return;
-            }
-
-            const kusp = data.find(k => k.id == id);
-            if (!kusp) return;
-
-            const employees = Admin.getEmployeesCache();
-            
-            const modal = document.createElement('div');
-            modal.className = 'modal-overlay';
-            modal.id = 'kuspModal';
-            
-            modal.innerHTML = `
-                <div class="modal-container modal-large">
-                    <div class="modal-header">
-                        <h3>КУСП №${escapeHtml(kusp.kusp_number || '')}</h3>
-                        <button class="modal-close">&times;</button>
-                    </div>
-                    <div class="modal-content">
-                        <div class="modal-grid">
-                            <div class="modal-main">
-                                <div class="info-row"><span class="info-label">Статус</span><span class="info-value">${UI.getStatusBadge(kusp.status)}</span></div>
-                                <div class="info-row"><span class="info-label">Заявитель</span><span class="info-value">${escapeHtml(kusp.reporter_name || '')}</span></div>
-                                <div class="info-row"><span class="info-label">Контакт</span><span class="info-value">${escapeHtml(kusp.contact || '')}</span></div>
-                                <div class="info-row"><span class="info-label">Тип</span><span class="info-value">${escapeHtml(kusp.type || '')}</span></div>
-                                <div class="info-row"><span class="info-label">Место</span><span class="info-value">${escapeHtml(kusp.location || '')}</span></div>
-                                <div class="info-row"><span class="info-label">Приоритет</span><span class="info-value">${escapeHtml(kusp.priority || '')}</span></div>
-                                <div class="info-row"><span class="info-label">Описание</span><span class="info-value">${escapeHtml(kusp.description || '')}</span></div>
-                                <div class="info-row"><span class="info-label">Ответственный</span><span class="info-value" id="detailAssigned">${escapeHtml(kusp.assigned_to || '—')}</span></div>
-                                <div class="info-row"><span class="info-label">Создал</span><span class="info-value">${escapeHtml(kusp.created_by || '—')}</span></div>
-                                <div class="info-row"><span class="info-label">Дата</span><span class="info-value">${UI.formatDate(kusp.created_at)}</span></div>
-                            </div>
-                            <div class="modal-sidebar">
-                                <h4>Управление</h4>
-                                <select id="assignSelect" style="margin-bottom:12px;"></select>
-                                <select id="statusSelect" style="margin-bottom:12px;">
-                                    <option value="new">Новая</option>
-                                    <option value="in_progress">В работе</option>
-                                    <option value="closed">Закрыта</option>
-                                </select>
-                                <textarea id="noteText" placeholder="Заметка" rows="3"></textarea>
-                                <div class="flex-row" style="margin-top:12px;">
-                                    <button id="saveKuspChanges" class="small">Сохранить</button>
-                                    <button id="addNoteBtn" class="secondary small">Заметка</button>
-                                </div>
-                                
-                                <h4 style="margin:20px 0 12px;">История</h4>
-                                <div id="kuspHistory" class="history-log"></div>
-                            </div>
-                        </div>
+        if (ticketType === 'notification') {
+            // Талон-уведомление (для заявителя)
+            ticketContainer.innerHTML = `
+                <div style="border: 3px solid #28a745; padding: 25px;">
+                    <h2 style="text-align: center; color: #28a745; margin-bottom: 20px;">УГИБДД МВД по Республике Провинция</h2>
+                    <h3 style="text-align: center; margin-bottom: 25px;">ТАЛОН-УВЕДОМЛЕНИЕ</h3>
+                    
+                    <p><strong>Номер талона:</strong> ${escapeHtml(kusp.ticket_number || kusp.kusp_number)}</p>
+                    <p><strong>Оперативный дежурный:</strong> ${escapeHtml(kusp.received_by_name)}</p>
+                    <p><strong>Регистрационный номер КУСП:</strong> ${escapeHtml(kusp.kusp_number)}</p>
+                    <p><strong>Наименование органа:</strong> УГИБДД МВД по Республике Провинция</p>
+                    <p><strong>Адрес:</strong> г. Мирный, Кутузовская набережная, д. 2</p>
+                    <p><strong>Телефон дежурной части:</strong> 8 (222) 555-58-48</p>
+                    <p><strong>Дата и время приема:</strong> ${UI.formatDate(kusp.received_datetime)}</p>
+                    
+                    <hr style="border: 1px dashed #28a745; margin: 20px 0;">
+                    
+                    <p><strong>Подпись оперативного дежурного:</strong> ____________________</p>
+                    <p><strong>М.П.</strong></p>
+                    
+                    <div style="margin-top: 30px; font-size: 0.8em; color: #666;">
+                        <p>Талон действителен при предъявлении документа, удостоверяющего личность</p>
+                        <p>Дата печати: ${now}</p>
                     </div>
                 </div>
             `;
-            
-            document.body.appendChild(modal);
-            
-            // Заполнение селектов
-            document.getElementById('statusSelect').value = kusp.status || 'new';
-
-            const assignSelect = document.getElementById('assignSelect');
-            assignSelect.innerHTML = '<option value="">— не назначен —</option>';
-            employees.forEach(emp => {
-                const opt = new Option(emp.nickname, emp.nickname);
-                if (emp.nickname === kusp.assigned_to) opt.selected = true;
-                assignSelect.appendChild(opt);
+        } else {
+            // Талон-корешок (для органа)
+            ticketContainer.innerHTML = `
+                <div style="border: 3px solid #dc3545; padding: 25px;">
+                    <h2 style="text-align: center; color: #dc3545; margin-bottom: 20px;">УГИБДД МВД по Республике Провинция</h2>
+                    <h3 style="text-align: center; margin-bottom: 25px;">ТАЛОН-КОРЕШОК</h3>
+                    
+                    <p><strong>Номер талона:</strong> ${escapeHtml(kusp.ticket_number || kusp.kusp_number)}</p>
+                    <p><strong>Сведения о заявителе:</strong> ${escapeHtml(kusp.reporter_name)}</p>
+                    <p><strong>Краткое содержание:</strong> ${escapeHtml(kusp.short_content)}</p>
+                    <p><strong>Регистрационный номер КУСП:</strong> ${escapeHtml(kusp.kusp_number)}</p>
+                    <p><strong>Сотрудник, принявший заявление:</strong> ${escapeHtml(kusp.received_by_name)}</p>
+                    <p><strong>Дата и время приема:</strong> ${UI.formatDate(kusp.received_datetime)}</p>
+                    
+                    <hr style="border: 1px dashed #dc3545; margin: 20px 0;">
+                    
+                    <p><strong>Подпись сотрудника:</strong> ____________________</p>
+                    <p><strong>Дата:</strong> ${now}</p>
+                </div>
+            `;
+        }
+        
+        document.body.appendChild(ticketContainer);
+        
+        try {
+            // Используем html2canvas для преобразования в PNG
+            const canvas = await html2canvas(ticketContainer, {
+                scale: 2,
+                backgroundColor: '#ffffff',
+                logging: false,
+                allowTaint: false,
+                useCORS: true
             });
-
-            // Отображение истории
-            const historyEl = document.getElementById('kuspHistory');
-            historyEl.innerHTML = '';
-            (kusp.history || []).slice().reverse().forEach(h => {
-                const historyDiv = document.createElement('div');
-                historyDiv.style.borderBottom = '1px solid #edf2f8';
-                historyDiv.style.padding = '8px 0';
-                historyDiv.innerHTML = `
-                    <b>${escapeHtml(h.action)}</b> ${escapeHtml(h.user)} · ${UI.formatDate(h.ts)}<br>
-                    ${escapeHtml(h.note || '')}
-                `;
-                historyEl.appendChild(historyDiv);
-            });
-
-            // Обработчики
-            modal.querySelector('.modal-close').onclick = () => modal.remove();
-            modal.onclick = (e) => {
-                if (e.target === modal) modal.remove();
-            };
-
-            document.getElementById('saveKuspChanges').onclick = async () => {
-                Auth.ping(); // Сбрасываем таймер при сохранении
-                
-                const assigned = assignSelect.value || null;
-                const status = document.getElementById('statusSelect').value;
-                const note = `Обновление: статус ${status}, ответственный ${assigned || '—'}`;
-                const newEntry = {
-                    ts: new Date().toISOString(),
-                    user: Auth.getCurrentUser().nickname,
-                    action: 'Обновление',
-                    note
-                };
-                const updatedHistory = [...(kusp.history || []), newEntry];
-                
-                try {
-                    const { error } = await Auth.secureRequest('kusps', 'update', 
-                        { assigned_to: assigned, status, history: updatedHistory }, 
-                        id
-                    );
-                    
-                    if (error) {
-                        UI.showNotification('Ошибка при сохранении: ' + error.message, 'error');
-                        return;
-                    }
-                    
-                    UI.showNotification('Изменения сохранены', 'success');
-                    await loadKuspList();
-                    filterAndRenderKusp();
-                    modal.remove();
-                } catch (error) {
-                    UI.showNotification('Ошибка при сохранении: ' + error.message, 'error');
-                }
-            };
-
-            document.getElementById('addNoteBtn').onclick = async () => {
-                Auth.ping(); // Сбрасываем таймер при добавлении заметки
-                
-                const note = document.getElementById('noteText').value.trim();
-                if (!note) return;
-                
-                const newEntry = {
-                    ts: new Date().toISOString(),
-                    user: Auth.getCurrentUser().nickname,
-                    action: 'Заметка',
-                    note
-                };
-                const updatedHistory = [...(kusp.history || []), newEntry];
-                
-                try {
-                    const { error } = await Auth.secureRequest('kusps', 'update',
-                        { history: updatedHistory },
-                        id
-                    );
-                    
-                    if (error) {
-                        UI.showNotification('Ошибка при добавлении заметки: ' + error.message, 'error');
-                        return;
-                    }
-                    
-                    UI.showNotification('Заметка добавлена', 'success');
-                    await loadKuspList();
-                    filterAndRenderKusp();
-                    
-                    // Обновить историю в модалке
-                    const updatedHistoryEl = document.getElementById('kuspHistory');
-                    if (updatedHistoryEl) {
-                        updatedHistoryEl.innerHTML = '';
-                        [...updatedHistory].reverse().forEach(h => {
-                            const historyDiv = document.createElement('div');
-                            historyDiv.style.borderBottom = '1px solid #edf2f8';
-                            historyDiv.style.padding = '8px 0';
-                            historyDiv.innerHTML = `
-                                <b>${escapeHtml(h.action)}</b> ${escapeHtml(h.user)} · ${UI.formatDate(h.ts)}<br>
-                                ${escapeHtml(h.note || '')}
-                            `;
-                            updatedHistoryEl.appendChild(historyDiv);
-                        });
-                    }
-                    document.getElementById('noteText').value = '';
-                    
-                    // Обновляем кэш
-                    kusp.history = updatedHistory;
-                    
-                } catch (error) {
-                    UI.showNotification('Ошибка при добавлении заметки: ' + error.message, 'error');
-                }
-            };
+            
+            // Создаем ссылку для скачивания
+            const link = document.createElement('a');
+            link.download = `talon-${ticketType === 'notification' ? 'uvedomlenie' : 'koreshok'}-${kusp.kusp_number}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            
+            UI.showNotification('Талон сохранён как PNG', 'success');
         } catch (error) {
-            console.error('Error in openKuspModal:', error);
-            UI.showNotification('Ошибка при открытии записи', 'error');
+            console.error('Error saving ticket as PNG:', error);
+            UI.showNotification('Ошибка при сохранении талона', 'error');
+        } finally {
+            document.body.removeChild(ticketContainer);
         }
     }
 
-    // Создание новой записи КУСП
-    async function createKusp() {
-        Auth.ping(); // Сбрасываем таймер при создании
+	// Открыть модальное окно создания/редактирования/просмотра
+// Открыть модальное окно создания/редактирования/просмотра
+async function openKuspModal(id = null, mode = 'create') {
+    Auth.ping();
+    
+    const user = Auth.getCurrentUser();
+    let kusp = null;
+    let employees = [];
+    
+    if (id) {
+        kusp = kuspListCache.find(k => k.id == id);
+        if (!kusp) return;
         
-        const reporter = document.getElementById('new_reporter')?.value.trim();
-        const contact = document.getElementById('new_contact')?.value.trim();
-        const type = document.getElementById('new_type')?.value;
-        const location = document.getElementById('new_location')?.value.trim();
-        const priority = document.getElementById('new_priority')?.value;
-        const description = document.getElementById('new_description')?.value.trim();
-        const currentUser = Auth.getCurrentUser();
+        // Проверка прав на редактирование
+        if (mode === 'edit' && !canEditKusp(kusp)) {
+            UI.showNotification('У вас нет прав на редактирование этой записи', 'error');
+            return;
+        }
+    }
+    
+    // Загружаем список сотрудников - используем id (первичный ключ) для VALUE,
+    // но также получаем auth_user_id для отладки
+    const { data: empData } = await supabaseClient
+        .from('employees')
+        .select('id, auth_user_id, nickname, rank')
+        .order('nickname');
+    employees = empData || [];
+    
+    console.log('Employees loaded:', employees); // Для отладки
 
-        if (!reporter || !description) {
-            UI.showNotification('Заявитель и описание обязательны', 'error');
+    const modal = document.createElement('div');
+    modal.className = 'modal-overlay';
+    modal.id = 'kuspModal';
+    
+    const title = mode === 'create' ? 'Новая запись КУСП' : 
+                 (mode === 'edit' ? `Редактирование КУСП №${kusp.kusp_number}` : 
+                  `Просмотр КУСП №${kusp.kusp_number}`);
+    
+    const isReadOnly = mode === 'view';
+    
+    modal.innerHTML = `
+        <div class="modal-container modal-large">
+            <div class="modal-header">
+                <h3>${escapeHtml(title)}</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-content">
+                <form id="kuspForm" style="max-height: 70vh; overflow-y: auto; padding-right: 10px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <!-- Левая колонка -->
+                        <div>
+                            <h4>Основная информация</h4>
+                            
+                            <div class="form-group">
+                                <label>Номер КУСП</label>
+                                <input type="text" id="kusp_number" readonly value="${kusp ? escapeHtml(kusp.kusp_number) : '(будет сгенерирован)'}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Номер талона-уведомления</label>
+                                <input type="text" id="ticket_number" ${isReadOnly ? 'readonly' : ''} 
+                                    value="${kusp ? escapeHtml(kusp.ticket_number || '') : ''}" 
+                                    placeholder="Заполните или оставьте пустым для автогенерации">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Дата и время поступления <span class="required">*</span></label>
+                                <input type="datetime-local" id="received_datetime" ${isReadOnly ? 'readonly' : 'required'} 
+                                    value="${kusp && kusp.received_datetime ? kusp.received_datetime.slice(0,16) : new Date().toISOString().slice(0,16)}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Форма поступления <span class="required">*</span></label>
+                                <select id="received_form" ${isReadOnly ? 'disabled' : 'required'}>
+                                    <option value="электронное заявление" ${kusp?.received_form === 'электронное заявление' ? 'selected' : ''}>Электронное заявление</option>
+                                    <option value="письменное заявление" ${kusp?.received_form === 'письменное заявление' ? 'selected' : ''}>Письменное заявление</option>
+                                    <option value="устное сообщение" ${kusp?.received_form === 'устное сообщение' ? 'selected' : ''}>Устное сообщение</option>
+                                    <option value="рапорт" ${kusp?.received_form === 'рапорт' ? 'selected' : ''}>Рапорт</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Сотрудник, принявший заявление <span class="required">*</span></label>
+                                ${isReadOnly ? 
+                                    `<input type="text" value="${kusp ? escapeHtml(kusp.received_by_name || '') : ''}" readonly>` :
+                                    `<select id="received_by_id" required>
+                                        <option value="">Выберите сотрудника</option>
+                                        ${employees.map(emp => 
+                                            // ВАЖНО: Используем auth_user_id для value
+                                            `<option value="${emp.auth_user_id}" ${kusp?.received_by_id === emp.auth_user_id ? 'selected' : ''}>
+                                                ${escapeHtml(emp.rank || '')} ${escapeHtml(emp.nickname)}
+                                            </option>`
+                                        ).join('')}
+                                    </select>`
+                                }
+                            </div>
+                        </div>
+                        
+                        <!-- Правая колонка -->
+                        <div>
+                            <h4>Содержание</h4>
+                            
+                            <div class="form-group">
+								<label>Содержание заявления<span class="required">*</span></label>
+								<textarea id="short_content" rows="19" style="resize: none;" ${isReadOnly ? 'readonly' : 'required'} 
+									placeholder="Описание произошедшего">${kusp ? escapeHtml(kusp.short_content || '') : ''}</textarea>
+							</div>
+                        </div>
+                    </div>
+                    
+                    <hr style="margin: 20px 0;">
+                    
+                    <h4>Данные о заявителе</h4>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div>
+                            <div class="form-group">
+                                <label>ФИО заявителя <span class="required">*</span></label>
+                                <input type="text" id="reporter_name" ${isReadOnly ? 'readonly' : 'required'} 
+                                    value="${kusp ? escapeHtml(kusp.reporter_name || '') : ''}" 
+                                    placeholder="Иванов Иван Иванович">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Дата рождения</label>
+                                <input type="date" id="reporter_birth_date" ${isReadOnly ? 'readonly' : ''} 
+                                    value="${kusp?.reporter_birth_date ? kusp.reporter_birth_date.slice(0,10) : ''}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Адрес регистрации</label>
+                                <input type="text" id="reporter_address" ${isReadOnly ? 'readonly' : ''} 
+                                    value="${kusp ? escapeHtml(kusp.reporter_address || '') : ''}" 
+                                    placeholder="г. Мирный, Левобережный пр-кт, д. 49, кв. 15">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="form-group">
+                                <label>Паспортные данные</label>
+                                <input type="text" id="reporter_passport" ${isReadOnly ? 'readonly' : ''} 
+                                    value="${kusp ? escapeHtml(kusp.reporter_passport || '') : ''}" 
+                                    placeholder="Серия, номер, дата выдачи">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Способ связи (VK, Telegram, соцсети)</label>
+                                <input type="text" id="reporter_contact_link" ${isReadOnly ? 'readonly' : ''} 
+                                    value="${kusp ? escapeHtml(kusp.reporter_contact_link || '') : ''}" 
+                                    placeholder="Ссылка на соц.сеть">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr style="margin: 20px 0;">
+                    
+                    <h4>Результаты работы и проверки</h4>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div>
+                            <div class="form-group">
+								<label>Результаты расследования</label>
+								<textarea id="team_results" rows="20" style="resize: vertical;" ${isReadOnly ? 'readonly' : ''} 
+									placeholder="Результаты осмотра, выявлено и т.д.">${kusp ? escapeHtml(kusp.team_results || '') : ''}</textarea>
+							</div>
+                            
+                            <div class="form-group">
+                                <label>Руководитель, поручивший проверку</label>
+                                ${isReadOnly ? 
+                                    `<input type="text" value="${kusp ? escapeHtml(kusp.assigned_by_name || '') : ''}" readonly>` :
+                                    `<select id="assigned_by_id">
+                                        <option value="">Не выбран</option>
+                                        ${employees.map(emp => 
+                                            // ВАЖНО: Используем auth_user_id для value
+                                            `<option value="${emp.auth_user_id}" ${kusp?.assigned_by_id === emp.auth_user_id ? 'selected' : ''}>
+                                                ${escapeHtml(emp.rank || '')} ${escapeHtml(emp.nickname)}
+                                            </option>`
+                                        ).join('')}
+                                    </select>`
+                                }
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Сотрудник, которому поручена проверка</label>
+                                ${isReadOnly ? 
+                                    `<input type="text" value="${kusp ? escapeHtml(kusp.assigned_to_name || '') : ''}" readonly>` :
+                                    `<select id="assigned_to_id">
+                                        <option value="">Не выбран</option>
+                                        ${employees.map(emp => 
+                                            // ВАЖНО: Используем auth_user_id для value
+                                            `<option value="${emp.auth_user_id}" ${kusp?.assigned_to_id === emp.auth_user_id ? 'selected' : ''}>
+                                                ${escapeHtml(emp.rank || '')} ${escapeHtml(emp.nickname)}
+                                            </option>`
+                                        ).join('')}
+                                    </select>`
+                                }
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="form-group">
+                                <label>Срок проверки (установленный)</label>
+                                <input type="date" id="review_deadline" ${isReadOnly ? 'readonly' : ''} 
+                                    value="${kusp?.review_deadline ? kusp.review_deadline.slice(0,10) : ''}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Фактический срок рассмотрения</label>
+                                <input type="date" id="review_completed_date" ${isReadOnly ? 'readonly' : ''} 
+                                    value="${kusp?.review_completed_date ? kusp.review_completed_date.slice(0,10) : ''}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Должностные лица, продлившие срок</label>
+                                <input type="text" id="extended_by" ${isReadOnly ? 'readonly' : ''} 
+                                    value="${kusp ? escapeHtml(kusp.extended_by || '') : ''}" 
+                                    placeholder="ФИО продливших срок">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr style="margin: 20px 0;">
+                    
+                    <h4>Статус и результаты</h4>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label>Статус</label>
+                            <select id="status" ${isReadOnly ? 'disabled' : ''}>
+                                <option value="new" ${kusp?.status === 'new' ? 'selected' : ''}>Новая</option>
+                                <option value="in_progress" ${kusp?.status === 'in_progress' ? 'selected' : ''}>В работе</option>
+                                <option value="under_review" ${kusp?.status === 'under_review' ? 'selected' : ''}>На проверке</option>
+                                <option value="closed" ${kusp?.status === 'closed' ? 'selected' : ''}>Закрыта</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Результаты рассмотрения</label>
+                            <select id="review_result" ${isReadOnly ? 'disabled' : ''}>
+                                <option value="">Не определено</option>
+                                <option value="возбуждено_уголовное" ${kusp?.review_result === 'возбуждено_уголовное' ? 'selected' : ''}>Возбуждено уголовное дело</option>
+                                <option value="отказ_в_возбуждении" ${kusp?.review_result === 'отказ_в_возбуждении' ? 'selected' : ''}>Отказ в возбуждении</option>
+                                <option value="административное" ${kusp?.review_result === 'административное' ? 'selected' : ''}>Административное правонарушение</option>
+                                <option value="передано_по_подследственности" ${kusp?.review_result === 'передано_по_подследственности' ? 'selected' : ''}>Передано по подследственности</option>
+                                <option value="приобщено_к_другому" ${kusp?.review_result === 'приобщено_к_другому' ? 'selected' : ''}>Приобщено к другому делу</option>
+                            </select>
+                        </div>
+                        
+                        <<div class="form-group" style="grid-column: span 2;">
+							<label>Дополнительные заметки</label>
+							<textarea id="notes" rows="2" style="resize: vertical;" ${isReadOnly ? 'readonly' : ''}>${kusp ? escapeHtml(kusp.notes || '') : ''}</textarea>
+						</div>
+                    </div>
+                    
+                    ${!isReadOnly ? `
+                        <div class="flex-row" style="justify-content: flex-end; margin-top: 20px;">
+                            <button type="button" id="cancelKuspBtn" class="secondary">Отмена</button>
+                            <button type="submit" id="saveKuspBtn">${mode === 'create' ? 'Создать' : 'Сохранить'}</button>
+                        </div>
+                    ` : `
+                        <div class="flex-row" style="justify-content: flex-end; margin-top: 20px;">
+                            <button type="button" id="closeKuspBtn" class="secondary">Закрыть</button>
+                        </div>
+                    `}
+                </form>
+                
+                <!-- Талон-уведомление (для заявителя) -->
+                ${kusp && mode !== 'create' ? `
+                    <div style="margin-top: 30px; border-top: 2px dashed #28a745; padding-top: 20px;">
+                        <h4 style="color: #28a745;">🎫 Талон-уведомление (для заявителя)</h4>
+                        <div style="background: #f0fff0; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745; font-family: monospace;">
+                            <p><strong>УГИБДД МВД по Республике Провинция</strong></p>
+                            <p><strong>ТАЛОН-УВЕДОМЛЕНИЕ № ${escapeHtml(kusp.ticket_number || kusp.kusp_number)}</strong></p>
+                            <hr>
+                            <p><strong>Заявление принято:</strong> ${UI.formatDate(kusp.received_datetime)}</p>
+                            <p><strong>Регистрационный номер КУСП:</strong> ${escapeHtml(kusp.kusp_number)}</p>
+                            <p><strong>Оперативный дежурный:</strong> ${escapeHtml(kusp.received_by_name)}</p>
+                            <p><strong>Наименование органа:</strong> УГИБДД МВД по Республике Провинция</p>
+                            <p><strong>Адрес:</strong> г. Мирный, Кутузовская набережная,д. 2</p>
+                            <p><strong>Телефон дежурной части:</strong> 8 (222) 555-58-48</p>
+                            <hr>
+                            <p><strong>Подпись оперативного дежурного:</strong> ____________________</p>
+                            <p style="font-size: 0.8em; color: #666;">Талон действителен при предъявлении документа, удостоверяющего личность</p>
+                        </div>
+                        <button class="small secondary" onclick="KUSP.saveTicketAsPNG('${kusp.id}', 'notification')" style="margin-top: 10px;">
+                            💾 Сохранить талон-уведомление
+                        </button>
+                    </div>
+                ` : ''}
+                
+                <!-- Талон-корешок (остается в органе) -->
+                ${kusp && mode !== 'create' ? `
+                    <div style="margin-top: 30px; border-top: 2px dashed #dc3545; padding-top: 20px;">
+                        <h4 style="color: #dc3545;">📋 Талон-корешок (остается в деле)</h4>
+                        <div style="background: #fff0f0; padding: 15px; border-radius: 8px; border-left: 4px solid #dc3545; font-family: monospace;">
+                            <p><strong>УГИБДД МВД по Республике Провинция</strong></p>
+                            <p><strong>ТАЛОН-КОРЕШОК № ${escapeHtml(kusp.ticket_number || kusp.kusp_number)}</strong></p>
+                            <hr>
+                            <p><strong>Сведения о заявителе:</strong> ${escapeHtml(kusp.reporter_name)}</p>
+                            <p><strong>Краткое содержание:</strong> ${escapeHtml(kusp.short_content)}</p>
+                            <p><strong>Регистрационный номер КУСП:</strong> ${escapeHtml(kusp.kusp_number)}</p>
+                            <p><strong>Сотрудник, принявший заявление:</strong> ${escapeHtml(kusp.received_by_name)}</p>
+                            <p><strong>Дата и время приема:</strong> ${UI.formatDate(kusp.received_datetime)}</p>
+                            <hr>
+                            <p><strong>Подпись сотрудника:</strong> ____________________</p>
+                        </div>
+                        <button class="small secondary" onclick="KUSP.saveTicketAsPNG('${kusp.id}', 'stub')" style="margin-top: 10px;">
+                            💾 Сохранить талон-корешок
+                        </button>
+                    </div>
+                ` : ''}
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Обработчики
+    modal.querySelector('.modal-close').onclick = () => modal.remove();
+    modal.onclick = (e) => {
+        if (e.target === modal) modal.remove();
+    };
+
+    if (mode === 'create' || mode === 'edit') {
+        const cancelBtn = document.getElementById('cancelKuspBtn');
+        if (cancelBtn) {
+            cancelBtn.onclick = () => modal.remove();
+        }
+        
+        document.getElementById('kuspForm').onsubmit = async (e) => {
+            e.preventDefault();
+            
+            if (mode === 'create') {
+                await createKusp();
+            } else {
+                await updateKusp(kusp.id);
+            }
+            modal.remove();
+        };
+    } else {
+        const closeBtn = document.getElementById('closeKuspBtn');
+        if (closeBtn) closeBtn.onclick = () => modal.remove();
+    }
+}
+    // Создание новой записи КУСП
+// Создание новой записи КУСП
+async function createKusp() {
+    Auth.ping();
+    
+    // Генерируем номер КУСП
+    const kuspNumber = await generateKuspNumber();
+    
+    // Получаем auth_user_id выбранного сотрудника из формы
+    const receivedByAuthId = document.getElementById('received_by_id')?.value;
+    
+    console.log('Selected received_by auth_user_id:', receivedByAuthId); // Отладка
+    
+    if (!receivedByAuthId) {
+        UI.showNotification('Выберите сотрудника, принявшего заявление', 'error');
+        return false;
+    }
+    
+    // Ищем сотрудника по auth_user_id, а не по id
+    const { data: employee, error: empError } = await supabaseClient
+        .from('employees')
+        .select('id, auth_user_id, nickname, rank')
+        .eq('auth_user_id', receivedByAuthId)
+        .single();
+    
+    console.log('Found employee:', employee); // Отладка
+    
+    if (empError || !employee) {
+        console.error('Employee fetch error:', empError);
+        UI.showNotification('Выбранный сотрудник не найден в базе', 'error');
+        return false;
+    }
+    
+    // Формируем имя сотрудника для отображения
+    const receivedByName = `${employee.rank || ''} ${employee.nickname}`.trim();
+    
+    // Получаем данные для assigned_by и assigned_to (тоже по auth_user_id)
+    const assignedByAuthId = document.getElementById('assigned_by_id')?.value || null;
+    const assignedToAuthId = document.getElementById('assigned_to_id')?.value || null;
+    
+    let assignedByName = null;
+    let assignedToName = null;
+    let assignedById = null;
+    let assignedToId = null;
+    
+    // Если выбран руководитель, получаем его данные
+    if (assignedByAuthId) {
+        const { data: assignedByData } = await supabaseClient
+            .from('employees')
+            .select('id, nickname, rank')
+            .eq('auth_user_id', assignedByAuthId)
+            .single();
+        
+        if (assignedByData) {
+            assignedById = assignedByData.id;
+            assignedByName = `${assignedByData.rank || ''} ${assignedByData.nickname}`.trim();
+        }
+    }
+    
+    // Если выбран исполнитель, получаем его данные
+    if (assignedToAuthId) {
+        const { data: assignedToData } = await supabaseClient
+            .from('employees')
+            .select('id, nickname, rank')
+            .eq('auth_user_id', assignedToAuthId)
+            .single();
+        
+        if (assignedToData) {
+            assignedToId = assignedToData.id;
+            assignedToName = `${assignedToData.rank || ''} ${assignedToData.nickname}`.trim();
+        }
+    }
+    
+    // Собираем данные из формы
+    const formData = {
+        kusp_number: kuspNumber,
+        ticket_number: document.getElementById('ticket_number')?.value.trim() || kuspNumber,
+        received_datetime: document.getElementById('received_datetime')?.value,
+        received_form: document.getElementById('received_form')?.value,
+        received_by_id: receivedByAuthId, // Сохраняем auth_user_id
+        received_by_name: receivedByName,
+        reporter_name: document.getElementById('reporter_name')?.value.trim(),
+        reporter_birth_date: document.getElementById('reporter_birth_date')?.value || null,
+        reporter_address: document.getElementById('reporter_address')?.value.trim() || null,
+        reporter_passport: document.getElementById('reporter_passport')?.value.trim() || null,
+        reporter_contact_link: document.getElementById('reporter_contact_link')?.value.trim() || null,
+        short_content: document.getElementById('short_content')?.value.trim(),
+        team_results: document.getElementById('team_results')?.value.trim() || null,
+        assigned_by_id: assignedByAuthId, // Сохраняем auth_user_id
+        assigned_by_name: assignedByName,
+        assigned_to_id: assignedToAuthId, // Сохраняем auth_user_id
+        assigned_to_name: assignedToName,
+        review_deadline: document.getElementById('review_deadline')?.value || null,
+        review_completed_date: document.getElementById('review_completed_date')?.value || null,
+        extended_by: document.getElementById('extended_by')?.value.trim() || null,
+        review_result: document.getElementById('review_result')?.value || null,
+        status: document.getElementById('status')?.value || 'new',
+        notes: document.getElementById('notes')?.value.trim() || null
+    };
+
+    console.log('Form data to insert:', formData); // Отладка
+
+    // Валидация обязательных полей
+    if (!formData.received_datetime || !formData.received_form || !formData.received_by_id || 
+        !formData.reporter_name || !formData.short_content) {
+        UI.showNotification('Заполните все обязательные поля', 'error');
+        return false;
+    }
+
+    try {
+        const { error } = await supabaseClient
+            .from('kusps')
+            .insert([formData]);
+
+        if (error) {
+            console.error('Insert error:', error);
+            if (error.code === '42501') {
+                UI.showNotification('Ошибка прав доступа: вы не можете создавать записи', 'error');
+            } else if (error.code === '23503') {
+                UI.showNotification(`Ошибка внешнего ключа: сотрудник с auth_user_id ${receivedByAuthId} не существует`, 'error');
+            } else {
+                UI.showNotification('Ошибка при создании записи: ' + error.message, 'error');
+            }
             return false;
         }
 
-        const kusp_number = generateKuspNumber();
-        const payload = {
-            kusp_number,
-            created_by: currentUser.nickname,
-            reporter_name: reporter,
-            contact,
-            type,
-            location,
-            priority,
-            description,
-            status: 'new',
-            created_at: new Date().toISOString(),
-            history: [{
-                ts: new Date().toISOString(),
-                user: currentUser.nickname,
-                action: 'Создан',
-                note: description
-            }]
+        UI.showNotification('Запись КУСП создана', 'success');
+        await loadKuspList();
+        filterAndRenderKusp();
+        
+        return true;
+    } catch (error) {
+        console.error('Error in createKusp:', error);
+        UI.showNotification('Ошибка при создании записи: ' + error.message, 'error');
+        return false;
+    }
+}
+
+    // Обновление записи КУСП
+// Обновление записи КУСП
+async function updateKusp(id) {
+    Auth.ping();
+    
+    const kusp = kuspListCache.find(k => k.id == id);
+    if (!kusp) return false;
+
+    // Получаем auth_user_id выбранного сотрудника из формы
+    const receivedByAuthId = document.getElementById('received_by_id')?.value;
+    
+    if (!receivedByAuthId) {
+        UI.showNotification('Выберите сотрудника, принявшего заявление', 'error');
+        return false;
+    }
+    
+    // Ищем сотрудника по auth_user_id
+    const { data: employee, error: empError } = await supabaseClient
+        .from('employees')
+        .select('id, auth_user_id, nickname, rank')
+        .eq('auth_user_id', receivedByAuthId)
+        .single();
+    
+    if (empError || !employee) {
+        console.error('Employee fetch error:', empError);
+        UI.showNotification('Выбранный сотрудник не найден в базе', 'error');
+        return false;
+    }
+    
+    // Формируем имя сотрудника
+    const receivedByName = `${employee.rank || ''} ${employee.nickname}`.trim();
+    
+    // Получаем данные для assigned_by и assigned_to
+    const assignedByAuthId = document.getElementById('assigned_by_id')?.value || null;
+    const assignedToAuthId = document.getElementById('assigned_to_id')?.value || null;
+    
+    let assignedByName = null;
+    let assignedToName = null;
+    
+    // Если выбран руководитель, получаем его имя
+    if (assignedByAuthId) {
+        const { data: assignedByData } = await supabaseClient
+            .from('employees')
+            .select('nickname, rank')
+            .eq('auth_user_id', assignedByAuthId)
+            .single();
+        
+        if (assignedByData) {
+            assignedByName = `${assignedByData.rank || ''} ${assignedByData.nickname}`.trim();
+        }
+    }
+    
+    // Если выбран исполнитель, получаем его имя
+    if (assignedToAuthId) {
+        const { data: assignedToData } = await supabaseClient
+            .from('employees')
+            .select('nickname, rank')
+            .eq('auth_user_id', assignedToAuthId)
+            .single();
+        
+        if (assignedToData) {
+            assignedToName = `${assignedToData.rank || ''} ${assignedToData.nickname}`.trim();
+        }
+    }
+
+    // Собираем данные из формы
+    const formData = {
+        ticket_number: document.getElementById('ticket_number')?.value.trim() || kusp.kusp_number,
+        received_datetime: document.getElementById('received_datetime')?.value,
+        received_form: document.getElementById('received_form')?.value,
+        received_by_id: receivedByAuthId,
+        received_by_name: receivedByName,
+        reporter_name: document.getElementById('reporter_name')?.value.trim(),
+        reporter_birth_date: document.getElementById('reporter_birth_date')?.value || null,
+        reporter_address: document.getElementById('reporter_address')?.value.trim() || null,
+        reporter_passport: document.getElementById('reporter_passport')?.value.trim() || null,
+        reporter_contact_link: document.getElementById('reporter_contact_link')?.value.trim() || null,
+        short_content: document.getElementById('short_content')?.value.trim(),
+        team_results: document.getElementById('team_results')?.value.trim() || null,
+        assigned_by_id: assignedByAuthId,
+        assigned_by_name: assignedByName,
+        assigned_to_id: assignedToAuthId,
+        assigned_to_name: assignedToName,
+        review_deadline: document.getElementById('review_deadline')?.value || null,
+        review_completed_date: document.getElementById('review_completed_date')?.value || null,
+        extended_by: document.getElementById('extended_by')?.value.trim() || null,
+        review_result: document.getElementById('review_result')?.value || null,
+        status: document.getElementById('status')?.value || 'new',
+        notes: document.getElementById('notes')?.value.trim() || null
+    };
+
+    // Валидация
+    if (!formData.received_datetime || !formData.received_form || !formData.received_by_id || 
+        !formData.reporter_name || !formData.short_content) {
+        UI.showNotification('Заполните все обязательные поля', 'error');
+        return false;
+    }
+
+    try {
+        const { error } = await supabaseClient
+            .from('kusps')
+            .update(formData)
+            .eq('id', id);
+
+        if (error) {
+            console.error('Update error:', error);
+            if (error.code === '42501') {
+                UI.showNotification('Ошибка прав доступа: вы не можете редактировать эту запись', 'error');
+            } else if (error.code === '23503') {
+                UI.showNotification('Ошибка внешнего ключа: выбранный сотрудник не существует', 'error');
+            } else {
+                UI.showNotification('Ошибка при обновлении записи: ' + error.message, 'error');
+            }
+            return false;
+        }
+
+        UI.showNotification('Запись КУСП обновлена', 'success');
+        await loadKuspList();
+        filterAndRenderKusp();
+        
+        return true;
+    } catch (error) {
+        console.error('Error in updateKusp:', error);
+        UI.showNotification('Ошибка при обновлении записи: ' + error.message, 'error');
+        return false;
+    }
+}
+
+    // Удаление записи КУСП
+    async function deleteKusp(id) {
+        Auth.ping();
+        
+        // Проверка прав
+        if (!canDeleteKusp()) {
+            UI.showNotification('У вас нет прав на удаление записей', 'error');
+            return;
+        }
+
+        const kusp = kuspListCache.find(k => k.id == id);
+        if (!kusp) return;
+
+        const confirmModal = document.createElement('div');
+        confirmModal.className = 'modal-overlay';
+        confirmModal.innerHTML = `
+            <div class="modal-container" style="max-width: 400px;">
+                <div class="modal-header">
+                    <h3>Подтверждение удаления</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-content">
+                    <p>Вы уверены, что хотите удалить запись КУСП <strong>№${escapeHtml(kusp.kusp_number)}</strong>?</p>
+                    <p style="color: #dc3545; font-size: 0.9rem;">Это действие необратимо.</p>
+                    <div class="flex-row" style="justify-content: flex-end;">
+                        <button id="cancelDeleteBtn" class="secondary">Отмена</button>
+                        <button id="confirmDeleteBtn" style="background: #dc3545;">Удалить</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(confirmModal);
+
+        confirmModal.querySelector('.modal-close').onclick = () => confirmModal.remove();
+        confirmModal.onclick = (e) => {
+            if (e.target === confirmModal) confirmModal.remove();
         };
 
-        try {
-            const { error } = await Auth.secureRequest('kusps', 'insert', [payload]);
+        document.getElementById('cancelDeleteBtn').onclick = () => confirmModal.remove();
+        
+        document.getElementById('confirmDeleteBtn').onclick = async () => {
+            try {
+                const { error } = await supabaseClient
+                    .from('kusps')
+                    .delete()
+                    .eq('id', id);
 
-            if (error) {
-                UI.showNotification('Ошибка при создании записи: ' + error.message, 'error');
-                return false;
+                if (error) {
+                    UI.showNotification('Ошибка при удалении: ' + error.message, 'error');
+                    return;
+                }
+
+                UI.showNotification('Запись удалена', 'success');
+                confirmModal.remove();
+                await loadKuspList();
+                filterAndRenderKusp();
+            } catch (error) {
+                UI.showNotification('Ошибка при удалении: ' + error.message, 'error');
             }
-
-            UI.showNotification('Запись КУСП создана', 'success');
-            await loadKuspList();
-            filterAndRenderKusp();
-            
-            return true;
-        } catch (error) {
-            UI.showNotification('Ошибка при создании записи: ' + error.message, 'error');
-            return false;
-        }
+        };
     }
 
     // Фильтрация и отображение списка
@@ -378,14 +938,13 @@ const KUSP = (function() {
     // Инициализация списка КУСП
     async function initKuspList() {
         try {
-            Auth.ping(); // Сбрасываем таймер при входе в раздел
+            Auth.ping();
             
             const clone = UI.loadTemplate('kuspList');
             UI.clearMain();
             document.getElementById('mainApp').appendChild(clone);
             UI.setActiveTab(UI.getElements().navKusp);
 
-            await Admin.loadEmployeesList();
             await loadKuspList();
             filterAndRenderKusp();
 
@@ -402,7 +961,7 @@ const KUSP = (function() {
             }
             
             if (createBtn) {
-                createBtn.onclick = openCreateModal;
+                createBtn.onclick = () => openKuspModal(null, 'create');
             }
 
         } catch (error) {
@@ -411,8 +970,10 @@ const KUSP = (function() {
         }
     }
 
+    // Публичные методы
     return {
-        initKuspList
+        initKuspList,
+        saveTicketAsPNG  // Заменяем printTicket на saveTicketAsPNG
     };
 })();
 

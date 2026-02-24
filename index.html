@@ -38,7 +38,6 @@
         <div class="nav-bar hidden" id="guestNavBar">
             <div class="nav-group">
                 <button class="nav-btn" id="guestNavHome">Главная</button>
-                <button class="nav-btn" id="guestNavTrafficFines">Проверка штрафов</button>
                 <button class="nav-btn" id="guestNavAppeals">Мои обращения</button>
                 <button class="nav-btn" id="guestNavInfo">Информация</button>
             </div>
@@ -65,7 +64,7 @@
                         <div class="auth-card">
                             <h2>Вход для граждан</h2>
                             <button class="guest-button" id="guestAccessBtn">Перейти к гостевому доступу</button>
-                            <p>Просмотр информации, проверка штрафов, отслеживание обращений без регистрации.</p>
+                            <p>Просмотр информации, отслеживание обращений без регистрации.</p>
                             <div style="flex:1"></div>
                         </div>
 
@@ -105,8 +104,8 @@
         <div>
             <h2>Главный экран</h2>
             <div id="greetingMessage" style="font-size:1.3rem; background:#f2f7ff; padding:16px 20px; border-radius:20px; margin-bottom:20px;"></div>
-            <p style="color:#34597a;">Добро пожаловать в единую систему учёта происшествий и материалов КУСП.</p>
-            <p style="margin-top:16px;">Используйте навигацию для работы с учётными записями и регистрации сообщений.</p>
+            <p style="color:#34597a;">Добро пожаловать в единую информационную систему УГИБДД.</p>
+            <p style="margin-top:16px;">Используйте навигацию для работы.</p>
         </div>
     </template>
 
@@ -196,30 +195,6 @@
         </div>
     </template>
 
-    <template id="kuspCreateTemplate">
-        <div>
-            <input id="new_reporter" placeholder="Заявитель *" required>
-            <input id="new_contact" placeholder="Контакт">
-            <select id="new_type">
-                <option value="звонок">Звонок</option>
-                <option value="заявление">Заявление</option>
-                <option value="очевидец">Очевидец</option>
-                <option value="инцидент">Инцидент</option>
-            </select>
-            <input id="new_location" placeholder="Место">
-            <select id="new_priority">
-                <option value="low">Низкий приоритет</option>
-                <option value="normal" selected>Средний приоритет</option>
-                <option value="high">Высокий приоритет</option>
-            </select>
-            <textarea id="new_description" placeholder="Описание *" rows="4" required></textarea>
-            <div class="flex-row" style="justify-content: flex-end; margin-top: 16px;">
-                <button id="cancelCreateBtn" class="secondary">Отмена</button>
-                <button id="createKuspBtn">Создать</button>
-            </div>
-        </div>
-    </template>
-
     <!-- Шаблоны для гостей -->
     <template id="guestHomeTemplate">
         <div>
@@ -228,24 +203,9 @@
                 <p>Добро пожаловать на портал гражданина УГИБДД.</p>
                 <p>Здесь вы можете:</p>
                 <ul style="margin-top:10px; list-style:disc; padding-left:20px;">
-                    <li>Проверить штрафы по номеру постановления</li>
-                    <li>Отследить статус обращения</li>
+                    <li>Отследить статус обращения по номеру талона-уведомления</li>
                     <li>Получить информацию о работе ГИБДД</li>
                 </ul>
-            </div>
-        </div>
-    </template>
-
-    <template id="guestFinesTemplate">
-        <div>
-            <h2>Проверка штрафов</h2>
-            <div style="background:#f5f9ff; padding:20px; border-radius:20px;">
-                <div class="form-group">
-                    <label for="decreeNumber">Номер постановления</label>
-                    <input type="text" id="decreeNumber" placeholder="Введите номер постановления">
-                </div>
-                <button id="checkFineBtn" class="login-btn">Проверить</button>
-                <div id="fineResult" style="margin-top:20px;"></div>
             </div>
         </div>
     </template>
@@ -254,9 +214,9 @@
         <div>
             <h2>Мои обращения</h2>
             <div style="background:#f5f9ff; padding:20px; border-radius:20px;">
-                <p>Для отслеживания обращений введите номер:</p>
+                <p>Для отслеживания обращений введите номер талона-уведомления:</p>
                 <div class="form-group">
-                    <input type="text" id="appealNumber" placeholder="Номер обращения">
+                    <input type="text" id="appealNumber" placeholder="Номер талона-уведомления">
                 </div>
                 <button id="findAppealBtn" class="secondary">Найти</button>
                 <div id="appealResult" style="margin-top:20px;"></div>
@@ -269,21 +229,27 @@
             <h2>Информация</h2>
             <div style="background:#f5f9ff; padding:20px; border-radius:20px;">
                 <h3>Контакты</h3>
-                <p>📞 Дежурная часть: 8 (800) 123-45-67</p>
-                <p>📧 Email: info@gibdd.gov</p>
-                <p>📍 Адрес: г. Москва, ул. Примерная, д. 1</p>
+                <p>📞 Дежурная часть: 8 (222) 555-58-48</p>
+				<p>📍 Адрес: г. Мирный, Кутузовская набережная, д. 2</p>
+                <p>📧 Forum: <a href="https://forum.gtaprovince.ru/forum/1182-ugibdd/" target="_blank" rel="noopener noreferrer">https://forum.gtaprovince.ru/forum/1182-ugibdd/</a></p>
+				<p>📰 Новости ВК: <a href="https://vk.com/ugibddm.province_one" target="_blank" rel="noopener noreferrer">https://vk.com/ugibddm.province_one</a></p>   
                 
                 <h3 style="margin-top:20px;">Часы работы</h3>
                 <p>Пн-Пт: 09:00 - 18:00</p>
-                <p>Сб-Вс: Выходной</p>
+				<p>Сб: 10:00 - 17:00</p>
+                <p>Вс: Выходной</p>
             </div>
         </div>
     </template>
 
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- html2canvas для сохранения талонов в PNG -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <!-- Модули приложения -->
     <script src="js/config.js"></script>
+    <script src="js/error-handler.js"></script> 
+    <script src="js/permissions.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/supabase-admin-client.js"></script>
     <script src="js/ui.js"></script>
@@ -291,5 +257,4 @@
     <script src="js/kusp.js"></script>
     <script src="js/app.js"></script>
 </body>
-
 </html>

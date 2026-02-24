@@ -3,38 +3,46 @@ const SupabaseAdmin = (function() {
     const FUNCTION_URL = 'https://rsxwekxpmqcrpbuwcljp.supabase.co/functions/v1/admin-users';
 
     async function callAdminFunction(action, userId, data = {}) {
-        const user = Auth.getCurrentUser();
-        if (!user) {
-            throw new Error('Не авторизован');
-        }
+		const user = Auth.getCurrentUser();
+		if (!user) {
+			throw new Error('Не авторизован');
+		}
 
-        const { data: { session } } = await supabaseClient.auth.getSession();
-        
-        if (!session) {
-            throw new Error('Сессия истекла');
-        }
+		const { data: { session } } = await supabaseClient.auth.getSession();
+		
+		if (!session) {
+			throw new Error('Сессия истекла');
+		}
 
-        const response = await fetch(FUNCTION_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${session.access_token}`
-            },
-            body: JSON.stringify({
-                action,
-                userId,
-                data
-            })
-        });
+		try {
+			const response = await fetch(FUNCTION_URL, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': `Bearer ${session.access_token}`
+				},
+				body: JSON.stringify({
+					action,
+					userId,
+					data
+				})
+			});
 
-        const result = await response.json();
+			const result = await response.json();
 
-        if (!response.ok) {
-            throw new Error(result.error || 'Ошибка при выполнении операции');
-        }
+			if (!response.ok) {
+				const errorMessage = result.error || 'Ошибка при выполнении операции';
+				throw new Error(ErrorHandler.localizeError(errorMessage));
+			}
 
-        return result.data;
-    }
+			return result.data;
+		} catch (error) {
+			if (error.message) {
+				throw new Error(ErrorHandler.localizeError(error.message));
+			}
+			throw error;
+		}
+	}
 
     async function updateUserPassword(userId, newPassword) {
         return callAdminFunction('updateUser', userId, { password: newPassword });

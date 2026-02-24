@@ -1,6 +1,15 @@
+// file: app.js
 // Главный модуль приложения
 const App = (function() {
     const elements = UI.getElements();
+
+    // Функция экранирования HTML
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
 
     // Инициализация приложения
     function init() {
@@ -49,9 +58,6 @@ const App = (function() {
             case 'home':
                 showGuestHome();
                 break;
-            case 'fines':
-                showGuestFines();
-                break;
             case 'appeals':
                 showGuestAppeals();
                 break;
@@ -76,9 +82,10 @@ const App = (function() {
                 KUSP.initKuspList();
                 break;
             case 'admin':
-                if (Auth.isAdmin()) {
+                if (Auth.canManageUsers()) {
                     Admin.initAdminPanel();
                 } else {
+                    UI.showNotification('Доступ запрещен', 'error');
                     window.location.hash = 'home';
                 }
                 break;
@@ -112,8 +119,10 @@ const App = (function() {
         
         elements.navAdmin.onclick = (e) => {
             e.preventDefault();
-            if (Auth.isAdmin()) {
+            if (Auth.canManageUsers()) {
                 window.location.hash = 'admin';
+            } else {
+                UI.showNotification('Доступ запрещен', 'warning');
             }
         };
         
@@ -121,11 +130,6 @@ const App = (function() {
         elements.guestNavHome.onclick = (e) => {
             e.preventDefault();
             window.location.hash = 'home';
-        };
-        
-        elements.guestNavTrafficFines.onclick = (e) => {
-            e.preventDefault();
-            window.location.hash = 'fines';
         };
         
         elements.guestNavAppeals.onclick = (e) => {
@@ -225,21 +229,169 @@ const App = (function() {
         UI.setActiveTab(elements.guestNavHome);
     }
 
-    function showGuestFines() {
-        const clone = UI.loadTemplate('guestFines');
-        UI.clearMain();
-        document.getElementById('mainApp').appendChild(clone);
-        
-        document.getElementById('checkFineBtn').onclick = () => {
-            const number = document.getElementById('decreeNumber').value;
-            if (!number) {
-                UI.showNotification('Введите номер постановления', 'warning');
-                return;
+    // Поиск дела по номеру талона для гостей
+    async function findKuspByTicketNumber(ticketNumber) {
+        try {
+            // Ищем запись в КУСП по номеру талона
+            const { data, error } = await supabaseClient
+                .from('kusps')
+                .select(`
+                    kusp_number,
+                    ticket_number,
+                    received_datetime,
+                    received_by_name,
+                    reporter_name,
+                    short_content,
+                    status,
+                    review_result,
+                    notes,
+                    created_at
+                `)
+                .eq('ticket_number', ticketNumber)
+                .maybeSingle();
+
+            if (error) {
+                console.error('Error finding kusp:', error);
+                return { error: 'Ошибка при поиске дела' };
             }
-            UI.showNotification('Функция проверки скоро будет доступна', 'info');
-        };
+
+            if (!data) {
+                return { error: 'Дело с таким номером не найдено' };
+            }
+
+            return { data };
+        } catch (error) {
+            console.error('Error in findKuspByTicketNumber:', error);
+            return { error: 'Ошибка при поиске дела' };
+        }
+    }
+
+    // Показать информацию о деле для гостя
+    function showKuspInfoForGuest(kusp) {
+        const modal = document.createElement('div');
+        modal.className = 'modal-overlay';
+        modal.id = 'kuspGuestInfoModal';
         
-        UI.setActiveTab(elements.guestNavTrafficFines);
+        // Определяем статус дела
+        let statusText = '';
+        let statusClass = '';
+        switch(kusp.status) {
+            case 'new':
+                statusText = 'Зарегистрировано';
+                statusClass = 'badge-new';
+                break;
+            case 'in_progress':
+                statusText = 'В работе';
+                statusClass = 'badge-progress';
+                break;
+            case 'under_review':
+                statusText = 'На проверке';
+                statusClass = 'badge-progress';
+                break;
+            case 'closed':
+                statusText = 'Рассмотрено';
+                statusClass = 'badge-closed';
+                break;
+            default:
+                statusText = kusp.status || 'Не определено';
+        }
+        
+        // Результат рассмотрения
+        let resultText = '';
+        switch(kusp.review_result) {
+            case 'возбуждено_уголовное':
+                resultText = 'Возбуждено уголовное дело';
+                break;
+            case 'отказ_в_возбуждении':
+                resultText = 'Отказано в возбуждении уголовного дела';
+                break;
+            case 'административное':
+                resultText = 'Административное правонарушение';
+                break;
+            case 'передано_по_подследственности':
+                resultText = 'Передано по подследственности';
+                break;
+            case 'приобщено_к_другому':
+                resultText = 'Приобщено к другому делу';
+                break;
+            default:
+                resultText = 'На рассмотрении';
+        }
+        
+        modal.innerHTML = `
+            <div class="modal-container" style="max-width: 600px;">
+                <div class="modal-header">
+                    <h3>Информация по обращению</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-content">
+                    <div style="background: #f5f9ff; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h4 style="margin:0; color: #1e3a5f;">Талон-уведомление № ${escapeHtml(kusp.ticket_number)}</h4>
+                            <span class="badge ${statusClass}">${statusText}</span>
+                        </div>
+                        
+                        <div style="border-bottom: 2px solid #dbe4ee; margin: 15px 0;"></div>
+                        
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f; width: 40%;"><strong>Дата регистрации:</strong></td>
+                                <td style="padding: 8px 0;">${UI.formatDate(kusp.received_datetime)}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Принял:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.received_by_name || '—')}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Заявитель:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.reporter_name || '—')}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Содержание:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.short_content || '—')}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Статус рассмотрения:</strong></td>
+                                <td style="padding: 8px 0;">${statusText}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Результат:</strong></td>
+                                <td style="padding: 8px 0;">${resultText}</td>
+                            </tr>
+                            ${kusp.notes ? `
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Дополнительно:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.notes)}</td>
+                            </tr>
+                            ` : ''}
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Дата обновления:</strong></td>
+                                <td style="padding: 8px 0;">${UI.formatDate(kusp.created_at)}</td>
+                            </tr>
+                        </table>
+                        
+                        <div style="border-top: 2px solid #dbe4ee; margin: 15px 0; padding-top: 15px;">
+                            <p style="font-size: 0.9rem; color: #6c757d;">
+                                Для получения более подробной информации обратитесь в дежурную часть УГИБДД.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-row" style="justify-content: flex-end;">
+                        <button id="closeKuspInfoBtn" class="secondary">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Обработчики
+        modal.querySelector('.modal-close').onclick = () => modal.remove();
+        document.getElementById('closeKuspInfoBtn').onclick = () => modal.remove();
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.remove();
+        };
     }
 
     function showGuestAppeals() {
@@ -247,13 +399,43 @@ const App = (function() {
         UI.clearMain();
         document.getElementById('mainApp').appendChild(clone);
         
-        document.getElementById('findAppealBtn').onclick = () => {
-            const number = document.getElementById('appealNumber').value;
+        document.getElementById('findAppealBtn').onclick = async () => {
+            const number = document.getElementById('appealNumber').value.trim();
             if (!number) {
-                UI.showNotification('Введите номер обращения', 'warning');
+                UI.showNotification('Введите номер талона-уведомления', 'warning');
                 return;
             }
-            UI.showNotification('Функция отслеживания скоро будет доступна', 'info');
+            
+            // Показываем индикатор загрузки
+            const btn = document.getElementById('findAppealBtn');
+            const originalText = btn.textContent;
+            btn.textContent = '⏳ Поиск...';
+            btn.disabled = true;
+            
+            try {
+                const result = await findKuspByTicketNumber(number);
+                
+                if (result.error) {
+                    UI.showNotification(result.error, 'error');
+                    document.getElementById('appealResult').innerHTML = `
+                        <div style="background: #fff0f0; padding: 15px; border-radius: 8px; color: #dc3545;">
+                            ${result.error}
+                        </div>
+                    `;
+                } else {
+                    showKuspInfoForGuest(result.data);
+                    document.getElementById('appealResult').innerHTML = `
+                        <div style="background: #e8f4e8; padding: 15px; border-radius: 8px; color: #28a745;">
+                            ✓ Дело найдено. Информация отображена в окне.
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                UI.showNotification('Ошибка при поиске', 'error');
+            } finally {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
         };
         
         UI.setActiveTab(elements.guestNavAppeals);

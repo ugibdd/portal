@@ -15,7 +15,6 @@ const UI = (function() {
         navAdmin: document.getElementById('navAdmin'),
         navLogout: document.getElementById('navLogout'),
         guestNavHome: document.getElementById('guestNavHome'),
-        guestNavTrafficFines: document.getElementById('guestNavTrafficFines'),
         guestNavAppeals: document.getElementById('guestNavAppeals'),
         guestNavInfo: document.getElementById('guestNavInfo'),
         guestNavToEmployee: document.getElementById('guestNavToEmployee'),
@@ -31,9 +30,7 @@ const UI = (function() {
         profile: document.getElementById('profileTemplate')?.content,
         admin: document.getElementById('adminTemplate')?.content,
         kuspList: document.getElementById('kuspListTemplate')?.content,
-        kuspCreate: document.getElementById('kuspCreateTemplate')?.content,
         guestHome: document.getElementById('guestHomeTemplate')?.content,
-        guestFines: document.getElementById('guestFinesTemplate')?.content,
         guestAppeals: document.getElementById('guestAppealsTemplate')?.content,
         guestInfo: document.getElementById('guestInfoTemplate')?.content
     };
@@ -87,7 +84,8 @@ const UI = (function() {
         
         setMode('employee');
         elements.userInfo.innerText = `${user.nickname} (${user.category})`;
-        elements.navAdmin.hidden = user.category !== 'Администратор';
+        // Показываем админку для Администраторов и ВРС
+        elements.navAdmin.hidden = !(user.category === 'Администратор' || user.category === 'ВРС');
     }
 
     // Показать режим авторизации

@@ -826,3 +826,45 @@ button[data-action="delete"]:hover {
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(0,45,90,0.2);
 }
+
+#kuspGuestInfoModal .modal-container {
+    animation: slideIn 0.3s ease;
+}
+
+#kuspGuestInfoModal table tr td:first-child {
+    font-weight: 500;
+}
+
+#kuspGuestInfoModal .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+#kuspGuestInfoModal .badge-new {
+    background: #e3f2fd;
+    color: #0d47a1;
+}
+
+#kuspGuestInfoModal .badge-progress {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+#kuspGuestInfoModal .badge-closed {
+    background: #e8f5e8;
+    color: #1e7e34;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
