@@ -1,4 +1,7 @@
-// Модуль аутентификации с поддержкой гостевого режима
+if (new Error().stack.includes('console')) {
+    throw new Error('Доступ запрещен');
+}
+
 const Auth = (function() {
     let currentUser = null;
     let currentMode = 'auth'; // 'auth', 'guest', 'employee'
@@ -261,5 +264,6 @@ const Auth = (function() {
         getCurrentMode
     };
 })();
+
 
 window.Auth = Auth;
