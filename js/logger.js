@@ -13,6 +13,11 @@ const Logger = (function() {
         KUSP_UPDATE: 'kusp_update',
         KUSP_DELETE: 'kusp_delete',
         KUSP_VIEW: 'kusp_view',
+		
+		// Действия с протоколами
+        PROTOCOL_CREATE: 'protocol_create',
+        PROTOCOL_UPDATE: 'protocol_update',
+        PROTOCOL_DELETE: 'protocol_delete',
         
         // Действия с сессиями
 		// USER_LOGIN: 'user_login',      // Не используется
@@ -49,8 +54,6 @@ const Logger = (function() {
             // Если логов больше MAX_LOGS_COUNT, удаляем самые старые
             if (count > MAX_LOGS_COUNT) {
                 const logsToDelete = count - MAX_LOGS_COUNT;
-                
-                console.log(`Logs count (${count}) exceeds maximum (${MAX_LOGS_COUNT}). Deleting ${logsToDelete} oldest logs.`);
 
                 // Получаем ID самых старых записей для удаления
                 const { data: oldLogs, error: selectError } = await supabaseClient
@@ -76,7 +79,6 @@ const Logger = (function() {
                     if (deleteError) {
                         console.error('Error deleting old logs:', deleteError);
                     } else {
-                        console.log(`Successfully deleted ${oldLogIds.length} old logs`);
                     }
                 }
             }
@@ -338,6 +340,25 @@ const Logger = (function() {
                     actionText = `📝 Обновил запись КУСП №${log.entity_id || ''}`;
                 }
                 break;
+			
+			case ACTION_TYPES.PROTOCOL_CREATE:
+                actionText = `📋 Создал протокол №${log.entity_id || ''}`;
+                if (log.action_details?.violator) {
+                    actionText += ` (${log.action_details.violator})`;
+                }
+                break;
+                
+            case ACTION_TYPES.PROTOCOL_UPDATE:
+                actionText = `✏️ Обновил протокол №${log.entity_id || ''}`;
+                break;
+                
+            case ACTION_TYPES.PROTOCOL_DELETE:
+                actionText = `🗑️ Удалил протокол №${log.entity_id || ''}`;
+                if (log.action_details?.violator) {
+                    actionText += ` (${log.action_details.violator})`;
+                }
+                break;
+               
                 
             case ACTION_TYPES.KUSP_DELETE:
                 actionText = `🗑️ Удалил запись КУСП №${log.entity_id || ''}`;

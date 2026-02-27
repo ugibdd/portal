@@ -11,10 +11,8 @@ const Permissions = (function() {
     function canDeleteUser(currentUser, targetUser) {
         if (!currentUser || !targetUser) return false;
         
-        // Администратор может удалять всех
         if (currentUser.category === 'Администратор') return true;
         
-        // ВРС может удалять всех, кроме администраторов
         if (currentUser.category === 'ВРС' && targetUser.category !== 'Администратор') return true;
         
         return false;
@@ -24,13 +22,10 @@ const Permissions = (function() {
     function canEditUser(currentUser, targetUser) {
         if (!currentUser || !targetUser) return false;
         
-        // Администратор может редактировать всех
         if (currentUser.category === 'Администратор') return true;
         
-        // ВРС может редактировать всех, кроме администраторов
         if (currentUser.category === 'ВРС' && targetUser.category !== 'Администратор') return true;
         
-        // Пользователь может редактировать сам себя
         if (currentUser.id === targetUser.id) return true;
         
         return false;
@@ -47,6 +42,63 @@ const Permissions = (function() {
         if (!user) return false;
         return user.category === 'Администратор' || user.category === 'ВРС';
     }
+    
+    // ----- НОВЫЕ ФУНКЦИИ ДЛЯ ПРОТОКОЛОВ -----
+    
+    // Проверка, может ли пользователь создавать протоколы
+    function canCreateProtocol(user) {
+        if (!user) return false;
+        // Все сотрудники могут создавать протоколы
+        return ['Администратор', 'ВРС', 'РС', 'МС'].includes(user.category);
+    }
+    
+    // Проверка, может ли пользователь редактировать протокол
+    function canEditProtocol(user, protocol) {
+		if (!user || !protocol) return false;
+		
+		// Администратор, ВРС и РС могут редактировать любые протоколы
+		if (user.category === 'Администратор' || user.category === 'ВРС' || user.category === 'РС') {
+			return true;
+		}
+		
+		// МС могут редактировать только свои протоколы
+		if (user.category === 'МС') {
+			return protocol.created_by_id === user.auth_user_id;
+		}
+		
+		// Остальные (если появятся) не могут редактировать
+		return false;
+	}
+    
+    // Проверка, может ли пользователь удалять протоколы
+    function canDeleteProtocol(user) {
+        if (!user) return false;
+        // Только Администраторы и ВРС могут удалять протоколы
+        return user.category === 'Администратор' || user.category === 'ВРС';
+    }
+    
+    // Проверка, может ли пользователь просматривать любые протоколы
+    function canViewAnyProtocol(user) {
+        if (!user) return false;
+        // Администратор и ВРС могут просматривать любые протоколы
+        return user.category === 'Администратор' || user.category === 'ВРС';
+    }
+    
+    // Проверка, может ли пользователь экспортировать протоколы
+    function canExportProtocol(user) {
+        if (!user) return false;
+        // Все сотрудники могут экспортировать протоколы
+        return ['Администратор', 'ВРС', 'РС', 'МС'].includes(user.category);
+    }
+    
+    // Проверка, может ли пользователь менять статус протокола (например, отправлять в суд)
+    function canChangeProtocolStatus(user) {
+        if (!user) return false;
+        // Только руководящий состав может менять статус
+        return user.category === 'Администратор' || user.category === 'ВРС' || user.category === 'РС';
+    }
+    
+    // ----------------------------------------
     
     // Проверка, может ли пользователь удалять записи КУСП
     function canDeleteKusp(user) {
@@ -78,6 +130,7 @@ const Permissions = (function() {
     }
 
     return {
+        // Существующие функции
         canManageUsers,
         canDeleteUser,
         canEditUser,
@@ -86,7 +139,15 @@ const Permissions = (function() {
         canDeleteKusp,
         canEditAnyKusp,
         getPermissionLevel,
-        hasHigherOrEqualPermission
+        hasHigherOrEqualPermission,
+        
+        // Новые функции для протоколов
+        canCreateProtocol,
+        canEditProtocol,
+        canDeleteProtocol,
+        canViewAnyProtocol,
+        canExportProtocol,
+        canChangeProtocolStatus
     };
 })();
 

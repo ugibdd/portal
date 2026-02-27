@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Bad+Script&display=swap');
+
 /* Основные стили */
 * {
     margin: 0;
@@ -329,15 +331,6 @@ button.small {
     font-size: 0.95rem;
 }
 
-.history-log {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 14px;
-    border: 1px solid #e0eaf3;
-    max-height: 250px;
-    overflow-y: auto;
-    font-size: 0.85rem;
-}
 
 /* Профиль на всю высоту */
 #mainApp > div:not(.kusp-grid) {
@@ -555,21 +548,6 @@ button.small {
     padding-left: 20px;
     color: #34597a;
     line-height: 1.6;
-}
-
-.guest-feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.guest-feature-item {
-    background: #f8fafd;
-    border-radius: 16px;
-    padding: 20px;
-    border: 1px solid #e0eaf3;
-    text-align: center;
 }
 
 .guest-feature-item .feature-icon {
@@ -812,20 +790,7 @@ button[data-action="delete"]:hover {
 .modal-content .form-group:last-child {
     margin-bottom: 0;
 }
-.emblem {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #1e3a5f, #2c5aa0);
-    border-radius: 50%;
-    margin: 0 auto 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,45,90,0.2);
-}
+
 
 #kuspGuestInfoModal .modal-container {
     animation: slideIn 0.3s ease;
@@ -1016,5 +981,365 @@ button[data-action="delete"]:hover {
         width: 100% !important;
         min-width: auto !important;
     }
+}
+
+/* Модальное окно увеличенного размера для протоколов */
+.modal-container.modal-extra-large {
+    max-width: 1200px;
+    width: 95%;
+}
+
+/* Стили для вкладок */
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #4a6f8f;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    background: #eaf0f8;
+    color: #1e3a5f;
+}
+
+.tab-btn.active {
+    background: #1e3a5f;
+    color: white;
+}
+
+/* Скрытые элементы */
+.hidden {
+    display: none !important;
+}
+
+/* ===== СТИЛИ ДЛЯ ПРОТОКОЛА ПО ШАБЛОНУ ===== */
+
+.protocol-document-modal {
+    max-width: 900px;
+    font-family: "Courier New", monospace;
+}
+
+.protocol-document-content {
+    padding: 30px 40px !important;
+    background: #fff;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.protocol-document {
+    font-family: "Courier New", monospace;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.35;
+    color: #000;
+}
+
+.protocol-document .center { 
+    text-align: center; 
+}
+
+/* Заголовок */
+.protocol-document .title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.protocol-document .title-line {
+    border-bottom: 1px solid #000;
+    width: 250px;
+    margin: 5px auto 0;
+}
+
+/* Блоки */
+.protocol-document .block { 
+    margin: 15px 0; 
+}
+
+.protocol-document .block-narrow { 
+    width: 90%; 
+    margin: 0 auto; 
+}
+
+/* Линии */
+.protocol-document .line-row { 
+    display: flex; 
+    gap: 5px; 
+}
+
+.protocol-document .line-row .line { 
+    flex: 1; 
+    border-bottom: 1px solid #000;
+    min-width: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Для линий с текстом */
+.protocol-document .line {
+    border-bottom: 1px solid #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 2px;
+}
+
+/* Подписи */
+.protocol-document .note { 
+    font-size: 11px; 
+    color: #666; 
+    margin-top: 2px; 
+    margin-bottom: 5px; 
+    display: block; 
+}
+
+.protocol-document .note-center { 
+    text-align: center; 
+}
+
+/* Дата/Время/Место */
+.protocol-document .date-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.protocol-document .date-item { 
+    width: 80%; 
+}
+
+.protocol-document .date-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.protocol-document .date-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.protocol-document .date-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Клетки ФИО */
+.protocol-document .grid { 
+    margin: 10px 0; 
+}
+
+.protocol-document .grid table { 
+    border-collapse: collapse; 
+    margin: 0 auto; 
+    width: 100%;
+    table-layout: fixed;
+}
+
+.protocol-document .grid td {
+    border: 1px solid #000;
+    width: 18px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    font-family: 'Caveat', 'Bad Script', cursive;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Адаптивность для клеток */
+@media (max-width: 900px) {
+    .protocol-document .grid td {
+        width: 15px;
+        height: 25px;
+        font-size: 12px;
+    }
+}
+
+/* Кнопки просмотра */
+.protocol-view-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    border-top: 1px solid #eaf0f8;
+    padding-top: 20px;
+}
+
+.protocol-view-buttons button {
+    padding: 8px 20px;
+    font-size: 0.95rem;
+}
+
+/* Для печати */
+@media print {
+    .protocol-document-modal .modal-header,
+    .protocol-view-buttons,
+    .modal-close {
+        display: none !important;
+    }
+    
+    .protocol-document-content {
+        padding: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    
+    .protocol-document .grid td {
+        border: 1px solid #000;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* Стили для экспорта */
+.export-protocol {
+    width: 800px;
+    background: white;
+    padding: 40px;
+    font-family: "Courier New", monospace;
+}
+
+
+.protocol-document .flex-row {
+    display: flex;
+    gap: 5px;
+    align-items: flex-end;
+}
+
+.protocol-document .flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.protocol-document .nowrap {
+    white-space: nowrap;
+}
+
+.protocol-document .date-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.protocol-document .date-row {
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    width: 100%;
+}
+
+/* ===== СТИЛИ ДЛЯ ПРОТОКОЛА ===== */
+.protocol-document,
+.protocol-document * {
+    font-family: 'Courier New', monospace !important;
+}
+
+.protocol-document .line,
+.protocol-document .line-row,
+.protocol-document .grid td,
+.protocol-document .note,
+.protocol-document .title,
+.protocol-document .date-item,
+.protocol-document .block {
+    font-family: 'Courier New', monospace !important;
+}
+
+/* Для экспорта */
+.export-protocol,
+.export-protocol * {
+    font-family: 'Courier New', monospace !important;
+}
+
+.protocol-document-modal .protocol-document-content {
+    font-family: 'Courier New', monospace !important;
+}
+
+/* Стили для клеток */
+.protocol-document .grid td {
+    font-family: 'Courier New', monospace !important;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+
+.offense-note-row {
+    display: flex;
+    margin-top: 2px;
+    font-size: 11px;
+    color: #666;
+}
+
+.offense-note-left {
+    flex: 1;
+    text-align: left;
+}
+
+.offense-note-right {
+    flex: 0.5;
+    text-align: right;
+}
+
+/* Рукописный шрифт для заполняемых полей протокола */
+
+
+.protocol-document .handwritten,
+.protocol-document .handwritten *,
+.protocol-document .line.handwritten,
+.protocol-document td.handwritten,
+.export-protocol .handwritten,
+.export-protocol .handwritten * {
+    font-family: 'Caveat', 'Bad Script', 'Segoe Script', 'Comic Sans MS', cursive !important;
+    color: #002b59 !important; 
+    font-weight: 500;
+    letter-spacing: 0.3px;
+	 font-size: 18px !important; /* или любой нужный размер */
+}
+
+/* Для клеток с рукописным текстом */
+.protocol-document .grid td.handwritten {
+    font-family: 'Caveat', 'Bad Script', cursive !important;
+    color: #1e4f8a !important;
+    font-weight: 10000;
+}
+
+/* Стиль для печатного текста (оригинальный) */
+.protocol-document .printed {
+    font-family: 'Courier New', monospace !important;
+    color: #000000 !important;
+    font-weight: normal;
+}
+
+.protocol-document .grid td.handwritten {
+    font-family: 'Caveat', 'Bad Script', cursive !important;
+    color: #002b59;
+}
+
+/* Стили для подписи */
+.signature-section canvas {
+    touch-action: none; /* Отключаем прокрутку при рисовании на мобильных устройствах */
+}
+
+.signature-section .mode-indicator {
+    transition: background-color 0.3s ease;
+}
+
+.signature-section button.small {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+}
+
+.signature-section button.small:hover {
+    opacity: 0.8;
 }
 

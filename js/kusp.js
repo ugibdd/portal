@@ -262,8 +262,6 @@ const KUSP = (function() {
             .select('id, auth_user_id, nickname, rank')
             .order('nickname');
         employees = empData || [];
-        
-        console.log('Employees loaded:', employees);
 
         const modal = document.createElement('div');
         modal.className = 'modal-overlay';
@@ -579,9 +577,7 @@ const KUSP = (function() {
         const kuspNumber = await generateKuspNumber();
         
         const receivedByAuthId = document.getElementById('received_by_id')?.value;
-        
-        console.log('Selected received_by auth_user_id:', receivedByAuthId);
-        
+   
         if (!receivedByAuthId) {
             UI.showNotification('Выберите сотрудника, принявшего заявление', 'error');
             return false;
@@ -592,8 +588,6 @@ const KUSP = (function() {
             .select('id, auth_user_id, nickname, rank')
             .eq('auth_user_id', receivedByAuthId)
             .single();
-        
-        console.log('Found employee:', employee);
         
         if (empError || !employee) {
             console.error('Employee fetch error:', empError);
@@ -663,7 +657,6 @@ const KUSP = (function() {
             notes: document.getElementById('notes')?.value.trim() || null
         };
 
-        console.log('Form data to insert:', formData);
 
         if (!formData.received_datetime || !formData.received_form || !formData.received_by_id || 
             !formData.reporter_name || !formData.short_content) {
@@ -928,8 +921,7 @@ const KUSP = (function() {
 					updated_by: Auth.getCurrentUser()?.nickname,
 					changes_count: Object.keys(changes).length
 				}, 'kusp', kusp.kusp_number);
-				
-				console.log(`Логирование КУСП: обнаружено ${Object.keys(changes).length} изменений`, changes);
+			
 			} else {
 				// Если изменений нет, но пользователь нажал сохранить
 				await Logger.log('kusp_update_attempt', {

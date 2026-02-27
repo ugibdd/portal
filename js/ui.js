@@ -12,6 +12,7 @@ const UI = (function() {
         navHome: document.getElementById('navHome'),
         navProfile: document.getElementById('navProfile'),
         navKusp: document.getElementById('navKusp'),
+		navProtocols: document.getElementById('navProtocols'), 
         navAdmin: document.getElementById('navAdmin'),
         navLogout: document.getElementById('navLogout'),
         guestNavHome: document.getElementById('guestNavHome'),
@@ -30,6 +31,7 @@ const UI = (function() {
         profile: document.getElementById('profileTemplate')?.content,
         admin: document.getElementById('adminTemplate')?.content,
         kuspList: document.getElementById('kuspListTemplate')?.content,
+		protocolList: document.getElementById('protocolListTemplate')?.content,
         guestHome: document.getElementById('guestHomeTemplate')?.content,
         guestAppeals: document.getElementById('guestAppealsTemplate')?.content,
         guestInfo: document.getElementById('guestInfoTemplate')?.content
@@ -77,7 +79,6 @@ const UI = (function() {
     // Показать режим сотрудника
     function showEmployeeMode(user) {
         if (!user) {
-            console.error('Попытка открыть интерфейс без пользователя');
             setMode('auth');
             return;
         }

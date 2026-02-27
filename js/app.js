@@ -80,6 +80,9 @@ const App = (function() {
             case 'kusp':
                 KUSP.initKuspList();
                 break;
+			case 'protocols':
+                Protocol.initProtocolsList();
+                break;	
             case 'admin':
                 if (Auth.canManageUsers()) {
                     Admin.initAdminPanel();
@@ -114,6 +117,11 @@ const App = (function() {
         elements.navKusp.onclick = (e) => {
             e.preventDefault();
             window.location.hash = 'kusp';
+        };
+		
+		elements.navProtocols.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'protocols';
         };
         
         elements.navAdmin.onclick = (e) => {
@@ -229,41 +237,42 @@ const App = (function() {
     }
 
     // Поиск дела по номеру талона для гостей
-    async function findKuspByTicketNumber(ticketNumber) {
-        try {
-            // Ищем запись в КУСП по номеру талона
-            const { data, error } = await supabaseClient
-                .from('kusps')
-                .select(`
-                    kusp_number,
-                    ticket_number,
-                    received_datetime,
-                    received_by_name,
-                    reporter_name,
-                    short_content,
-                    status,
-                    review_result,
-                    notes,
-                    created_at
-                `)
-                .eq('ticket_number', ticketNumber)
-                .maybeSingle();
+	async function findKuspByTicketNumber(ticketNumber) {
+		try {
+			// Ищем запись в КУСП по номеру талона
+			const { data, error } = await supabaseClient
+				.from('kusps')
+				.select(`
+					kusp_number,
+					ticket_number,
+					received_datetime,
+					received_by_name,
+					reporter_name,
+					short_content,
+					status,
+					review_result,
+					notes,
+					created_at,
+					updated_at
+				`)
+				.eq('ticket_number', ticketNumber)
+				.maybeSingle();
 
-            if (error) {
-                console.error('Error finding kusp:', error);
-                return { error: 'Ошибка при поиске дела' };
-            }
+			if (error) {
+				console.error('Error finding kusp:', error);
+				return { error: 'Ошибка при поиске дела' };
+			}
 
-            if (!data) {
-                return { error: 'Дело с таким номером не найдено' };
-            }
+			if (!data) {
+				return { error: 'Дело с таким номером не найдено' };
+			}
 
-            return { data };
-        } catch (error) {
-            console.error('Error in findKuspByTicketNumber:', error);
-            return { error: 'Ошибка при поиске дела' };
-        }
-    }
+			return { data };
+		} catch (error) {
+			console.error('Error in findKuspByTicketNumber:', error);
+			return { error: 'Ошибка при поиске дела' };
+		}
+	}
 
     // Показать информацию о деле для гостя
     function showKuspInfoForGuest(kusp) {
@@ -365,7 +374,7 @@ const App = (function() {
                             ` : ''}
                             <tr>
                                 <td style="padding: 8px 0; color: #4a6f8f;"><strong>Дата обновления:</strong></td>
-                                <td style="padding: 8px 0;">${UI.formatDate(kusp.created_at)}</td>
+                                <td style="padding: 8px 0;">${UI.formatDate(kusp.updated_at || kusp.created_at)}</td>
                             </tr>
                         </table>
                         

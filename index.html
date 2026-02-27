@@ -27,6 +27,7 @@
                 <button class="nav-btn" id="navHome">Главная</button>
                 <button class="nav-btn" id="navProfile">Профиль</button>
                 <button class="nav-btn" id="navKusp">КУСП</button>
+				<button class="nav-btn" id="navProtocols">Протоколы</button>
                 <button class="nav-btn" id="navAdmin" hidden>Управление</button>
             </div>
             <div class="nav-group">
@@ -210,7 +211,7 @@
         <div style="height: 100%; display: flex; flex-direction: column;">
             <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-shrink: 0;">
                 <h2 style="margin:0; border:none;">КУСП</h2>
-                <input type="text" id="kuspSearch" placeholder="Поиск по номеру или заявителю..." style="flex:1;">
+                <input type="text" id="kuspSearch" placeholder="Поиск по номеру или заявителю" style="flex:1;">
                 <select id="kuspFilterStatus" style="width:150px;">
                     <option value="">Все статусы</option>
                     <option value="new">Новые</option>
@@ -235,6 +236,22 @@
                     <li>Получить информацию о работе ГИБДД</li>
                 </ul>
             </div>
+        </div>
+    </template>
+
+	<template id="protocolListTemplate">
+        <div style="height: 100%; display: flex; flex-direction: column;">
+            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-shrink: 0;">
+                <h2 style="margin:0; border:none;">Протоколы об АП</h2>
+                <input type="text" id="protocolSearch" placeholder="Поиск" style="flex:1;">
+                <select id="protocolFilterStatus" style="width:150px;">
+                    <option value="">Все статусы</option>
+                    <option value="active">Действующие</option>
+                    <option value="archived">Архивные</option>
+                </select>
+                <button id="protocolCreateOpen" class="secondary">+ Новый протокол</button>
+            </div>
+            <div class="list-panel" id="protocolList" style="flex:1;"></div>
         </div>
     </template>
 
@@ -284,6 +301,7 @@
     <script src="js/ui.js"></script>
     <script src="js/admin.js"></script>
     <script src="js/kusp.js"></script>
+	<script src="js/protocol.js"></script> 
     <script src="js/app.js"></script>
 </body>
 </html>

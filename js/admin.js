@@ -470,9 +470,6 @@ const Admin = (function() {
 				}
 				
 				try {
-					// Получаем текущую сессию для диагностики
-					const { data: { session: currentSession }, error: sessionError } = await supabaseClient.auth.getSession();
-					console.log('Current session:', currentSession?.user?.email, sessionError);
 
 					// ШАГ 1: Обновляем все записи КУСП, где сотрудник был received_by_id
 					// Сначала проверяем, есть ли такие записи
@@ -484,7 +481,6 @@ const Admin = (function() {
 					if (checkError) {
 						console.error('Error checking received kusps:', checkError);
 					} else {
-						console.log(`Found ${receivedKusps?.length || 0} kusps where employee is received_by`);
 						
 						if (receivedKusps && receivedKusps.length > 0) {
 							const { error: receivedUpdateError } = await supabaseClient
@@ -501,7 +497,6 @@ const Admin = (function() {
 								console.error('Error updating received_by references:', receivedUpdateError);
 								// Если ошибка из-за NOT NULL, пробуем другой подход
 								if (receivedUpdateError.code === '23502') { // NOT NULL violation
-									console.log('NOT NULL constraint detected, trying alternative approach');
 									
 									// Альтернативный подход: обновляем каждую запись отдельно с concat_notes
 									for (const kusp of receivedKusps) {
@@ -536,7 +531,6 @@ const Admin = (function() {
 					if (checkByError) {
 						console.error('Error checking assigned_by kusps:', checkByError);
 					} else {
-						console.log(`Found ${assignedByKusps?.length || 0} kusps where employee is assigned_by`);
 						
 						if (assignedByKusps && assignedByKusps.length > 0) {
 							const { error: assignedByUpdateError } = await supabaseClient
@@ -563,7 +557,6 @@ const Admin = (function() {
 					if (checkToError) {
 						console.error('Error checking assigned_to kusps:', checkToError);
 					} else {
-						console.log(`Found ${assignedToKusps?.length || 0} kusps where employee is assigned_to`);
 						
 						if (assignedToKusps && assignedToKusps.length > 0) {
 							const { error: assignedToUpdateError } = await supabaseClient
@@ -596,25 +589,21 @@ const Admin = (function() {
 					}, 'employee', id);
 					
 					// ШАГ 5: Пытаемся удалить пользователя из auth
-					console.log('Attempting to delete auth user:', employee.auth_user_id);
 					
 					const { data: { session: adminSession } } = await supabaseClient.auth.getSession();
 					
 					if (!adminSession) {
 						throw new Error('Сессия администратора не найдена');
 					}
-					
-					console.log('Admin session found, calling deleteUser function');
+				
 					
 					try {
 						await SupabaseAdmin.deleteUser(employee.auth_user_id);
-						console.log('Auth user deleted successfully');
 					} catch (authError) {
 						console.error('Auth deletion error details:', authError);
 						
 						// Проверяем, может пользователь уже удален?
 						if (authError.message && authError.message.includes('not found')) {
-							console.log('User might already be deleted, continuing with employee table deletion');
 						} else {
 							throw authError;
 						}
@@ -627,7 +616,6 @@ const Admin = (function() {
 					});
 					
 					// ШАГ 6: Удаляем запись из таблицы employees
-					console.log('Deleting employee record from database');
 					const { error } = await supabaseClient
 						.from('employees')
 						.delete()
@@ -745,8 +733,6 @@ const Admin = (function() {
 					category: category
 				}
 			});
-
-			console.log('Пользователь создан в Auth:', authData.user.id);
 			
 			await supabaseClient.auth.setSession({
 				access_token: adminSession.access_token,
@@ -779,8 +765,6 @@ const Admin = (function() {
 				
 				throw new Error(insertError.message);
 			}
-
-			console.log('Сотрудник создан:', insertData);
 			
 			// Логируем создание сотрудника
 			Logger.log(Logger.ACTION_TYPES.EMPLOYEE_CREATE, {

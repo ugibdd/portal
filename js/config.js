@@ -12,7 +12,7 @@ const supabaseClient = createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_KEY, {
         autoRefreshToken: true,
         persistSession: true,
         detectSessionInUrl: false,
-        storage: localStorage // явно указываем хранилище
+        storage: localStorage 
     },
     global: {
         headers: {
