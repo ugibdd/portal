@@ -1,1 +1,493 @@
-const _0x2a013b=_0x2e54;function _0x1222(){const _0x2e5b5b=['hashchange','profileDepartment','1655140MnxNWq','showEmployeeMode','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22border-top:\x202px\x20solid\x20#dbe4ee;\x20margin:\x2015px\x200;\x20padding-top:\x2015px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x200.9rem;\x20color:\x20#6c757d;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Для\x20получения\x20более\x20подробной\x20информации\x20обратитесь\x20в\x20дежурную\x20часть\x20УГИБДД.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex-row\x22\x20style=\x22justify-content:\x20flex-end;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22closeKuspInfoBtn\x22\x20class=\x22secondary\x22>Закрыть</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','employee','className','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20#fff0f0;\x20padding:\x2015px;\x20border-radius:\x208px;\x20color:\x20#dc3545;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','preventDefault','guestNavAppeals','Введите\x20логин\x20и\x20пароль','remove','driver-license','innerHTML','profileCategory','showAuthMode','Административное\x20правонарушение','closed','location','auth','navAdmin','Доступ\x20запрещен','restoreSession','⏳\x20Поиск...','474054sgckJG','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Принял:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>','3300848DeABeO','kuspGuestInfoModal','Рассмотрено','guestNavHome','nickname','mainApp','Отказано\x20в\x20возбуждении\x20уголовного\x20дела','.modal-close','badge-new','disabled','40ZzDOmw','kusp','getCurrentMode','25ywUTRw','initProtocolsList','admin','hash','logout','modal-overlay','guestNavInfo','badge-closed','getElementById','navLogout','review_result','передано_по_подследственности','warning','Дело\x20с\x20таким\x20номером\x20не\x20найдено','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Статус\x20рассмотрения:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>','login','appendChild','Введите\x20номер\x20талона-уведомления','navProfile','department','guestNavDriverLicense','trim','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','startGuestSession','data','navTsu','showGuestMode','passwordInput','profile','category','👤\x20','setActiveTab','17928YBtRAI','На\x20рассмотрении','Error\x20in\x20findKuspByTicketNumber:','loginInput','ticket_number','textContent','maybeSingle','guestNavToEmployee','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Результат:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>','appealResult','31287pBTHTd','select','short_content','profileNickname','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','showNotification','value','</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22badge\x20','init','received_datetime','Передано\x20по\x20подследственности','loginBtn','Error\x20finding\x20kusp:','getCurrentUser','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Дополнительно:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>','status','body','DOMContentLoaded','Ошибка\x20при\x20поиске','protocols','navProtocols','reporter_name','508948HOKeGp','created_at','rank','div','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-container\x22\x20style=\x22max-width:\x20800px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-header\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3>Информация\x20по\x20обращению</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22modal-close\x22>&times;</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20#f5f9ff;\x20border-radius:\x2012px;\x20padding:\x2020px;\x20margin-bottom:\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20justify-content:\x20space-between;\x20align-items:\x20center;\x20margin-bottom:\x2015px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20style=\x22margin:0;\x20color:\x20#1e3a5f;\x22>Талон-уведомление\x20№\x20','guestAppeals','7OoyLNP','initTsuList','error','guestInfo','createElement','findAppealBtn','notes','canManageUsers','34hEosYo','onclick','home','isGuest','clearMain','guestAccessBtn','badge-progress','appeals','appealNumber','navKusp','loadTemplate','getElements','154458dMQqPI','Ошибка\x20при\x20поиске\x20дела','under_review','formatDate','navHome','addEventListener','tsu','initKuspList','Модуль\x20не\x20загружен','updated_at','TSU','info','отказ_в_возбуждении','Возбуждено\x20уголовное\x20дело','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20#e8f4e8;\x20padding:\x2015px;\x20border-radius:\x208px;\x20color:\x20#28a745;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20✓\x20Дело\x20найдено.\x20Информация\x20отображена\x20в\x20окне.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','querySelector'];_0x1222=function(){return _0x2e5b5b;};return _0x1222();}function _0x2e54(_0x551279,_0x4a0023){const _0x12228b=_0x1222();return _0x2e54=function(_0x2e5490,_0x3a793f){_0x2e5490=_0x2e5490-0x13f;let _0x537c01=_0x12228b[_0x2e5490];return _0x537c01;},_0x2e54(_0x551279,_0x4a0023);}(function(_0x7ae519,_0x276d4b){const _0x1a731d=_0x2e54,_0x3f45cd=_0x7ae519();while(!![]){try{const _0x1229d7=-parseInt(_0x1a731d(0x1b6))/0x1+parseInt(_0x1a731d(0x1aa))/0x2*(-parseInt(_0x1a731d(0x186))/0x3)+parseInt(_0x1a731d(0x1c8))/0x4+parseInt(_0x1a731d(0x15c))/0x5*(parseInt(_0x1a731d(0x14d))/0x6)+-parseInt(_0x1a731d(0x1a2))/0x7*(parseInt(_0x1a731d(0x14f))/0x8)+-parseInt(_0x1a731d(0x17c))/0x9+parseInt(_0x1a731d(0x159))/0xa*(parseInt(_0x1a731d(0x19c))/0xb);if(_0x1229d7===_0x276d4b)break;else _0x3f45cd['push'](_0x3f45cd['shift']());}catch(_0x1ae9f2){_0x3f45cd['push'](_0x3f45cd['shift']());}}}(_0x1222,0x3c701));const App=(function(){const _0x584fb8=_0x2e54,_0x4a6642=UI[_0x584fb8(0x1b5)]();function _0x1f5a8f(_0x36baa2){const _0x157dae=_0x584fb8;if(!_0x36baa2)return'';const _0x306591=document[_0x157dae(0x1a6)](_0x157dae(0x19f));return _0x306591['textContent']=_0x36baa2,_0x306591[_0x157dae(0x142)];}function _0xe95c18(){const _0x449768=_0x584fb8,_0x4a83f8=Auth[_0x449768(0x14b)]();_0x4a83f8&&!Auth[_0x449768(0x1ad)]()?(UI[_0x449768(0x1c9)](_0x4a83f8),_0x1dc4a6()):(UI[_0x449768(0x144)](),window[_0x449768(0x147)]['hash']&&(window[_0x449768(0x147)][_0x449768(0x15f)]='')),_0x2afe3d(),window[_0x449768(0x1bb)](_0x449768(0x1c6),_0x1dc4a6);}function _0x1dc4a6(){const _0x37de40=_0x584fb8;Auth['ping']();if(UI[_0x37de40(0x15b)]()===_0x37de40(0x148)){window[_0x37de40(0x147)]['hash']='';return;}const _0x480b0a=window[_0x37de40(0x147)]['hash']['slice'](0x1)||_0x37de40(0x1ac);if(UI[_0x37de40(0x15b)]()==='guest')_0x2afa98(_0x480b0a);else UI['getCurrentMode']()===_0x37de40(0x1cb)&&_0x46a1db(_0x480b0a);}function _0x2afa98(_0x2ec875){const _0x3db628=_0x584fb8;switch(_0x2ec875){case _0x3db628(0x1ac):_0x2f9452();break;case _0x3db628(0x1b1):_0x3a5fd0();break;case _0x3db628(0x141):window['DriverLicense']?DriverLicense['initDriverLicensePage']():(UI['showNotification'](_0x3db628(0x1be),_0x3db628(0x1a4)),window[_0x3db628(0x147)][_0x3db628(0x15f)]='home');break;case _0x3db628(0x1c1):_0x219ba8();break;default:window['location'][_0x3db628(0x15f)]='home';}}function _0x46a1db(_0x29ff14){const _0x5479a8=_0x584fb8;switch(_0x29ff14){case'home':_0x2ad2d4();break;case'profile':_0x4fa41e();break;case _0x5479a8(0x15a):KUSP[_0x5479a8(0x1bd)]();break;case _0x5479a8(0x199):Protocol[_0x5479a8(0x15d)]();break;case _0x5479a8(0x1bc):window[_0x5479a8(0x1c0)]?TSU[_0x5479a8(0x1a3)]():(UI[_0x5479a8(0x18b)](_0x5479a8(0x1be),_0x5479a8(0x1a4)),window[_0x5479a8(0x147)][_0x5479a8(0x15f)]='home');break;case _0x5479a8(0x15e):Auth[_0x5479a8(0x1a9)]()?Admin['initAdminPanel']():(UI['showNotification']('Доступ\x20запрещен','error'),window[_0x5479a8(0x147)][_0x5479a8(0x15f)]=_0x5479a8(0x1ac));break;default:window[_0x5479a8(0x147)][_0x5479a8(0x15f)]=_0x5479a8(0x1ac);}}function _0x2afe3d(){const _0x49d491=_0x584fb8;_0x4a6642[_0x49d491(0x191)]['onclick']=_0x3c4039,_0x4a6642[_0x49d491(0x165)][_0x49d491(0x1ab)]=_0x431db1,_0x4a6642['navHome'][_0x49d491(0x1ab)]=_0x45c4cc=>{const _0x291e7e=_0x49d491;_0x45c4cc[_0x291e7e(0x1ce)](),window['location'][_0x291e7e(0x15f)]='home';},_0x4a6642[_0x49d491(0x16e)][_0x49d491(0x1ab)]=_0x3f7fbe=>{const _0x1b5712=_0x49d491;_0x3f7fbe['preventDefault'](),window['location'][_0x1b5712(0x15f)]=_0x1b5712(0x178);},_0x4a6642[_0x49d491(0x1b3)][_0x49d491(0x1ab)]=_0x2cfe5f=>{const _0x3cefd6=_0x49d491;_0x2cfe5f[_0x3cefd6(0x1ce)](),window[_0x3cefd6(0x147)][_0x3cefd6(0x15f)]='kusp';},_0x4a6642[_0x49d491(0x19a)]['onclick']=_0x4e6e8a=>{const _0x214ec8=_0x49d491;_0x4e6e8a[_0x214ec8(0x1ce)](),window[_0x214ec8(0x147)][_0x214ec8(0x15f)]=_0x214ec8(0x199);},_0x4a6642[_0x49d491(0x175)][_0x49d491(0x1ab)]=_0x39460f=>{const _0x5959b7=_0x49d491;_0x39460f[_0x5959b7(0x1ce)](),window[_0x5959b7(0x147)][_0x5959b7(0x15f)]=_0x5959b7(0x1bc);},_0x4a6642[_0x49d491(0x149)][_0x49d491(0x1ab)]=_0x48fd4e=>{const _0x3b3a1a=_0x49d491;_0x48fd4e['preventDefault'](),Auth[_0x3b3a1a(0x1a9)]()?window[_0x3b3a1a(0x147)][_0x3b3a1a(0x15f)]=_0x3b3a1a(0x15e):UI[_0x3b3a1a(0x18b)](_0x3b3a1a(0x14a),'warning');},_0x4a6642['guestNavHome'][_0x49d491(0x1ab)]=_0x39d7ca=>{const _0x541a74=_0x49d491;_0x39d7ca[_0x541a74(0x1ce)](),window[_0x541a74(0x147)][_0x541a74(0x15f)]=_0x541a74(0x1ac);},_0x4a6642[_0x49d491(0x1cf)]['onclick']=_0x2365b7=>{const _0x2d5b93=_0x49d491;_0x2365b7[_0x2d5b93(0x1ce)](),window[_0x2d5b93(0x147)][_0x2d5b93(0x15f)]=_0x2d5b93(0x1b1);},_0x4a6642['guestNavDriverLicense']&&(_0x4a6642[_0x49d491(0x170)][_0x49d491(0x1ab)]=_0x2af0ae=>{const _0x547de6=_0x49d491;_0x2af0ae['preventDefault'](),window[_0x547de6(0x147)][_0x547de6(0x15f)]=_0x547de6(0x141);}),_0x4a6642[_0x49d491(0x162)][_0x49d491(0x1ab)]=_0x233d32=>{const _0x4b48dd=_0x49d491;_0x233d32['preventDefault'](),window[_0x4b48dd(0x147)][_0x4b48dd(0x15f)]=_0x4b48dd(0x1c1);},_0x4a6642[_0x49d491(0x183)]['onclick']=_0x1da197=>{const _0x4ed0e3=_0x49d491;_0x1da197[_0x4ed0e3(0x1ce)](),_0x5cf466();},document[_0x49d491(0x164)](_0x49d491(0x1af))[_0x49d491(0x1ab)]=_0xd4f7d3;}async function _0x3c4039(){const _0x247d12=_0x584fb8,_0x21c721=_0x4a6642[_0x247d12(0x17f)][_0x247d12(0x18c)][_0x247d12(0x171)](),_0x205d57=_0x4a6642[_0x247d12(0x177)][_0x247d12(0x18c)][_0x247d12(0x171)]();if(!_0x21c721||!_0x205d57){UI['showNotification'](_0x247d12(0x13f),_0x247d12(0x168));return;}try{const _0x21176c=await Auth[_0x247d12(0x16b)](_0x21c721,_0x205d57);UI[_0x247d12(0x1c9)](_0x21176c),window[_0x247d12(0x147)]['hash']=_0x247d12(0x1ac),UI[_0x247d12(0x18b)]('Добро\x20пожаловать,\x20'+_0x21176c[_0x247d12(0x153)],'success');}catch(_0x27bff0){UI['showNotification'](_0x27bff0['message'],_0x247d12(0x1a4));}}function _0xd4f7d3(){const _0x23334d=_0x584fb8,_0x4506ea=Auth[_0x23334d(0x173)]();UI[_0x23334d(0x176)](),window['location'][_0x23334d(0x15f)]=_0x23334d(0x1ac);}function _0x5cf466(){const _0x5bbc1c=_0x584fb8;Auth[_0x5bbc1c(0x160)](),UI['showAuthMode'](),window[_0x5bbc1c(0x147)][_0x5bbc1c(0x15f)]='';}function _0x431db1(){const _0x4c3cf1=_0x584fb8;Auth[_0x4c3cf1(0x160)](),UI['showAuthMode'](),_0x4a6642[_0x4c3cf1(0x17f)][_0x4c3cf1(0x18c)]='',_0x4a6642['passwordInput'][_0x4c3cf1(0x18c)]='',window['location'][_0x4c3cf1(0x15f)]='';}function _0x2ad2d4(){const _0x2c2fdb=_0x584fb8,_0x1d17b9=UI['loadTemplate'](_0x2c2fdb(0x1ac));UI['clearMain'](),document[_0x2c2fdb(0x164)](_0x2c2fdb(0x154))[_0x2c2fdb(0x16c)](_0x1d17b9);const _0x56bbbd=Auth[_0x2c2fdb(0x193)]();document[_0x2c2fdb(0x164)]('greetingMessage')['innerText']=_0x2c2fdb(0x17a)+_0x56bbbd[_0x2c2fdb(0x153)]+'\x20('+_0x56bbbd[_0x2c2fdb(0x19e)]+')',UI[_0x2c2fdb(0x17b)](_0x4a6642[_0x2c2fdb(0x1ba)]);}function _0x4fa41e(){const _0x227ff3=_0x584fb8,_0x2721e2=UI['loadTemplate'](_0x227ff3(0x178));UI[_0x227ff3(0x1ae)](),document[_0x227ff3(0x164)](_0x227ff3(0x154))[_0x227ff3(0x16c)](_0x2721e2);const _0xaec5a2=Auth[_0x227ff3(0x193)]();document[_0x227ff3(0x164)](_0x227ff3(0x189))[_0x227ff3(0x181)]=_0xaec5a2[_0x227ff3(0x153)],document[_0x227ff3(0x164)]('profileRank')[_0x227ff3(0x181)]=_0xaec5a2['rank'],document['getElementById'](_0x227ff3(0x1c7))[_0x227ff3(0x181)]=_0xaec5a2[_0x227ff3(0x16f)],document[_0x227ff3(0x164)](_0x227ff3(0x143))[_0x227ff3(0x181)]=_0xaec5a2[_0x227ff3(0x179)],UI[_0x227ff3(0x17b)](_0x4a6642[_0x227ff3(0x16e)]);}function _0x2f9452(){const _0x5400d5=_0x584fb8,_0x1229b0=UI[_0x5400d5(0x1b4)]('guestHome');UI['clearMain'](),document[_0x5400d5(0x164)](_0x5400d5(0x154))[_0x5400d5(0x16c)](_0x1229b0),UI[_0x5400d5(0x17b)](_0x4a6642[_0x5400d5(0x152)]);}async function _0x6a1ac1(_0x5f4023){const _0x3dc672=_0x584fb8;try{const {data:_0x3b5117,error:_0x24d2db}=await supabaseClient['from']('kusps')[_0x3dc672(0x187)]('\x0a\x09\x09\x09\x09\x09kusp_number,\x0a\x09\x09\x09\x09\x09ticket_number,\x0a\x09\x09\x09\x09\x09received_datetime,\x0a\x09\x09\x09\x09\x09received_by_name,\x0a\x09\x09\x09\x09\x09reporter_name,\x0a\x09\x09\x09\x09\x09short_content,\x0a\x09\x09\x09\x09\x09status,\x0a\x09\x09\x09\x09\x09review_result,\x0a\x09\x09\x09\x09\x09notes,\x0a\x09\x09\x09\x09\x09created_at,\x0a\x09\x09\x09\x09\x09updated_at\x0a\x09\x09\x09\x09')['eq'](_0x3dc672(0x180),_0x5f4023)[_0x3dc672(0x182)]();if(_0x24d2db)return console['error'](_0x3dc672(0x192),_0x24d2db),{'error':_0x3dc672(0x1b7)};if(!_0x3b5117)return{'error':_0x3dc672(0x169)};return{'data':_0x3b5117};}catch(_0x40ba11){return console['error'](_0x3dc672(0x17e),_0x40ba11),{'error':'Ошибка\x20при\x20поиске\x20дела'};}}function _0x3cf65e(_0x58058d){const _0x6b1686=_0x584fb8,_0x19cc5c=document[_0x6b1686(0x1a6)](_0x6b1686(0x19f));_0x19cc5c[_0x6b1686(0x1cc)]=_0x6b1686(0x161),_0x19cc5c['id']=_0x6b1686(0x150);let _0x4e9d2f='',_0x3688df='';switch(_0x58058d[_0x6b1686(0x195)]){case'new':_0x4e9d2f='Зарегистрировано',_0x3688df=_0x6b1686(0x157);break;case'in_progress':_0x4e9d2f='В\x20работе',_0x3688df=_0x6b1686(0x1b0);break;case _0x6b1686(0x1b8):_0x4e9d2f='На\x20проверке',_0x3688df='badge-progress';break;case _0x6b1686(0x146):_0x4e9d2f=_0x6b1686(0x151),_0x3688df=_0x6b1686(0x163);break;default:_0x4e9d2f=_0x58058d['status']||'Не\x20определено';}let _0x1aed76='';switch(_0x58058d[_0x6b1686(0x166)]){case'возбуждено_уголовное':_0x1aed76=_0x6b1686(0x1c3);break;case _0x6b1686(0x1c2):_0x1aed76=_0x6b1686(0x155);break;case'административное':_0x1aed76=_0x6b1686(0x145);break;case _0x6b1686(0x167):_0x1aed76=_0x6b1686(0x190);break;case'приобщено_к_другому':_0x1aed76='Приобщено\x20к\x20другому\x20делу';break;default:_0x1aed76=_0x6b1686(0x17d);}_0x19cc5c[_0x6b1686(0x142)]=_0x6b1686(0x1a0)+_0x1f5a8f(_0x58058d[_0x6b1686(0x180)])+_0x6b1686(0x18d)+_0x3688df+'\x22>'+_0x4e9d2f+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22border-bottom:\x202px\x20solid\x20#dbe4ee;\x20margin:\x2015px\x200;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table\x20style=\x22width:\x20100%;\x20border-collapse:\x20collapse;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x20width:\x2040%;\x22><strong>Дата\x20регистрации:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>'+UI[_0x6b1686(0x1b9)](_0x58058d[_0x6b1686(0x18f)])+_0x6b1686(0x14e)+_0x1f5a8f(_0x58058d['received_by_name']||'—')+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Заявитель:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>'+_0x1f5a8f(_0x58058d[_0x6b1686(0x19b)]||'—')+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Содержание:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>'+_0x1f5a8f(_0x58058d[_0x6b1686(0x188)]||'—')+_0x6b1686(0x16a)+_0x4e9d2f+_0x6b1686(0x184)+_0x1aed76+_0x6b1686(0x172)+(_0x58058d[_0x6b1686(0x1a8)]?_0x6b1686(0x194)+_0x1f5a8f(_0x58058d[_0x6b1686(0x1a8)])+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20':'')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Дата\x20обновления:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>'+UI[_0x6b1686(0x1b9)](_0x58058d[_0x6b1686(0x1bf)]||_0x58058d[_0x6b1686(0x19d)])+_0x6b1686(0x1ca),document[_0x6b1686(0x196)]['appendChild'](_0x19cc5c),_0x19cc5c[_0x6b1686(0x1c5)](_0x6b1686(0x156))[_0x6b1686(0x1ab)]=()=>_0x19cc5c['remove'](),document[_0x6b1686(0x164)]('closeKuspInfoBtn')['onclick']=()=>_0x19cc5c[_0x6b1686(0x140)](),_0x19cc5c['onclick']=_0x15ab0f=>{const _0x8a2e80=_0x6b1686;if(_0x15ab0f['target']===_0x19cc5c)_0x19cc5c[_0x8a2e80(0x140)]();};}function _0x3a5fd0(){const _0x592b66=_0x584fb8,_0x252733=UI['loadTemplate'](_0x592b66(0x1a1));UI[_0x592b66(0x1ae)](),document['getElementById']('mainApp')[_0x592b66(0x16c)](_0x252733),document[_0x592b66(0x164)](_0x592b66(0x1a7))[_0x592b66(0x1ab)]=async()=>{const _0x2cad3c=_0x592b66,_0xe210b0=document[_0x2cad3c(0x164)](_0x2cad3c(0x1b2))[_0x2cad3c(0x18c)][_0x2cad3c(0x171)]();if(!_0xe210b0){UI[_0x2cad3c(0x18b)](_0x2cad3c(0x16d),_0x2cad3c(0x168));return;}const _0x24901f=document[_0x2cad3c(0x164)]('findAppealBtn'),_0x510762=_0x24901f[_0x2cad3c(0x181)];_0x24901f[_0x2cad3c(0x181)]=_0x2cad3c(0x14c),_0x24901f['disabled']=!![];try{const _0x1a8dd5=await _0x6a1ac1(_0xe210b0);_0x1a8dd5[_0x2cad3c(0x1a4)]?(UI[_0x2cad3c(0x18b)](_0x1a8dd5[_0x2cad3c(0x1a4)],'error'),document[_0x2cad3c(0x164)](_0x2cad3c(0x185))[_0x2cad3c(0x142)]=_0x2cad3c(0x1cd)+_0x1a8dd5['error']+_0x2cad3c(0x18a)):(_0x3cf65e(_0x1a8dd5[_0x2cad3c(0x174)]),document[_0x2cad3c(0x164)](_0x2cad3c(0x185))[_0x2cad3c(0x142)]=_0x2cad3c(0x1c4));}catch(_0x53e370){UI[_0x2cad3c(0x18b)](_0x2cad3c(0x198),_0x2cad3c(0x1a4));}finally{_0x24901f[_0x2cad3c(0x181)]=_0x510762,_0x24901f[_0x2cad3c(0x158)]=![];}},UI[_0x592b66(0x17b)](_0x4a6642['guestNavAppeals']);}function _0x219ba8(){const _0x5f1066=_0x584fb8,_0xfe0107=UI['loadTemplate'](_0x5f1066(0x1a5));UI[_0x5f1066(0x1ae)](),document[_0x5f1066(0x164)](_0x5f1066(0x154))[_0x5f1066(0x16c)](_0xfe0107),UI[_0x5f1066(0x17b)](_0x4a6642[_0x5f1066(0x162)]);}return{'init':_0xe95c18};}());document['addEventListener'](_0x2a013b(0x197),()=>App[_0x2a013b(0x18e)]());
+// Главный модуль приложения
+const App = (function() {
+    const elements = UI.getElements();
+
+    // Функция экранирования HTML
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // Инициализация приложения
+    function init() {
+        // Проверка сессии сотрудника
+        const user = Auth.restoreSession();
+        
+        if (user && !Auth.isGuest()) {
+            UI.showEmployeeMode(user);
+            handleRouting();
+        } else {
+            UI.showAuthMode();
+            // Добавляем очистку хэша при возврате на экран авторизации
+            if (window.location.hash) {
+                window.location.hash = '';
+            }
+        }
+
+        // Привязка обработчиков
+        bindEvents();
+        
+        // Слушаем изменения hash
+        window.addEventListener('hashchange', handleRouting);
+    }
+
+    // Обработка роутинга
+    function handleRouting() {
+        Auth.ping(); // Сбрасываем таймер при смене страницы
+
+        if (UI.getCurrentMode() === 'auth') {
+            window.location.hash = '';
+            return;
+        }
+
+        const hash = window.location.hash.slice(1) || 'home';
+        
+        if (UI.getCurrentMode() === 'guest') {
+            handleGuestRouting(hash);
+        } else if (UI.getCurrentMode() === 'employee') {
+            handleEmployeeRouting(hash);
+        }
+    }
+
+    // Маршрутизация для гостей
+    function handleGuestRouting(hash) {
+		switch(hash) {
+			case 'home':
+				showGuestHome();
+				break;
+			case 'appeals':
+				showGuestAppeals();
+				break;
+			case 'driver-license': 
+				if (window.DriverLicense) {
+					DriverLicense.initDriverLicensePage();
+				} else {
+					UI.showNotification('Модуль не загружен', 'error');
+					window.location.hash = 'home';
+				}
+				break;
+			case 'info':
+				showGuestInfo();
+				break;
+			default:
+				window.location.hash = 'home';
+		}
+	}
+
+    // Маршрутизация для сотрудников
+    function handleEmployeeRouting(hash) {
+        switch(hash) {
+            case 'home':
+                showHome();
+                break;
+            case 'profile':
+                showProfile();
+                break;
+            case 'kusp':
+                KUSP.initKuspList();
+                break;
+			case 'protocols':
+                Protocol.initProtocolsList();
+                break;	
+			case 'tsu':
+				if (window.TSU) {
+					TSU.initTsuList();
+				} else {
+					UI.showNotification('Модуль не загружен', 'error');
+					window.location.hash = 'home';
+				}
+				break;
+            case 'admin':
+                if (Auth.canManageUsers()) {
+                    Admin.initAdminPanel();
+                } else {
+                    UI.showNotification('Доступ запрещен', 'error');
+                    window.location.hash = 'home';
+                }
+                break;
+            default:
+                window.location.hash = 'home';
+        }
+    }
+
+    // Привязка событий
+    function bindEvents() {
+        // Обработчики авторизации
+        elements.loginBtn.onclick = handleLogin;
+        
+        // Обработчики для сотрудников
+        elements.navLogout.onclick = handleLogout;
+        
+        elements.navHome.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'home';
+        };
+        
+        elements.navProfile.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'profile';
+        };
+        
+        elements.navKusp.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'kusp';
+        };
+		
+		elements.navProtocols.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'protocols';
+        };
+		
+		elements.navTsu.onclick = (e) => {
+			e.preventDefault();
+			window.location.hash = 'tsu';
+		};
+        
+        elements.navAdmin.onclick = (e) => {
+            e.preventDefault();
+            if (Auth.canManageUsers()) {
+                window.location.hash = 'admin';
+            } else {
+                UI.showNotification('Доступ запрещен', 'warning');
+            }
+        };
+        
+        // Обработчики для гостей
+        elements.guestNavHome.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'home';
+        };
+        
+        elements.guestNavAppeals.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'appeals';
+        };
+		
+		if (elements.guestNavDriverLicense) {
+			elements.guestNavDriverLicense.onclick = (e) => {
+				e.preventDefault();
+				window.location.hash = 'driver-license';
+			};
+		}
+        
+        elements.guestNavInfo.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'info';
+        };
+        
+        elements.guestNavToEmployee.onclick = (e) => {
+            e.preventDefault();
+            handleGuestLogout();
+        };
+
+        // Обработчик для гостевого доступа
+        document.getElementById('guestAccessBtn').onclick = handleGuestAccess;
+    }
+
+    // Обработка входа для сотрудников
+    async function handleLogin() {
+        const login = elements.loginInput.value.trim();
+        const pass = elements.passwordInput.value.trim();
+
+        if (!login || !pass) {
+            UI.showNotification('Введите логин и пароль', 'warning');
+            return;
+        }
+
+        try {
+            const user = await Auth.login(login, pass);
+            UI.showEmployeeMode(user);
+            window.location.hash = 'home';
+            UI.showNotification('Добро пожаловать, ' + user.nickname, 'success');
+        } catch (error) {
+            UI.showNotification(error.message, 'error');
+        }
+    }
+
+    // Обработка гостевого доступа
+    function handleGuestAccess() {
+        const guestUser = Auth.startGuestSession();
+        UI.showGuestMode();
+        window.location.hash = 'home';
+    }
+
+    // Выход из гостевого режима
+    function handleGuestLogout() {
+        Auth.logout();
+        UI.showAuthMode();
+        window.location.hash = '';
+    }
+
+    // Выход из режима сотрудника
+    function handleLogout() {
+        Auth.logout();
+        UI.showAuthMode();
+        elements.loginInput.value = '';
+        elements.passwordInput.value = '';
+        window.location.hash = '';
+    }
+
+    // Показать главную для сотрудников
+    function showHome() {
+        const clone = UI.loadTemplate('home');
+        UI.clearMain();
+        document.getElementById('mainApp').appendChild(clone);
+        
+        const user = Auth.getCurrentUser();
+        document.getElementById('greetingMessage').innerText = `👤 ${user.nickname} (${user.rank})`;
+        
+        UI.setActiveTab(elements.navHome);
+    }
+
+    // Показать профиль для сотрудников
+    function showProfile() {
+        const clone = UI.loadTemplate('profile');
+        UI.clearMain();
+        document.getElementById('mainApp').appendChild(clone);
+        
+        const user = Auth.getCurrentUser();
+        document.getElementById('profileNickname').textContent = user.nickname;
+        document.getElementById('profileRank').textContent = user.rank;
+        document.getElementById('profileDepartment').textContent = user.department;
+        document.getElementById('profileCategory').textContent = user.category;
+        
+        UI.setActiveTab(elements.navProfile);
+    }
+
+    // Гостевые страницы
+    function showGuestHome() {
+        const clone = UI.loadTemplate('guestHome');
+        UI.clearMain();
+        document.getElementById('mainApp').appendChild(clone);
+        UI.setActiveTab(elements.guestNavHome);
+    }
+
+    // Поиск дела по номеру талона для гостей
+	async function findKuspByTicketNumber(ticketNumber) {
+		try {
+			// Ищем запись в КУСП по номеру талона
+			const { data, error } = await supabaseClient
+				.from('kusps')
+				.select(`
+					kusp_number,
+					ticket_number,
+					received_datetime,
+					received_by_name,
+					reporter_name,
+					short_content,
+					status,
+					review_result,
+					notes,
+					created_at,
+					updated_at
+				`)
+				.eq('ticket_number', ticketNumber)
+				.maybeSingle();
+
+			if (error) {
+				console.error('Error finding kusp:', error);
+				return { error: 'Ошибка при поиске дела' };
+			}
+
+			if (!data) {
+				return { error: 'Дело с таким номером не найдено' };
+			}
+
+			return { data };
+		} catch (error) {
+			console.error('Error in findKuspByTicketNumber:', error);
+			return { error: 'Ошибка при поиске дела' };
+		}
+	}
+
+    // Показать информацию о деле для гостя
+    function showKuspInfoForGuest(kusp) {
+        const modal = document.createElement('div');
+        modal.className = 'modal-overlay';
+        modal.id = 'kuspGuestInfoModal';
+        
+        // Определяем статус дела
+        let statusText = '';
+        let statusClass = '';
+        switch(kusp.status) {
+            case 'new':
+                statusText = 'Зарегистрировано';
+                statusClass = 'badge-new';
+                break;
+            case 'in_progress':
+                statusText = 'В работе';
+                statusClass = 'badge-progress';
+                break;
+            case 'under_review':
+                statusText = 'На проверке';
+                statusClass = 'badge-progress';
+                break;
+            case 'closed':
+                statusText = 'Рассмотрено';
+                statusClass = 'badge-closed';
+                break;
+            default:
+                statusText = kusp.status || 'Не определено';
+        }
+        
+        // Результат рассмотрения
+        let resultText = '';
+        switch(kusp.review_result) {
+            case 'возбуждено_уголовное':
+                resultText = 'Возбуждено уголовное дело';
+                break;
+            case 'отказ_в_возбуждении':
+                resultText = 'Отказано в возбуждении уголовного дела';
+                break;
+            case 'административное':
+                resultText = 'Административное правонарушение';
+                break;
+            case 'передано_по_подследственности':
+                resultText = 'Передано по подследственности';
+                break;
+            case 'приобщено_к_другому':
+                resultText = 'Приобщено к другому делу';
+                break;
+            default:
+                resultText = 'На рассмотрении';
+        }
+        
+        modal.innerHTML = `
+            <div class="modal-container" style="max-width: 800px;">
+                <div class="modal-header">
+                    <h3>Информация по обращению</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-content">
+                    <div style="background: #f5f9ff; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h4 style="margin:0; color: #1e3a5f;">Талон-уведомление № ${escapeHtml(kusp.ticket_number)}</h4>
+                            <span class="badge ${statusClass}">${statusText}</span>
+                        </div>
+                        
+                        <div style="border-bottom: 2px solid #dbe4ee; margin: 15px 0;"></div>
+                        
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f; width: 40%;"><strong>Дата регистрации:</strong></td>
+                                <td style="padding: 8px 0;">${UI.formatDate(kusp.received_datetime)}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Принял:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.received_by_name || '—')}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Заявитель:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.reporter_name || '—')}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Содержание:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.short_content || '—')}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Статус рассмотрения:</strong></td>
+                                <td style="padding: 8px 0;">${statusText}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Результат:</strong></td>
+                                <td style="padding: 8px 0;">${resultText}</td>
+                            </tr>
+                            ${kusp.notes ? `
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Дополнительно:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.notes)}</td>
+                            </tr>
+                            ` : ''}
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Дата обновления:</strong></td>
+                                <td style="padding: 8px 0;">${UI.formatDate(kusp.updated_at || kusp.created_at)}</td>
+                            </tr>
+                        </table>
+                        
+                        <div style="border-top: 2px solid #dbe4ee; margin: 15px 0; padding-top: 15px;">
+                            <p style="font-size: 0.9rem; color: #6c757d;">
+                                Для получения более подробной информации обратитесь в дежурную часть УГИБДД.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-row" style="justify-content: flex-end;">
+                        <button id="closeKuspInfoBtn" class="secondary">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Обработчики
+        modal.querySelector('.modal-close').onclick = () => modal.remove();
+        document.getElementById('closeKuspInfoBtn').onclick = () => modal.remove();
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.remove();
+        };
+    }
+
+    function showGuestAppeals() {
+        const clone = UI.loadTemplate('guestAppeals');
+        UI.clearMain();
+        document.getElementById('mainApp').appendChild(clone);
+        
+        document.getElementById('findAppealBtn').onclick = async () => {
+            const number = document.getElementById('appealNumber').value.trim();
+            if (!number) {
+                UI.showNotification('Введите номер талона-уведомления', 'warning');
+                return;
+            }
+            
+            // Показываем индикатор загрузки
+            const btn = document.getElementById('findAppealBtn');
+            const originalText = btn.textContent;
+            btn.textContent = '⏳ Поиск...';
+            btn.disabled = true;
+            
+            try {
+                const result = await findKuspByTicketNumber(number);
+                
+                if (result.error) {
+                    UI.showNotification(result.error, 'error');
+                    document.getElementById('appealResult').innerHTML = `
+                        <div style="background: #fff0f0; padding: 15px; border-radius: 8px; color: #dc3545;">
+                            ${result.error}
+                        </div>
+                    `;
+                } else {
+                    showKuspInfoForGuest(result.data);
+                    document.getElementById('appealResult').innerHTML = `
+                        <div style="background: #e8f4e8; padding: 15px; border-radius: 8px; color: #28a745;">
+                            ✓ Дело найдено. Информация отображена в окне.
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                UI.showNotification('Ошибка при поиске', 'error');
+            } finally {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        };
+        
+        UI.setActiveTab(elements.guestNavAppeals);
+    }
+
+    function showGuestInfo() {
+        const clone = UI.loadTemplate('guestInfo');
+        UI.clearMain();
+        document.getElementById('mainApp').appendChild(clone);
+        UI.setActiveTab(elements.guestNavInfo);
+    }
+
+    return {
+        init
+    };
+})();
+
+// Запуск при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => App.init());

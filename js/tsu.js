@@ -1,1 +1,794 @@
-function _0x4f8d(_0x2253c3,_0x3eb13e){const _0x3638ba=_0x3638();return _0x4f8d=function(_0x4f8d45,_0x5620ae){_0x4f8d45=_0x4f8d45-0x11e;let _0x5a5df4=_0x3638ba[_0x4f8d45];return _0x5a5df4;},_0x4f8d(_0x2253c3,_0x3eb13e);}(function(_0x16d4e1,_0x7eefaa){const _0x56afad=_0x4f8d,_0x4b58c2=_0x16d4e1();while(!![]){try{const _0x533ac7=-parseInt(_0x56afad(0x17c))/0x1+-parseInt(_0x56afad(0x16c))/0x2*(-parseInt(_0x56afad(0x18d))/0x3)+-parseInt(_0x56afad(0x14e))/0x4+parseInt(_0x56afad(0x15c))/0x5+parseInt(_0x56afad(0x1d2))/0x6*(parseInt(_0x56afad(0x1d5))/0x7)+parseInt(_0x56afad(0x1d3))/0x8*(-parseInt(_0x56afad(0x16b))/0x9)+-parseInt(_0x56afad(0x1d9))/0xa;if(_0x533ac7===_0x7eefaa)break;else _0x4b58c2['push'](_0x4b58c2['shift']());}catch(_0x447702){_0x4b58c2['push'](_0x4b58c2['shift']());}}}(_0x3638,0x8e2e5));const TSU=(function(){const _0x2d07ed=_0x4f8d;let _0x10d5dd=[];const _0x23ffe1={'FINE':_0x2d07ed(0x152),'LICENSE':_0x2d07ed(0x1a5),'WANTED_PERSON':_0x2d07ed(0x189),'WANTED_CAR':_0x2d07ed(0x160),'WANTED_CAR_REMOVE':'wanted_car_remove'},_0xee3465={'ACTIVE':_0x2d07ed(0x126),'COMPLETED':_0x2d07ed(0x138),'EXPIRED':_0x2d07ed(0x1a9)},_0x5c45de=0xe;function _0x10a089(_0x27cb2a){const _0x45b0da=_0x2d07ed;if(!_0x27cb2a)return'';const _0x150a52=document['createElement'](_0x45b0da(0x1cc));return _0x150a52['textContent']=_0x27cb2a,_0x150a52[_0x45b0da(0x1e2)];}function _0x153ce4(_0x117158){if(!_0x117158)return'—';return new Date(_0x117158)['toLocaleDateString']('ru-RU');}function _0x3e54e0(_0x45d79d){const _0x3ee79b=_0x2d07ed,_0x1b718d=Auth['getCurrentUser']();if(!_0x1b718d)return![];if(_0x1b718d[_0x3ee79b(0x1d0)]==='РС'||_0x1b718d['category']===_0x3ee79b(0x12e)||_0x1b718d[_0x3ee79b(0x1d0)]===_0x3ee79b(0x173))return!![];return _0x45d79d[_0x3ee79b(0x19a)]===_0x1b718d[_0x3ee79b(0x130)];}function _0x2b6d94(_0x5f336a){const _0x35e848=_0x2d07ed,_0x21bbb9=Auth[_0x35e848(0x1e1)]();if(!_0x21bbb9)return![];if(_0x21bbb9[_0x35e848(0x1d0)]===_0x35e848(0x12e)||_0x21bbb9[_0x35e848(0x1d0)]===_0x35e848(0x173))return!![];return _0x5f336a[_0x35e848(0x19a)]===_0x21bbb9[_0x35e848(0x130)];}function _0x4ee5d(_0x3f7ea2){const _0x34af41=_0x2d07ed,_0x434612=Auth[_0x34af41(0x1e1)]();if(!_0x434612)return![];return _0x434612[_0x34af41(0x1d0)]===_0x34af41(0x173)||_0x434612['category']===_0x34af41(0x12e)||_0x434612[_0x34af41(0x1d0)]==='РС'||_0x434612[_0x34af41(0x1d0)]==='МС';}async function _0xdc9d86(_0x146bb8){const _0x41bdc5=_0x2d07ed;Auth['ping']();const _0x3b42e7=_0x10d5dd[_0x41bdc5(0x1da)](_0x2ae9c4=>_0x2ae9c4['id']==_0x146bb8);if(!_0x3b42e7)return;if(!_0x4ee5d(_0x3b42e7)){UI['showNotification']('У\x20вас\x20нет\x20прав\x20для\x20изменения\x20статуса',_0x41bdc5(0x161));return;}const _0x3401d3=document[_0x41bdc5(0x1b6)]('div');_0x3401d3[_0x41bdc5(0x15f)]=_0x41bdc5(0x1cf),_0x3401d3['innerHTML']=_0x41bdc5(0x156)+_0x515187(_0x3b42e7['type'])+'</p>\x0a\x09\x09\x09\x09\x09<p><strong>Цель:</strong>\x20'+_0x10a089(_0x3b42e7[_0x41bdc5(0x19c)]||_0x3b42e7[_0x41bdc5(0x1dd)])+_0x41bdc5(0x159),document[_0x41bdc5(0x168)]['appendChild'](_0x3401d3),_0x3401d3[_0x41bdc5(0x1c6)](_0x41bdc5(0x175))[_0x41bdc5(0x195)]=()=>_0x3401d3[_0x41bdc5(0x1d4)](),_0x3401d3[_0x41bdc5(0x195)]=_0x90575b=>{const _0x27c0b8=_0x41bdc5;if(_0x90575b['target']===_0x3401d3)_0x3401d3[_0x27c0b8(0x1d4)]();},document[_0x41bdc5(0x13e)](_0x41bdc5(0x127))['onclick']=()=>_0x3401d3['remove'](),document[_0x41bdc5(0x13e)](_0x41bdc5(0x165))[_0x41bdc5(0x195)]=async()=>{const _0x3dc2f6=_0x41bdc5;try{const {error:_0x284a0e}=await supabaseClient[_0x3dc2f6(0x147)]('tsu_orders')[_0x3dc2f6(0x193)]({'status':_0x3dc2f6(0x126),'completed_at':null,'completed_by_id':null,'completed_by_name':null})['eq']('id',_0x146bb8);if(_0x284a0e){UI[_0x3dc2f6(0x157)]('Ошибка:\x20'+_0x284a0e[_0x3dc2f6(0x1b3)],'error');return;}Logger['log'](_0x3dc2f6(0x185),{'tsu_id':_0x3b42e7['id'],'type':_0x3b42e7[_0x3dc2f6(0x120)],'target':_0x3b42e7['target_nick']||_0x3b42e7[_0x3dc2f6(0x1dd)],'reopened_by':Auth[_0x3dc2f6(0x1e1)]()?.[_0x3dc2f6(0x18c)]},_0x3dc2f6(0x1a7),_0x3b42e7['id']),UI[_0x3dc2f6(0x157)](_0x3dc2f6(0x1c1),_0x3dc2f6(0x12c)),_0x3401d3['remove'](),await _0x3387ad(),_0x64dda();}catch(_0x428038){UI[_0x3dc2f6(0x157)]('Ошибка:\x20'+_0x428038[_0x3dc2f6(0x1b3)],'error');}};}function _0x515187(_0x447b16){const _0x537739=_0x2d07ed,_0x2cacf6={'fine':_0x537739(0x178),'license':'Лишение\x20ВУ\x20(/takecarlic)','wanted_person':_0x537739(0x190),'wanted_car':'Розыск\x20машины\x20(/addwcar)','wanted_car_remove':_0x537739(0x1ad)};return _0x2cacf6[_0x447b16]||_0x447b16;}function _0x3863e9(_0x42dcfd){const _0x4529a2=_0x2d07ed,_0x574713={'active':'Активная','completed':_0x4529a2(0x136),'expired':'Просрочена'};return _0x574713[_0x42dcfd]||_0x42dcfd;}function _0x2a3de5(_0x49d0e6){const _0x3ffa3a=_0x2d07ed;switch(_0x49d0e6){case'active':return _0x3ffa3a(0x1df);case'completed':return'badge-closed';case _0x3ffa3a(0x1a9):return _0x3ffa3a(0x1a0);default:return'';}}function _0x5d8dac(_0x266f51){const _0x1a7d9f=_0x2d07ed,_0x2d6df5=_0x266f51['initiator_nick']||Auth[_0x1a7d9f(0x1e1)]()?.[_0x1a7d9f(0x18c)]||'Сотрудник';switch(_0x266f51[_0x1a7d9f(0x120)]){case'fine':return _0x1a7d9f(0x1b5)+_0x266f51[_0x1a7d9f(0x19c)]+'\x20'+(_0x266f51['amount']||'')+'\x20'+_0x266f51[_0x1a7d9f(0x187)]+_0x1a7d9f(0x13b)+_0x2d6df5+_0x1a7d9f(0x184);case _0x1a7d9f(0x1a5):return'/takecarlic\x20'+_0x266f51[_0x1a7d9f(0x19c)]+'\x20'+(_0x266f51[_0x1a7d9f(0x1bd)]||'0')+'\x20'+_0x266f51[_0x1a7d9f(0x187)]+_0x1a7d9f(0x13b)+_0x2d6df5+'\x20(УГИБДД)';case _0x1a7d9f(0x189):return _0x1a7d9f(0x1a4)+_0x266f51[_0x1a7d9f(0x19c)]+'\x20'+(_0x266f51[_0x1a7d9f(0x174)]||'1')+'\x20'+_0x266f51[_0x1a7d9f(0x187)]+_0x1a7d9f(0x13b)+_0x2d6df5+_0x1a7d9f(0x184);case _0x1a7d9f(0x160):return _0x1a7d9f(0x1b1)+(_0x266f51[_0x1a7d9f(0x1dd)]||'')+'\x20'+(_0x266f51[_0x1a7d9f(0x170)]||'')+'\x20'+_0x266f51[_0x1a7d9f(0x187)]+_0x1a7d9f(0x13b)+_0x2d6df5+'\x20(УГИБДД)';case'wanted_car_remove':return _0x1a7d9f(0x171)+(_0x266f51['car_plate']||'')+'\x20'+(_0x266f51[_0x1a7d9f(0x170)]||'')+_0x1a7d9f(0x13b)+_0x2d6df5;default:return'';}}async function _0x39734b(_0x2e703a){const _0x243e65=_0x2d07ed,_0x39356b=_0x5d8dac(_0x2e703a);try{await navigator[_0x243e65(0x1ca)][_0x243e65(0x1bc)](_0x39356b),UI[_0x243e65(0x157)](_0x243e65(0x129),_0x243e65(0x12c));}catch(_0x3e2e0a){UI['showNotification'](_0x243e65(0x19d),'error');}}async function _0x3387ad(){const _0x3ccce4=_0x2d07ed;try{Auth[_0x3ccce4(0x1a3)]();const {data:_0x46c487,error:_0x2c3e38}=await supabaseClient[_0x3ccce4(0x147)]('tsu_orders')[_0x3ccce4(0x123)]('*')[_0x3ccce4(0x1ac)](_0x3ccce4(0x196),{'ascending':![]});if(_0x2c3e38)return console[_0x3ccce4(0x161)]('Error\x20loading\x20tsu:',_0x2c3e38),UI[_0x3ccce4(0x157)]('Ошибка\x20загрузки\x20наводок:\x20'+_0x2c3e38[_0x3ccce4(0x1b3)],'error'),[];return _0x10d5dd=_0x46c487||[],_0x10d5dd;}catch(_0x3338c5){return console['error'](_0x3ccce4(0x150),_0x3338c5),ErrorHandler[_0x3ccce4(0x1d7)](_0x3338c5,_0x3ccce4(0x15e)),[];}}async function _0x347154(){const _0x37f5bd=_0x2d07ed,_0x2e25c8=new Date()[_0x37f5bd(0x11f)](),_0x3adf94=_0x10d5dd[_0x37f5bd(0x13c)](_0x511cac=>_0x511cac[_0x37f5bd(0x1a6)]==='active'&&_0x511cac['expires_at']&&_0x511cac[_0x37f5bd(0x167)]<_0x2e25c8);for(const _0x1adb8c of _0x3adf94){await supabaseClient['from'](_0x37f5bd(0x17d))[_0x37f5bd(0x193)]({'status':_0x37f5bd(0x1a9)})['eq']('id',_0x1adb8c['id']);}_0x3adf94[_0x37f5bd(0x121)]>0x0&&await _0x3387ad();}function _0x22cbb3(_0x3ec18d,_0x1d8735,_0x228fce){const _0x1178db=_0x2d07ed;return _0x10d5dd[_0x1178db(0x13c)](_0x587486=>{const _0x535c63=_0x1178db;if(_0x1d8735&&_0x587486[_0x535c63(0x120)]!==_0x1d8735)return![];if(_0x228fce&&_0x587486[_0x535c63(0x1a6)]!==_0x228fce)return![];if(!_0x3ec18d)return!![];const _0x4ef371=_0x3ec18d[_0x535c63(0x1aa)]();return _0x587486[_0x535c63(0x19c)]?.[_0x535c63(0x1aa)]()[_0x535c63(0x15a)](_0x4ef371)||_0x587486['reason']?.[_0x535c63(0x1aa)]()[_0x535c63(0x15a)](_0x4ef371)||_0x587486[_0x535c63(0x198)]?.[_0x535c63(0x1aa)]()['includes'](_0x4ef371)||_0x587486['car_plate']?.[_0x535c63(0x1aa)]()[_0x535c63(0x15a)](_0x4ef371);});}async function _0x636bc7(_0x461806){const _0xc4e1b6=_0x2d07ed;Auth[_0xc4e1b6(0x1a3)]();const _0x5d88ac=_0x10d5dd[_0xc4e1b6(0x1da)](_0x1ef3f1=>_0x1ef3f1['id']==_0x461806);if(!_0x5d88ac)return;if(!_0x4ee5d(_0x5d88ac)){UI['showNotification'](_0xc4e1b6(0x180),_0xc4e1b6(0x161));return;}const _0x3ac76f=document[_0xc4e1b6(0x1b6)](_0xc4e1b6(0x1cc));_0x3ac76f[_0xc4e1b6(0x15f)]='modal-overlay',_0x3ac76f[_0xc4e1b6(0x1e2)]=_0xc4e1b6(0x1b8)+_0x515187(_0x5d88ac[_0xc4e1b6(0x120)])+_0xc4e1b6(0x133)+_0x10a089(_0x5d88ac[_0xc4e1b6(0x19c)]||_0x5d88ac[_0xc4e1b6(0x1dd)])+_0xc4e1b6(0x179),document[_0xc4e1b6(0x168)][_0xc4e1b6(0x164)](_0x3ac76f),_0x3ac76f[_0xc4e1b6(0x1c6)](_0xc4e1b6(0x175))['onclick']=()=>_0x3ac76f[_0xc4e1b6(0x1d4)](),_0x3ac76f['onclick']=_0x1c6312=>{const _0x2b9c39=_0xc4e1b6;if(_0x1c6312[_0x2b9c39(0x197)]===_0x3ac76f)_0x3ac76f['remove']();},document['getElementById'](_0xc4e1b6(0x199))['onclick']=()=>_0x3ac76f[_0xc4e1b6(0x1d4)](),document[_0xc4e1b6(0x13e)](_0xc4e1b6(0x1c8))[_0xc4e1b6(0x195)]=async()=>{const _0x1be0b4=_0xc4e1b6;try{const {error:_0x3c65ba}=await supabaseClient[_0x1be0b4(0x147)]('tsu_orders')[_0x1be0b4(0x193)]({'status':_0x1be0b4(0x138),'completed_at':new Date()[_0x1be0b4(0x11f)](),'completed_by_id':Auth['getCurrentUser']()?.[_0x1be0b4(0x130)],'completed_by_name':Auth[_0x1be0b4(0x1e1)]()?.[_0x1be0b4(0x18c)]})['eq']('id',_0x461806);if(_0x3c65ba){UI[_0x1be0b4(0x157)]('Ошибка:\x20'+_0x3c65ba[_0x1be0b4(0x1b3)],'error');return;}Logger[_0x1be0b4(0x158)](_0x1be0b4(0x1e3),{'tsu_id':_0x5d88ac['id'],'type':_0x5d88ac[_0x1be0b4(0x120)],'target':_0x5d88ac[_0x1be0b4(0x19c)]||_0x5d88ac['car_plate'],'completed_by':Auth[_0x1be0b4(0x1e1)]()?.['nickname']},'tsu',_0x5d88ac['id']),UI[_0x1be0b4(0x157)](_0x1be0b4(0x153),'success'),_0x3ac76f['remove'](),await _0x3387ad(),_0x64dda();}catch(_0x453c91){UI[_0x1be0b4(0x157)](_0x1be0b4(0x16f)+_0x453c91[_0x1be0b4(0x1b3)],_0x1be0b4(0x161));}};}function _0x34c8f6(_0x24d270){const _0x445125=_0x2d07ed,_0x3d6be1=document[_0x445125(0x13e)]('tsuList');if(!_0x3d6be1)return;_0x3d6be1[_0x445125(0x1e2)]='';if(!_0x24d270[_0x445125(0x121)]){_0x3d6be1[_0x445125(0x1e2)]=_0x445125(0x13f);return;}_0x24d270[_0x445125(0x192)](_0x37f84d=>{const _0xa0762d=_0x445125,_0x3993e0=document[_0xa0762d(0x1b6)](_0xa0762d(0x1cc));_0x3993e0['className']=_0xa0762d(0x142);const _0x4c8279=_0x3e54e0(_0x37f84d),_0x2db1d3=_0x2b6d94(_0x37f84d),_0x488df5=_0x4ee5d(_0x37f84d)&&_0x37f84d[_0xa0762d(0x1a6)]===_0xa0762d(0x126);let _0x1a734b=_0x37f84d[_0xa0762d(0x19c)]||_0x37f84d['car_plate']||'—';(_0x37f84d['type']===_0xa0762d(0x160)||_0x37f84d[_0xa0762d(0x120)]==='wanted_car_remove')&&(_0x1a734b=''+(_0x37f84d['car_plate']||'—')+(_0x37f84d[_0xa0762d(0x170)]||''));let _0x4fb06b='';if(_0x37f84d[_0xa0762d(0x120)]===_0xa0762d(0x152)&&_0x37f84d[_0xa0762d(0x1c3)])_0x4fb06b=_0xa0762d(0x1dc)+_0x37f84d['amount'];if(_0x37f84d[_0xa0762d(0x120)]===_0xa0762d(0x1a5)&&_0x37f84d[_0xa0762d(0x1bd)]!==null&&_0x37f84d[_0xa0762d(0x1bd)]!==undefined)_0x4fb06b=_0xa0762d(0x18f)+_0x37f84d[_0xa0762d(0x1bd)];if(_0x37f84d[_0xa0762d(0x120)]===_0xa0762d(0x189)&&_0x37f84d[_0xa0762d(0x174)])_0x4fb06b=_0xa0762d(0x134)+_0x37f84d[_0xa0762d(0x174)];const _0x1407b4=_0x2a3de5(_0x37f84d[_0xa0762d(0x1a6)]),_0xf944d2=_0x3863e9(_0x37f84d[_0xa0762d(0x1a6)]);_0x3993e0[_0xa0762d(0x1e2)]=_0xa0762d(0x19b)+_0x515187(_0x37f84d[_0xa0762d(0x120)])+_0xa0762d(0x14c)+_0x1407b4+'\x22>'+_0xf944d2+_0xa0762d(0x16e)+_0x10a089(_0x1a734b)+'</strong>'+_0x4fb06b+_0xa0762d(0x1d1)+_0x10a089(_0x37f84d[_0xa0762d(0x187)]||'—')+_0xa0762d(0x1a1)+_0x10a089(_0x37f84d['initiator_nick']||'—')+'\x20·\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Создал:\x20'+_0x10a089(_0x37f84d['created_by_name']||'—')+_0xa0762d(0x14b)+_0x153ce4(_0x37f84d[_0xa0762d(0x167)])+_0xa0762d(0x12d)+_0x37f84d['id']+_0xa0762d(0x148)+(_0x37f84d[_0xa0762d(0x1a6)]===_0xa0762d(0x126)?_0xa0762d(0x166)+_0x37f84d['id']+_0xa0762d(0x14f):'<button\x20class=\x22small\x22\x20style=\x22background:#ffc107;\x22\x20data-id=\x22'+_0x37f84d['id']+_0xa0762d(0x172))+_0xa0762d(0x11e)+(_0x4c8279?'<button\x20class=\x22small\x22\x20data-id=\x22'+_0x37f84d['id']+_0xa0762d(0x17e):'')+_0xa0762d(0x11e)+(_0x2db1d3?'<button\x20class=\x22small\x20secondary\x22\x20data-id=\x22'+_0x37f84d['id']+_0xa0762d(0x19f):'')+_0xa0762d(0x17a),_0x3d6be1[_0xa0762d(0x164)](_0x3993e0);}),_0x3d6be1[_0x445125(0x154)](_0x445125(0x169))[_0x445125(0x192)](_0x2b8a0=>{_0x2b8a0['onclick']=()=>{const _0x16c4c1=_0x4f8d,_0x34e6a5=_0x24d270[_0x16c4c1(0x1da)](_0x2df6cd=>_0x2df6cd['id']==_0x2b8a0[_0x16c4c1(0x139)]['id']);if(_0x34e6a5)_0x39734b(_0x34e6a5);};}),_0x3d6be1[_0x445125(0x154)](_0x445125(0x149))[_0x445125(0x192)](_0x417e4c=>{_0x417e4c['onclick']=()=>_0x636bc7(_0x417e4c['dataset']['id']);}),_0x3d6be1[_0x445125(0x154)](_0x445125(0x1de))[_0x445125(0x192)](_0x4252d0=>{const _0x320266=_0x445125;_0x4252d0[_0x320266(0x195)]=()=>_0xdc9d86(_0x4252d0['dataset']['id']);}),_0x3d6be1[_0x445125(0x154)](_0x445125(0x17b))[_0x445125(0x192)](_0x10b425=>{const _0x114c59=_0x445125;_0x10b425['onclick']=()=>_0x440eda(_0x10b425[_0x114c59(0x139)]['id']);}),_0x3d6be1[_0x445125(0x154)](_0x445125(0x15d))[_0x445125(0x192)](_0x323556=>{const _0x4f8ba5=_0x445125;_0x323556[_0x4f8ba5(0x195)]=()=>_0x1415dd(_0x323556[_0x4f8ba5(0x139)]['id']);});}function _0x64dda(){const _0x59284b=_0x2d07ed,_0x179aca=document[_0x59284b(0x13e)](_0x59284b(0x177))?.[_0x59284b(0x1d8)][_0x59284b(0x1aa)]()||'',_0x12db66=document[_0x59284b(0x13e)](_0x59284b(0x194))?.[_0x59284b(0x1d8)]||'',_0x3c4e23=document[_0x59284b(0x13e)](_0x59284b(0x1be))?.[_0x59284b(0x1d8)]||'',_0x36cd7c=_0x22cbb3(_0x179aca,_0x12db66,_0x3c4e23);_0x34c8f6(_0x36cd7c);}async function _0x1415dd(_0x248255){const _0x11fe99=_0x2d07ed;Auth[_0x11fe99(0x1a3)]();const _0x147fcb=_0x10d5dd[_0x11fe99(0x1da)](_0x288362=>_0x288362['id']==_0x248255);if(!_0x147fcb)return;if(!_0x2b6d94(_0x147fcb)){UI[_0x11fe99(0x157)]('У\x20вас\x20нет\x20прав\x20на\x20удаление\x20этой\x20наводки',_0x11fe99(0x161));return;}const _0x19ed68=document[_0x11fe99(0x1b6)](_0x11fe99(0x1cc));_0x19ed68['className']='modal-overlay',_0x19ed68[_0x11fe99(0x1e2)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-container\x22\x20style=\x22max-width:\x20400px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-header\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3>Подтверждение\x20удаления</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22modal-close\x22>&times;</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Вы\x20уверены,\x20что\x20хотите\x20удалить\x20наводку?</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>Тип:</strong>\x20'+_0x515187(_0x147fcb[_0x11fe99(0x120)])+_0x11fe99(0x128)+_0x10a089(_0x147fcb[_0x11fe99(0x19c)]||_0x147fcb[_0x11fe99(0x1dd)])+_0x11fe99(0x1ce),document['body'][_0x11fe99(0x164)](_0x19ed68),_0x19ed68[_0x11fe99(0x1c6)]('.modal-close')[_0x11fe99(0x195)]=()=>_0x19ed68[_0x11fe99(0x1d4)](),_0x19ed68[_0x11fe99(0x195)]=_0x239fff=>{const _0x50acc9=_0x11fe99;if(_0x239fff[_0x50acc9(0x197)]===_0x19ed68)_0x19ed68[_0x50acc9(0x1d4)]();},document[_0x11fe99(0x13e)]('cancelDeleteBtn')[_0x11fe99(0x195)]=()=>_0x19ed68[_0x11fe99(0x1d4)](),document[_0x11fe99(0x13e)](_0x11fe99(0x1db))[_0x11fe99(0x195)]=async()=>{const _0x2a327e=_0x11fe99;try{Logger[_0x2a327e(0x158)](_0x2a327e(0x18e),{'tsu_id':_0x147fcb['id'],'type':_0x147fcb[_0x2a327e(0x120)],'target':_0x147fcb[_0x2a327e(0x19c)]||_0x147fcb['car_plate'],'deleted_by':Auth[_0x2a327e(0x1e1)]()?.[_0x2a327e(0x18c)]},_0x2a327e(0x1a7),_0x147fcb['id']);const {error:_0x3bd764}=await supabaseClient[_0x2a327e(0x147)](_0x2a327e(0x17d))[_0x2a327e(0x137)]()['eq']('id',_0x248255);if(_0x3bd764){UI[_0x2a327e(0x157)]('Ошибка:\x20'+_0x3bd764[_0x2a327e(0x1b3)],_0x2a327e(0x161));return;}UI['showNotification'](_0x2a327e(0x14a),_0x2a327e(0x12c)),_0x19ed68[_0x2a327e(0x1d4)](),await _0x3387ad(),_0x64dda();}catch(_0x1b42fa){UI[_0x2a327e(0x157)](_0x2a327e(0x16f)+_0x1b42fa[_0x2a327e(0x1b3)],_0x2a327e(0x161));}};}async function _0x440eda(_0x4ba71b=null){const _0x3eef2f=_0x2d07ed;Auth[_0x3eef2f(0x1a3)]();const _0x206032=Auth[_0x3eef2f(0x1e1)]();let _0x4e17ad=null;if(_0x4ba71b){_0x4e17ad=_0x10d5dd['find'](_0x536fc3=>_0x536fc3['id']==_0x4ba71b);if(!_0x4e17ad)return;if(!_0x3e54e0(_0x4e17ad)){UI['showNotification'](_0x3eef2f(0x18b),_0x3eef2f(0x161));return;}}const _0x18e497=UI['loadTemplate'](_0x3eef2f(0x124));if(!_0x18e497){UI[_0x3eef2f(0x157)](_0x3eef2f(0x1ab),_0x3eef2f(0x161));return;}UI['clearMain'](),document[_0x3eef2f(0x13e)](_0x3eef2f(0x1af))[_0x3eef2f(0x164)](_0x18e497);const _0x29c599=document[_0x3eef2f(0x13e)]('tsuFormTitle');_0x29c599&&(_0x29c599[_0x3eef2f(0x17f)]=_0x4e17ad?_0x3eef2f(0x1cb):_0x3eef2f(0x135));const _0x2fba01=new Date();_0x2fba01[_0x3eef2f(0x144)](_0x2fba01[_0x3eef2f(0x132)]()+_0x5c45de),document['getElementById'](_0x3eef2f(0x1c0))[_0x3eef2f(0x1d8)]=_0x2fba01[_0x3eef2f(0x11f)]()['split']('T')[0x0];const _0x3cd106=new Date();_0x3cd106[_0x3eef2f(0x144)](_0x3cd106[_0x3eef2f(0x132)]()+_0x5c45de);_0x4e17ad&&_0x4e17ad[_0x3eef2f(0x167)]?document['getElementById'](_0x3eef2f(0x1c0))[_0x3eef2f(0x1d8)]=_0x4e17ad[_0x3eef2f(0x167)]['split']('T')[0x0]:document[_0x3eef2f(0x13e)](_0x3eef2f(0x1c0))[_0x3eef2f(0x1d8)]=_0x3cd106[_0x3eef2f(0x11f)]()[_0x3eef2f(0x188)]('T')[0x0];_0x4e17ad&&(document['getElementById'](_0x3eef2f(0x12b))[_0x3eef2f(0x1d8)]=_0x4e17ad[_0x3eef2f(0x120)]||'',document[_0x3eef2f(0x13e)]('tsu_target_nick')['value']=_0x4e17ad[_0x3eef2f(0x19c)]||'',document[_0x3eef2f(0x13e)]('tsu_amount')[_0x3eef2f(0x1d8)]=_0x4e17ad['amount']||'',document[_0x3eef2f(0x13e)]('tsu_days')[_0x3eef2f(0x1d8)]=_0x4e17ad[_0x3eef2f(0x1bd)]||'',document[_0x3eef2f(0x13e)]('tsu_stars')[_0x3eef2f(0x1d8)]=_0x4e17ad['stars']||'',document[_0x3eef2f(0x13e)](_0x3eef2f(0x145))[_0x3eef2f(0x1d8)]=_0x4e17ad['car_plate']||'',document['getElementById'](_0x3eef2f(0x163))[_0x3eef2f(0x1d8)]=_0x4e17ad[_0x3eef2f(0x170)]||'',document[_0x3eef2f(0x13e)]('tsu_reason')[_0x3eef2f(0x1d8)]=_0x4e17ad[_0x3eef2f(0x187)]||'',document[_0x3eef2f(0x13e)](_0x3eef2f(0x1c7))[_0x3eef2f(0x1d8)]=_0x4e17ad[_0x3eef2f(0x198)]||'',document[_0x3eef2f(0x13e)](_0x3eef2f(0x1c0))['value']=_0x4e17ad[_0x3eef2f(0x167)]?_0x4e17ad[_0x3eef2f(0x167)][_0x3eef2f(0x188)]('T')[0x0]:_0x2fba01[_0x3eef2f(0x11f)]()['split']('T')[0x0]);function _0x5be1d3(){const _0x4ee31a=_0x3eef2f,_0x2b34bc=document['getElementById'](_0x4ee31a(0x12b))[_0x4ee31a(0x1d8)];document[_0x4ee31a(0x13e)](_0x4ee31a(0x155))['style'][_0x4ee31a(0x12f)]=_0x4ee31a(0x1b2),document[_0x4ee31a(0x13e)](_0x4ee31a(0x143))[_0x4ee31a(0x191)][_0x4ee31a(0x12f)]=_0x4ee31a(0x1b2),document[_0x4ee31a(0x13e)](_0x4ee31a(0x1ba))['style'][_0x4ee31a(0x12f)]=_0x4ee31a(0x1b2),document[_0x4ee31a(0x13e)](_0x4ee31a(0x1b9))['style'][_0x4ee31a(0x12f)]=_0x4ee31a(0x1b2),document['getElementById'](_0x4ee31a(0x1bf))[_0x4ee31a(0x191)][_0x4ee31a(0x12f)]=_0x4ee31a(0x1b2);if(_0x2b34bc===_0x4ee31a(0x152))document['getElementById']('tsu_amount_field')[_0x4ee31a(0x191)][_0x4ee31a(0x12f)]=_0x4ee31a(0x1bb);else{if(_0x2b34bc===_0x4ee31a(0x1a5))document[_0x4ee31a(0x13e)](_0x4ee31a(0x143))[_0x4ee31a(0x191)][_0x4ee31a(0x12f)]='block';else{if(_0x2b34bc===_0x4ee31a(0x189))document[_0x4ee31a(0x13e)](_0x4ee31a(0x1ba))[_0x4ee31a(0x191)][_0x4ee31a(0x12f)]='block';else(_0x2b34bc===_0x4ee31a(0x160)||_0x2b34bc===_0x4ee31a(0x13d))&&(document[_0x4ee31a(0x13e)](_0x4ee31a(0x1b9))[_0x4ee31a(0x191)][_0x4ee31a(0x12f)]=_0x4ee31a(0x1bb),document[_0x4ee31a(0x13e)]('tsu_region_field')[_0x4ee31a(0x191)]['display']=_0x4ee31a(0x1bb));}}}document[_0x3eef2f(0x13e)](_0x3eef2f(0x12b))[_0x3eef2f(0x1cd)](_0x3eef2f(0x1c5),_0x5be1d3),_0x5be1d3(),document['getElementById'](_0x3eef2f(0x124))[_0x3eef2f(0x1b4)]=async _0x38ba9b=>{const _0x3dba2d=_0x3eef2f;_0x38ba9b[_0x3dba2d(0x1b0)]();const _0x5c172b=document[_0x3dba2d(0x13e)](_0x3dba2d(0x12b))['value'],_0x5abcf3=document[_0x3dba2d(0x13e)](_0x3dba2d(0x13a))[_0x3dba2d(0x1d8)][_0x3dba2d(0x1ae)](),_0x58e7aa=document[_0x3dba2d(0x13e)](_0x3dba2d(0x131))[_0x3dba2d(0x1d8)][_0x3dba2d(0x1ae)](),_0x3183da=document['getElementById'](_0x3dba2d(0x1c7))[_0x3dba2d(0x1d8)][_0x3dba2d(0x1ae)](),_0x1464bf=document[_0x3dba2d(0x13e)](_0x3dba2d(0x1c0))[_0x3dba2d(0x1d8)];if(!_0x5c172b||!_0x58e7aa||!_0x3183da){UI[_0x3dba2d(0x157)](_0x3dba2d(0x122),_0x3dba2d(0x161));return;}if(_0x5c172b===_0x3dba2d(0x152)){const _0x405e26=document['getElementById'](_0x3dba2d(0x140))[_0x3dba2d(0x1d8)];if(!_0x405e26||_0x405e26<=0x0){UI['showNotification'](_0x3dba2d(0x18a),_0x3dba2d(0x161));return;}}else{if(_0x5c172b===_0x3dba2d(0x1a5)){const _0x1f425c=document[_0x3dba2d(0x13e)]('tsu_days')[_0x3dba2d(0x1d8)];if(_0x1f425c===''||_0x1f425c<0x0||_0x1f425c>0x4){UI['showNotification'](_0x3dba2d(0x1d6),_0x3dba2d(0x161));return;}}else{if(_0x5c172b===_0x3dba2d(0x189)){const _0x4d2152=document[_0x3dba2d(0x13e)](_0x3dba2d(0x1c2))[_0x3dba2d(0x1d8)];if(!_0x4d2152||_0x4d2152<0x1||_0x4d2152>0x6){UI['showNotification'](_0x3dba2d(0x176),_0x3dba2d(0x161));return;}}else{if(_0x5c172b===_0x3dba2d(0x160)||_0x5c172b===_0x3dba2d(0x13d)){const _0x41f902=document[_0x3dba2d(0x13e)](_0x3dba2d(0x145))[_0x3dba2d(0x1d8)][_0x3dba2d(0x1ae)](),_0x148616=document['getElementById'](_0x3dba2d(0x163))[_0x3dba2d(0x1d8)]['trim']();if(!_0x41f902){UI['showNotification']('Введите\x20госномер',_0x3dba2d(0x161));return;}if(!_0x148616||_0x148616[_0x3dba2d(0x121)]!==0x2||!/^\d+$/['test'](_0x148616)){UI[_0x3dba2d(0x157)](_0x3dba2d(0x1c9),'error');return;}}}}}const _0x1868c6={'type':_0x5c172b,'target_nick':_0x5abcf3||null,'amount':_0x5c172b===_0x3dba2d(0x152)?parseInt(document[_0x3dba2d(0x13e)]('tsu_amount')['value']):null,'days':_0x5c172b===_0x3dba2d(0x1a5)?parseInt(document[_0x3dba2d(0x13e)](_0x3dba2d(0x16a))[_0x3dba2d(0x1d8)]):null,'stars':_0x5c172b===_0x3dba2d(0x189)?parseInt(document[_0x3dba2d(0x13e)]('tsu_stars')['value']):null,'car_plate':_0x5c172b===_0x3dba2d(0x160)||_0x5c172b==='wanted_car_remove'?document[_0x3dba2d(0x13e)]('tsu_car_plate')['value']['trim']():null,'car_region':_0x5c172b==='wanted_car'||_0x5c172b==='wanted_car_remove'?document[_0x3dba2d(0x13e)]('tsu_car_region')[_0x3dba2d(0x1d8)][_0x3dba2d(0x1ae)]():null,'reason':_0x58e7aa,'initiator_nick':_0x3183da,'expires_at':_0x1464bf,'status':'active'},_0x166a1e=document[_0x3dba2d(0x13e)](_0x3dba2d(0x15b)),_0x22f2a=_0x166a1e[_0x3dba2d(0x17f)];_0x166a1e[_0x3dba2d(0x17f)]=_0x3dba2d(0x186),_0x166a1e['disabled']=!![];try{let _0x50791f;if(_0x4e17ad){const {error:_0x4c7c12}=await supabaseClient['from']('tsu_orders')[_0x3dba2d(0x193)](_0x1868c6)['eq']('id',_0x4e17ad['id']);_0x50791f=_0x4c7c12,!_0x50791f&&Logger['log'](_0x3dba2d(0x125),{'tsu_id':_0x4e17ad['id'],'type':_0x5c172b,'target':_0x5abcf3||_0x1868c6[_0x3dba2d(0x1dd)],'updated_by':_0x206032[_0x3dba2d(0x18c)]},_0x3dba2d(0x1a7),_0x4e17ad['id']);}else{const {error:_0x3f2551}=await supabaseClient[_0x3dba2d(0x147)](_0x3dba2d(0x17d))[_0x3dba2d(0x183)]([{..._0x1868c6,'created_by_id':_0x206032['auth_user_id'],'created_by_name':_0x206032[_0x3dba2d(0x18c)]}]);_0x50791f=_0x3f2551,!_0x50791f&&Logger['log'](_0x3dba2d(0x1a2),{'type':_0x5c172b,'target':_0x5abcf3||_0x1868c6[_0x3dba2d(0x1dd)],'reason':_0x58e7aa,'created_by':_0x206032['nickname']},'tsu',null);}if(_0x50791f){console['error']('Save\x20error:',_0x50791f),UI[_0x3dba2d(0x157)](_0x3dba2d(0x16f)+_0x50791f[_0x3dba2d(0x1b3)],_0x3dba2d(0x161));return;}UI['showNotification'](_0x4e17ad?_0x3dba2d(0x1b7):_0x3dba2d(0x162),_0x3dba2d(0x12c)),await _0x3387ad(),_0x2de590();}catch(_0x35fce7){console[_0x3dba2d(0x161)]('Error\x20saving\x20tsu:',_0x35fce7),UI['showNotification'](_0x3dba2d(0x16d),'error');}finally{_0x166a1e[_0x3dba2d(0x17f)]=_0x22f2a,_0x166a1e[_0x3dba2d(0x1e0)]=![];}},document[_0x3eef2f(0x13e)]('tsuFormCancel')[_0x3eef2f(0x195)]=()=>{_0x2de590();};}async function _0x2de590(){const _0x41db63=_0x2d07ed;try{Auth['ping']();const _0x4ee303=UI[_0x41db63(0x141)]('tsuList');if(!_0x4ee303){console[_0x41db63(0x161)](_0x41db63(0x1c4)),UI[_0x41db63(0x157)](_0x41db63(0x1ab),_0x41db63(0x161));return;}UI[_0x41db63(0x151)](),document[_0x41db63(0x13e)](_0x41db63(0x1af))[_0x41db63(0x164)](_0x4ee303);const _0x4697c2=UI[_0x41db63(0x146)]();_0x4697c2['navTsu']&&UI[_0x41db63(0x182)](_0x4697c2[_0x41db63(0x12a)]);await _0x3387ad(),await _0x347154(),_0x64dda();const _0x34fb4f=document['getElementById'](_0x41db63(0x177)),_0x1f2f32=document[_0x41db63(0x13e)](_0x41db63(0x194)),_0x349ca7=document[_0x41db63(0x13e)](_0x41db63(0x1be)),_0x2514c5=document[_0x41db63(0x13e)](_0x41db63(0x181));_0x34fb4f&&_0x34fb4f['addEventListener'](_0x41db63(0x14d),_0x64dda),_0x1f2f32&&_0x1f2f32[_0x41db63(0x1cd)](_0x41db63(0x1c5),_0x64dda),_0x349ca7&&_0x349ca7[_0x41db63(0x1cd)](_0x41db63(0x1c5),_0x64dda),_0x2514c5&&(_0x2514c5[_0x41db63(0x195)]=()=>_0x440eda());}catch(_0x5d76dd){console[_0x41db63(0x161)](_0x41db63(0x19e),_0x5d76dd),UI['showNotification'](_0x41db63(0x1a8),_0x41db63(0x161));}}return{'initTsuList':_0x2de590,'loadTsuList':_0x3387ad,'canEditTSU':_0x3e54e0,'canDeleteTSU':_0x2b6d94,'canCompleteTSU':_0x4ee5d,'generateCommand':_0x5d8dac,'copyCommand':_0x39734b,'reopenTsu':_0xdc9d86,'TSU_TYPES':_0x23ffe1,'TSU_STATUS':_0xee3465,'EXPIRATION_DAYS':_0x5c45de};}());window['TSU']=TSU;function _0x3638(){const _0xef9927=['auth_user_id','tsu_reason','getDate','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>Нарушитель:</strong>\x20','\x20·\x20Звёзд:\x20','Новая\x20наводка','Выполнена','delete','completed','dataset','tsu_target_nick','\x20by\x20','filter','wanted_car_remove','getElementById','<div\x20class=\x22list-item\x22\x20style=\x22justify-content:\x20center;\x20color:\x20#6b7f99;\x22>Нет\x20наводок</div>','tsu_amount','loadTemplate','list-item','tsu_days_field','setDate','tsu_car_plate','getElements','from','\x22\x20data-action=\x22copy\x22>📋\x20Копировать</button>\x0a\x09\x09\x09\x09\x09','button[data-action=\x22complete\x22]','Наводка\x20удалена','\x20·\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Срок:\x20до\x20','\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22badge\x20','input','3777788wzisMk','\x22\x20data-action=\x22complete\x22>✅\x20Отметить\x20выполненным</button>','Error\x20in\x20loadTsuList:','clearMain','fine','Наводка\x20отмечена\x20как\x20выполненная','querySelectorAll','tsu_amount_field','\x0a\x09\x09\x09<div\x20class=\x22modal-container\x22\x20style=\x22max-width:\x20400px;\x22>\x0a\x09\x09\x09\x09<div\x20class=\x22modal-header\x22>\x0a\x09\x09\x09\x09\x09<h3>Подтверждение</h3>\x0a\x09\x09\x09\x09\x09<button\x20class=\x22modal-close\x22>&times;</button>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09<div\x20class=\x22modal-content\x22>\x0a\x09\x09\x09\x09\x09<p>Вернуть\x20наводку\x20в\x20статус\x20\x22Активная\x22?</p>\x0a\x09\x09\x09\x09\x09<p><strong>Тип:</strong>\x20','showNotification','log','</p>\x0a\x09\x09\x09\x09\x09<div\x20class=\x22flex-row\x22\x20style=\x22justify-content:\x20flex-end;\x22>\x0a\x09\x09\x09\x09\x09\x09<button\x20id=\x22cancelReopenBtn\x22\x20class=\x22secondary\x22>Отмена</button>\x0a\x09\x09\x09\x09\x09\x09<button\x20id=\x22confirmReopenBtn\x22\x20style=\x22background:\x20#ffc107;\x22>🔄\x20Вернуть\x20в\x20работу</button>\x0a\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09</div>\x0a\x09\x09','includes','tsuFormSubmit','3564030ZvWdkG','button[data-action=\x22delete\x22]','Ошибка\x20загрузки\x20наводок','className','wanted_car','error','Наводка\x20создана','tsu_car_region','appendChild','confirmReopenBtn','<button\x20class=\x22small\x22\x20style=\x22background:#28a745;\x22\x20data-id=\x22','expires_at','body','button[data-action=\x22copy\x22]','tsu_days','28719cAydCy','2xaaYzv','Ошибка\x20при\x20сохранении','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item-meta\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<strong>Нарушитель:\x20','Ошибка:\x20','car_region','/delwcar\x20','\x22\x20data-action=\x22reopen\x22>🔄\x20Вернуть\x20в\x20работу</button>','Администратор','stars','.modal-close','Введите\x20количество\x20звёзд\x20от\x201\x20до\x206','tsuSearch','Выписать\x20штраф\x20(/tsu)','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex-row\x22\x20style=\x22justify-content:\x20flex-end;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22cancelCompleteBtn\x22\x20class=\x22secondary\x22>Отмена</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22confirmCompleteBtn\x22\x20style=\x22background:\x20#28a745;\x22>✅\x20Отметить\x20выполненной</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x09\x09\x09\x09</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','button[data-action=\x22edit\x22]','279608SVBrBn','tsu_orders','\x22\x20data-action=\x22edit\x22>✏️</button>','textContent','У\x20вас\x20нет\x20прав\x20для\x20отметки\x20выполнения','tsuCreateOpen','setActiveTab','insert','\x20(УГИБДД)','tsu_reopen','⏳\x20Сохранение...','reason','split','wanted_person','Введите\x20корректную\x20сумму\x20штрафа','У\x20вас\x20нет\x20прав\x20на\x20редактирование\x20этой\x20наводки','nickname','1762815uXKxKq','tsu_delete','\x20·\x20Дней:\x20','Подать\x20в\x20розыск\x20(/su)','style','forEach','update','tsuFilterType','onclick','created_at','target','initiator_nick','cancelCompleteBtn','created_by_id','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22flex:1;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item-title\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','target_nick','Ошибка\x20при\x20копировании','Error\x20in\x20initTsuList:','\x22\x20data-action=\x22delete\x22>🗑️</button>','tsu-status-expired','</small><br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<small>Инициатор:\x20','tsu_create','ping','/su\x20','license','status','tsu','Ошибка\x20при\x20загрузке\x20раздела\x20наводок','expired','toLowerCase','Ошибка\x20загрузки\x20шаблона','order','Снятие\x20розыска\x20с\x20машины\x20(/delwcar)','trim','mainApp','preventDefault','/addwcar\x20','none','message','onsubmit','/tsu\x20','createElement','Наводка\x20обновлена','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-container\x22\x20style=\x22max-width:\x20400px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-header\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3>Подтверждение\x20выполнения</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22modal-close\x22>&times;</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Вы\x20уверены,\x20что\x20хотите\x20отметить\x20наводку\x20как\x20выполненную?</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>Тип:</strong>\x20','tsu_plate_field','tsu_stars_field','block','writeText','days','tsuFilterStatus','tsu_region_field','tsu_expires_at','Наводка\x20возвращена\x20в\x20работу','tsu_stars','amount','TSU\x20template\x20not\x20found','change','querySelector','tsu_initiator_nick','confirmCompleteBtn','Введите\x20корректный\x20регион\x20(2\x20цифры)','clipboard','Редактирование\x20наводки','div','addEventListener','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22color:\x20#dc3545;\x22>Это\x20действие\x20необратимо.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex-row\x22\x20style=\x22justify-content:\x20flex-end;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22cancelDeleteBtn\x22\x20class=\x22secondary\x22>Отмена</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22confirmDeleteBtn\x22\x20style=\x22background:\x20#dc3545;\x22>Удалить</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','modal-overlay','category','<br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<small>Причина:\x20','24alaoeZ','40ChuHdT','remove','1391789VGlXuG','Введите\x20количество\x20дней\x20от\x200\x20до\x204','showError','value','2733360nCbAqZ','find','confirmDeleteBtn','\x20·\x20Сумма:\x20','car_plate','button[data-action=\x22reopen\x22]','badge-new','disabled','getCurrentUser','innerHTML','tsu_complete','\x0a\x09\x09\x09\x09\x09','toISOString','type','length','Заполните\x20все\x20обязательные\x20поля','select','tsuForm','tsu_update','active','cancelReopenBtn','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>Цель:</strong>\x20','Команда\x20скопирована\x20в\x20буфер\x20обмена','navTsu','tsu_type','success','</small>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex-row\x22\x20style=\x22gap:\x204px;\x20flex-wrap:\x20wrap;\x22>\x0a\x09\x09\x09\x09\x09<button\x20class=\x22small\x22\x20data-id=\x22','ВРС','display'];_0x3638=function(){return _0xef9927;};return _0x3638();}
+const TSU = (function() {
+    let tsuCache = [];
+
+    // Типы наводок
+    const TSU_TYPES = {
+        FINE: 'fine',
+        LICENSE: 'license',
+        WANTED_PERSON: 'wanted_person',
+        WANTED_CAR: 'wanted_car',
+        WANTED_CAR_REMOVE: 'wanted_car_remove'
+    };
+
+    // Статусы наводок
+    const TSU_STATUS = {
+        ACTIVE: 'active',
+        COMPLETED: 'completed',
+        EXPIRED: 'expired'
+    };
+
+    // Срок действия в днях
+    const EXPIRATION_DAYS = 14;
+
+    // Функция экранирования HTML
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // Форматирование даты
+    function formatDate(date) {
+        if (!date) return '—';
+        return new Date(date).toLocaleDateString('ru-RU');
+    }
+
+    // Проверка прав на редактирование
+    function canEditTSU(tsu) {
+        const user = Auth.getCurrentUser();
+        if (!user) return false;
+
+        // РС, ВРС и Администратор могут редактировать любые
+        if (user.category === 'РС' || user.category === 'ВРС' || user.category === 'Администратор') {
+            return true;
+        }
+
+        // МС могут редактировать только свои
+        return tsu.created_by_id === user.auth_user_id;
+    }
+
+    // Проверка прав на удаление
+    function canDeleteTSU(tsu) {
+        const user = Auth.getCurrentUser();
+        if (!user) return false;
+
+        // ВРС и Администратор могут удалять любые
+        if (user.category === 'ВРС' || user.category === 'Администратор') {
+            return true;
+        }
+
+        // РС и МС могут удалять только свои
+        return tsu.created_by_id === user.auth_user_id;
+    }
+
+    // Проверка прав на отметку выполнения
+    function canCompleteTSU(tsu) {
+        const user = Auth.getCurrentUser();
+        if (!user) return false;
+
+        // Все сотрудники могут отмечать выполнение
+        return user.category === 'Администратор' || 
+               user.category === 'ВРС' || 
+               user.category === 'РС' || 
+               user.category === 'МС';
+    }
+	
+	async function reopenTsu(id) {
+		Auth.ping();
+
+		const tsu = tsuCache.find(t => t.id == id);
+		if (!tsu) return;
+
+		if (!canCompleteTSU(tsu)) {
+			UI.showNotification('У вас нет прав для изменения статуса', 'error');
+			return;
+		}
+
+		const confirmModal = document.createElement('div');
+		confirmModal.className = 'modal-overlay';
+		confirmModal.innerHTML = `
+			<div class="modal-container" style="max-width: 400px;">
+				<div class="modal-header">
+					<h3>Подтверждение</h3>
+					<button class="modal-close">&times;</button>
+				</div>
+				<div class="modal-content">
+					<p>Вернуть наводку в статус "Активная"?</p>
+					<p><strong>Тип:</strong> ${getTypeText(tsu.type)}</p>
+					<p><strong>Цель:</strong> ${escapeHtml(tsu.target_nick || tsu.car_plate)}</p>
+					<div class="flex-row" style="justify-content: flex-end;">
+						<button id="cancelReopenBtn" class="secondary">Отмена</button>
+						<button id="confirmReopenBtn" style="background: #ffc107;">🔄 Вернуть в работу</button>
+					</div>
+				</div>
+			</div>
+		`;
+
+		document.body.appendChild(confirmModal);
+
+		confirmModal.querySelector('.modal-close').onclick = () => confirmModal.remove();
+		confirmModal.onclick = (e) => {
+			if (e.target === confirmModal) confirmModal.remove();
+		};
+
+		document.getElementById('cancelReopenBtn').onclick = () => confirmModal.remove();
+		document.getElementById('confirmReopenBtn').onclick = async () => {
+			try {
+				const { error } = await supabaseClient
+					.from('tsu_orders')
+					.update({ 
+						status: 'active',
+						completed_at: null,
+						completed_by_id: null,
+						completed_by_name: null
+					})
+					.eq('id', id);
+
+				if (error) {
+					UI.showNotification('Ошибка: ' + error.message, 'error');
+					return;
+				}
+
+				Logger.log('tsu_reopen', {
+					tsu_id: tsu.id,
+					type: tsu.type,
+					target: tsu.target_nick || tsu.car_plate,
+					reopened_by: Auth.getCurrentUser()?.nickname
+				}, 'tsu', tsu.id);
+
+				UI.showNotification('Наводка возвращена в работу', 'success');
+				confirmModal.remove();
+				await loadTsuList();
+				filterAndRenderTsu();
+			} catch (error) {
+				UI.showNotification('Ошибка: ' + error.message, 'error');
+			}
+		};
+	}
+
+    // Получение текста типа наводки
+    function getTypeText(type) {
+        const types = {
+            'fine': 'Выписать штраф (/tsu)',
+            'license': 'Лишение ВУ (/takecarlic)',
+            'wanted_person': 'Подать в розыск (/su)',
+            'wanted_car': 'Розыск машины (/addwcar)',
+            'wanted_car_remove': 'Снятие розыска с машины (/delwcar)'
+        };
+        return types[type] || type;
+    }
+
+    // Получение текста статуса
+    function getStatusText(status) {
+        const statuses = {
+            'active': 'Активная',
+            'completed': 'Выполнена',
+            'expired': 'Просрочена'
+        };
+        return statuses[status] || status;
+    }
+
+    // Получение класса для бейджа статуса
+    function getStatusBadgeClass(status) {
+        switch(status) {
+            case 'active': return 'badge-new';
+            case 'completed': return 'badge-closed';
+            case 'expired': return 'tsu-status-expired';
+            default: return '';
+        }
+    }
+
+    // Генерация команды для копирования
+    function generateCommand(tsu) {
+        const initiator = tsu.initiator_nick || Auth.getCurrentUser()?.nickname || 'Сотрудник';
+        
+        switch(tsu.type) {
+            case 'fine':
+                return `/tsu ${tsu.target_nick} ${tsu.amount || ''} ${tsu.reason} by ${initiator} (УГИБДД)`;
+            case 'license':
+                return `/takecarlic ${tsu.target_nick} ${tsu.days || '0'} ${tsu.reason} by ${initiator} (УГИБДД)`;
+            case 'wanted_person':
+                return `/su ${tsu.target_nick} ${tsu.stars || '1'} ${tsu.reason} by ${initiator} (УГИБДД)`;
+            case 'wanted_car':
+                return `/addwcar ${tsu.car_plate || ''} ${tsu.car_region || ''} ${tsu.reason} by ${initiator} (УГИБДД)`;
+            case 'wanted_car_remove':
+                return `/delwcar ${tsu.car_plate || ''} ${tsu.car_region || ''} by ${initiator}`;
+            default:
+                return '';
+        }
+    }
+
+    // Копирование команды в буфер обмена
+    async function copyCommand(tsu) {
+        const command = generateCommand(tsu);
+        try {
+            await navigator.clipboard.writeText(command);
+            UI.showNotification('Команда скопирована в буфер обмена', 'success');
+        } catch (err) {
+            UI.showNotification('Ошибка при копировании', 'error');
+        }
+    }
+
+    // Загрузка списка наводок
+    async function loadTsuList() {
+        try {
+            Auth.ping();
+            
+            const { data, error } = await supabaseClient
+                .from('tsu_orders')
+                .select('*')
+                .order('created_at', { ascending: false });
+            
+            if (error) {
+                console.error('Error loading tsu:', error);
+                UI.showNotification('Ошибка загрузки наводок: ' + error.message, 'error');
+                return [];
+            }
+            
+            tsuCache = data || [];
+            return tsuCache;
+        } catch (error) {
+            console.error('Error in loadTsuList:', error);
+            ErrorHandler.showError(error, 'Ошибка загрузки наводок');
+            return [];
+        }
+    }
+
+    // Обновление статусов (проверка на истечение срока)
+    async function updateExpiredStatus() {
+        const now = new Date().toISOString();
+        const expiredList = tsuCache.filter(t => 
+            t.status === 'active' && t.expires_at && t.expires_at < now
+        );
+
+        for (const tsu of expiredList) {
+            await supabaseClient
+                .from('tsu_orders')
+                .update({ status: 'expired' })
+                .eq('id', tsu.id);
+        }
+
+        if (expiredList.length > 0) {
+            await loadTsuList();
+        }
+    }
+
+    // Фильтрация списка
+    function filterTsuList(search, type, status) {
+        return tsuCache.filter(t => {
+            if (type && t.type !== type) return false;
+            if (status && t.status !== status) return false;
+            if (!search) return true;
+
+            const searchLower = search.toLowerCase();
+            return (
+                t.target_nick?.toLowerCase().includes(searchLower) ||
+                t.reason?.toLowerCase().includes(searchLower) ||
+                t.initiator_nick?.toLowerCase().includes(searchLower) ||
+                t.car_plate?.toLowerCase().includes(searchLower)
+            );
+        });
+    }
+
+    // Отметка наводки как выполненной
+    async function completeTsu(id) {
+        Auth.ping();
+
+        const tsu = tsuCache.find(t => t.id == id);
+        if (!tsu) return;
+
+        if (!canCompleteTSU(tsu)) {
+            UI.showNotification('У вас нет прав для отметки выполнения', 'error');
+            return;
+        }
+
+        const confirmModal = document.createElement('div');
+        confirmModal.className = 'modal-overlay';
+        confirmModal.innerHTML = `
+            <div class="modal-container" style="max-width: 400px;">
+                <div class="modal-header">
+                    <h3>Подтверждение выполнения</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-content">
+                    <p>Вы уверены, что хотите отметить наводку как выполненную?</p>
+                    <p><strong>Тип:</strong> ${getTypeText(tsu.type)}</p>
+                    <p><strong>Нарушитель:</strong> ${escapeHtml(tsu.target_nick || tsu.car_plate)}</p>
+                    <div class="flex-row" style="justify-content: flex-end;">
+                        <button id="cancelCompleteBtn" class="secondary">Отмена</button>
+                        <button id="confirmCompleteBtn" style="background: #28a745;">✅ Отметить выполненной</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(confirmModal);
+
+        confirmModal.querySelector('.modal-close').onclick = () => confirmModal.remove();
+        confirmModal.onclick = (e) => {
+            if (e.target === confirmModal) confirmModal.remove();
+        };
+
+        document.getElementById('cancelCompleteBtn').onclick = () => confirmModal.remove();
+        document.getElementById('confirmCompleteBtn').onclick = async () => {
+            try {
+                const { error } = await supabaseClient
+                    .from('tsu_orders')
+                    .update({ 
+                        status: 'completed',
+                        completed_at: new Date().toISOString(),
+                        completed_by_id: Auth.getCurrentUser()?.auth_user_id,
+                        completed_by_name: Auth.getCurrentUser()?.nickname
+                    })
+                    .eq('id', id);
+
+                if (error) {
+                    UI.showNotification('Ошибка: ' + error.message, 'error');
+                    return;
+                }
+
+                Logger.log('tsu_complete', {
+                    tsu_id: tsu.id,
+                    type: tsu.type,
+                    target: tsu.target_nick || tsu.car_plate,
+                    completed_by: Auth.getCurrentUser()?.nickname
+                }, 'tsu', tsu.id);
+
+                UI.showNotification('Наводка отмечена как выполненная', 'success');
+                confirmModal.remove();
+                await loadTsuList();
+                filterAndRenderTsu();
+            } catch (error) {
+                UI.showNotification('Ошибка: ' + error.message, 'error');
+            }
+        };
+    }
+
+    // Отображение списка наводок
+    function renderTsuList(filteredList) {
+        const container = document.getElementById('tsuList');
+        if (!container) return;
+
+        container.innerHTML = '';
+        
+        if (!filteredList.length) {
+            container.innerHTML = '<div class="list-item" style="justify-content: center; color: #6b7f99;">Нет наводок</div>';
+            return;
+        }
+
+        filteredList.forEach(t => {
+            const div = document.createElement('div');
+            div.className = 'list-item';
+            
+            const canEdit = canEditTSU(t);
+            const canDelete = canDeleteTSU(t);
+            const canComplete = canCompleteTSU(t) && t.status === 'active';
+            
+            // Определяем цель для отображения
+            let target = t.target_nick || t.car_plate || '—';
+			if (t.type === 'wanted_car' || t.type === 'wanted_car_remove') {
+				target = `${t.car_plate || '—'}${t.car_region || ''}`;
+			}
+
+            // Дополнительные параметры
+            let params = '';
+            if (t.type === 'fine' && t.amount) params = ` · Сумма: ${t.amount}`;
+            if (t.type === 'license' && t.days !== null && t.days !== undefined) params = ` · Дней: ${t.days}`;
+            if (t.type === 'wanted_person' && t.stars) params = ` · Звёзд: ${t.stars}`;
+
+            const statusClass = getStatusBadgeClass(t.status);
+            const statusText = getStatusText(t.status);
+
+            div.innerHTML = `
+                <div style="flex:1;">
+                    <div class="item-title">
+                        ${getTypeText(t.type)} 
+                        <span class="badge ${statusClass}">${statusText}</span>
+                    </div>
+                    <div class="item-meta">
+                        <strong>Нарушитель: ${escapeHtml(target)}</strong>${params}<br>
+                        <small>Причина: ${escapeHtml(t.reason || '—')}</small><br>
+                        <small>Инициатор: ${escapeHtml(t.initiator_nick || '—')} · 
+                        Создал: ${escapeHtml(t.created_by_name || '—')} · 
+                        Срок: до ${formatDate(t.expires_at)}</small>
+                    </div>
+                </div>
+                <div class="flex-row" style="gap: 4px; flex-wrap: wrap;">
+					<button class="small" data-id="${t.id}" data-action="copy">📋 Копировать</button>
+					${t.status === 'active' 
+						? `<button class="small" style="background:#28a745;" data-id="${t.id}" data-action="complete">✅ Отметить выполненным</button>`
+						: `<button class="small" style="background:#ffc107;" data-id="${t.id}" data-action="reopen">🔄 Вернуть в работу</button>`
+					}
+					${canEdit ? `<button class="small" data-id="${t.id}" data-action="edit">✏️</button>` : ''}
+					${canDelete ? `<button class="small secondary" data-id="${t.id}" data-action="delete">🗑️</button>` : ''}
+				</div>
+            `;
+            container.appendChild(div);
+        });
+
+        container.querySelectorAll('button[data-action="copy"]').forEach(btn => {
+            btn.onclick = () => {
+                const tsu = filteredList.find(t => t.id == btn.dataset.id);
+                if (tsu) copyCommand(tsu);
+            };
+        });
+
+        container.querySelectorAll('button[data-action="complete"]').forEach(btn => {
+            btn.onclick = () => completeTsu(btn.dataset.id);
+        });
+		
+		container.querySelectorAll('button[data-action="reopen"]').forEach(btn => {
+			btn.onclick = () => reopenTsu(btn.dataset.id);
+		});
+
+        container.querySelectorAll('button[data-action="edit"]').forEach(btn => {
+            btn.onclick = () => openTsuForm(btn.dataset.id);
+        });
+
+        container.querySelectorAll('button[data-action="delete"]').forEach(btn => {
+            btn.onclick = () => deleteTsu(btn.dataset.id);
+        });
+    }
+
+    // Фильтрация и отображение списка
+    function filterAndRenderTsu() {
+        const search = document.getElementById('tsuSearch')?.value.toLowerCase() || '';
+        const type = document.getElementById('tsuFilterType')?.value || '';
+        const status = document.getElementById('tsuFilterStatus')?.value || '';
+        const filtered = filterTsuList(search, type, status);
+        renderTsuList(filtered);
+    }
+
+    // Удаление наводки
+    async function deleteTsu(id) {
+        Auth.ping();
+
+        const tsu = tsuCache.find(t => t.id == id);
+        if (!tsu) return;
+
+        if (!canDeleteTSU(tsu)) {
+            UI.showNotification('У вас нет прав на удаление этой наводки', 'error');
+            return;
+        }
+
+        const confirmModal = document.createElement('div');
+        confirmModal.className = 'modal-overlay';
+        confirmModal.innerHTML = `
+            <div class="modal-container" style="max-width: 400px;">
+                <div class="modal-header">
+                    <h3>Подтверждение удаления</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-content">
+                    <p>Вы уверены, что хотите удалить наводку?</p>
+                    <p><strong>Тип:</strong> ${getTypeText(tsu.type)}</p>
+                    <p><strong>Цель:</strong> ${escapeHtml(tsu.target_nick || tsu.car_plate)}</p>
+                    <p style="color: #dc3545;">Это действие необратимо.</p>
+                    <div class="flex-row" style="justify-content: flex-end;">
+                        <button id="cancelDeleteBtn" class="secondary">Отмена</button>
+                        <button id="confirmDeleteBtn" style="background: #dc3545;">Удалить</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(confirmModal);
+
+        confirmModal.querySelector('.modal-close').onclick = () => confirmModal.remove();
+        confirmModal.onclick = (e) => {
+            if (e.target === confirmModal) confirmModal.remove();
+        };
+
+        document.getElementById('cancelDeleteBtn').onclick = () => confirmModal.remove();
+        document.getElementById('confirmDeleteBtn').onclick = async () => {
+            try {
+                Logger.log('tsu_delete', {
+                    tsu_id: tsu.id,
+                    type: tsu.type,
+                    target: tsu.target_nick || tsu.car_plate,
+                    deleted_by: Auth.getCurrentUser()?.nickname
+                }, 'tsu', tsu.id);
+
+                const { error } = await supabaseClient
+                    .from('tsu_orders')
+                    .delete()
+                    .eq('id', id);
+
+                if (error) {
+                    UI.showNotification('Ошибка: ' + error.message, 'error');
+                    return;
+                }
+
+                UI.showNotification('Наводка удалена', 'success');
+                confirmModal.remove();
+                await loadTsuList();
+                filterAndRenderTsu();
+            } catch (error) {
+                UI.showNotification('Ошибка: ' + error.message, 'error');
+            }
+        };
+    }
+
+    // Открытие формы создания/редактирования
+    async function openTsuForm(id = null) {
+        Auth.ping();
+
+        const user = Auth.getCurrentUser();
+        let tsu = null;
+
+        if (id) {
+            tsu = tsuCache.find(t => t.id == id);
+            if (!tsu) return;
+
+            if (!canEditTSU(tsu)) {
+                UI.showNotification('У вас нет прав на редактирование этой наводки', 'error');
+                return;
+            }
+        }
+
+        const clone = UI.loadTemplate('tsuForm');
+        if (!clone) {
+            UI.showNotification('Ошибка загрузки шаблона', 'error');
+            return;
+        }
+
+        UI.clearMain();
+        document.getElementById('mainApp').appendChild(clone);
+
+        // Устанавливаем заголовок
+        const title = document.getElementById('tsuFormTitle');
+        if (title) {
+            title.textContent = tsu ? `Редактирование наводки` : `Новая наводка`;
+        }
+
+        // Рассчитываем дату истечения (текущая + 14 дней)
+        const expiresAt = new Date();
+        expiresAt.setDate(expiresAt.getDate() + EXPIRATION_DAYS);
+        document.getElementById('tsu_expires_at').value = expiresAt.toISOString().split('T')[0];
+		
+		const defaultExpiresAt = new Date();
+		defaultExpiresAt.setDate(defaultExpiresAt.getDate() + EXPIRATION_DAYS);
+
+		// Если редактируем существующую наводку, используем её дату, иначе дефолтную
+		if (tsu && tsu.expires_at) {
+			document.getElementById('tsu_expires_at').value = tsu.expires_at.split('T')[0];
+		} else {
+			document.getElementById('tsu_expires_at').value = defaultExpiresAt.toISOString().split('T')[0];
+}
+
+        // Если редактируем, заполняем поля
+        if (tsu) {
+            document.getElementById('tsu_type').value = tsu.type || '';
+            document.getElementById('tsu_target_nick').value = tsu.target_nick || '';
+            document.getElementById('tsu_amount').value = tsu.amount || '';
+            document.getElementById('tsu_days').value = tsu.days || '';
+            document.getElementById('tsu_stars').value = tsu.stars || '';
+            document.getElementById('tsu_car_plate').value = tsu.car_plate || '';
+            document.getElementById('tsu_car_region').value = tsu.car_region || '';
+            document.getElementById('tsu_reason').value = tsu.reason || '';
+            document.getElementById('tsu_initiator_nick').value = tsu.initiator_nick || '';
+            document.getElementById('tsu_expires_at').value = tsu.expires_at ? tsu.expires_at.split('T')[0] : expiresAt.toISOString().split('T')[0];
+        }
+
+        // Функция обновления видимости полей в зависимости от типа
+        function updateFieldsVisibility() {
+            const type = document.getElementById('tsu_type').value;
+            
+            document.getElementById('tsu_amount_field').style.display = 'none';
+            document.getElementById('tsu_days_field').style.display = 'none';
+            document.getElementById('tsu_stars_field').style.display = 'none';
+            document.getElementById('tsu_plate_field').style.display = 'none';
+            document.getElementById('tsu_region_field').style.display = 'none';
+
+            if (type === 'fine') {
+                document.getElementById('tsu_amount_field').style.display = 'block';
+            } else if (type === 'license') {
+                document.getElementById('tsu_days_field').style.display = 'block';
+            } else if (type === 'wanted_person') {
+                document.getElementById('tsu_stars_field').style.display = 'block';
+            } else if (type === 'wanted_car' || type === 'wanted_car_remove') {
+                document.getElementById('tsu_plate_field').style.display = 'block';
+                document.getElementById('tsu_region_field').style.display = 'block';
+            }
+        }
+
+        document.getElementById('tsu_type').addEventListener('change', updateFieldsVisibility);
+        updateFieldsVisibility();
+
+        // Обработчик формы
+        document.getElementById('tsuForm').onsubmit = async (e) => {
+            e.preventDefault();
+
+            const type = document.getElementById('tsu_type').value;
+            const targetNick = document.getElementById('tsu_target_nick').value.trim();
+            const reason = document.getElementById('tsu_reason').value.trim();
+            const initiatorNick = document.getElementById('tsu_initiator_nick').value.trim();
+            const expiresAt = document.getElementById('tsu_expires_at').value;
+
+            if (!type || !reason || !initiatorNick) {
+                UI.showNotification('Заполните все обязательные поля', 'error');
+                return;
+            }
+
+            // Валидация в зависимости от типа
+            if (type === 'fine') {
+                const amount = document.getElementById('tsu_amount').value;
+                if (!amount || amount <= 0) {
+                    UI.showNotification('Введите корректную сумму штрафа', 'error');
+                    return;
+                }
+            } else if (type === 'license') {
+                const days = document.getElementById('tsu_days').value;
+                if (days === '' || days < 0 || days > 4) {
+                    UI.showNotification('Введите количество дней от 0 до 4', 'error');
+                    return;
+                }
+            } else if (type === 'wanted_person') {
+                const stars = document.getElementById('tsu_stars').value;
+                if (!stars || stars < 1 || stars > 6) {
+                    UI.showNotification('Введите количество звёзд от 1 до 6', 'error');
+                    return;
+                }
+            } else if (type === 'wanted_car' || type === 'wanted_car_remove') {
+                const plate = document.getElementById('tsu_car_plate').value.trim();
+                const region = document.getElementById('tsu_car_region').value.trim();
+                if (!plate) {
+                    UI.showNotification('Введите госномер', 'error');
+                    return;
+                }
+                if (!region || region.length !== 2 || !/^\d+$/.test(region)) {
+                    UI.showNotification('Введите корректный регион (2 цифры)', 'error');
+                    return;
+                }
+            }
+
+            const formData = {
+                type: type,
+                target_nick: targetNick || null,
+                amount: type === 'fine' ? parseInt(document.getElementById('tsu_amount').value) : null,
+                days: type === 'license' ? parseInt(document.getElementById('tsu_days').value) : null,
+                stars: type === 'wanted_person' ? parseInt(document.getElementById('tsu_stars').value) : null,
+                car_plate: (type === 'wanted_car' || type === 'wanted_car_remove') ? document.getElementById('tsu_car_plate').value.trim() : null,
+                car_region: (type === 'wanted_car' || type === 'wanted_car_remove') ? document.getElementById('tsu_car_region').value.trim() : null,
+                reason: reason,
+                initiator_nick: initiatorNick,
+                expires_at: expiresAt,
+                status: 'active'
+            };
+
+            const saveBtn = document.getElementById('tsuFormSubmit');
+            const originalText = saveBtn.textContent;
+            saveBtn.textContent = '⏳ Сохранение...';
+            saveBtn.disabled = true;
+
+            try {
+                let error;
+                if (tsu) {
+                    // Обновление
+                    const { error: updateError } = await supabaseClient
+                        .from('tsu_orders')
+                        .update(formData)
+                        .eq('id', tsu.id);
+                    error = updateError;
+
+                    if (!error) {
+                        Logger.log('tsu_update', {
+                            tsu_id: tsu.id,
+                            type: type,
+                            target: targetNick || formData.car_plate,
+                            updated_by: user.nickname
+                        }, 'tsu', tsu.id);
+                    }
+                } else {
+                    // Создание
+                    const { error: insertError } = await supabaseClient
+                        .from('tsu_orders')
+                        .insert([{
+                            ...formData,
+                            created_by_id: user.auth_user_id,
+                            created_by_name: user.nickname
+                        }]);
+                    error = insertError;
+
+                    if (!error) {
+                        Logger.log('tsu_create', {
+                            type: type,
+                            target: targetNick || formData.car_plate,
+                            reason: reason,
+                            created_by: user.nickname
+                        }, 'tsu', null);
+                    }
+                }
+
+                if (error) {
+                    console.error('Save error:', error);
+                    UI.showNotification('Ошибка: ' + error.message, 'error');
+                    return;
+                }
+
+                UI.showNotification(tsu ? 'Наводка обновлена' : 'Наводка создана', 'success');
+                await loadTsuList();
+                initTsuList();
+            } catch (error) {
+                console.error('Error saving tsu:', error);
+                UI.showNotification('Ошибка при сохранении', 'error');
+            } finally {
+                saveBtn.textContent = originalText;
+                saveBtn.disabled = false;
+            }
+        };
+
+        document.getElementById('tsuFormCancel').onclick = () => {
+            initTsuList();
+        };
+    }
+
+    // Инициализация списка наводок
+    async function initTsuList() {
+        try {
+            Auth.ping();
+
+            const clone = UI.loadTemplate('tsuList');
+            if (!clone) {
+                console.error('TSU template not found');
+                UI.showNotification('Ошибка загрузки шаблона', 'error');
+                return;
+            }
+
+            UI.clearMain();
+            document.getElementById('mainApp').appendChild(clone);
+
+            // Устанавливаем активную вкладку
+            const elements = UI.getElements();
+            if (elements.navTsu) {
+                UI.setActiveTab(elements.navTsu);
+            }
+
+            await loadTsuList();
+            await updateExpiredStatus();
+            filterAndRenderTsu();
+
+            const searchInput = document.getElementById('tsuSearch');
+            const filterType = document.getElementById('tsuFilterType');
+            const filterStatus = document.getElementById('tsuFilterStatus');
+            const createBtn = document.getElementById('tsuCreateOpen');
+
+            if (searchInput) {
+                searchInput.addEventListener('input', filterAndRenderTsu);
+            }
+
+            if (filterType) {
+                filterType.addEventListener('change', filterAndRenderTsu);
+            }
+
+            if (filterStatus) {
+                filterStatus.addEventListener('change', filterAndRenderTsu);
+            }
+
+            if (createBtn) {
+                createBtn.onclick = () => openTsuForm();
+            }
+
+        } catch (error) {
+            console.error('Error in initTsuList:', error);
+            UI.showNotification('Ошибка при загрузке раздела наводок', 'error');
+        }
+    }
+
+    return {
+        initTsuList,
+        loadTsuList,
+        canEditTSU: canEditTSU,
+        canDeleteTSU: canDeleteTSU,
+        canCompleteTSU: canCompleteTSU,
+        generateCommand,
+        copyCommand,
+		reopenTsu,
+        TSU_TYPES,
+        TSU_STATUS,
+        EXPIRATION_DAYS
+    };
+})();
+
+window.TSU = TSU;

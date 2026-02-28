@@ -1,1 +1,907 @@
-function _0x1696(){const _0x1f66f7=['\x0a\x09\x09\x09\x09\x09\x09\x09<div\x20style=\x22margin-bottom:\x2010px;\x20border-bottom:\x201px\x20solid\x20#d0e0ff;\x20padding-bottom:\x208px;\x22>\x0a\x09\x09\x09\x09\x09\x09\x09\x09<div\x20style=\x22font-weight:\x20600;\x20color:\x20#0b2b4a;\x22>','created_at','action_type','badge-progress','slice','ping','Error\x20updating\x20assigned_by\x20references:','У\x20вас\x20нет\x20прав\x20для\x20редактирования\x20этого\x20сотрудника','nickname','1552165tjrUaw','assigned_to_id','cancelEditBtn','changes','updateUserPassword','innerHTML','disabled','logsSection','Ошибка\x20при\x20создании\x20сотрудника','Логи\x20экспортированы','access_token','date_from','Сессия\x20администратора\x20не\x20найдена','<button\x20class=\x22small\x20secondary\x22\x20data-id=\x22','createAccountSection','error','подразделение','updateUserEmail','querySelector','canDeleteUser','canManageUsers','Пароль\x20должен\x20содержать\x20не\x20менее\x206\x20символов','Error\x20checking\x20assigned_by\x20kusps:','logsTabBtn','manageAccountsSection','[Сотрудник\x20\x22','showError','location','\x22\x20data-action=\x22edit\x22>✏️\x20Редактировать</button>','display','formattedUser','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22badge\x20','toISOString','setActiveTab','manage','download','alignItems','ACTION_TYPES','>Руководящий\x20состав\x20(РС)</option>\x0a\x09\x09\x09\x09\x09\x09<option\x20value=\x22ВРС\x22\x20','⏳\x20Создание...','canEditUser','23502','delete','Insert\x20error:','edit_nickname','join','refresh_token','selected','action_details','href','\x22>\x0a\x09\x09\x09\x09\x09<small\x20class=\x22field-hint\x22>Внимание:\x20при\x20смене\x20логина\x20изменится\x20email\x20для\x20входа</small>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x0a\x09\x09\x09\x09<div\x20class=\x22form-group\x22>\x0a\x09\x09\x09\x09\x09<label\x20for=\x22edit_password\x22>Новый\x20пароль</label>\x0a\x09\x09\x09\x09\x09<input\x20id=\x22edit_password\x22\x20type=\x22text\x22\x20placeholder=\x22Оставьте\x20пустым,\x20если\x20не\x20меняете\x22>\x20\x0a\x09\x09\x09\x09\x09<small\x20class=\x22field-hint\x22>Минимальная\x20длина:\x206\x20символов</small>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x0a\x09\x09\x09\x09<div\x20class=\x22form-group\x22>\x0a\x09\x09\x09\x09\x09<label\x20for=\x22edit_rank\x22>Звание\x20<span\x20class=\x22required\x22>*</span></label>\x0a\x09\x09\x09\x09\x09<input\x20id=\x22edit_rank\x22\x20placeholder=\x22Например:\x20старший\x20лейтенант\x22\x20value=\x22','add','manageTabBtn','Детали','column','className','EMPLOYEE_UPDATE','</div>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09<div\x20class=\x22flex-row\x22\x20style=\x22gap:\x208px;\x22>\x0a\x09\x09\x09\x09\x09','>Администрация</option>\x0a\x09\x09\x09\x09\x09</select>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x0a\x09\x09\x09\x09<div\x20class=\x22flex-row\x22\x20style=\x22justify-content:\x20flex-end;\x20margin-top:\x2024px;\x22>\x0a\x09\x09\x09\x09\x09<button\x20id=\x22cancelEditBtn\x22\x20class=\x22secondary\x22>Отмена</button>\x0a\x09\x09\x09\x09\x09<button\x20id=\x22saveEditBtn\x22>Сохранить\x20изменения</button>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09</div>\x0a\x09\x09</div>\x0a\x09\x09','У\x20вас\x20нет\x20прав\x20для\x20доступа\x20к\x20этому\x20разделу','kusps','\x0a\x09\x09\x09\x09','Error\x20updating\x20kusp\x20','72qDujXf','</div>\x0a\x09\x09\x09\x09','➕\x20Создать\x20учётную\x20запись','4472244HIBMHH','employeesManageList','edit_department','edit_rank','ip_address','#dc3545','newPassword','\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09','Error\x20updating\x20assigned_to\x20references:','remove','value','formattedDate','getLogs','\x0a\x09\x09\x09\x09\x09','Администратор','textContent','Auth\x20deletion\x20error\x20details:','Create\x20employee\x20error:','getElements','user','employee','93303fKGHUL','flexDirection','logs_','stringify','not\x20found','Error\x20checking\x20assigned_to\x20kusps:','Delete\x20error:','body','Заполните\x20все\x20обязательные\x20поля','\x22>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x0a\x09\x09\x09\x09<div\x20class=\x22form-group\x22>\x0a\x09\x09\x09\x09\x09<label\x20for=\x22edit_department\x22>Подразделение\x20<span\x20class=\x22required\x22>*</span></label>\x0a\x09\x09\x09\x09\x09<input\x20id=\x22edit_department\x22\x20placeholder=\x22Например:\x20ОБ\x22\x20value=\x22','было','Ошибка\x20при\x20обновлении\x20данных','звание','borderColor','style','kusp_number','change','</span>\x0a\x09\x09\x09\x09\x09<span\x20style=\x22color:\x20#6b7f99;\x20font-size:\x200.85rem;\x22>','logFilterAction','category','EMPLOYEE_PASSWORD_CHANGE','Логин\x20должен\x20содержать\x20не\x20менее\x203\x20символов','update','EMPLOYEE_DELETE','\x0a\x09\x09\x09\x09<div\x20style=\x22flex:1;\x22>\x0a\x09\x09\x09\x09\x09<div\x20class=\x22item-title\x22>','ВРС','querySelectorAll','У\x20вас\x20нет\x20прав\x20для\x20удаления\x20этого\x20сотрудника','auth','saveEditBtn','success','\x0a\x09\x09\x09\x09\x09<div\x20style=\x22font-size:\x200.8rem;\x20color:\x20#8a9bb0;\x22>🌐\x20IP:\x20','getElementById','21nhIFwb','from','getCurrentUser','createTabBtn','248605AzPyGz','department','</div></details></div>','entries','Attempting\x20to\x20delete\x20employee:','\x22\x20(принявший)\x20удален\x20','create','.modal-close','@app.local','forEach','toLowerCase','Вы\x20не\x20можете\x20удалить\x20свой\x20собственный\x20аккаунт','</pre>\x0a\x09\x09\x09\x09\x09\x09\x09</details>\x0a\x09\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x09','Session\x20recovery\x20error:','211028HMwCWT','1277199ozCWuy','concat_notes','Управление\x20сотрудниками','classList','select','Ошибка\x20при\x20удалении\x20из\x20базы:\x20','Пользователь','rank','auth_user_id','createUserBtn','code','Сотрудник\x20удалён','id,\x20kusp_number','logsList','\x0a\x09\x09\x09\x09<div\x20style=\x22display:\x20flex;\x20justify-content:\x20space-between;\x20width:\x20100%;\x22>\x0a\x09\x09\x09\x09\x09<span\x20style=\x22font-weight:\x20600;\x20color:\x20#1e3a5f;\x22>','\x0a\x09\x09\x09\x09\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x09\x09\x09\x09\x09<div\x20style=\x22background:\x20#e6ffe6;\x20padding:\x206px;\x20border-radius:\x204px;\x22>\x0a\x09\x09\x09\x09\x09\x09\x09\x09\x09\x09<span\x20style=\x22color:\x20#28a745;\x22>Стало:</span>\x20','button[data-action=\x22edit\x22]','createElement','employeesList','target','user_name','Ошибка\x20при\x20удалении\x20сотрудника','modal-overlay','hash','refreshLogsBtn','setSession','onclick','keys','admin','setHours','assigned_by_id','length','active','click','8px\x200','notes','received_by_id','категория','trim','<div\x20style=\x22margin-top:\x2012px;\x22>','<div\x20class=\x22list-item\x22\x20style=\x22justify-content:\x20center;\x20color:\x20#6b7f99;\x22>Нет\x20записей\x20в\x20журнале</div>','employees','<summary\x20style=\x22cursor:\x20pointer;\x20color:\x20#1e3a5f;\x20font-weight:\x20600;\x22>📋\x20Детали\x20изменений</summary>','cancelDeleteBtn','text/csv;charset=utf-8;','\x0a\x09\x09\x09\x09\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x09\x09','appendChild','(Вы)','loadTemplate','focus','rpc','\x22\x20data-action=\x22delete\x22>🗑️\x20Удалить</button>','\x0a\x09\x09\x09<div\x20class=\x22modal-container\x22\x20style=\x22max-width:\x20400px;\x22>\x0a\x09\x09\x09\x09<div\x20class=\x22modal-header\x22>\x0a\x09\x09\x09\x09\x09<h3>Подтверждение\x20удаления</h3>\x0a\x09\x09\x09\x09\x09<button\x20class=\x22modal-close\x22>&times;</button>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09<div\x20class=\x22modal-content\x22>\x0a\x09\x09\x09\x09\x09<p\x20style=\x22margin-bottom:\x2020px;\x22>Вы\x20уверены,\x20что\x20хотите\x20удалить\x20сотрудника\x20<strong>','confirmDeleteBtn','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','<div\x20class=\x22list-item\x22>Нет\x20сотрудников</div>','logFilterDate','date_to','Delete\x20error\x20stack:','У\x20вас\x20нет\x20прав\x20для\x20создания\x20сотрудников','8px','gap','\x20·\x20','getSession','hidden','map','navAdmin','list-item','borderBottom','addEventListener','log','padding','updateUserMetadata','8KFFuub','31047660UCyckx','Данные\x20сотрудника\x20обновлены','div','dataset','home','Error\x20updating\x20received_by\x20references:','deleteUser','find','логин','formatLogForDisplay','badge-new','Категория','showNotification','#mainApp\x20h2','toLocaleString','Email\x20изменён\x20на\x20','message','createUser'];_0x1696=function(){return _0x1f66f7;};return _0x1696();}(function(_0x3a9ae9,_0x2d356f){const _0x21fc7c=_0x405f,_0x3e1fa6=_0x3a9ae9();while(!![]){try{const _0x1232eb=-parseInt(_0x21fc7c(0x210))/0x1+-parseInt(_0x21fc7c(0x153))/0x2*(parseInt(_0x21fc7c(0x141))/0x3)+parseInt(_0x21fc7c(0x19d))/0x4*(-parseInt(_0x21fc7c(0x1b9))/0x5)+-parseInt(_0x21fc7c(0x1fb))/0x6+-parseInt(_0x21fc7c(0x145))/0x7*(parseInt(_0x21fc7c(0x1f8))/0x8)+-parseInt(_0x21fc7c(0x154))/0x9+parseInt(_0x21fc7c(0x19e))/0xa;if(_0x1232eb===_0x2d356f)break;else _0x3e1fa6['push'](_0x3e1fa6['shift']());}catch(_0x21cdad){_0x3e1fa6['push'](_0x3e1fa6['shift']());}}}(_0x1696,0x6ca97));function _0x405f(_0x491562,_0x29c8a3){const _0x16960e=_0x1696();return _0x405f=function(_0x405f25,_0x428e17){_0x405f25=_0x405f25-0x12f;let _0x292ae1=_0x16960e[_0x405f25];return _0x292ae1;},_0x405f(_0x491562,_0x29c8a3);}const Admin=(function(){let _0x3602a4=[];function _0x28dbce(_0x2d1c04){const _0x31d35c=_0x405f;if(!_0x2d1c04)return'';const _0x5727e6=document['createElement'](_0x31d35c(0x1a0));return _0x5727e6[_0x31d35c(0x20a)]=_0x2d1c04,_0x5727e6['innerHTML'];}async function _0x43322b(){const _0x359f82=_0x405f,{data:_0x29ea22}=await supabaseClient['from'](_0x359f82(0x17d))[_0x359f82(0x158)]('*')['order']('nickname');return _0x3602a4=_0x29ea22||[],_0x3602a4;}function _0x22f45a(){const _0x417676=_0x405f,_0x55f960=document['getElementById'](_0x417676(0x1d1)),_0x27ff21=document[_0x417676(0x140)](_0x417676(0x1c7)),_0x525940=document[_0x417676(0x140)](_0x417676(0x1c0)),_0x5cb384=document[_0x417676(0x140)](_0x417676(0x1ed)),_0x456429=document[_0x417676(0x140)]('createTabBtn'),_0x4ae0f1=document[_0x417676(0x140)]('logsTabBtn');if(!_0x55f960||!_0x27ff21||!_0x525940||!_0x5cb384||!_0x456429||!_0x4ae0f1)return;_0x55f960[_0x417676(0x157)][_0x417676(0x1ec)](_0x417676(0x194)),_0x27ff21[_0x417676(0x157)][_0x417676(0x1ec)](_0x417676(0x194)),_0x525940['classList'][_0x417676(0x204)]('hidden'),_0x5cb384[_0x417676(0x157)][_0x417676(0x204)](_0x417676(0x174)),_0x456429[_0x417676(0x157)][_0x417676(0x204)](_0x417676(0x174)),_0x4ae0f1[_0x417676(0x157)]['add']('active'),_0x552fe4();}async function _0x552fe4(){const _0x6f54e2=_0x405f,_0x5811ae=document[_0x6f54e2(0x140)](_0x6f54e2(0x161));if(!_0x5811ae)return;const _0x2f88a0=document[_0x6f54e2(0x140)](_0x6f54e2(0x132))?.[_0x6f54e2(0x205)]||'',_0x2a96c1=document['getElementById'](_0x6f54e2(0x18c))?.[_0x6f54e2(0x205)]||'',_0x53b366={};if(_0x2f88a0)_0x53b366['action_type']=_0x2f88a0;if(_0x2a96c1){const _0x5f2506=new Date(_0x2a96c1);_0x5f2506[_0x6f54e2(0x171)](0x0,0x0,0x0,0x0);const _0xae20ba=new Date(_0x2a96c1);_0xae20ba[_0x6f54e2(0x171)](0x17,0x3b,0x3b,0x3e7),_0x53b366[_0x6f54e2(0x1c4)]=_0x5f2506['toISOString'](),_0x53b366[_0x6f54e2(0x18d)]=_0xae20ba['toISOString']();}_0x53b366['limit']=0x64;const _0x245638=await Logger[_0x6f54e2(0x207)](_0x53b366);if(_0x245638['length']===0x0){_0x5811ae[_0x6f54e2(0x1be)]=_0x6f54e2(0x17c);return;}_0x5811ae[_0x6f54e2(0x1be)]='',_0x245638[_0x6f54e2(0x14e)](_0x1c2734=>{const _0x4f1d7a=_0x6f54e2,_0x55126e=Logger[_0x4f1d7a(0x1a7)](_0x1c2734),_0x22e065=document[_0x4f1d7a(0x165)](_0x4f1d7a(0x1a0));_0x22e065['className']=_0x4f1d7a(0x197),_0x22e065[_0x4f1d7a(0x21e)][_0x4f1d7a(0x211)]=_0x4f1d7a(0x1ef),_0x22e065[_0x4f1d7a(0x21e)][_0x4f1d7a(0x1dd)]='flex-start',_0x22e065['style'][_0x4f1d7a(0x191)]=_0x4f1d7a(0x190);let _0x5f5144='';_0x1c2734['action_details']&&(_0x1c2734[_0x4f1d7a(0x1e9)][_0x4f1d7a(0x1bc)]?(_0x5f5144='<div\x20style=\x22font-size:\x200.85rem;\x20background:\x20#f0f5ff;\x20padding:\x2012px;\x20border-radius:\x208px;\x20width:\x20100%;\x22>',_0x5f5144+='<details>',_0x5f5144+=_0x4f1d7a(0x17e),_0x5f5144+=_0x4f1d7a(0x17b),Object[_0x4f1d7a(0x148)](_0x1c2734[_0x4f1d7a(0x1e9)]['changes'])[_0x4f1d7a(0x14e)](([_0x7dcfca,_0x18aea8])=>{const _0xb1fab4=_0x4f1d7a;_0x5f5144+=_0xb1fab4(0x1b0)+_0x7dcfca+'</div>\x0a\x09\x09\x09\x09\x09\x09\x09\x09<div\x20style=\x22display:\x20grid;\x20grid-template-columns:\x201fr\x201fr;\x20gap:\x2010px;\x20margin-top:\x205px;\x22>\x0a\x09\x09\x09\x09\x09\x09\x09\x09\x09<div\x20style=\x22background:\x20#ffe6e6;\x20padding:\x206px;\x20border-radius:\x204px;\x22>\x0a\x09\x09\x09\x09\x09\x09\x09\x09\x09\x09<span\x20style=\x22color:\x20#dc3545;\x22>Было:</span>\x20'+_0x28dbce(_0x18aea8[_0xb1fab4(0x21a)])+_0xb1fab4(0x163)+_0x28dbce(_0x18aea8['стало'])+_0xb1fab4(0x181);}),_0x5f5144+=_0x4f1d7a(0x147)):_0x5f5144='\x0a\x09\x09\x09\x09\x09\x09<div\x20style=\x22font-size:\x200.85rem;\x20color:\x20#5d7186;\x20background:\x20#f0f5ff;\x20padding:\x208px;\x20border-radius:\x208px;\x20width:\x20100%;\x22>\x0a\x09\x09\x09\x09\x09\x09\x09<details>\x0a\x09\x09\x09\x09\x09\x09\x09\x09<summary\x20style=\x22cursor:\x20pointer;\x20color:\x20#1e3a5f;\x22>Детали</summary>\x0a\x09\x09\x09\x09\x09\x09\x09\x09<pre\x20style=\x22margin-top:\x208px;\x20white-space:\x20pre-wrap;\x20font-family:\x20monospace;\x20font-size:\x200.8rem;\x22>'+JSON[_0x4f1d7a(0x213)](_0x1c2734[_0x4f1d7a(0x1e9)],null,0x2)+_0x4f1d7a(0x151)),_0x22e065[_0x4f1d7a(0x1be)]=_0x4f1d7a(0x162)+_0x55126e[_0x4f1d7a(0x1d7)]+_0x4f1d7a(0x131)+_0x55126e[_0x4f1d7a(0x206)]+'</span>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09<div\x20style=\x22color:\x20#0e2b42;\x22>'+_0x55126e['formattedAction']+_0x4f1d7a(0x1f9)+_0x5f5144+_0x4f1d7a(0x1f6)+(_0x1c2734[_0x4f1d7a(0x1ff)]?_0x4f1d7a(0x13f)+_0x1c2734[_0x4f1d7a(0x1ff)]+_0x4f1d7a(0x1f9):'')+'\x0a\x09\x09\x09',_0x5811ae[_0x4f1d7a(0x182)](_0x22e065);});}async function _0x507c8c(){const _0x454d85=_0x405f,_0x27de21=await Logger['getLogs']({'limit':0x3e8}),_0x172525=[['Дата',_0x454d85(0x15a),_0x454d85(0x1a9),'Действие',_0x454d85(0x1ee),'IP'],..._0x27de21[_0x454d85(0x195)](_0x23f4f8=>[new Date(_0x23f4f8[_0x454d85(0x1b1)])[_0x454d85(0x1ac)]('ru-RU'),_0x23f4f8[_0x454d85(0x168)],_0x23f4f8['user_category']||'',_0x23f4f8[_0x454d85(0x1b2)],JSON['stringify'](_0x23f4f8[_0x454d85(0x1e9)]||{}),_0x23f4f8[_0x454d85(0x1ff)]||''])][_0x454d85(0x195)](_0x4f6975=>_0x4f6975[_0x454d85(0x195)](_0x4153ee=>'\x22'+_0x4153ee+'\x22')[_0x454d85(0x1e6)](','))[_0x454d85(0x1e6)]('\x0a'),_0x533ee0=new Blob(['\ufeff'+_0x172525],{'type':_0x454d85(0x180)}),_0x357c43=document[_0x454d85(0x165)]('a');_0x357c43[_0x454d85(0x1ea)]=URL['createObjectURL'](_0x533ee0),_0x357c43[_0x454d85(0x1dc)]=_0x454d85(0x212)+new Date()[_0x454d85(0x1d9)]()[_0x454d85(0x1b4)](0x0,0xa)+'.csv',_0x357c43['click'](),UI[_0x454d85(0x1aa)](_0x454d85(0x1c2),_0x454d85(0x13e));}function _0x435bbf(){const _0x5f17e3=_0x405f,_0xc80b73=document[_0x5f17e3(0x140)](_0x5f17e3(0x1fc));if(!_0xc80b73)return;_0xc80b73[_0x5f17e3(0x1be)]='';if(!_0x3602a4[_0x5f17e3(0x173)]){_0xc80b73['innerHTML']=_0x5f17e3(0x18b);return;}const _0x4fce50=Auth['getCurrentUser']();_0x3602a4[_0x5f17e3(0x14e)](_0xa375a0=>{const _0x307779=_0x5f17e3,_0xc79a56=document[_0x307779(0x165)](_0x307779(0x1a0));_0xc79a56[_0x307779(0x1f0)]=_0x307779(0x197);const _0x52a318=Auth['canDeleteUser'](_0xa375a0),_0x16ef78=Auth[_0x307779(0x1e1)](_0xa375a0),_0x28383e=_0x4fce50&&_0x4fce50['id']===_0xa375a0['id'];_0xc79a56[_0x307779(0x1be)]=_0x307779(0x138)+_0xa375a0[_0x307779(0x1b8)]+'\x20'+(_0x28383e?_0x307779(0x183):'')+'</div>\x0a\x09\x09\x09\x09\x09<div\x20class=\x22item-meta\x22>'+_0xa375a0[_0x307779(0x15b)]+_0x307779(0x192)+_0xa375a0[_0x307779(0x146)]+_0x307779(0x192)+_0xa375a0[_0x307779(0x133)]+_0x307779(0x1f2)+(_0x16ef78?'<button\x20class=\x22small\x22\x20data-id=\x22'+_0xa375a0['id']+_0x307779(0x1d5):'')+_0x307779(0x208)+(_0x52a318&&!_0x28383e?_0x307779(0x1c6)+_0xa375a0['id']+_0x307779(0x187):'')+_0x307779(0x202),_0xc80b73[_0x307779(0x182)](_0xc79a56);}),_0xc80b73[_0x5f17e3(0x13a)](_0x5f17e3(0x164))[_0x5f17e3(0x14e)](_0x2894e2=>{const _0x597eec=_0x5f17e3;_0x2894e2[_0x597eec(0x16e)]=()=>_0x27fa8f(_0x2894e2['dataset']['id']);}),_0xc80b73[_0x5f17e3(0x13a)]('button[data-action=\x22delete\x22]')[_0x5f17e3(0x14e)](_0x4dff5b=>{const _0x54da42=_0x5f17e3;_0x4dff5b['onclick']=()=>_0x4db205(_0x4dff5b[_0x54da42(0x1a1)]['id']);});}async function _0x27fa8f(_0x1ffe61){const _0x367a98=_0x405f;Auth[_0x367a98(0x1b5)]();const _0x633c68=_0x3602a4[_0x367a98(0x1a5)](_0x1cd1f6=>_0x1cd1f6['id']===_0x1ffe61);if(!_0x633c68)return;if(!Auth[_0x367a98(0x1e1)](_0x633c68)){UI['showNotification'](_0x367a98(0x1b7),_0x367a98(0x1c8));return;}const _0x3a29e2=document[_0x367a98(0x165)]('div');_0x3a29e2['className']=_0x367a98(0x16a),_0x3a29e2['id']='editEmployeeModal',_0x3a29e2[_0x367a98(0x1be)]='\x0a\x09\x09<div\x20class=\x22modal-container\x22>\x0a\x09\x09\x09<div\x20class=\x22modal-header\x22>\x0a\x09\x09\x09\x09<h3>Редактирование\x20сотрудника</h3>\x0a\x09\x09\x09\x09<button\x20class=\x22modal-close\x22>&times;</button>\x0a\x09\x09\x09</div>\x0a\x09\x09\x09<div\x20class=\x22modal-content\x22>\x0a\x09\x09\x09\x09<div\x20class=\x22form-group\x22>\x0a\x09\x09\x09\x09\x09<label\x20for=\x22edit_nickname\x22>Логин\x20<span\x20class=\x22required\x22>*</span></label>\x0a\x09\x09\x09\x09\x09<input\x20id=\x22edit_nickname\x22\x20type=\x22text\x22\x20placeholder=\x22Введите\x20логин\x22\x20value=\x22'+_0x633c68[_0x367a98(0x1b8)]+_0x367a98(0x1eb)+(_0x633c68['rank']||'')+_0x367a98(0x219)+(_0x633c68[_0x367a98(0x146)]||'')+'\x22>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x0a\x09\x09\x09\x09<div\x20class=\x22form-group\x22>\x0a\x09\x09\x09\x09\x09<label\x20for=\x22edit_category\x22>Категория\x20<span\x20class=\x22required\x22>*</span></label>\x0a\x09\x09\x09\x09\x09<select\x20id=\x22edit_category\x22>\x0a\x09\x09\x09\x09\x09\x09<option\x20value=\x22МС\x22\x20'+(_0x633c68[_0x367a98(0x133)]==='МС'?_0x367a98(0x1e8):'')+'>Младший\x20состав\x20(МС)</option>\x0a\x09\x09\x09\x09\x09\x09<option\x20value=\x22РС\x22\x20'+(_0x633c68[_0x367a98(0x133)]==='РС'?'selected':'')+_0x367a98(0x1df)+(_0x633c68[_0x367a98(0x133)]===_0x367a98(0x139)?'selected':'')+'>Высший\x20руководящий\x20состав\x20(ВРС)</option>\x0a\x09\x09\x09\x09\x09\x09<option\x20value=\x22Администратор\x22\x20'+(_0x633c68['category']===_0x367a98(0x209)?_0x367a98(0x1e8):'')+_0x367a98(0x1f3),document[_0x367a98(0x217)][_0x367a98(0x182)](_0x3a29e2),_0x3a29e2[_0x367a98(0x1cb)](_0x367a98(0x14c))['onclick']=()=>_0x3a29e2[_0x367a98(0x204)](),_0x3a29e2[_0x367a98(0x16e)]=_0x4cba93=>{const _0x2dbf60=_0x367a98;if(_0x4cba93[_0x2dbf60(0x167)]===_0x3a29e2)_0x3a29e2[_0x2dbf60(0x204)]();},document['getElementById'](_0x367a98(0x1bb))[_0x367a98(0x16e)]=()=>_0x3a29e2['remove'](),document['getElementById'](_0x367a98(0x13d))[_0x367a98(0x16e)]=async()=>{const _0x5cf84d=_0x367a98;Auth[_0x5cf84d(0x1b5)]();const _0xf20625=document[_0x5cf84d(0x140)](_0x5cf84d(0x1e5))?.[_0x5cf84d(0x205)]['trim'](),_0x3271bf=document['getElementById']('edit_password')?.[_0x5cf84d(0x205)][_0x5cf84d(0x17a)](),_0x6be160=document[_0x5cf84d(0x140)](_0x5cf84d(0x1fe))?.[_0x5cf84d(0x205)]['trim'](),_0x34aa3c=document[_0x5cf84d(0x140)](_0x5cf84d(0x1fd))?.[_0x5cf84d(0x205)][_0x5cf84d(0x17a)](),_0x366b92=document[_0x5cf84d(0x140)]('edit_category')?.[_0x5cf84d(0x205)];if(!_0xf20625||!_0x6be160||!_0x34aa3c){UI[_0x5cf84d(0x1aa)]('Заполните\x20все\x20обязательные\x20поля',_0x5cf84d(0x1c8));return;}try{const {data:{session:_0x2ca8d6}}=await supabaseClient['auth'][_0x5cf84d(0x193)]();if(!_0x2ca8d6)throw new Error(_0x5cf84d(0x1c5));_0x3271bf&&(await SupabaseAdmin[_0x5cf84d(0x1bd)](_0x633c68[_0x5cf84d(0x15c)],_0x3271bf),UI[_0x5cf84d(0x1aa)]('Пароль\x20успешно\x20изменен','success'),Logger[_0x5cf84d(0x19a)](Logger[_0x5cf84d(0x1de)][_0x5cf84d(0x134)],{'nickname':_0x633c68[_0x5cf84d(0x1b8)],'changed_by':Auth[_0x5cf84d(0x143)]()?.[_0x5cf84d(0x1b8)]},'employee',_0x1ffe61));if(_0xf20625!==_0x633c68[_0x5cf84d(0x1b8)]){const _0x208cb9=_0xf20625+_0x5cf84d(0x14d);await SupabaseAdmin[_0x5cf84d(0x1ca)](_0x633c68[_0x5cf84d(0x15c)],_0x208cb9),await SupabaseAdmin['updateUserMetadata'](_0x633c68[_0x5cf84d(0x15c)],{'nickname':_0xf20625,'rank':_0x6be160,'department':_0x34aa3c,'category':_0x366b92}),UI[_0x5cf84d(0x1aa)](_0x5cf84d(0x1ad)+_0x208cb9,'success');}else await SupabaseAdmin[_0x5cf84d(0x19c)](_0x633c68['auth_user_id'],{'nickname':_0xf20625,'rank':_0x6be160,'department':_0x34aa3c,'category':_0x366b92});await supabaseClient['auth'][_0x5cf84d(0x16d)]({'access_token':_0x2ca8d6[_0x5cf84d(0x1c3)],'refresh_token':_0x2ca8d6[_0x5cf84d(0x1e7)]});const _0x25dd89={'nickname':_0xf20625,'rank':_0x6be160,'department':_0x34aa3c,'category':_0x366b92},{error:_0x18fb43}=await supabaseClient[_0x5cf84d(0x142)](_0x5cf84d(0x17d))[_0x5cf84d(0x136)](_0x25dd89)['eq']('id',_0x1ffe61);if(_0x18fb43)throw new Error('Ошибка\x20при\x20обновлении\x20данных:\x20'+_0x18fb43[_0x5cf84d(0x1ae)]);const _0x44beb8={};if(_0xf20625!==_0x633c68[_0x5cf84d(0x1b8)])_0x44beb8[_0x5cf84d(0x1a6)]={'было':_0x633c68[_0x5cf84d(0x1b8)],'стало':_0xf20625};if(_0x6be160!==_0x633c68['rank'])_0x44beb8[_0x5cf84d(0x21c)]={'было':_0x633c68[_0x5cf84d(0x15b)],'стало':_0x6be160};if(_0x34aa3c!==_0x633c68[_0x5cf84d(0x146)])_0x44beb8[_0x5cf84d(0x1c9)]={'было':_0x633c68['department'],'стало':_0x34aa3c};if(_0x366b92!==_0x633c68[_0x5cf84d(0x133)])_0x44beb8[_0x5cf84d(0x179)]={'было':_0x633c68['category'],'стало':_0x366b92};Object[_0x5cf84d(0x16f)](_0x44beb8)[_0x5cf84d(0x173)]>0x0&&Logger[_0x5cf84d(0x19a)](Logger['ACTION_TYPES'][_0x5cf84d(0x1f1)],{'employee':_0xf20625,'changes':_0x44beb8,'changed_by':Auth['getCurrentUser']()?.['nickname']},_0x5cf84d(0x20f),_0x1ffe61),UI[_0x5cf84d(0x1aa)](_0x5cf84d(0x19f),_0x5cf84d(0x13e)),_0x3a29e2['remove'](),await _0x43322b(),_0x435bbf(),_0x167f11();}catch(_0x68df31){console['error']('Update\x20error:',_0x68df31),ErrorHandler[_0x5cf84d(0x1d3)](_0x68df31,_0x5cf84d(0x21b));try{const {data:{session:_0x3ce816}}=await supabaseClient[_0x5cf84d(0x13c)][_0x5cf84d(0x193)]();if(!_0x3ce816){const _0x20f413=Auth[_0x5cf84d(0x143)]();_0x20f413&&(window['location']['hash']='',UI['showAuthMode']());}}catch(_0x54fd17){console[_0x5cf84d(0x1c8)](_0x5cf84d(0x152),_0x54fd17);}}};}async function _0x4db205(_0x376466){const _0x401867=_0x405f;Auth[_0x401867(0x1b5)]();const _0x327892=_0x3602a4[_0x401867(0x1a5)](_0x1545c1=>_0x1545c1['id']===_0x376466);if(!_0x327892)return;if(!Auth[_0x401867(0x1cc)](_0x327892)){UI[_0x401867(0x1aa)](_0x401867(0x13b),_0x401867(0x1c8));return;}const _0x4d52b4=Auth[_0x401867(0x143)]();if(_0x4d52b4&&_0x4d52b4['id']===_0x376466){UI[_0x401867(0x1aa)]('Вы\x20не\x20можете\x20удалить\x20свой\x20собственный\x20аккаунт','error');return;}console['log'](_0x401867(0x149),{'id':_0x327892['id'],'auth_user_id':_0x327892[_0x401867(0x15c)],'nickname':_0x327892[_0x401867(0x1b8)]});const _0x2dedb4=document['createElement'](_0x401867(0x1a0));_0x2dedb4[_0x401867(0x1f0)]=_0x401867(0x16a),_0x2dedb4[_0x401867(0x1be)]=_0x401867(0x188)+_0x327892['nickname']+'</strong>?</p>\x0a\x09\x09\x09\x09\x09<div\x20class=\x22flex-row\x22\x20style=\x22justify-content:\x20flex-end;\x22>\x0a\x09\x09\x09\x09\x09\x09<button\x20id=\x22cancelDeleteBtn\x22\x20class=\x22secondary\x22>Отмена</button>\x0a\x09\x09\x09\x09\x09\x09<button\x20id=\x22confirmDeleteBtn\x22\x20style=\x22background:\x20#dc3545;\x22>Удалить</button>\x0a\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09</div>\x0a\x09\x09',document[_0x401867(0x217)][_0x401867(0x182)](_0x2dedb4);const _0x1a67d7=_0x2dedb4[_0x401867(0x1cb)](_0x401867(0x14c)),_0x518fb3=document['getElementById'](_0x401867(0x17f)),_0x33033a=document['getElementById'](_0x401867(0x189));_0x1a67d7[_0x401867(0x16e)]=()=>_0x2dedb4[_0x401867(0x204)](),_0x2dedb4[_0x401867(0x16e)]=_0x5652e9=>{const _0x384d0e=_0x401867;if(_0x5652e9[_0x384d0e(0x167)]===_0x2dedb4)_0x2dedb4[_0x384d0e(0x204)]();},_0x518fb3&&(_0x518fb3[_0x401867(0x16e)]=()=>_0x2dedb4['remove']()),_0x33033a&&(_0x33033a[_0x401867(0x16e)]=async()=>{const _0xddd354=_0x401867;Auth[_0xddd354(0x1b5)]();const _0x2d7c71=Auth[_0xddd354(0x143)]();if(_0x2d7c71&&_0x2d7c71['id']===_0x376466){UI[_0xddd354(0x1aa)](_0xddd354(0x150),'error'),_0x2dedb4[_0xddd354(0x204)]();return;}try{const {data:_0xb35b08,error:_0x16ddf4}=await supabaseClient[_0xddd354(0x142)](_0xddd354(0x1f5))[_0xddd354(0x158)](_0xddd354(0x160))['eq']('received_by_id',_0x327892[_0xddd354(0x15c)]);if(_0x16ddf4)console['error']('Error\x20checking\x20received\x20kusps:',_0x16ddf4);else{if(_0xb35b08&&_0xb35b08[_0xddd354(0x173)]>0x0){const {error:_0x1ee2cc}=await supabaseClient[_0xddd354(0x142)](_0xddd354(0x1f5))[_0xddd354(0x136)]({'received_by_id':null,'received_by_name_archived':_0x327892['nickname'],'received_by_rank_archived':_0x327892[_0xddd354(0x15b)],'received_by_deleted_at':new Date()[_0xddd354(0x1d9)]()})['eq'](_0xddd354(0x178),_0x327892[_0xddd354(0x15c)]);if(_0x1ee2cc){console['error'](_0xddd354(0x1a3),_0x1ee2cc);if(_0x1ee2cc[_0xddd354(0x15e)]===_0xddd354(0x1e2))for(const _0x182d10 of _0xb35b08){const {error:_0x350ff9}=await supabaseClient[_0xddd354(0x142)](_0xddd354(0x1f5))[_0xddd354(0x136)]({'received_by_name_archived':_0x327892[_0xddd354(0x1b8)],'received_by_rank_archived':_0x327892[_0xddd354(0x15b)],'received_by_deleted_at':new Date()[_0xddd354(0x1d9)](),'notes':supabaseClient[_0xddd354(0x186)](_0xddd354(0x155),{'current_notes':_0x182d10[_0xddd354(0x177)],'new_note':_0xddd354(0x1d2)+_0x327892[_0xddd354(0x1b8)]+_0xddd354(0x14a)+new Date()[_0xddd354(0x1ac)]('ru-RU')+']'})})['eq']('id',_0x182d10['id']);_0x350ff9&&console[_0xddd354(0x1c8)](_0xddd354(0x1f7)+_0x182d10[_0xddd354(0x12f)]+':',_0x350ff9);}}}}const {data:_0x371c6e,error:_0x6934c6}=await supabaseClient[_0xddd354(0x142)](_0xddd354(0x1f5))['select'](_0xddd354(0x160))['eq'](_0xddd354(0x172),_0x327892[_0xddd354(0x15c)]);if(_0x6934c6)console[_0xddd354(0x1c8)](_0xddd354(0x1cf),_0x6934c6);else{if(_0x371c6e&&_0x371c6e['length']>0x0){const {error:_0x1e3672}=await supabaseClient['from'](_0xddd354(0x1f5))[_0xddd354(0x136)]({'assigned_by_id':null,'assigned_by_name_archived':_0x327892[_0xddd354(0x1b8)],'assigned_by_deleted_at':new Date()['toISOString']()})['eq'](_0xddd354(0x172),_0x327892['auth_user_id']);_0x1e3672&&console[_0xddd354(0x1c8)](_0xddd354(0x1b6),_0x1e3672);}}const {data:_0x38538a,error:_0x2b8fd3}=await supabaseClient[_0xddd354(0x142)]('kusps')[_0xddd354(0x158)]('id,\x20kusp_number')['eq'](_0xddd354(0x1ba),_0x327892['auth_user_id']);if(_0x2b8fd3)console[_0xddd354(0x1c8)](_0xddd354(0x215),_0x2b8fd3);else{if(_0x38538a&&_0x38538a['length']>0x0){const {error:_0x3865d5}=await supabaseClient[_0xddd354(0x142)](_0xddd354(0x1f5))[_0xddd354(0x136)]({'assigned_to_id':null,'assigned_to_name_archived':_0x327892[_0xddd354(0x1b8)],'assigned_to_deleted_at':new Date()['toISOString']()})['eq'](_0xddd354(0x1ba),_0x327892['auth_user_id']);_0x3865d5&&console['error'](_0xddd354(0x203),_0x3865d5);}}Logger[_0xddd354(0x19a)](Logger[_0xddd354(0x1de)][_0xddd354(0x137)],{'nickname':_0x327892[_0xddd354(0x1b8)],'rank':_0x327892[_0xddd354(0x15b)],'department':_0x327892[_0xddd354(0x146)],'category':_0x327892['category'],'deleted_by':_0x2d7c71?.[_0xddd354(0x1b8)],'affected_kusps':{'received':_0xb35b08?.['length']||0x0,'assigned_by':_0x371c6e?.[_0xddd354(0x173)]||0x0,'assigned_to':_0x38538a?.[_0xddd354(0x173)]||0x0}},_0xddd354(0x20f),_0x376466);const {data:{session:_0xf9dcad}}=await supabaseClient[_0xddd354(0x13c)][_0xddd354(0x193)]();if(!_0xf9dcad)throw new Error(_0xddd354(0x1c5));try{await SupabaseAdmin[_0xddd354(0x1a4)](_0x327892[_0xddd354(0x15c)]);}catch(_0x534d6b){console[_0xddd354(0x1c8)](_0xddd354(0x20b),_0x534d6b);if(_0x534d6b[_0xddd354(0x1ae)]&&_0x534d6b[_0xddd354(0x1ae)]['includes'](_0xddd354(0x214))){}else throw _0x534d6b;}await supabaseClient[_0xddd354(0x13c)][_0xddd354(0x16d)]({'access_token':_0xf9dcad[_0xddd354(0x1c3)],'refresh_token':_0xf9dcad[_0xddd354(0x1e7)]});const {error:_0x142258}=await supabaseClient['from'](_0xddd354(0x17d))[_0xddd354(0x1e3)]()['eq']('id',_0x376466);if(_0x142258)throw new Error(_0xddd354(0x159)+_0x142258['message']);UI[_0xddd354(0x1aa)](_0xddd354(0x15f),'success'),_0x2dedb4[_0xddd354(0x204)](),await _0x43322b(),_0x435bbf(),_0x167f11();}catch(_0x576042){console[_0xddd354(0x1c8)](_0xddd354(0x216),_0x576042),console['error'](_0xddd354(0x18e),_0x576042['stack']),ErrorHandler['showError'](_0x576042,_0xddd354(0x169)),_0x2dedb4['remove']();}});}function _0x167f11(){const _0x43cdb2=_0x405f,_0x22be43=document[_0x43cdb2(0x140)](_0x43cdb2(0x166));if(!_0x22be43)return;_0x22be43[_0x43cdb2(0x1be)]='',_0x3602a4[_0x43cdb2(0x14e)](_0x42b293=>{const _0x4f83ef=_0x43cdb2,_0x5988c0=document[_0x4f83ef(0x165)]('li');_0x5988c0[_0x4f83ef(0x21e)][_0x4f83ef(0x19b)]=_0x4f83ef(0x176),_0x5988c0[_0x4f83ef(0x21e)][_0x4f83ef(0x198)]='1px\x20solid\x20#dbe4ee',_0x5988c0[_0x4f83ef(0x21e)][_0x4f83ef(0x1d6)]='flex',_0x5988c0['style']['justifyContent']='space-between',_0x5988c0['style']['alignItems']='center';let _0x6aed67=_0x4f83ef(0x1a8);if(_0x42b293[_0x4f83ef(0x133)]===_0x4f83ef(0x209))_0x6aed67=_0x4f83ef(0x1b3);else{if(_0x42b293[_0x4f83ef(0x133)]===_0x4f83ef(0x139))_0x6aed67='badge-vrs';else _0x42b293['category']==='РС'&&(_0x6aed67='badge-rs');}_0x5988c0[_0x4f83ef(0x1be)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>'+_0x42b293['nickname']+_0x4f83ef(0x192)+_0x42b293[_0x4f83ef(0x15b)]+'\x20·\x20'+_0x42b293[_0x4f83ef(0x146)]+_0x4f83ef(0x1d8)+_0x6aed67+'\x22>'+_0x42b293[_0x4f83ef(0x133)]+_0x4f83ef(0x18a),_0x22be43[_0x4f83ef(0x182)](_0x5988c0);});}async function _0x585863(){const _0x22c4a4=_0x405f;Auth[_0x22c4a4(0x1b5)]();if(!Auth[_0x22c4a4(0x1cd)]())return UI[_0x22c4a4(0x1aa)](_0x22c4a4(0x18f),'error'),![];const _0x2036a8=document[_0x22c4a4(0x140)](_0x22c4a4(0x1b8))?.[_0x22c4a4(0x205)][_0x22c4a4(0x17a)](),_0x1ac9cb=document['getElementById'](_0x22c4a4(0x201))?.[_0x22c4a4(0x205)][_0x22c4a4(0x17a)](),_0x579477=document['getElementById'](_0x22c4a4(0x15b))?.[_0x22c4a4(0x205)][_0x22c4a4(0x17a)](),_0x405c9b=document[_0x22c4a4(0x140)](_0x22c4a4(0x146))?.[_0x22c4a4(0x205)]['trim'](),_0x5f3ff4=document['getElementById'](_0x22c4a4(0x133))?.[_0x22c4a4(0x205)];if(!_0x2036a8||!_0x1ac9cb||!_0x579477||!_0x405c9b)return UI[_0x22c4a4(0x1aa)](_0x22c4a4(0x218),'error'),![];if(_0x1ac9cb['length']<0x6){UI['showNotification'](_0x22c4a4(0x1ce),_0x22c4a4(0x1c8));const _0x3ac143=document[_0x22c4a4(0x140)]('newPassword');return _0x3ac143[_0x22c4a4(0x21e)][_0x22c4a4(0x21d)]=_0x22c4a4(0x200),_0x3ac143['focus'](),setTimeout(()=>{const _0x4d82a9=_0x22c4a4;_0x3ac143['style'][_0x4d82a9(0x21d)]='';},0xbb8),![];}if(_0x2036a8[_0x22c4a4(0x173)]<0x3)return UI[_0x22c4a4(0x1aa)](_0x22c4a4(0x135),_0x22c4a4(0x1c8)),![];try{const {data:{session:_0x285620}}=await supabaseClient[_0x22c4a4(0x13c)][_0x22c4a4(0x193)]();if(!_0x285620)throw new Error('Сессия\x20администратора\x20не\x20найдена');const _0xc8be3=document['getElementById'](_0x22c4a4(0x15d)),_0x462b49=_0xc8be3[_0x22c4a4(0x20a)];_0xc8be3[_0x22c4a4(0x20a)]=_0x22c4a4(0x1e0),_0xc8be3[_0x22c4a4(0x1bf)]=!![];const _0x3e1755=await SupabaseAdmin[_0x22c4a4(0x1af)]({'email':_0x2036a8+_0x22c4a4(0x14d),'password':_0x1ac9cb,'metadata':{'nickname':_0x2036a8,'rank':_0x579477,'department':_0x405c9b,'category':_0x5f3ff4}});await supabaseClient[_0x22c4a4(0x13c)][_0x22c4a4(0x16d)]({'access_token':_0x285620['access_token'],'refresh_token':_0x285620[_0x22c4a4(0x1e7)]});const {error:_0x318576,data:_0x4597bd}=await supabaseClient[_0x22c4a4(0x142)](_0x22c4a4(0x17d))['insert']([{'nickname':_0x2036a8,'rank':_0x579477,'department':_0x405c9b,'category':_0x5f3ff4,'auth_user_id':_0x3e1755[_0x22c4a4(0x20e)]['id']}])['select']();if(_0x318576){console[_0x22c4a4(0x1c8)](_0x22c4a4(0x1e4),_0x318576);try{await SupabaseAdmin[_0x22c4a4(0x1a4)](_0x3e1755[_0x22c4a4(0x20e)]['id']),await supabaseClient[_0x22c4a4(0x13c)][_0x22c4a4(0x16d)]({'access_token':_0x285620[_0x22c4a4(0x1c3)],'refresh_token':_0x285620[_0x22c4a4(0x1e7)]});}catch(_0x2a2da2){console[_0x22c4a4(0x1c8)]('Cleanup\x20error:',_0x2a2da2);}throw new Error(_0x318576[_0x22c4a4(0x1ae)]);}return Logger['log'](Logger[_0x22c4a4(0x1de)]['EMPLOYEE_CREATE'],{'nickname':_0x2036a8,'rank':_0x579477,'department':_0x405c9b,'category':_0x5f3ff4,'created_by':Auth[_0x22c4a4(0x143)]()?.[_0x22c4a4(0x1b8)]},_0x22c4a4(0x20f),_0x3e1755[_0x22c4a4(0x20e)]['id']),UI[_0x22c4a4(0x1aa)]('Сотрудник\x20успешно\x20создан',_0x22c4a4(0x13e)),document[_0x22c4a4(0x140)](_0x22c4a4(0x1b8))[_0x22c4a4(0x205)]='',document[_0x22c4a4(0x140)]('newPassword')[_0x22c4a4(0x205)]='',document[_0x22c4a4(0x140)](_0x22c4a4(0x15b))['value']='',document[_0x22c4a4(0x140)](_0x22c4a4(0x146))['value']='',document[_0x22c4a4(0x140)](_0x22c4a4(0x133))['value']='МС',await _0x43322b(),_0x435bbf(),_0x167f11(),_0xc8be3[_0x22c4a4(0x20a)]=_0x462b49,_0xc8be3['disabled']=![],!![];}catch(_0x45ee12){console[_0x22c4a4(0x1c8)](_0x22c4a4(0x20c),_0x45ee12);const _0x1276ce=document[_0x22c4a4(0x140)]('createUserBtn');_0x1276ce&&(_0x1276ce[_0x22c4a4(0x20a)]=_0x22c4a4(0x1fa),_0x1276ce['disabled']=![]);ErrorHandler[_0x22c4a4(0x1d3)](_0x45ee12,_0x22c4a4(0x1c1));if(_0x45ee12['message']&&_0x45ee12[_0x22c4a4(0x1ae)][_0x22c4a4(0x14f)]()['includes']('password')){const _0x1334d1=document[_0x22c4a4(0x140)](_0x22c4a4(0x201));_0x1334d1[_0x22c4a4(0x21e)]['borderColor']='#dc3545',_0x1334d1[_0x22c4a4(0x185)](),setTimeout(()=>{_0x1334d1['style']['borderColor']='';},0xbb8);}return![];}}async function _0x14666c(){const _0x129513=_0x405f;if(!Auth['canManageUsers']()){UI['showNotification'](_0x129513(0x1f4),'error'),window[_0x129513(0x1d4)][_0x129513(0x16b)]=_0x129513(0x1a2);return;}Auth[_0x129513(0x1b5)]();const _0xbef3f9=UI[_0x129513(0x184)](_0x129513(0x170));UI['clearMain'](),document[_0x129513(0x140)]('mainApp')['appendChild'](_0xbef3f9),await _0x43322b();const _0x112a50=document[_0x129513(0x1cb)](_0x129513(0x1ab));if(_0x112a50)_0x112a50[_0x129513(0x20a)]=_0x129513(0x156);const _0x1ee594=document[_0x129513(0x140)](_0x129513(0x1ed)),_0x4dd79f=document['getElementById'](_0x129513(0x144)),_0x2103db=document['getElementById'](_0x129513(0x1d0)),_0x5db1da=document[_0x129513(0x140)]('manageAccountsSection'),_0x383ea6=document[_0x129513(0x140)](_0x129513(0x1c7)),_0x1de75e=document[_0x129513(0x140)](_0x129513(0x1c0));if(!_0x1ee594||!_0x4dd79f||!_0x2103db||!_0x5db1da||!_0x383ea6||!_0x1de75e)return;function _0x3bb7e1(_0x1d03d5){const _0x1d91e9=_0x129513;if(_0x1d03d5===_0x1d91e9(0x1db))_0x5db1da[_0x1d91e9(0x157)][_0x1d91e9(0x204)](_0x1d91e9(0x194)),_0x383ea6['classList'][_0x1d91e9(0x1ec)]('hidden'),_0x1de75e[_0x1d91e9(0x157)]['add']('hidden'),_0x1ee594[_0x1d91e9(0x157)][_0x1d91e9(0x1ec)](_0x1d91e9(0x174)),_0x4dd79f[_0x1d91e9(0x157)][_0x1d91e9(0x204)](_0x1d91e9(0x174)),_0x2103db[_0x1d91e9(0x157)][_0x1d91e9(0x204)](_0x1d91e9(0x174)),_0x435bbf();else{if(_0x1d03d5===_0x1d91e9(0x14b))_0x5db1da[_0x1d91e9(0x157)][_0x1d91e9(0x1ec)]('hidden'),_0x383ea6[_0x1d91e9(0x157)][_0x1d91e9(0x204)](_0x1d91e9(0x194)),_0x1de75e[_0x1d91e9(0x157)][_0x1d91e9(0x1ec)](_0x1d91e9(0x194)),_0x4dd79f[_0x1d91e9(0x157)]['add'](_0x1d91e9(0x174)),_0x1ee594[_0x1d91e9(0x157)]['remove'](_0x1d91e9(0x174)),_0x2103db['classList'][_0x1d91e9(0x204)]('active');else _0x1d03d5==='logs'&&(_0x5db1da['classList'][_0x1d91e9(0x1ec)]('hidden'),_0x383ea6[_0x1d91e9(0x157)][_0x1d91e9(0x1ec)](_0x1d91e9(0x194)),_0x1de75e[_0x1d91e9(0x157)][_0x1d91e9(0x204)](_0x1d91e9(0x194)),_0x2103db[_0x1d91e9(0x157)]['add']('active'),_0x1ee594[_0x1d91e9(0x157)][_0x1d91e9(0x204)](_0x1d91e9(0x174)),_0x4dd79f['classList'][_0x1d91e9(0x204)](_0x1d91e9(0x174)),_0x552fe4());}}_0x3bb7e1(_0x129513(0x1db)),_0x1ee594[_0x129513(0x16e)]=()=>_0x3bb7e1(_0x129513(0x1db)),_0x4dd79f['onclick']=()=>_0x3bb7e1('create'),_0x2103db[_0x129513(0x16e)]=()=>_0x3bb7e1('logs'),document[_0x129513(0x140)](_0x129513(0x16c))?.[_0x129513(0x199)](_0x129513(0x175),_0x552fe4),document['getElementById']('exportLogsBtn')?.[_0x129513(0x199)](_0x129513(0x175),_0x507c8c),document[_0x129513(0x140)](_0x129513(0x132))?.[_0x129513(0x199)](_0x129513(0x130),_0x552fe4),document[_0x129513(0x140)](_0x129513(0x18c))?.['addEventListener'](_0x129513(0x130),_0x552fe4),document[_0x129513(0x140)](_0x129513(0x15d))[_0x129513(0x16e)]=_0x585863,_0x167f11(),UI[_0x129513(0x1da)](UI[_0x129513(0x20d)]()[_0x129513(0x196)]);}function _0x2fcdf2(){return _0x3602a4;}return{'initAdminPanel':_0x14666c,'loadEmployeesList':_0x43322b,'getEmployeesCache':_0x2fcdf2};}());
+// Модуль администратора
+const Admin = (function() {
+    let employeesCache = [];
+
+	// Функция экранирования HTML
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // Загрузка списка сотрудников
+    async function loadEmployeesList() {
+        const { data } = await supabaseClient
+            .from('employees')
+            .select('*')
+            .order('nickname');
+        
+        employeesCache = data || [];
+        return employeesCache;
+    }
+
+    // Переключение на вкладку логов
+    function switchToLogsTab() {
+        const manageSection = document.getElementById('manageAccountsSection');
+        const createSection = document.getElementById('createAccountSection');
+        const logsSection = document.getElementById('logsSection');
+        const manageBtn = document.getElementById('manageTabBtn');
+        const createBtn = document.getElementById('createTabBtn');
+        const logsBtn = document.getElementById('logsTabBtn');
+
+        if (!manageSection || !createSection || !logsSection || !manageBtn || !createBtn || !logsBtn) return;
+
+        manageSection.classList.add('hidden');
+        createSection.classList.add('hidden');
+        logsSection.classList.remove('hidden');
+        
+        manageBtn.classList.remove('active');
+        createBtn.classList.remove('active');
+        logsBtn.classList.add('active');
+        
+        renderLogsList();
+    }
+
+    // Отображение логов
+	async function renderLogsList() {
+		const container = document.getElementById('logsList');
+		if (!container) return;
+
+		const actionFilter = document.getElementById('logFilterAction')?.value || '';
+		const dateFilter = document.getElementById('logFilterDate')?.value || '';
+
+		const filters = {};
+		if (actionFilter) filters.action_type = actionFilter;
+		if (dateFilter) {
+			const startDate = new Date(dateFilter);
+			startDate.setHours(0, 0, 0, 0);
+			const endDate = new Date(dateFilter);
+			endDate.setHours(23, 59, 59, 999);
+			filters.date_from = startDate.toISOString();
+			filters.date_to = endDate.toISOString();
+		}
+		filters.limit = 100;
+
+		const logs = await Logger.getLogs(filters);
+		
+		if (logs.length === 0) {
+			container.innerHTML = '<div class="list-item" style="justify-content: center; color: #6b7f99;">Нет записей в журнале</div>';
+			return;
+		}
+
+		container.innerHTML = '';
+		
+		logs.forEach(log => {
+			const formatted = Logger.formatLogForDisplay(log);
+			const div = document.createElement('div');
+			div.className = 'list-item';
+			div.style.flexDirection = 'column';
+			div.style.alignItems = 'flex-start';
+			div.style.gap = '8px';
+			
+			// Форматируем детали для читаемости
+			let detailsHtml = '';
+			if (log.action_details) {
+				if (log.action_details.changes) {
+					// Для изменений показываем таблицу
+					detailsHtml = '<div style="font-size: 0.85rem; background: #f0f5ff; padding: 12px; border-radius: 8px; width: 100%;">';
+					detailsHtml += '<details>';
+					detailsHtml += '<summary style="cursor: pointer; color: #1e3a5f; font-weight: 600;">📋 Детали изменений</summary>';
+					detailsHtml += '<div style="margin-top: 12px;">';
+					
+					Object.entries(log.action_details.changes).forEach(([field, value]) => {
+						detailsHtml += `
+							<div style="margin-bottom: 10px; border-bottom: 1px solid #d0e0ff; padding-bottom: 8px;">
+								<div style="font-weight: 600; color: #0b2b4a;">${field}</div>
+								<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px;">
+									<div style="background: #ffe6e6; padding: 6px; border-radius: 4px;">
+										<span style="color: #dc3545;">Было:</span> ${escapeHtml(value.было)}
+									</div>
+									<div style="background: #e6ffe6; padding: 6px; border-radius: 4px;">
+										<span style="color: #28a745;">Стало:</span> ${escapeHtml(value.стало)}
+									</div>
+								</div>
+							</div>
+						`;
+					});
+					
+					detailsHtml += '</div></details></div>';
+				} else {
+					// Для других действий показываем обычный JSON
+					detailsHtml = `
+						<div style="font-size: 0.85rem; color: #5d7186; background: #f0f5ff; padding: 8px; border-radius: 8px; width: 100%;">
+							<details>
+								<summary style="cursor: pointer; color: #1e3a5f;">Детали</summary>
+								<pre style="margin-top: 8px; white-space: pre-wrap; font-family: monospace; font-size: 0.8rem;">${JSON.stringify(log.action_details, null, 2)}</pre>
+							</details>
+						</div>
+					`;
+				}
+			}
+			
+			div.innerHTML = `
+				<div style="display: flex; justify-content: space-between; width: 100%;">
+					<span style="font-weight: 600; color: #1e3a5f;">${formatted.formattedUser}</span>
+					<span style="color: #6b7f99; font-size: 0.85rem;">${formatted.formattedDate}</span>
+				</div>
+				<div style="color: #0e2b42;">${formatted.formattedAction}</div>
+				${detailsHtml}
+				${log.ip_address ? `
+					<div style="font-size: 0.8rem; color: #8a9bb0;">🌐 IP: ${log.ip_address}</div>
+				` : ''}
+			`;
+			container.appendChild(div);
+		});
+	}
+
+    // Экспорт логов в CSV
+    async function exportLogs() {
+        const logs = await Logger.getLogs({ limit: 1000 });
+        
+        const csv = [
+            ['Дата', 'Пользователь', 'Категория', 'Действие', 'Детали', 'IP'],
+            ...logs.map(log => [
+                new Date(log.created_at).toLocaleString('ru-RU'),
+                log.user_name,
+                log.user_category || '',
+                log.action_type,
+                JSON.stringify(log.action_details || {}),
+                log.ip_address || ''
+            ])
+        ].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+
+        const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `logs_${new Date().toISOString().slice(0,10)}.csv`;
+        link.click();
+        
+        UI.showNotification('Логи экспортированы', 'success');
+    }
+
+    // Отображение списка сотрудников для управления
+	function renderEmployeesManagementList() {
+		const container = document.getElementById('employeesManageList');
+		if (!container) return;
+
+		container.innerHTML = '';
+		
+		if (!employeesCache.length) {
+			container.innerHTML = '<div class="list-item">Нет сотрудников</div>';
+			return;
+		}
+
+		const currentUser = Auth.getCurrentUser();
+
+		employeesCache.forEach(emp => {
+			const div = document.createElement('div');
+			div.className = 'list-item';
+			
+			const canDelete = Auth.canDeleteUser(emp);
+			const canEdit = Auth.canEditUser(emp);
+			const isSelf = currentUser && currentUser.id === emp.id;
+			
+			div.innerHTML = `
+				<div style="flex:1;">
+					<div class="item-title">${emp.nickname} ${isSelf ? '(Вы)' : ''}</div>
+					<div class="item-meta">${emp.rank} · ${emp.department} · ${emp.category}</div>
+				</div>
+				<div class="flex-row" style="gap: 8px;">
+					${canEdit ? `<button class="small" data-id="${emp.id}" data-action="edit">✏️ Редактировать</button>` : ''}
+					${canDelete && !isSelf ? `<button class="small secondary" data-id="${emp.id}" data-action="delete">🗑️ Удалить</button>` : ''}
+				</div>
+			`;
+			container.appendChild(div);
+		});
+
+		container.querySelectorAll('button[data-action="edit"]').forEach(btn => {
+			btn.onclick = () => openEditEmployeeModal(btn.dataset.id);
+		});
+
+		container.querySelectorAll('button[data-action="delete"]').forEach(btn => {
+			btn.onclick = () => deleteEmployee(btn.dataset.id);
+		});
+	}
+
+    // Открыть модальное окно для редактирования сотрудника
+	async function openEditEmployeeModal(id) {
+		Auth.ping();
+		
+		const employee = employeesCache.find(emp => emp.id === id);
+		if (!employee) return;
+
+		if (!Auth.canEditUser(employee)) {
+			UI.showNotification('У вас нет прав для редактирования этого сотрудника', 'error');
+			return;
+		}
+
+		const modal = document.createElement('div');
+		modal.className = 'modal-overlay';
+		modal.id = 'editEmployeeModal';
+		
+		modal.innerHTML = `
+		<div class="modal-container">
+			<div class="modal-header">
+				<h3>Редактирование сотрудника</h3>
+				<button class="modal-close">&times;</button>
+			</div>
+			<div class="modal-content">
+				<div class="form-group">
+					<label for="edit_nickname">Логин <span class="required">*</span></label>
+					<input id="edit_nickname" type="text" placeholder="Введите логин" value="${employee.nickname}">
+					<small class="field-hint">Внимание: при смене логина изменится email для входа</small>
+				</div>
+				
+				<div class="form-group">
+					<label for="edit_password">Новый пароль</label>
+					<input id="edit_password" type="text" placeholder="Оставьте пустым, если не меняете"> 
+					<small class="field-hint">Минимальная длина: 6 символов</small>
+				</div>
+				
+				<div class="form-group">
+					<label for="edit_rank">Звание <span class="required">*</span></label>
+					<input id="edit_rank" placeholder="Например: старший лейтенант" value="${employee.rank || ''}">
+				</div>
+				
+				<div class="form-group">
+					<label for="edit_department">Подразделение <span class="required">*</span></label>
+					<input id="edit_department" placeholder="Например: ОБ" value="${employee.department || ''}">
+				</div>
+				
+				<div class="form-group">
+					<label for="edit_category">Категория <span class="required">*</span></label>
+					<select id="edit_category">
+						<option value="МС" ${employee.category === 'МС' ? 'selected' : ''}>Младший состав (МС)</option>
+						<option value="РС" ${employee.category === 'РС' ? 'selected' : ''}>Руководящий состав (РС)</option>
+						<option value="ВРС" ${employee.category === 'ВРС' ? 'selected' : ''}>Высший руководящий состав (ВРС)</option>
+						<option value="Администратор" ${employee.category === 'Администратор' ? 'selected' : ''}>Администрация</option>
+					</select>
+				</div>
+				
+				<div class="flex-row" style="justify-content: flex-end; margin-top: 24px;">
+					<button id="cancelEditBtn" class="secondary">Отмена</button>
+					<button id="saveEditBtn">Сохранить изменения</button>
+				</div>
+			</div>
+		</div>
+		`;
+
+		document.body.appendChild(modal);
+
+		modal.querySelector('.modal-close').onclick = () => modal.remove();
+		modal.onclick = (e) => {
+			if (e.target === modal) modal.remove();
+		};
+
+		document.getElementById('cancelEditBtn').onclick = () => modal.remove();
+
+		document.getElementById('saveEditBtn').onclick = async () => {
+			Auth.ping();
+			
+			const nickname = document.getElementById('edit_nickname')?.value.trim();
+			const password = document.getElementById('edit_password')?.value.trim();
+			const rank = document.getElementById('edit_rank')?.value.trim();
+			const department = document.getElementById('edit_department')?.value.trim();
+			const category = document.getElementById('edit_category')?.value;
+
+			if (!nickname || !rank || !department) {
+				UI.showNotification('Заполните все обязательные поля', 'error');
+				return;
+			}
+
+			try {
+				const { data: { session: adminSession } } = await supabaseClient.auth.getSession();
+				
+				if (!adminSession) {
+					throw new Error('Сессия администратора не найдена');
+				}
+
+				// Логируем смену пароля, если она есть
+				if (password) {
+					await SupabaseAdmin.updateUserPassword(employee.auth_user_id, password);
+					UI.showNotification('Пароль успешно изменен', 'success');
+					
+					Logger.log(Logger.ACTION_TYPES.EMPLOYEE_PASSWORD_CHANGE, {
+						nickname: employee.nickname,
+						changed_by: Auth.getCurrentUser()?.nickname
+					}, 'employee', id);
+				}
+
+				// Обновляем email в auth, если изменился ник
+				if (nickname !== employee.nickname) {
+					const newEmail = `${nickname}@app.local`;
+					
+					// Обновляем email пользователя в auth
+					await SupabaseAdmin.updateUserEmail(employee.auth_user_id, newEmail);
+					
+					// Обновляем метаданные
+					await SupabaseAdmin.updateUserMetadata(employee.auth_user_id, {
+						nickname: nickname,
+						rank: rank,
+						department: department,
+						category: category
+					});
+					
+					UI.showNotification(`Email изменён на ${newEmail}`, 'success');
+				} else {
+					// Если ник не менялся, просто обновляем метаданные
+					await SupabaseAdmin.updateUserMetadata(employee.auth_user_id, {
+						nickname: nickname,
+						rank: rank,
+						department: department,
+						category: category
+					});
+				}
+
+				// Восстанавливаем сессию администратора
+				await supabaseClient.auth.setSession({
+					access_token: adminSession.access_token,
+					refresh_token: adminSession.refresh_token
+				});
+
+				// Обновляем данные в таблице employees
+				const updateData = { 
+					nickname, 
+					rank, 
+					department, 
+					category 
+				};
+				
+				const { error: dbError } = await supabaseClient
+					.from('employees')
+					.update(updateData)
+					.eq('id', id);
+
+				if (dbError) {
+					throw new Error('Ошибка при обновлении данных: ' + dbError.message);
+				}
+
+				// ДЕТАЛЬНОЕ ЛОГИРОВАНИЕ ИЗМЕНЕНИЙ
+				// Собираем только измененные поля
+				const changes = {};
+				if (nickname !== employee.nickname) changes.логин = { было: employee.nickname, стало: nickname };
+				if (rank !== employee.rank) changes.звание = { было: employee.rank, стало: rank };
+				if (department !== employee.department) changes.подразделение = { было: employee.department, стало: department };
+				if (category !== employee.category) changes.категория = { было: employee.category, стало: category };
+
+				// Если были изменения данных
+				if (Object.keys(changes).length > 0) {
+					Logger.log(Logger.ACTION_TYPES.EMPLOYEE_UPDATE, {
+						employee: nickname,
+						changes: changes,
+						changed_by: Auth.getCurrentUser()?.nickname
+					}, 'employee', id);
+				}
+
+				UI.showNotification('Данные сотрудника обновлены', 'success');
+				modal.remove();
+				await loadEmployeesList();
+				renderEmployeesManagementList();
+				renderEmployeesCreateList();
+				
+			} catch (error) {
+				console.error('Update error:', error);
+				ErrorHandler.showError(error, 'Ошибка при обновлении данных');
+				
+				try {
+					const { data: { session } } = await supabaseClient.auth.getSession();
+					if (!session) {
+						const currentUser = Auth.getCurrentUser();
+						if (currentUser) {
+							window.location.hash = '';
+							UI.showAuthMode();
+						}
+					}
+				} catch (e) {
+					console.error('Session recovery error:', e);
+				}
+			}
+		};
+	}
+
+    // Удаление сотрудника
+	async function deleteEmployee(id) {
+		Auth.ping();
+		
+		const employee = employeesCache.find(emp => emp.id === id);
+		if (!employee) return;
+
+		if (!Auth.canDeleteUser(employee)) {
+			UI.showNotification('У вас нет прав для удаления этого сотрудника', 'error');
+			return;
+		}
+
+		const currentUser = Auth.getCurrentUser();
+		if (currentUser && currentUser.id === id) {
+			UI.showNotification('Вы не можете удалить свой собственный аккаунт', 'error');
+			return;
+		}
+
+		console.log('Attempting to delete employee:', {
+			id: employee.id,
+			auth_user_id: employee.auth_user_id,
+			nickname: employee.nickname
+		});
+
+		const confirmModal = document.createElement('div');
+		confirmModal.className = 'modal-overlay';
+		confirmModal.innerHTML = `
+			<div class="modal-container" style="max-width: 400px;">
+				<div class="modal-header">
+					<h3>Подтверждение удаления</h3>
+					<button class="modal-close">&times;</button>
+				</div>
+				<div class="modal-content">
+					<p style="margin-bottom: 20px;">Вы уверены, что хотите удалить сотрудника <strong>${employee.nickname}</strong>?</p>
+					<div class="flex-row" style="justify-content: flex-end;">
+						<button id="cancelDeleteBtn" class="secondary">Отмена</button>
+						<button id="confirmDeleteBtn" style="background: #dc3545;">Удалить</button>
+					</div>
+				</div>
+			</div>
+		`;
+
+		document.body.appendChild(confirmModal);
+
+		const closeBtn = confirmModal.querySelector('.modal-close');
+		const cancelBtn = document.getElementById('cancelDeleteBtn');
+		const confirmBtn = document.getElementById('confirmDeleteBtn');
+		
+		closeBtn.onclick = () => confirmModal.remove();
+		
+		confirmModal.onclick = (e) => {
+			if (e.target === confirmModal) confirmModal.remove();
+		};
+		
+		if (cancelBtn) {
+			cancelBtn.onclick = () => confirmModal.remove();
+		}
+		
+		if (confirmBtn) {
+			confirmBtn.onclick = async () => {
+				Auth.ping();
+				
+				const currentUserCheck = Auth.getCurrentUser();
+				if (currentUserCheck && currentUserCheck.id === id) {
+					UI.showNotification('Вы не можете удалить свой собственный аккаунт', 'error');
+					confirmModal.remove();
+					return;
+				}
+				
+				try {
+
+					// ШАГ 1: Обновляем все записи КУСП, где сотрудник был received_by_id
+					// Сначала проверяем, есть ли такие записи
+					const { data: receivedKusps, error: checkError } = await supabaseClient
+						.from('kusps')
+						.select('id, kusp_number')
+						.eq('received_by_id', employee.auth_user_id);
+
+					if (checkError) {
+						console.error('Error checking received kusps:', checkError);
+					} else {
+						
+						if (receivedKusps && receivedKusps.length > 0) {
+							const { error: receivedUpdateError } = await supabaseClient
+								.from('kusps')
+								.update({
+									received_by_id: null,
+									received_by_name_archived: employee.nickname,
+									received_by_rank_archived: employee.rank,
+									received_by_deleted_at: new Date().toISOString()
+								})
+								.eq('received_by_id', employee.auth_user_id);
+
+							if (receivedUpdateError) {
+								console.error('Error updating received_by references:', receivedUpdateError);
+								// Если ошибка из-за NOT NULL, пробуем другой подход
+								if (receivedUpdateError.code === '23502') { // NOT NULL violation
+									
+									// Альтернативный подход: обновляем каждую запись отдельно с concat_notes
+									for (const kusp of receivedKusps) {
+										const { error: singleUpdateError } = await supabaseClient
+											.from('kusps')
+											.update({
+												received_by_name_archived: employee.nickname,
+												received_by_rank_archived: employee.rank,
+												received_by_deleted_at: new Date().toISOString(),
+												notes: supabaseClient.rpc('concat_notes', {
+													current_notes: kusp.notes,
+													new_note: `[Сотрудник "${employee.nickname}" (принявший) удален ${new Date().toLocaleString('ru-RU')}]`
+												})
+											})
+											.eq('id', kusp.id);
+										
+										if (singleUpdateError) {
+											console.error(`Error updating kusp ${kusp.kusp_number}:`, singleUpdateError);
+										}
+									}
+								}
+							}
+						}
+					}
+
+					// ШАГ 2: Обновляем все записи КУСП, где сотрудник был assigned_by_id
+					const { data: assignedByKusps, error: checkByError } = await supabaseClient
+						.from('kusps')
+						.select('id, kusp_number')
+						.eq('assigned_by_id', employee.auth_user_id);
+
+					if (checkByError) {
+						console.error('Error checking assigned_by kusps:', checkByError);
+					} else {
+						
+						if (assignedByKusps && assignedByKusps.length > 0) {
+							const { error: assignedByUpdateError } = await supabaseClient
+								.from('kusps')
+								.update({
+									assigned_by_id: null,
+									assigned_by_name_archived: employee.nickname,
+									assigned_by_deleted_at: new Date().toISOString()
+								})
+								.eq('assigned_by_id', employee.auth_user_id);
+
+							if (assignedByUpdateError) {
+								console.error('Error updating assigned_by references:', assignedByUpdateError);
+							}
+						}
+					}
+
+					// ШАГ 3: Обновляем все записи КУСП, где сотрудник был assigned_to_id
+					const { data: assignedToKusps, error: checkToError } = await supabaseClient
+						.from('kusps')
+						.select('id, kusp_number')
+						.eq('assigned_to_id', employee.auth_user_id);
+
+					if (checkToError) {
+						console.error('Error checking assigned_to kusps:', checkToError);
+					} else {
+						
+						if (assignedToKusps && assignedToKusps.length > 0) {
+							const { error: assignedToUpdateError } = await supabaseClient
+								.from('kusps')
+								.update({
+									assigned_to_id: null,
+									assigned_to_name_archived: employee.nickname,
+									assigned_to_deleted_at: new Date().toISOString()
+								})
+								.eq('assigned_to_id', employee.auth_user_id);
+
+							if (assignedToUpdateError) {
+								console.error('Error updating assigned_to references:', assignedToUpdateError);
+							}
+						}
+					}
+
+					// ШАГ 4: Логируем перед удалением из auth
+					Logger.log(Logger.ACTION_TYPES.EMPLOYEE_DELETE, {
+						nickname: employee.nickname,
+						rank: employee.rank,
+						department: employee.department,
+						category: employee.category,
+						deleted_by: currentUserCheck?.nickname,
+						affected_kusps: {
+							received: receivedKusps?.length || 0,
+							assigned_by: assignedByKusps?.length || 0,
+							assigned_to: assignedToKusps?.length || 0
+						}
+					}, 'employee', id);
+					
+					// ШАГ 5: Пытаемся удалить пользователя из auth
+					
+					const { data: { session: adminSession } } = await supabaseClient.auth.getSession();
+					
+					if (!adminSession) {
+						throw new Error('Сессия администратора не найдена');
+					}
+				
+					
+					try {
+						await SupabaseAdmin.deleteUser(employee.auth_user_id);
+					} catch (authError) {
+						console.error('Auth deletion error details:', authError);
+						
+						// Проверяем, может пользователь уже удален?
+						if (authError.message && authError.message.includes('not found')) {
+						} else {
+							throw authError;
+						}
+					}
+					
+					// Восстанавливаем сессию администратора
+					await supabaseClient.auth.setSession({
+						access_token: adminSession.access_token,
+						refresh_token: adminSession.refresh_token
+					});
+					
+					// ШАГ 6: Удаляем запись из таблицы employees
+					const { error } = await supabaseClient
+						.from('employees')
+						.delete()
+						.eq('id', id);
+
+					if (error) {
+						throw new Error('Ошибка при удалении из базы: ' + error.message);
+					}
+
+					UI.showNotification('Сотрудник удалён', 'success');
+					confirmModal.remove();
+					await loadEmployeesList();
+					renderEmployeesManagementList();
+					renderEmployeesCreateList();
+					
+				} catch (error) {
+					console.error('Delete error:', error);
+					console.error('Delete error stack:', error.stack);
+					ErrorHandler.showError(error, 'Ошибка при удалении сотрудника');
+					confirmModal.remove();
+				}
+			};
+		}
+	}
+
+    // Отображение списка сотрудников для создания
+    function renderEmployeesCreateList() {
+        const ul = document.getElementById('employeesList');
+        if (!ul) return;
+
+        ul.innerHTML = '';
+        employeesCache.forEach(emp => {
+            const li = document.createElement('li');
+            li.style.padding = '8px 0';
+            li.style.borderBottom = '1px solid #dbe4ee';
+            li.style.display = 'flex';
+            li.style.justifyContent = 'space-between';
+            li.style.alignItems = 'center';
+            
+            let badgeClass = 'badge-new';
+            if (emp.category === 'Администратор') {
+                badgeClass = 'badge-progress';
+            } else if (emp.category === 'ВРС') {
+                badgeClass = 'badge-vrs';
+            } else if (emp.category === 'РС') {
+                badgeClass = 'badge-rs';
+            }
+            
+            li.innerHTML = `
+                <span>${emp.nickname} · ${emp.rank} · ${emp.department}</span>
+                <span class="badge ${badgeClass}">${emp.category}</span>
+            `;
+            ul.appendChild(li);
+        });
+    }
+
+    // Создание нового сотрудника
+	async function createEmployee() {
+		Auth.ping();
+		
+		if (!Auth.canManageUsers()) {
+            UI.showNotification('У вас нет прав для создания сотрудников', 'error');
+            return false;
+        }
+
+		const nickname = document.getElementById('nickname')?.value.trim();
+		const password = document.getElementById('newPassword')?.value.trim();
+		const rank = document.getElementById('rank')?.value.trim();
+		const department = document.getElementById('department')?.value.trim();
+		const category = document.getElementById('category')?.value;
+
+		if (!nickname || !password || !rank || !department) {
+			UI.showNotification('Заполните все обязательные поля', 'error');
+			return false;
+		}
+
+		if (password.length < 6) {
+			UI.showNotification('Пароль должен содержать не менее 6 символов', 'error');
+			
+			const passwordInput = document.getElementById('newPassword');
+			passwordInput.style.borderColor = '#dc3545';
+			passwordInput.focus();
+			
+			setTimeout(() => {
+				passwordInput.style.borderColor = '';
+			}, 3000);
+			
+			return false;
+		}
+
+		if (nickname.length < 3) {
+			UI.showNotification('Логин должен содержать не менее 3 символов', 'error');
+			return false;
+		}
+
+		try {
+			const { data: { session: adminSession } } = await supabaseClient.auth.getSession();
+			
+			if (!adminSession) {
+				throw new Error('Сессия администратора не найдена');
+			}
+
+			const createBtn = document.getElementById('createUserBtn');
+			const originalText = createBtn.textContent;
+			createBtn.textContent = '⏳ Создание...';
+			createBtn.disabled = true;
+
+			const authData = await SupabaseAdmin.createUser({
+				email: `${nickname}@app.local`,
+				password: password,
+				metadata: {
+					nickname: nickname,
+					rank: rank,
+					department: department,
+					category: category
+				}
+			});
+			
+			await supabaseClient.auth.setSession({
+				access_token: adminSession.access_token,
+				refresh_token: adminSession.refresh_token
+			});
+
+			const { error: insertError, data: insertData } = await supabaseClient
+				.from('employees')
+				.insert([{
+					nickname: nickname,
+					rank: rank,
+					department: department,
+					category: category,
+					auth_user_id: authData.user.id
+				}])
+				.select();
+
+			if (insertError) {
+				console.error('Insert error:', insertError);
+				
+				try {
+					await SupabaseAdmin.deleteUser(authData.user.id);
+					await supabaseClient.auth.setSession({
+						access_token: adminSession.access_token,
+						refresh_token: adminSession.refresh_token
+					});
+				} catch (cleanupError) {
+					console.error('Cleanup error:', cleanupError);
+				}
+				
+				throw new Error(insertError.message);
+			}
+			
+			// Логируем создание сотрудника
+			Logger.log(Logger.ACTION_TYPES.EMPLOYEE_CREATE, {
+				nickname: nickname,
+				rank: rank,
+				department: department,
+				category: category,
+				created_by: Auth.getCurrentUser()?.nickname
+			}, 'employee', authData.user.id);
+			
+			UI.showNotification('Сотрудник успешно создан', 'success');
+			
+			document.getElementById('nickname').value = '';
+			document.getElementById('newPassword').value = '';
+			document.getElementById('rank').value = '';
+			document.getElementById('department').value = '';
+			document.getElementById('category').value = 'МС';
+			
+			await loadEmployeesList();
+			renderEmployeesManagementList();
+			renderEmployeesCreateList();
+			
+			createBtn.textContent = originalText;
+			createBtn.disabled = false;
+			
+			return true;
+			
+		} catch (error) {
+			console.error('Create employee error:', error);
+			
+			const createBtn = document.getElementById('createUserBtn');
+			if (createBtn) {
+				createBtn.textContent = '➕ Создать учётную запись';
+				createBtn.disabled = false;
+			}
+			
+			ErrorHandler.showError(error, 'Ошибка при создании сотрудника');
+			
+			if (error.message && error.message.toLowerCase().includes('password')) {
+				const passwordInput = document.getElementById('newPassword');
+				passwordInput.style.borderColor = '#dc3545';
+				passwordInput.focus();
+				
+				setTimeout(() => {
+					passwordInput.style.borderColor = '';
+				}, 3000);
+			}
+			
+			return false;
+		}
+	}
+
+    // Инициализация панели администратора
+    async function initAdminPanel() {
+        if (!Auth.canManageUsers()) {
+            UI.showNotification('У вас нет прав для доступа к этому разделу', 'error');
+            window.location.hash = 'home';
+            return;
+        }
+
+        Auth.ping();
+
+        const clone = UI.loadTemplate('admin');
+        UI.clearMain();
+        document.getElementById('mainApp').appendChild(clone);
+
+        await loadEmployeesList();
+
+        const title = document.querySelector('#mainApp h2');
+        if (title) title.textContent = 'Управление сотрудниками';
+
+        const manageBtn = document.getElementById('manageTabBtn');
+        const createBtn = document.getElementById('createTabBtn');
+        const logsBtn = document.getElementById('logsTabBtn');
+        const manageSection = document.getElementById('manageAccountsSection');
+        const createSection = document.getElementById('createAccountSection');
+        const logsSection = document.getElementById('logsSection');
+
+        if (!manageBtn || !createBtn || !logsBtn || !manageSection || !createSection || !logsSection) return;
+
+        function switchTab(tab) {
+            if (tab === 'manage') {
+                manageSection.classList.remove('hidden');
+                createSection.classList.add('hidden');
+                logsSection.classList.add('hidden');
+                manageBtn.classList.add('active');
+                createBtn.classList.remove('active');
+                logsBtn.classList.remove('active');
+                renderEmployeesManagementList();
+               
+                
+            } else if (tab === 'create') {
+                manageSection.classList.add('hidden');
+                createSection.classList.remove('hidden');
+                logsSection.classList.add('hidden');
+                createBtn.classList.add('active');
+                manageBtn.classList.remove('active');
+                logsBtn.classList.remove('active');
+             
+                
+            } else if (tab === 'logs') {
+                manageSection.classList.add('hidden');
+                createSection.classList.add('hidden');
+                logsSection.classList.remove('hidden');
+                logsBtn.classList.add('active');
+                manageBtn.classList.remove('active');
+                createBtn.classList.remove('active');
+                renderLogsList();
+                
+            }
+        }
+
+        switchTab('manage');
+
+        manageBtn.onclick = () => switchTab('manage');
+        createBtn.onclick = () => switchTab('create');
+        logsBtn.onclick = () => switchTab('logs');
+
+        document.getElementById('refreshLogsBtn')?.addEventListener('click', renderLogsList);
+        document.getElementById('exportLogsBtn')?.addEventListener('click', exportLogs);
+        document.getElementById('logFilterAction')?.addEventListener('change', renderLogsList);
+        document.getElementById('logFilterDate')?.addEventListener('change', renderLogsList);
+
+        document.getElementById('createUserBtn').onclick = createEmployee;
+
+        renderEmployeesCreateList();
+
+        UI.setActiveTab(UI.getElements().navAdmin);
+    }
+
+    function getEmployeesCache() {
+        return employeesCache;
+    }
+
+    return {
+        initAdminPanel,
+        loadEmployeesList,
+        getEmployeesCache
+    };
+})();
