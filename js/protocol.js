@@ -445,7 +445,7 @@ const Protocol = (function() {
 									</div>
 									<div class="form-group" style="grid-column: span 2;">
 										<label>ТС состоит на учете</label>
-										<input type="text" id="vehicle_registered_info" value="${protocol ? escapeHtml(protocol.vehicle_registered_info || '') : ''}" placeholder="УГИБДД г. Мирный">
+										<input type="text" id="vehicle_registered_info" value="${protocol ? escapeHtml(protocol.vehicle_registered_info || '') : ''}" placeholder="МРЭО УГИБДД УМВД по г.Мирный">
 									</div>
 								</div>
 							</div>
@@ -2276,5 +2276,6 @@ async function exportProtocol(id, format = 'png') {
         PROTOCOL_STATUS
     };
 })();
+
 
 window.Protocol = Protocol;
