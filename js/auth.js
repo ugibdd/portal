@@ -1,1 +1,265 @@
-const _0x8dc665=_0x2ccf;(function(_0x422c69,_0x25ce99){const _0x455062=_0x2ccf,_0xea1514=_0x422c69();while(!![]){try{const _0x5a6d72=-parseInt(_0x455062(0x1e8))/0x1+-parseInt(_0x455062(0x20d))/0x2+parseInt(_0x455062(0x1fa))/0x3*(-parseInt(_0x455062(0x225))/0x4)+parseInt(_0x455062(0x1f4))/0x5*(-parseInt(_0x455062(0x1f7))/0x6)+-parseInt(_0x455062(0x217))/0x7+-parseInt(_0x455062(0x1ff))/0x8*(-parseInt(_0x455062(0x1ef))/0x9)+parseInt(_0x455062(0x203))/0xa*(parseInt(_0x455062(0x204))/0xb);if(_0x5a6d72===_0x25ce99)break;else _0xea1514['push'](_0xea1514['shift']());}catch(_0x480240){_0xea1514['push'](_0xea1514['shift']());}}}(_0x5980,0x828fc));const Auth=(function(){const _0x168c50=_0x2ccf;let _0x3cceaf=null,_0x579b7d=_0x168c50(0x221),_0x5f2e73=null;const _0x387472=0xf*0x3c*0x3e8,_0x4c249d=_0x168c50(0x1ed);function _0x20df98(){const _0x5a8d87=_0x168c50;localStorage['setItem'](_0x4c249d,Date[_0x5a8d87(0x218)]()[_0x5a8d87(0x1e4)]());}function _0x19a4d4(){const _0x79ff07=_0x168c50,_0x16fd41=localStorage[_0x79ff07(0x214)](_0x4c249d);if(!_0x16fd41)return![];return Date[_0x79ff07(0x218)]()-parseInt(_0x16fd41)>_0x387472;}function _0x1274e4(){_0x20df98();if(_0x5f2e73)clearTimeout(_0x5f2e73);_0x3cceaf&&(_0x5f2e73=setTimeout(()=>_0x4bb184(),_0x387472));}function _0x45b6cc(){const _0x42265c=_0x168c50,_0x526bf9=[_0x42265c(0x220),_0x42265c(0x207),_0x42265c(0x1e6),'scroll','touchstart','click',_0x42265c(0x1f0)],_0x53c5ed=()=>_0x1274e4();_0x526bf9['forEach'](_0x53e8e5=>{const _0x331fa2=_0x42265c;document[_0x331fa2(0x216)](_0x53e8e5,_0x53c5ed),document['addEventListener'](_0x53e8e5,_0x53c5ed);});}function _0x5a0828(){const _0x548ae4=_0x168c50,_0x5390af=['mousedown',_0x548ae4(0x207),_0x548ae4(0x1e6),_0x548ae4(0x21d),_0x548ae4(0x1e5),_0x548ae4(0x20f),'wheel'],_0x52956c=()=>_0x1274e4();_0x5390af[_0x548ae4(0x222)](_0x1aa2ba=>document['removeEventListener'](_0x1aa2ba,_0x52956c));}function _0x4bb184(){const _0x1f71e3=_0x168c50;if(!_0x3cceaf)return;const _0x26596f=_0x21b935()?_0x1f71e3(0x1f5):_0x1f71e3(0x215);UI[_0x1f71e3(0x205)](_0x26596f,'warning'),_0x2dc572(),UI[_0x1f71e3(0x202)]();const _0x4a56e4=UI[_0x1f71e3(0x1f9)]();if(_0x4a56e4[_0x1f71e3(0x21b)])_0x4a56e4[_0x1f71e3(0x21b)][_0x1f71e3(0x212)]='';if(_0x4a56e4[_0x1f71e3(0x20b)])_0x4a56e4[_0x1f71e3(0x20b)][_0x1f71e3(0x212)]='';window[_0x1f71e3(0x20a)]['hash']='';}function _0x4359e4(_0x199069){const _0xf36e69=_0x168c50;_0x3cceaf=_0x199069,_0x579b7d=_0xf36e69(0x1ee),localStorage[_0xf36e69(0x223)](_0xf36e69(0x200),JSON[_0xf36e69(0x206)](_0x199069)),_0x20df98(),_0x45b6cc(),_0x1274e4();}function _0x483f6f(){const _0x780d35=_0x168c50;return _0x2dc572(),_0x579b7d=_0x780d35(0x1ec),_0x3cceaf={'id':'guest','nickname':_0x780d35(0x1fe),'rank':_0x780d35(0x1fd),'department':_0x780d35(0x211),'category':_0x780d35(0x1fe),'isGuest':!![]},localStorage[_0x780d35(0x21f)](_0x780d35(0x200)),_0x20df98(),_0x45b6cc(),_0x1274e4(),_0x3cceaf;}function _0x21b935(){const _0x26671a=_0x168c50;return _0x579b7d===_0x26671a(0x1ec);}function _0x2ffa3f(){const _0x443ae5=_0x168c50;return _0x579b7d===_0x443ae5(0x1ee)&&_0x3cceaf?.[_0x443ae5(0x1f1)]===_0x443ae5(0x210);}function _0xd37d4f(){const _0x371bf0=_0x168c50;return _0x579b7d===_0x371bf0(0x1ee)&&_0x3cceaf?.[_0x371bf0(0x1f1)]===_0x371bf0(0x1ea);}function _0x40dd5f(){const _0x3d05ac=_0x168c50;return _0x579b7d===_0x3d05ac(0x1ee)&&(_0x3cceaf?.['category']===_0x3d05ac(0x210)||_0x3cceaf?.[_0x3d05ac(0x1f1)]===_0x3d05ac(0x1ea));}function _0x37d575(){return _0x40dd5f();}function _0x4069de(_0x25b881){const _0x4d8a37=_0x168c50;if(!_0x3cceaf)return![];if(_0x2ffa3f())return!![];if(_0xd37d4f()&&_0x25b881[_0x4d8a37(0x1f1)]!==_0x4d8a37(0x210))return!![];return![];}function _0x16ae0c(_0x4d8075){const _0x24ae30=_0x168c50;if(!_0x3cceaf)return![];if(_0x2ffa3f())return!![];if(_0xd37d4f()&&_0x4d8075[_0x24ae30(0x1f1)]!==_0x24ae30(0x210))return!![];return![];}async function _0x4f8648(_0x1a5865,_0x5c500b){const _0x1ff131=_0x168c50,_0x53c8f7=_0x1a5865+_0x1ff131(0x1f6),{data:_0xcc8cad,error:_0x15578d}=await supabaseClient['auth'][_0x1ff131(0x21c)]({'email':_0x53c8f7,'password':_0x5c500b});if(_0x15578d||!_0xcc8cad[_0x1ff131(0x200)]){const _0x23c1c7=ErrorHandler['localizeError'](_0x15578d,'Неверные\x20данные\x20для\x20входа');throw new Error(_0x23c1c7);}const _0x21913c=_0xcc8cad[_0x1ff131(0x200)]['id'],{data:_0x16303b,error:_0x13a729}=await supabaseClient[_0x1ff131(0x208)](_0x1ff131(0x209))[_0x1ff131(0x1fc)]('*')['eq'](_0x1ff131(0x1e9),_0x21913c)[_0x1ff131(0x20c)]();if(_0x13a729){const _0x3d5a00=ErrorHandler['localizeError'](_0x13a729,_0x1ff131(0x20e));throw new Error(_0x3d5a00);}if(!_0x16303b)throw new Error(_0x1ff131(0x21a));return _0x4359e4(_0x16303b),_0x16303b;}async function _0x10ae78({nickname:_0x3a9fe5,password:_0x455545,rank:_0x2fcc8b,department:_0x2228a2,category:_0x316c00}){const _0x40c044=_0x168c50,_0x416518=_0x3a9fe5+_0x40c044(0x1f6),{data:_0x598dc5,error:_0x1ea941}=await supabaseClient[_0x40c044(0x221)][_0x40c044(0x21e)]({'email':_0x416518,'password':_0x455545});if(_0x1ea941||!_0x598dc5[_0x40c044(0x200)])throw new Error(_0x1ea941?.[_0x40c044(0x219)]||'Ошибка\x20регистрации');const _0x2b5ef0=_0x598dc5[_0x40c044(0x200)]['id'],{error:_0x3111ff}=await supabaseClient['from']('employees')[_0x40c044(0x1fb)]([{'nickname':_0x3a9fe5,'rank':_0x2fcc8b,'department':_0x2228a2,'category':_0x316c00,'auth_user_id':_0x2b5ef0}]);if(_0x3111ff)throw new Error(_0x3111ff[_0x40c044(0x219)]);return await supabaseClient[_0x40c044(0x221)][_0x40c044(0x21c)]({'email':_0x416518,'password':_0x455545}),!![];}async function _0xa3e50a(_0x2d2980,_0x225f74,_0x18aec2=null,_0x2a8d6c=null){const _0x279421=_0x168c50;if(_0x21b935())throw new Error(_0x279421(0x1f2));const _0x322beb=_0x7afc0d();if(!_0x322beb)throw new Error(_0x279421(0x224));const {data:{session:_0x44b44a},error:_0x4ce43e}=await supabaseClient[_0x279421(0x221)]['getSession']();if(_0x4ce43e||!_0x44b44a)throw new Error(_0x279421(0x213));let _0x27437a=supabaseClient[_0x279421(0x208)](_0x2d2980);switch(_0x225f74){case _0x279421(0x1fc):return await _0x27437a[_0x279421(0x1fc)]('*');case _0x279421(0x1fb):return await _0x27437a['insert'](_0x18aec2);case _0x279421(0x1f8):return await _0x27437a[_0x279421(0x1f8)](_0x18aec2)['eq']('id',_0x2a8d6c);case _0x279421(0x1eb):return await _0x27437a[_0x279421(0x1eb)]()['eq']('id',_0x2a8d6c);default:return{'error':_0x279421(0x1e7)};}}function _0x2dc572(){const _0x4ffb0d=_0x168c50;_0x3cceaf=null,_0x579b7d=_0x4ffb0d(0x221),localStorage[_0x4ffb0d(0x21f)](_0x4ffb0d(0x200)),localStorage[_0x4ffb0d(0x21f)](_0x4c249d),_0x5f2e73&&(clearTimeout(_0x5f2e73),_0x5f2e73=null),_0x5a0828();}function _0x338e91(){const _0x388109=_0x168c50;if(_0x579b7d==='guest')return _0x3cceaf;const _0x3bf6c1=localStorage[_0x388109(0x214)](_0x388109(0x200));if(!_0x3bf6c1)return null;if(_0x19a4d4())return _0x2dc572(),null;try{const _0x134354=JSON[_0x388109(0x1f3)](_0x3bf6c1);return _0x3cceaf=_0x134354,_0x579b7d='employee',_0x3cceaf&&(_0x45b6cc(),_0x1274e4()),_0x3cceaf;}catch{return null;}}function _0x7afc0d(){return _0x3cceaf;}function _0x94cbcd(){_0x1274e4();}function _0x2a49f4(){return _0x579b7d;}return{'restoreSession':_0x338e91,'login':_0x4f8648,'register':_0x10ae78,'logout':_0x2dc572,'getCurrentUser':_0x7afc0d,'isAdmin':_0x2ffa3f,'isVRS':_0xd37d4f,'isAdminOrVRS':_0x40dd5f,'canManageUsers':_0x37d575,'canDeleteUser':_0x4069de,'canEditUser':_0x16ae0c,'ping':_0x94cbcd,'secureRequest':_0xa3e50a,'startGuestSession':_0x483f6f,'isGuest':_0x21b935,'getCurrentMode':_0x2a49f4};}());window[_0x8dc665(0x201)]=Auth;function _0x2ccf(_0x1503dc,_0x5a1b11){const _0x5980bd=_0x5980();return _0x2ccf=function(_0x2ccfb3,_0x5e0457){_0x2ccfb3=_0x2ccfb3-0x1e4;let _0x38501c=_0x5980bd[_0x2ccfb3];return _0x38501c;},_0x2ccf(_0x1503dc,_0x5a1b11);}function _0x5980(){const _0x3fdcb0=['signUp','removeItem','mousedown','auth','forEach','setItem','Не\x20авторизован','620oueRmp','toString','touchstart','keydown','Unknown\x20operation','955256rxVidu','auth_user_id','ВРС','delete','guest','lastActivityTime','employee','1220841MIhjNt','wheel','category','Гостевой\x20режим\x20не\x20имеет\x20доступа\x20к\x20этой\x20функции','parse','295BxYRsQ','Гостевой\x20сеанс\x20завершён\x20из-за\x20бездействия','@app.local','96738KHXyfZ','update','getElements','14214LgRRCu','insert','select','Гостевой\x20доступ','Гость','8napGXr','user','Auth','showAuthMode','70FAyPYD','5918209xyaqMk','showNotification','stringify','mousemove','from','employees','location','passwordInput','maybeSingle','1218898OJkieL','Ошибка\x20базы\x20данных','click','Администратор','Портал\x20гражданина','value','Сессия\x20истекла','getItem','Сессия\x20завершена\x20из-за\x20длительного\x20бездействия','removeEventListener','816550OOVLIY','now','message','Пользователь\x20не\x20найден\x20в\x20системе','loginInput','signInWithPassword','scroll'];_0x5980=function(){return _0x3fdcb0;};return _0x5980();}
+// Модуль аутентификации с поддержкой гостевого режима
+const Auth = (function () {
+    let currentUser = null;
+    let currentMode = 'auth'; // 'auth', 'guest', 'employee'
+    let inactivityTimer = null;
+    const INACTIVITY_TIMEOUT = 60 * 60 * 1000; // 60 минут
+    const LAST_ACTIVITY_KEY = 'lastActivityTime';
+
+    // -------------------- Utility --------------------
+    function updateLastActivity() {
+        localStorage.setItem(LAST_ACTIVITY_KEY, Date.now().toString());
+    }
+
+    function checkInactivityOnLoad() {
+        const lastActivity = localStorage.getItem(LAST_ACTIVITY_KEY);
+        if (!lastActivity) return false;
+        return (Date.now() - parseInt(lastActivity)) > INACTIVITY_TIMEOUT;
+    }
+
+    function resetInactivityTimer() {
+        updateLastActivity();
+        if (inactivityTimer) clearTimeout(inactivityTimer);
+        if (currentUser) {
+            inactivityTimer = setTimeout(() => handleInactivityLogout(), INACTIVITY_TIMEOUT);
+        }
+    }
+
+    function setupActivityListeners() {
+        const events = ['mousedown', 'mousemove', 'keydown', 'scroll', 'touchstart', 'click', 'wheel'];
+        const resetTimer = () => resetInactivityTimer();
+        events.forEach(ev => {
+            document.removeEventListener(ev, resetTimer);
+            document.addEventListener(ev, resetTimer);
+        });
+    }
+
+    function removeActivityListeners() {
+        const events = ['mousedown', 'mousemove', 'keydown', 'scroll', 'touchstart', 'click', 'wheel'];
+        const resetTimer = () => resetInactivityTimer();
+        events.forEach(ev => document.removeEventListener(ev, resetTimer));
+    }
+
+    function handleInactivityLogout() {
+        if (!currentUser) return;
+
+
+        const message = isGuest()
+            ? 'Гостевой сеанс завершён из-за бездействия'
+            : 'Сессия завершена из-за длительного бездействия';
+
+        UI.showNotification(message, 'warning');
+        logout();
+        UI.showAuthMode();
+
+        const elements = UI.getElements();
+        if (elements.loginInput) elements.loginInput.value = '';
+        if (elements.passwordInput) elements.passwordInput.value = '';
+        window.location.hash = '';
+    }
+
+    function saveSession(user) {
+        currentUser = user;
+        currentMode = 'employee';
+        localStorage.setItem('user', JSON.stringify(user));
+        updateLastActivity();
+        setupActivityListeners();
+        resetInactivityTimer();
+    }
+
+    // -------------------- Гостевой режим --------------------
+    function startGuestSession() {
+        logout();
+
+        currentMode = 'guest';
+        currentUser = {
+            id: 'guest',
+            nickname: 'Гость',
+            rank: 'Гостевой доступ',
+            department: 'Портал гражданина',
+            category: 'Гость',
+            isGuest: true
+        };
+
+
+        localStorage.removeItem('user');
+        updateLastActivity();
+        setupActivityListeners();
+        resetInactivityTimer();
+
+        return currentUser;
+    }
+
+    function isGuest() {
+        return currentMode === 'guest';
+    }
+
+    // -------------------- Проверки прав --------------------
+    function isAdmin() {
+        return currentMode === 'employee' && currentUser?.category === 'Администратор';
+    }
+
+    function isVRS() {
+        return currentMode === 'employee' && currentUser?.category === 'ВРС';
+    }
+
+    function isAdminOrVRS() {
+        return currentMode === 'employee' &&
+            (currentUser?.category === 'Администратор' || currentUser?.category === 'ВРС');
+    }
+
+    function canManageUsers() {
+        return isAdminOrVRS();
+    }
+
+    function canDeleteUser(targetUser) {
+        if (!currentUser) return false;
+        if (isAdmin()) return true;
+        if (isVRS() && targetUser.category !== 'Администратор') return true;
+        return false;
+    }
+
+    function canEditUser(targetUser) {
+        if (!currentUser) return false;
+        if (isAdmin()) return true;
+        if (isVRS() && targetUser.category !== 'Администратор') return true;
+        return false;
+    }
+
+    // -------------------- Режим сотрудника --------------------
+    async function login(nickname, password) {
+        const email = `${nickname}@app.local`;
+        const { data: authData, error: authError } = await supabaseClient.auth.signInWithPassword({
+            email, password
+        });
+
+        if (authError || !authData.user) {
+            const localizedError = ErrorHandler.localizeError(authError, 'Неверные данные для входа');
+            throw new Error(localizedError);
+        }
+
+        const userId = authData.user.id;
+        const { data, error } = await supabaseClient
+            .from('employees')
+            .select('*')
+            .eq('auth_user_id', userId)
+            .maybeSingle();
+
+        if (error) {
+            const localizedError = ErrorHandler.localizeError(error, 'Ошибка базы данных');
+            throw new Error(localizedError);
+        }
+
+        if (!data) throw new Error('Пользователь не найден в системе');
+
+        saveSession(data);
+
+
+
+        return data;
+    }
+
+    async function register({ nickname, password, rank, department, category }) {
+        const email = `${nickname}@app.local`;
+
+        const { data: authData, error: authError } = await supabaseClient.auth.signUp({ email, password });
+        if (authError || !authData.user) throw new Error(authError?.message || 'Ошибка регистрации');
+
+        const userId = authData.user.id;
+
+        const { error: insertError } = await supabaseClient.from('employees').insert([{
+            nickname, rank, department, category, auth_user_id: userId
+        }]);
+        if (insertError) throw new Error(insertError.message);
+
+        await supabaseClient.auth.signInWithPassword({ email, password });
+
+        return true;
+    }
+
+    // -------------------- Secure Requests --------------------
+    async function secureRequest(table, operation, data = null, id = null) {
+        if (isGuest()) {
+            throw new Error('Гостевой режим не имеет доступа к этой функции');
+        }
+
+        const user = getCurrentUser();
+        if (!user) throw new Error('Не авторизован');
+
+        const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
+        if (sessionError || !session) throw new Error('Сессия истекла');
+
+        let query = supabaseClient.from(table);
+        switch (operation) {
+            case 'select': return await query.select('*');
+            case 'insert': return await query.insert(data);
+            case 'update': return await query.update(data).eq('id', id);
+            case 'delete': return await query.delete().eq('id', id);
+            default: return { error: 'Unknown operation' };
+        }
+    }
+
+    // -------------------- Helpers --------------------
+    function logout() {
+
+        currentUser = null;
+        currentMode = 'auth';
+        localStorage.removeItem('user');
+        localStorage.removeItem(LAST_ACTIVITY_KEY);
+        if (inactivityTimer) { clearTimeout(inactivityTimer); inactivityTimer = null; }
+        removeActivityListeners();
+    }
+
+    function restoreSession() {
+        if (currentMode === 'guest') {
+            return currentUser;
+        }
+
+        const saved = localStorage.getItem('user');
+        if (!saved) return null;
+
+        if (checkInactivityOnLoad()) {
+            logout();
+            return null;
+        }
+
+        try {
+            const user = JSON.parse(saved);
+            currentUser = user;
+            currentMode = 'employee';
+
+            if (currentUser) {
+                setupActivityListeners();
+                resetInactivityTimer();
+            }
+            return currentUser;
+        } catch {
+            return null;
+        }
+    }
+
+    function getCurrentUser() { return currentUser; }
+    function ping() { resetInactivityTimer(); }
+    function getCurrentMode() { return currentMode; }
+
+    return {
+        restoreSession,
+        login,
+        register,
+        logout,
+        getCurrentUser,
+        isAdmin,
+        isVRS,
+        isAdminOrVRS,
+        canManageUsers,
+        canDeleteUser,
+        canEditUser,
+        ping,
+        secureRequest,
+        startGuestSession,
+        isGuest,
+        getCurrentMode
+    };
+})();
+
+window.Auth = Auth;
