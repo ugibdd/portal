@@ -1100,7 +1100,7 @@ button[data-action="delete"]:hover {
 
 /* Блоки */
 .protocol-document .block {
-    margin: 15px 0;
+    margin: 0px 0;
 }
 
 .protocol-document .block-narrow {
@@ -1589,7 +1589,7 @@ button[data-action="delete"]:hover {
 }
 
 .tsu-action-btn.complete {
-    background: #28a745;
+    background: #1e3a5f;
     color: white;
 }
 
@@ -2375,4 +2375,63 @@ button[data-action="delete"]:hover {
     height: 1.2rem;
     border-width: 2px;
     vertical-align: middle;
+}
+
+/* Стили для поиска транспортных средств */
+.vehicle-search-container {
+    position: relative;
+    width: 100%;
+}
+
+.vehicle-search-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #d8e2ed;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: white;
+    box-sizing: border-box;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%231e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.vehicle-search-input:focus {
+    outline: none;
+    border-color: #1e3a5f;
+}
+
+.vehicle-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    background: white;
+    border: 2px solid #d8e2ed;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    font-size: 0.95rem;
+}
+
+.vehicle-option {
+    padding: 10px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #eef3fa;
+    transition: background-color 0.15s;
+    color: #1e3a5f;
+}
+
+.vehicle-option:last-child {
+    border-bottom: none;
+}
+
+.vehicle-option:hover,
+.vehicle-option.active {
+    background-color: #f0f7ff !important;
 }
