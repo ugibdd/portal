@@ -1,1 +1,829 @@
-const _0x29e6d5=_0x46fc;(function(_0x6ce82c,_0x5cb551){const _0x39a0de=_0x46fc,_0x5a04cd=_0x6ce82c();while(!![]){try{const _0x753871=-parseInt(_0x39a0de(0x278))/0x1+-parseInt(_0x39a0de(0x231))/0x2*(-parseInt(_0x39a0de(0x20d))/0x3)+parseInt(_0x39a0de(0x1f8))/0x4+parseInt(_0x39a0de(0x22e))/0x5*(parseInt(_0x39a0de(0x1ea))/0x6)+parseInt(_0x39a0de(0x279))/0x7+-parseInt(_0x39a0de(0x23a))/0x8*(parseInt(_0x39a0de(0x23b))/0x9)+-parseInt(_0x39a0de(0x265))/0xa;if(_0x753871===_0x5cb551)break;else _0x5a04cd['push'](_0x5a04cd['shift']());}catch(_0x14cf90){_0x5a04cd['push'](_0x5a04cd['shift']());}}}(_0xf417,0xacf49));function _0x46fc(_0x47908b,_0x3af4db){const _0xf417ec=_0xf417();return _0x46fc=function(_0x46fcb3,_0x4be166){_0x46fcb3=_0x46fcb3-0x1e5;let _0x1d4114=_0xf417ec[_0x46fcb3];return _0x1d4114;},_0x46fc(_0x47908b,_0x3af4db);}const App=(function(){const _0x3427d9=_0x46fc,_0x91174f=UI[_0x3427d9(0x280)]();function _0xce42f(_0x24f09a){const _0x36e5e5=_0x3427d9;if(!_0x24f09a)return'';const _0x523b00=document['createElement'](_0x36e5e5(0x208));return _0x523b00[_0x36e5e5(0x276)]=_0x24f09a,_0x523b00['innerHTML'];}function _0x3e8926(){const _0x4e8b99=_0x3427d9,_0xd60c1f=Auth[_0x4e8b99(0x228)]();_0xd60c1f&&!Auth['isGuest']()?(UI['showEmployeeMode'](_0xd60c1f),_0x3919e3()):(UI[_0x4e8b99(0x210)](),window['location']['hash']&&(window[_0x4e8b99(0x259)]['hash']='')),_0x44dc82(),window[_0x4e8b99(0x21d)](_0x4e8b99(0x25b),_0x3919e3);}function _0x3919e3(){const _0x438dd7=_0x3427d9;Auth[_0x438dd7(0x1f7)]();if(UI['getCurrentMode']()===_0x438dd7(0x26f)){window[_0x438dd7(0x259)][_0x438dd7(0x213)]='';return;}const _0xe598d8=window[_0x438dd7(0x259)][_0x438dd7(0x213)][_0x438dd7(0x229)](0x1)||_0x438dd7(0x242);if(UI['getCurrentMode']()===_0x438dd7(0x209))_0x206d67(_0xe598d8);else UI[_0x438dd7(0x272)]()===_0x438dd7(0x284)&&_0xbae218(_0xe598d8);}function _0x206d67(_0x340457){const _0x5c0af5=_0x3427d9;switch(_0x340457){case _0x5c0af5(0x242):_0x334264();break;case _0x5c0af5(0x27c):_0x16502a();break;case _0x5c0af5(0x1fa):window[_0x5c0af5(0x207)]?DriverLicense['initDriverLicensePage']():(UI[_0x5c0af5(0x1f5)](_0x5c0af5(0x257),'error'),window[_0x5c0af5(0x259)][_0x5c0af5(0x213)]='home');break;case'info':_0x162e7a();break;default:window[_0x5c0af5(0x259)][_0x5c0af5(0x213)]=_0x5c0af5(0x242);}}function _0xbae218(_0x143111){const _0x5bb7a9=_0x3427d9;switch(_0x143111){case _0x5bb7a9(0x242):_0x124834();break;case _0x5bb7a9(0x23c):_0x4eebba();break;case _0x5bb7a9(0x260):KUSP[_0x5bb7a9(0x261)]();break;case _0x5bb7a9(0x1f2):Protocol['initProtocolsList']();break;case _0x5bb7a9(0x21c):window['TSU']?TSU[_0x5bb7a9(0x1fd)]():(UI[_0x5bb7a9(0x1f5)](_0x5bb7a9(0x257),_0x5bb7a9(0x217)),window['location'][_0x5bb7a9(0x213)]='home');break;case _0x5bb7a9(0x200):Auth[_0x5bb7a9(0x23e)]()?Admin[_0x5bb7a9(0x249)]():(UI[_0x5bb7a9(0x1f5)](_0x5bb7a9(0x26a),_0x5bb7a9(0x217)),window[_0x5bb7a9(0x259)][_0x5bb7a9(0x213)]=_0x5bb7a9(0x242));break;default:window[_0x5bb7a9(0x259)][_0x5bb7a9(0x213)]=_0x5bb7a9(0x242);}}function _0x44dc82(){const _0x6e7e0e=_0x3427d9;_0x91174f['loginBtn'][_0x6e7e0e(0x201)]=_0x2e4435,_0x91174f[_0x6e7e0e(0x27e)][_0x6e7e0e(0x201)]=_0x2ba67c,_0x91174f['navHome'][_0x6e7e0e(0x201)]=_0x3f5c83=>{const _0x509e98=_0x6e7e0e;_0x3f5c83[_0x509e98(0x20b)](),window[_0x509e98(0x259)][_0x509e98(0x213)]='home';},_0x91174f[_0x6e7e0e(0x206)][_0x6e7e0e(0x201)]=_0x439ee0=>{const _0x9cf936=_0x6e7e0e;_0x439ee0[_0x9cf936(0x20b)](),window[_0x9cf936(0x259)]['hash']=_0x9cf936(0x23c);},_0x91174f['navKusp']['onclick']=_0x28e501=>{const _0x568ea0=_0x6e7e0e;_0x28e501['preventDefault'](),window[_0x568ea0(0x259)][_0x568ea0(0x213)]=_0x568ea0(0x260);},_0x91174f[_0x6e7e0e(0x24b)][_0x6e7e0e(0x201)]=_0x7f634c=>{const _0x143369=_0x6e7e0e;_0x7f634c['preventDefault'](),window['location'][_0x143369(0x213)]=_0x143369(0x1f2);},_0x91174f[_0x6e7e0e(0x286)][_0x6e7e0e(0x201)]=_0x398a93=>{const _0x389f4c=_0x6e7e0e;_0x398a93[_0x389f4c(0x20b)](),window[_0x389f4c(0x259)]['hash']=_0x389f4c(0x21c);},_0x91174f[_0x6e7e0e(0x226)]['onclick']=_0x5d62ed=>{const _0x2cc7de=_0x6e7e0e;_0x5d62ed[_0x2cc7de(0x20b)](),Auth[_0x2cc7de(0x23e)]()?window[_0x2cc7de(0x259)]['hash']='admin':UI[_0x2cc7de(0x1f5)](_0x2cc7de(0x26a),_0x2cc7de(0x27f));},_0x91174f[_0x6e7e0e(0x22b)][_0x6e7e0e(0x201)]=_0x420eac=>{const _0x1a276b=_0x6e7e0e;_0x420eac[_0x1a276b(0x20b)](),window[_0x1a276b(0x259)][_0x1a276b(0x213)]='home';},_0x91174f[_0x6e7e0e(0x220)][_0x6e7e0e(0x201)]=_0x5ed1e7=>{const _0x3d8702=_0x6e7e0e;_0x5ed1e7[_0x3d8702(0x20b)](),window['location'][_0x3d8702(0x213)]=_0x3d8702(0x27c);},_0x91174f[_0x6e7e0e(0x24e)]&&(_0x91174f[_0x6e7e0e(0x24e)][_0x6e7e0e(0x201)]=_0x4a2bf1=>{const _0x5b5f06=_0x6e7e0e;_0x4a2bf1[_0x5b5f06(0x20b)](),window[_0x5b5f06(0x259)][_0x5b5f06(0x213)]=_0x5b5f06(0x1fa);}),_0x91174f['guestNavInfo'][_0x6e7e0e(0x201)]=_0x202c68=>{const _0x9a535=_0x6e7e0e;_0x202c68[_0x9a535(0x20b)](),window[_0x9a535(0x259)][_0x9a535(0x213)]=_0x9a535(0x227);},_0x91174f[_0x6e7e0e(0x253)]['onclick']=_0x414036=>{const _0x389bd5=_0x6e7e0e;_0x414036[_0x389bd5(0x20b)](),_0xc568e9();},document[_0x6e7e0e(0x250)](_0x6e7e0e(0x22a))['onclick']=_0x4d8bf9;}async function _0x2e4435(){const _0x25ff50=_0x3427d9,_0x5bde2a=_0x91174f[_0x25ff50(0x1fb)]['value']['trim'](),_0x1cf6ee=_0x91174f[_0x25ff50(0x254)][_0x25ff50(0x1fe)][_0x25ff50(0x202)]();if(!_0x5bde2a||!_0x1cf6ee){UI[_0x25ff50(0x1f5)]('Введите\x20логин\x20и\x20пароль','warning');return;}try{const _0x3d14a8=await Auth[_0x25ff50(0x240)](_0x5bde2a,_0x1cf6ee);UI['showEmployeeMode'](_0x3d14a8),window[_0x25ff50(0x259)][_0x25ff50(0x213)]=_0x25ff50(0x242),UI[_0x25ff50(0x1f5)](_0x25ff50(0x225)+_0x3d14a8[_0x25ff50(0x255)],_0x25ff50(0x245));}catch(_0x2d7441){UI[_0x25ff50(0x1f5)](_0x2d7441[_0x25ff50(0x21b)],_0x25ff50(0x217));}}function _0x4d8bf9(){const _0x2cd413=_0x3427d9,_0xd1902f=Auth[_0x2cd413(0x282)]();UI[_0x2cd413(0x216)](),window['location']['hash']=_0x2cd413(0x242);}function _0xc568e9(){const _0x2c4531=_0x3427d9;Auth['logout'](),UI[_0x2c4531(0x210)](),window[_0x2c4531(0x259)][_0x2c4531(0x213)]='';}function _0x2ba67c(){const _0x475c67=_0x3427d9;Auth['logout'](),UI[_0x475c67(0x210)](),_0x91174f[_0x475c67(0x1fb)]['value']='',_0x91174f['passwordInput'][_0x475c67(0x1fe)]='',window[_0x475c67(0x259)]['hash']='';}async function _0x124834(){const _0x2ae299=_0x3427d9,_0x4c988e=UI[_0x2ae299(0x1f6)]('home');UI[_0x2ae299(0x251)](),document[_0x2ae299(0x250)](_0x2ae299(0x219))[_0x2ae299(0x239)](_0x4c988e);const _0x4c55a1=Auth['getCurrentUser']();document[_0x2ae299(0x250)]('greetingMessage')[_0x2ae299(0x236)]='👤\x20'+_0x4c55a1[_0x2ae299(0x255)]+'\x20('+_0x4c55a1[_0x2ae299(0x263)]+')',UI['setActiveTab'](_0x91174f[_0x2ae299(0x268)]);const _0x1eaba5=document[_0x2ae299(0x250)](_0x2ae299(0x233)),_0x5cdfe5=document[_0x2ae299(0x250)](_0x2ae299(0x21e));if(_0x1eaba5)_0x1eaba5['innerHTML']=_0x2ae299(0x270);if(_0x5cdfe5)_0x5cdfe5[_0x2ae299(0x203)]='<span\x20class=\x22loading-spinner-small\x22></span>';const _0x2605b0=document[_0x2ae299(0x250)](_0x2ae299(0x1ec));if(_0x2605b0){const _0x44f691=[_0x2ae299(0x271),'февраль',_0x2ae299(0x1f4),_0x2ae299(0x1f3),_0x2ae299(0x248),'июнь','июль',_0x2ae299(0x241),_0x2ae299(0x269),_0x2ae299(0x232),_0x2ae299(0x252),_0x2ae299(0x25e)];_0x2605b0[_0x2ae299(0x276)]=_0x44f691[new Date()[_0x2ae299(0x281)]()];}try{await Protocol[_0x2ae299(0x25a)](),Protocol[_0x2ae299(0x22d)]();}catch(_0x33b736){console[_0x2ae299(0x217)](_0x2ae299(0x1ff),_0x33b736);if(_0x1eaba5)_0x1eaba5[_0x2ae299(0x276)]=_0x2ae299(0x1e5);if(_0x5cdfe5)_0x5cdfe5[_0x2ae299(0x276)]='Ошибка';}}function _0x4eebba(){const _0x3438f3=_0x3427d9,_0x444510=UI[_0x3438f3(0x1f6)](_0x3438f3(0x23c));UI[_0x3438f3(0x251)](),document[_0x3438f3(0x250)](_0x3438f3(0x219))[_0x3438f3(0x239)](_0x444510);const _0x50d15c=Auth[_0x3438f3(0x26c)]();document[_0x3438f3(0x250)](_0x3438f3(0x230))[_0x3438f3(0x276)]=_0x50d15c['nickname'],document[_0x3438f3(0x250)](_0x3438f3(0x20f))[_0x3438f3(0x276)]=_0x50d15c[_0x3438f3(0x263)],document[_0x3438f3(0x250)](_0x3438f3(0x1ed))['textContent']=_0x50d15c['department'],document[_0x3438f3(0x250)](_0x3438f3(0x204))[_0x3438f3(0x276)]=_0x50d15c[_0x3438f3(0x20a)],UI[_0x3438f3(0x23d)](_0x91174f[_0x3438f3(0x206)]);}function _0x334264(){const _0x3c9109=_0x3427d9,_0xa62971=UI[_0x3c9109(0x1f6)](_0x3c9109(0x25f));UI[_0x3c9109(0x251)](),document[_0x3c9109(0x250)]('mainApp')[_0x3c9109(0x239)](_0xa62971),UI[_0x3c9109(0x23d)](_0x91174f[_0x3c9109(0x22b)]);}async function _0x977c93(_0x3a2188){const _0x5b5fa1=_0x3427d9;try{const {data:_0x37da44,error:_0x6970b8}=await supabaseClient[_0x5b5fa1(0x21a)](_0x5b5fa1(0x20e))[_0x5b5fa1(0x221)]('\x0a\x09\x09\x09\x09\x09kusp_number,\x0a\x09\x09\x09\x09\x09ticket_number,\x0a\x09\x09\x09\x09\x09received_datetime,\x0a\x09\x09\x09\x09\x09received_by_name,\x0a\x09\x09\x09\x09\x09reporter_name,\x0a\x09\x09\x09\x09\x09short_content,\x0a\x09\x09\x09\x09\x09status,\x0a\x09\x09\x09\x09\x09review_result,\x0a\x09\x09\x09\x09\x09notes,\x0a\x09\x09\x09\x09\x09created_at,\x0a\x09\x09\x09\x09\x09updated_at\x0a\x09\x09\x09\x09')['eq']('ticket_number',_0x3a2188)[_0x5b5fa1(0x238)]();if(_0x6970b8)return console[_0x5b5fa1(0x217)](_0x5b5fa1(0x288),_0x6970b8),{'error':_0x5b5fa1(0x256)};if(!_0x37da44)return{'error':_0x5b5fa1(0x244)};return{'data':_0x37da44};}catch(_0x33168e){return console[_0x5b5fa1(0x217)]('Error\x20in\x20findKuspByTicketNumber:',_0x33168e),{'error':_0x5b5fa1(0x256)};}}function _0x5ea1c4(_0x30a6f8){const _0x42722c=_0x3427d9,_0x4ac5bf=document[_0x42722c(0x234)](_0x42722c(0x208));_0x4ac5bf['className']=_0x42722c(0x243),_0x4ac5bf['id']=_0x42722c(0x24f);let _0x41bea5='',_0x57a55f='';switch(_0x30a6f8['status']){case _0x42722c(0x218):_0x41bea5=_0x42722c(0x275),_0x57a55f='badge-new';break;case _0x42722c(0x273):_0x41bea5='В\x20работе',_0x57a55f=_0x42722c(0x1e9);break;case _0x42722c(0x277):_0x41bea5=_0x42722c(0x1e6),_0x57a55f=_0x42722c(0x1e9);break;case _0x42722c(0x1f1):_0x41bea5=_0x42722c(0x20c),_0x57a55f='badge-closed';break;default:_0x41bea5=_0x30a6f8[_0x42722c(0x25d)]||_0x42722c(0x215);}let _0xc81497='';switch(_0x30a6f8[_0x42722c(0x274)]){case'возбуждено_уголовное':_0xc81497=_0x42722c(0x27d);break;case _0x42722c(0x1ee):_0xc81497=_0x42722c(0x237);break;case _0x42722c(0x262):_0xc81497=_0x42722c(0x247);break;case _0x42722c(0x1e8):_0xc81497=_0x42722c(0x25c);break;case _0x42722c(0x27a):_0xc81497='Приобщено\x20к\x20другому\x20делу';break;default:_0xc81497='На\x20рассмотрении';}_0x4ac5bf['innerHTML']=_0x42722c(0x1f0)+_0xce42f(_0x30a6f8[_0x42722c(0x211)])+_0x42722c(0x287)+_0x57a55f+'\x22>'+_0x41bea5+_0x42722c(0x26e)+UI[_0x42722c(0x24d)](_0x30a6f8[_0x42722c(0x223)])+_0x42722c(0x246)+_0xce42f(_0x30a6f8[_0x42722c(0x212)]||'—')+_0x42722c(0x1f9)+_0xce42f(_0x30a6f8[_0x42722c(0x1eb)]||'—')+_0x42722c(0x258)+_0xce42f(_0x30a6f8[_0x42722c(0x285)]||'—')+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Статус\x20рассмотрения:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>'+_0x41bea5+_0x42722c(0x283)+_0xc81497+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x30a6f8[_0x42722c(0x224)]?_0x42722c(0x264)+_0xce42f(_0x30a6f8['notes'])+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20':'')+_0x42722c(0x1fc)+UI[_0x42722c(0x24d)](_0x30a6f8['updated_at']||_0x30a6f8[_0x42722c(0x21f)])+_0x42722c(0x22f),document[_0x42722c(0x1e7)][_0x42722c(0x239)](_0x4ac5bf),_0x4ac5bf[_0x42722c(0x26d)](_0x42722c(0x235))[_0x42722c(0x201)]=()=>_0x4ac5bf['remove'](),document[_0x42722c(0x250)]('closeKuspInfoBtn')[_0x42722c(0x201)]=()=>_0x4ac5bf[_0x42722c(0x24a)](),_0x4ac5bf[_0x42722c(0x201)]=_0x1faab2=>{const _0x4dc1ea=_0x42722c;if(_0x1faab2[_0x4dc1ea(0x26b)]===_0x4ac5bf)_0x4ac5bf[_0x4dc1ea(0x24a)]();};}function _0x16502a(){const _0x41e4fd=_0x3427d9,_0x1cd323=UI['loadTemplate']('guestAppeals');UI[_0x41e4fd(0x251)](),document[_0x41e4fd(0x250)](_0x41e4fd(0x219))[_0x41e4fd(0x239)](_0x1cd323),document[_0x41e4fd(0x250)](_0x41e4fd(0x27b))['onclick']=async()=>{const _0x9f04af=_0x41e4fd,_0x1c102c=document['getElementById']('appealNumber')[_0x9f04af(0x1fe)]['trim']();if(!_0x1c102c){UI[_0x9f04af(0x1f5)](_0x9f04af(0x214),'warning');return;}const _0x3a25c8=document[_0x9f04af(0x250)](_0x9f04af(0x27b)),_0x1caafc=_0x3a25c8[_0x9f04af(0x276)];_0x3a25c8[_0x9f04af(0x276)]='⏳\x20Поиск...',_0x3a25c8[_0x9f04af(0x23f)]=!![];try{const _0x5a2476=await _0x977c93(_0x1c102c);_0x5a2476[_0x9f04af(0x217)]?(UI[_0x9f04af(0x1f5)](_0x5a2476[_0x9f04af(0x217)],_0x9f04af(0x217)),document[_0x9f04af(0x250)](_0x9f04af(0x22c))[_0x9f04af(0x203)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20#fff0f0;\x20padding:\x2015px;\x20border-radius:\x208px;\x20color:\x20#dc3545;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x5a2476[_0x9f04af(0x217)]+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'):(_0x5ea1c4(_0x5a2476[_0x9f04af(0x266)]),document[_0x9f04af(0x250)]('appealResult')[_0x9f04af(0x203)]=_0x9f04af(0x267));}catch(_0x20bde3){UI[_0x9f04af(0x1f5)](_0x9f04af(0x205),_0x9f04af(0x217));}finally{_0x3a25c8[_0x9f04af(0x276)]=_0x1caafc,_0x3a25c8[_0x9f04af(0x23f)]=![];}},UI[_0x41e4fd(0x23d)](_0x91174f[_0x41e4fd(0x220)]);}function _0x162e7a(){const _0x4af726=_0x3427d9,_0x9ea5e5=UI[_0x4af726(0x1f6)]('guestInfo');UI[_0x4af726(0x251)](),document[_0x4af726(0x250)](_0x4af726(0x219))[_0x4af726(0x239)](_0x9ea5e5),UI['setActiveTab'](_0x91174f[_0x4af726(0x24c)]);}return{'init':_0x3e8926};}());document[_0x29e6d5(0x21d)](_0x29e6d5(0x222),()=>App[_0x29e6d5(0x1ef)]());function _0xf417(){const _0x572803=['navProfile','DriverLicense','div','guest','category','preventDefault','Рассмотрено','87xUOWfG','kusps','profileRank','showAuthMode','ticket_number','received_by_name','hash','Введите\x20номер\x20талона-уведомления','Не\x20определено','showGuestMode','error','new','mainApp','from','message','tsu','addEventListener','statsMonthCount','created_at','guestNavAppeals','select','DOMContentLoaded','received_datetime','notes','Добро\x20пожаловать,\x20','navAdmin','info','restoreSession','slice','guestAccessBtn','guestNavHome','appealResult','updateDashboardStats','30eErPde','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22border-top:\x202px\x20solid\x20#dbe4ee;\x20margin:\x2015px\x200;\x20padding-top:\x2015px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x200.9rem;\x20color:\x20#6c757d;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Для\x20получения\x20более\x20подробной\x20информации\x20обратитесь\x20в\x20дежурную\x20часть\x20УГИБДД.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex-row\x22\x20style=\x22justify-content:\x20flex-end;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22closeKuspInfoBtn\x22\x20class=\x22secondary\x22>Закрыть</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','profileNickname','88106ZTDnpN','октябрь','statsTodayCount','createElement','.modal-close','innerText','Отказано\x20в\x20возбуждении\x20уголовного\x20дела','maybeSingle','appendChild','2856WqUIYs','11007STvdcI','profile','setActiveTab','canManageUsers','disabled','login','август','home','modal-overlay','Дело\x20с\x20таким\x20номером\x20не\x20найдено','success','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Принял:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>','Административное\x20правонарушение','май','initAdminPanel','remove','navProtocols','guestNavInfo','formatDate','guestNavDriverLicense','kuspGuestInfoModal','getElementById','clearMain','ноябрь','guestNavToEmployee','passwordInput','nickname','Ошибка\x20при\x20поиске\x20дела','Модуль\x20не\x20загружен','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Содержание:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>','location','loadProtocolsList','hashchange','Передано\x20по\x20подследственности','status','декабрь','guestHome','kusp','initKuspList','административное','rank','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Дополнительно:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>','21198850rQrZLH','data','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20#e8f4e8;\x20padding:\x2015px;\x20border-radius:\x208px;\x20color:\x20#28a745;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20✓\x20Дело\x20найдено.\x20Информация\x20отображена\x20в\x20окне.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','navHome','сентябрь','Доступ\x20запрещен','target','getCurrentUser','querySelector','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22border-bottom:\x202px\x20solid\x20#dbe4ee;\x20margin:\x2015px\x200;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table\x20style=\x22width:\x20100%;\x20border-collapse:\x20collapse;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x20width:\x2040%;\x22><strong>Дата\x20регистрации:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>','auth','<span\x20class=\x22loading-spinner-small\x22></span>','январь','getCurrentMode','in_progress','review_result','Зарегистрировано','textContent','under_review','464411SSkLoO','5121109wUttDH','приобщено_к_другому','findAppealBtn','appeals','Возбуждено\x20уголовное\x20дело','navLogout','warning','getElements','getMonth','startGuestSession','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Результат:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>','employee','short_content','navTsu','</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22badge\x20','Error\x20finding\x20kusp:','Ошибка','На\x20проверке','body','передано_по_подследственности','badge-progress','1050612ASAjty','reporter_name','statsMonthLabel','profileDepartment','отказ_в_возбуждении','init','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-container\x22\x20style=\x22max-width:\x20800px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-header\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3>Информация\x20по\x20обращению</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22modal-close\x22>&times;</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22modal-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20#f5f9ff;\x20border-radius:\x2012px;\x20padding:\x2020px;\x20margin-bottom:\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20justify-content:\x20space-between;\x20align-items:\x20center;\x20margin-bottom:\x2015px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20style=\x22margin:0;\x20color:\x20#1e3a5f;\x22>Талон-уведомление\x20№\x20','closed','protocols','апрель','март','showNotification','loadTemplate','ping','2678384PlkOtg','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Заявитель:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>','driver-license','loginInput','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x20color:\x20#4a6f8f;\x22><strong>Дата\x20обновления:</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22padding:\x208px\x200;\x22>','initTsuList','value','Error\x20loading\x20dashboard\x20stats:','admin','onclick','trim','innerHTML','profileCategory','Ошибка\x20при\x20поиске'];_0xf417=function(){return _0x572803;};return _0xf417();}
+// Главный модуль приложения
+const App = (function () {
+    const elements = UI.getElements();
+
+    // Функция экранирования HTML
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // Инициализация приложения
+    function init() {
+        // Проверка сессии сотрудника
+        const user = Auth.restoreSession();
+
+        if (user && !Auth.isGuest()) {
+            UI.showEmployeeMode(user);
+            handleRouting();
+        } else {
+            UI.showAuthMode();
+            // Добавляем очистку хэша при возврате на экран авторизации
+            if (window.location.hash) {
+                window.location.hash = '';
+            }
+        }
+
+        // Привязка обработчиков
+        bindEvents();
+
+        // Слушаем изменения hash
+        window.addEventListener('hashchange', handleRouting);
+    }
+
+    // Обработка роутинга
+    function handleRouting() {
+        Auth.ping(); // Сбрасываем таймер при смене страницы
+
+        if (UI.getCurrentMode() === 'auth') {
+            window.location.hash = '';
+            return;
+        }
+
+        const hash = window.location.hash.slice(1) || 'home';
+
+        if (UI.getCurrentMode() === 'guest') {
+            handleGuestRouting(hash);
+        } else if (UI.getCurrentMode() === 'employee') {
+            handleEmployeeRouting(hash);
+        }
+    }
+
+    // Маршрутизация для гостей
+    function handleGuestRouting(hash) {
+        switch (hash) {
+            case 'home':
+                showGuestHome();
+                break;
+            case 'appeals':
+                showGuestAppeals();
+                break;
+            case 'driver-license':
+                if (window.DriverLicense) {
+                    DriverLicense.initDriverLicensePage();
+                } else {
+                    UI.showNotification('Модуль не загружен', 'error');
+                    window.location.hash = 'home';
+                }
+                break;
+            case 'info':
+                showGuestInfo();
+                break;
+            default:
+                window.location.hash = 'home';
+        }
+    }
+
+    // Маршрутизация для сотрудников
+    function handleEmployeeRouting(hash) {
+        switch (hash) {
+            case 'home':
+                showHome();
+                break;
+            case 'profile':
+                showProfile();
+                break;
+            case 'kusp':
+                KUSP.initKuspList();
+                break;
+            case 'protocols':
+                Protocol.initProtocolsList();
+                break;
+            case 'tsu':
+                if (window.TSU) {
+                    TSU.initTsuList();
+                } else {
+                    UI.showNotification('Модуль не загружен', 'error');
+                    window.location.hash = 'home';
+                }
+                break;
+            case 'admin':
+                if (Auth.canManageUsers()) {
+                    Admin.initAdminPanel();
+                } else {
+                    UI.showNotification('Доступ запрещен', 'error');
+                    window.location.hash = 'home';
+                }
+                break;
+            default:
+                window.location.hash = 'home';
+        }
+    }
+
+    // Привязка событий
+    function bindEvents() {
+        // Обработчики авторизации
+        elements.loginBtn.onclick = handleLogin;
+
+        // Обработчики для сотрудников
+        elements.navLogout.onclick = handleLogout;
+
+        elements.navHome.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'home';
+        };
+
+        elements.navProfile.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'profile';
+        };
+
+        elements.navKusp.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'kusp';
+        };
+
+        elements.navProtocols.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'protocols';
+        };
+
+        elements.navTsu.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'tsu';
+        };
+
+        elements.navAdmin.onclick = (e) => {
+            e.preventDefault();
+            if (Auth.canManageUsers()) {
+                window.location.hash = 'admin';
+            } else {
+                UI.showNotification('Доступ запрещен', 'warning');
+            }
+        };
+
+        // Обработчики для гостей
+        elements.guestNavHome.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'home';
+        };
+
+        elements.guestNavAppeals.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'appeals';
+        };
+
+        if (elements.guestNavDriverLicense) {
+            elements.guestNavDriverLicense.onclick = (e) => {
+                e.preventDefault();
+                window.location.hash = 'driver-license';
+            };
+        }
+
+        elements.guestNavInfo.onclick = (e) => {
+            e.preventDefault();
+            window.location.hash = 'info';
+        };
+
+        elements.guestNavToEmployee.onclick = (e) => {
+            e.preventDefault();
+            handleGuestLogout();
+        };
+
+        // Обработчик для гостевого доступа
+        document.getElementById('guestAccessBtn').onclick = handleGuestAccess;
+    }
+
+    // Обработка входа для сотрудников
+    async function handleLogin() {
+        const login = elements.loginInput.value.trim();
+        const pass = elements.passwordInput.value.trim();
+
+        if (!login || !pass) {
+            UI.showNotification('Введите логин и пароль', 'warning');
+            return;
+        }
+
+        try {
+            const user = await Auth.login(login, pass);
+            UI.showEmployeeMode(user);
+            window.location.hash = 'home';
+            UI.showNotification('Добро пожаловать, ' + user.nickname, 'success');
+        } catch (error) {
+            UI.showNotification(error.message, 'error');
+        }
+    }
+
+    // Обработка гостевого доступа
+    function handleGuestAccess() {
+        const guestUser = Auth.startGuestSession();
+        UI.showGuestMode();
+        window.location.hash = 'home';
+    }
+
+    // Выход из гостевого режима
+    function handleGuestLogout() {
+        Auth.logout();
+        UI.showAuthMode();
+        window.location.hash = '';
+    }
+
+    // Выход из режима сотрудника
+    function handleLogout() {
+        Auth.logout();
+        UI.showAuthMode();
+        elements.loginInput.value = '';
+        elements.passwordInput.value = '';
+        window.location.hash = '';
+    }
+
+    // Показать главную для сотрудников
+    async function showHome() {
+
+        const clone = UI.loadTemplate('home');
+        UI.clearMain();
+        document.getElementById('mainApp').appendChild(clone);
+
+        const user = Auth.getCurrentUser();
+        document.getElementById('greetingMessage').innerText = `👤 ${user.nickname} (${user.rank})`;
+
+        // СРАЗУ устанавливаем активную вкладку
+        UI.setActiveTab(elements.navHome);
+
+        // Показываем спиннеры
+        const todaySpan = document.getElementById('statsTodayCount');
+        const monthSpan = document.getElementById('statsMonthCount');
+
+        if (todaySpan) todaySpan.innerHTML = '<span class="loading-spinner-small"></span>';
+        if (monthSpan) monthSpan.innerHTML = '<span class="loading-spinner-small"></span>';
+
+        // Обновляем название месяца
+        const monthLabel = document.getElementById('statsMonthLabel');
+        if (monthLabel) {
+            const months = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь',
+                'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+            monthLabel.textContent = months[new Date().getMonth()];
+        }
+
+        try {
+            await Protocol.loadProtocolsList();
+            Protocol.updateDashboardStats();
+
+        } catch (error) {
+            console.error('Error loading dashboard stats:', error);
+            if (todaySpan) todaySpan.textContent = 'Ошибка';
+            if (monthSpan) monthSpan.textContent = 'Ошибка';
+        }
+    }
+
+    // Показать профиль для сотрудников
+    function showProfile() {
+		const clone = UI.loadTemplate('profile');
+		UI.clearMain();
+		document.getElementById('mainApp').appendChild(clone);
+
+		const user = Auth.getCurrentUser();
+		
+		// Заполняем данные пользователя
+		document.getElementById('profileNickname').textContent = user.nickname;
+		document.getElementById('profileRank').textContent = user.rank;
+		document.getElementById('profileDepartment').textContent = user.department;
+		document.getElementById('profileCategory').textContent = user.category;
+		document.getElementById('profilePosition').textContent = user.position || 'Не указано';
+		document.getElementById('profileFullName').textContent = user.fullname || 'Не указано';
+		
+		// Отображаем подпись если есть
+		const signaturePreview = document.getElementById('profileSignaturePreview');
+		if (user.signature_data) {
+			signaturePreview.innerHTML = `<img src="${escapeHtml(user.signature_data)}" style="max-width: 100%; max-height: 80px;">`;
+		} else {
+			signaturePreview.innerHTML = '<span style="color: #6b7f99;">Подпись не добавлена</span>';
+		}
+		
+		// Переключаемся в режим просмотра
+		document.getElementById('profileViewMode').style.display = 'block';
+		document.getElementById('profileEditMode').style.display = 'none';
+		
+		// Обработчик кнопки редактирования
+		document.getElementById('editProfileBtn').onclick = () => {
+			showProfileEditMode(user);
+		};
+		
+		UI.setActiveTab(elements.navProfile);
+	}
+
+	// Режим редактирования профиля
+	function showProfileEditMode(user) {
+		document.getElementById('profileViewMode').style.display = 'none';
+		document.getElementById('profileEditMode').style.display = 'block';
+		
+		// Заполняем форму
+		document.getElementById('edit_position').value = user.position || '';
+		document.getElementById('edit_fullname').value = user.fullname || '';
+		document.getElementById('profile_signature_data').value = user.signature_data || '';
+		
+		// Инициализируем подпись
+		initProfileSignatureCanvas(user.signature_data);
+		
+		// Обработчик отмены
+		document.getElementById('cancelProfileEditBtn').onclick = () => {
+			showProfile(); // Возвращаемся в режим просмотра
+		};
+		
+		// Обработчик сохранения
+		document.getElementById('profileEditForm').onsubmit = async (e) => {
+			e.preventDefault();
+			await saveProfileData(user);
+		};
+	}
+
+	// Инициализация canvas для подписи в профиле
+	function initProfileSignatureCanvas(existingSignature = null) {
+		const canvas = document.getElementById('profileSignatureCanvas');
+		const previewCanvas = document.getElementById('profileSignaturePreviewCanvas');
+		const noSignatureMessage = document.getElementById('profileNoSignatureMessage');
+		const signatureDataInput = document.getElementById('profile_signature_data');
+		
+		// Настройка вкладок
+		const drawTab = document.getElementById('signatureDrawTabBtn');
+		const uploadTab = document.getElementById('signatureUploadTabBtn');
+		const drawMode = document.getElementById('signatureDrawMode');
+		const uploadMode = document.getElementById('signatureUploadMode');
+		
+		// Переключение на вкладку рисования
+		drawTab.onclick = () => {
+			drawTab.classList.add('active');
+			uploadTab.classList.remove('active');
+			drawMode.style.display = 'block';
+			uploadMode.style.display = 'none';
+		};
+		
+		// Переключение на вкладку загрузки
+		uploadTab.onclick = () => {
+			uploadTab.classList.add('active');
+			drawTab.classList.remove('active');
+			uploadMode.style.display = 'block';
+			drawMode.style.display = 'none';
+		};
+
+		if (!canvas) return;
+
+		let isDrawing = false;
+		let lastX = 0;
+		let lastY = 0;
+
+		const ctx = canvas.getContext('2d');
+		ctx.strokeStyle = '#002b59';
+		ctx.lineWidth = 2;
+		ctx.lineCap = 'round';
+		ctx.lineJoin = 'round';
+
+		function updatePreview() {
+			const signatureData = canvas.toDataURL('image/png');
+			signatureDataInput.value = signatureData;
+
+			if (previewCanvas) {
+				previewCanvas.width = 200;
+				previewCanvas.height = 80;
+				const previewCtx = previewCanvas.getContext('2d');
+				previewCtx.clearRect(0, 0, 200, 80);
+				previewCtx.drawImage(canvas, 0, 0, 200, 80);
+				previewCanvas.style.display = 'block';
+				if (noSignatureMessage) noSignatureMessage.style.display = 'none';
+			}
+		}
+
+		function draw(e) {
+			if (!isDrawing) return;
+			e.preventDefault();
+
+			const rect = canvas.getBoundingClientRect();
+			const scaleX = canvas.width / rect.width;
+			const scaleY = canvas.height / rect.height;
+
+			const x = (e.clientX - rect.left) * scaleX;
+			const y = (e.clientY - rect.top) * scaleY;
+
+			ctx.beginPath();
+			ctx.moveTo(lastX, lastY);
+			ctx.lineTo(x, y);
+			ctx.stroke();
+
+			lastX = x;
+			lastY = y;
+		}
+
+		canvas.addEventListener('mousedown', (e) => {
+			isDrawing = true;
+			const rect = canvas.getBoundingClientRect();
+			lastX = (e.clientX - rect.left) * (canvas.width / rect.width);
+			lastY = (e.clientY - rect.top) * (canvas.height / rect.height);
+		});
+
+		canvas.addEventListener('mousemove', draw);
+		canvas.addEventListener('mouseup', () => {
+			isDrawing = false;
+			updatePreview();
+		});
+		canvas.addEventListener('mouseleave', () => {
+			isDrawing = false;
+		});
+
+		// Загрузка существующей подписи
+		if (existingSignature) {
+			const img = new Image();
+			img.onload = () => {
+				ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+				updatePreview();
+				
+				// Также показываем в режиме загрузки
+				const uploadedPreview = document.getElementById('uploadedSignaturePreview');
+				const uploadMessage = document.getElementById('uploadNoSignatureMessage');
+				if (uploadedPreview) {
+					uploadedPreview.src = existingSignature;
+					uploadedPreview.style.display = 'block';
+					if (uploadMessage) uploadMessage.style.display = 'none';
+				}
+			};
+			img.src = existingSignature;
+		}
+
+		// Обработчик очистки
+		const clearBtn = document.getElementById('clearProfileSignatureBtn');
+		if (clearBtn) {
+			clearBtn.addEventListener('click', () => {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				updatePreview();
+				if (noSignatureMessage) noSignatureMessage.style.display = 'block';
+				if (previewCanvas) previewCanvas.style.display = 'none';
+				
+				// Также очищаем загруженную подпись
+				const uploadedPreview = document.getElementById('uploadedSignaturePreview');
+				const uploadMessage = document.getElementById('uploadNoSignatureMessage');
+				if (uploadedPreview) {
+					uploadedPreview.style.display = 'none';
+					uploadedPreview.src = '';
+					if (uploadMessage) uploadMessage.style.display = 'block';
+				}
+				signatureDataInput.value = '';
+			});
+		}
+		
+		// Обработчик загрузки файла
+		const selectFileBtn = document.getElementById('selectFileBtn');
+		const fileInput = document.getElementById('signatureFileInput');
+		const uploadedPreview = document.getElementById('uploadedSignaturePreview');
+		const uploadMessage = document.getElementById('uploadNoSignatureMessage');
+		const fileNameDisplay = document.getElementById('selectedFileName');
+		
+		if (selectFileBtn && fileInput) {
+			selectFileBtn.onclick = () => {
+				fileInput.click();
+			};
+			
+			fileInput.onchange = (e) => {
+				const file = e.target.files[0];
+				if (!file) return;
+				
+				// Проверяем, что это PNG
+				if (!file.type.match('image/png')) {
+					UI.showNotification('Пожалуйста, выберите PNG файл', 'error');
+					return;
+				}
+				
+				// Проверяем размер файла (макс 1 МБ)
+				if (file.size > 1024 * 1024) {
+					UI.showNotification('Файл слишком большой (максимум 1 МБ)', 'error');
+					return;
+				}
+				
+				fileNameDisplay.textContent = `Выбран: ${file.name}`;
+				
+				const reader = new FileReader();
+				reader.onload = (event) => {
+					const img = new Image();
+					img.onload = () => {
+						// Очищаем canvas
+						ctx.clearRect(0, 0, canvas.width, canvas.height);
+						
+						// Рисуем изображение с сохранением пропорций
+						const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+						const x = (canvas.width - img.width * scale) / 2;
+						const y = (canvas.height - img.height * scale) / 2;
+						
+						ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+						
+						// Обновляем предпросмотр
+						updatePreview();
+						
+						// Показываем в режиме загрузки
+						uploadedPreview.src = event.target.result;
+						uploadedPreview.style.display = 'block';
+						uploadMessage.style.display = 'none';
+						
+						UI.showNotification('Подпись загружена', 'success');
+					};
+					img.src = event.target.result;
+				};
+				reader.readAsDataURL(file);
+			};
+		}
+	}
+
+	// Сохранение данных профиля
+	async function saveProfileData(user) {
+		const position = document.getElementById('edit_position').value.trim();
+		const fullname = document.getElementById('edit_fullname').value.trim();
+		const signatureData = document.getElementById('profile_signature_data').value;
+
+		// Валидация
+		if (!fullname) {
+			UI.showNotification('Заполните фамилию и инициалы', 'error');
+			document.getElementById('edit_fullname').focus();
+			return;
+		}
+
+		try {
+			const { data: { session: adminSession } } = await supabaseClient.auth.getSession();
+
+			if (!adminSession) {
+				throw new Error('Сессия не найдена');
+			}
+
+			// Обновляем метаданные в auth
+			await SupabaseAdmin.updateUserMetadata(user.auth_user_id, {
+				nickname: user.nickname,
+				rank: user.rank,
+				department: user.department,
+				category: user.category,
+				position: position,
+				fullname: fullname,
+				signature_data: signatureData
+			});
+
+			// Восстанавливаем сессию администратора
+			await supabaseClient.auth.setSession({
+				access_token: adminSession.access_token,
+				refresh_token: adminSession.refresh_token
+			});
+
+			// Обновляем данные в таблице employees
+			const { error: dbError } = await supabaseClient
+				.from('employees')
+				.update({
+					position: position,
+					fullname: fullname,
+					signature_data: signatureData
+				})
+				.eq('id', user.id);
+
+			if (dbError) {
+				throw new Error('Ошибка при обновлении данных: ' + dbError.message);
+			}
+
+			// Обновляем текущего пользователя в сессии
+			user.position = position;
+			user.fullname = fullname;
+			user.signature_data = signatureData;
+			
+			// Обновляем localStorage
+			localStorage.setItem('user', JSON.stringify(user));
+
+			UI.showNotification('Профиль успешно обновлен', 'success');
+			
+			// Возвращаемся в режим просмотра
+			showProfile();
+
+		} catch (error) {
+			console.error('Profile update error:', error);
+			ErrorHandler.showError(error, 'Ошибка при сохранении профиля');
+		}
+	}
+	
+    // Гостевые страницы
+    function showGuestHome() {
+        const clone = UI.loadTemplate('guestHome');
+        UI.clearMain();
+        document.getElementById('mainApp').appendChild(clone);
+        UI.setActiveTab(elements.guestNavHome);
+    }
+
+    // Поиск дела по номеру талона для гостей
+    async function findKuspByTicketNumber(ticketNumber) {
+        try {
+            // Ищем запись в КУСП по номеру талона
+            const { data, error } = await supabaseClient
+                .from('kusps')
+                .select(`
+					kusp_number,
+					ticket_number,
+					received_datetime,
+					received_by_name,
+					reporter_name,
+					short_content,
+					status,
+					review_result,
+					notes,
+					created_at,
+					updated_at
+				`)
+                .eq('ticket_number', ticketNumber)
+                .maybeSingle();
+
+            if (error) {
+                console.error('Error finding kusp:', error);
+                return { error: 'Ошибка при поиске дела' };
+            }
+
+            if (!data) {
+                return { error: 'Дело с таким номером не найдено' };
+            }
+
+            return { data };
+        } catch (error) {
+            console.error('Error in findKuspByTicketNumber:', error);
+            return { error: 'Ошибка при поиске дела' };
+        }
+    }
+
+    // Показать информацию о деле для гостя
+    function showKuspInfoForGuest(kusp) {
+        const modal = document.createElement('div');
+        modal.className = 'modal-overlay';
+        modal.id = 'kuspGuestInfoModal';
+
+        // Определяем статус дела
+        let statusText = '';
+        let statusClass = '';
+        switch (kusp.status) {
+            case 'new':
+                statusText = 'Зарегистрировано';
+                statusClass = 'badge-new';
+                break;
+            case 'in_progress':
+                statusText = 'В работе';
+                statusClass = 'badge-progress';
+                break;
+            case 'under_review':
+                statusText = 'На проверке';
+                statusClass = 'badge-progress';
+                break;
+            case 'closed':
+                statusText = 'Рассмотрено';
+                statusClass = 'badge-closed';
+                break;
+            default:
+                statusText = kusp.status || 'Не определено';
+        }
+
+        // Результат рассмотрения
+        let resultText = '';
+        switch (kusp.review_result) {
+            case 'возбуждено_уголовное':
+                resultText = 'Возбуждено уголовное дело';
+                break;
+            case 'отказ_в_возбуждении':
+                resultText = 'Отказано в возбуждении уголовного дела';
+                break;
+            case 'административное':
+                resultText = 'Административное правонарушение';
+                break;
+            case 'передано_по_подследственности':
+                resultText = 'Передано по подследственности';
+                break;
+            case 'приобщено_к_другому':
+                resultText = 'Приобщено к другому делу';
+                break;
+            default:
+                resultText = 'На рассмотрении';
+        }
+
+        modal.innerHTML = `
+            <div class="modal-container" style="max-width: 800px;">
+                <div class="modal-header">
+                    <h3>Информация по обращению</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-content">
+                    <div style="background: #f5f9ff; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h4 style="margin:0; color: #1e3a5f;">Талон-уведомление № ${escapeHtml(kusp.ticket_number)}</h4>
+                            <span class="badge ${statusClass}">${statusText}</span>
+                        </div>
+                        
+                        <div style="border-bottom: 2px solid #dbe4ee; margin: 15px 0;"></div>
+                        
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f; width: 40%;"><strong>Дата регистрации:</strong></td>
+                                <td style="padding: 8px 0;">${UI.formatDate(kusp.received_datetime)}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Принял:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.received_by_name || '—')}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Заявитель:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.reporter_name || '—')}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Содержание:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.short_content || '—')}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Статус рассмотрения:</strong></td>
+                                <td style="padding: 8px 0;">${statusText}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Результат:</strong></td>
+                                <td style="padding: 8px 0;">${resultText}</td>
+                            </tr>
+                            ${kusp.notes ? `
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Дополнительно:</strong></td>
+                                <td style="padding: 8px 0;">${escapeHtml(kusp.notes)}</td>
+                            </tr>
+                            ` : ''}
+                            <tr>
+                                <td style="padding: 8px 0; color: #4a6f8f;"><strong>Дата обновления:</strong></td>
+                                <td style="padding: 8px 0;">${UI.formatDate(kusp.updated_at || kusp.created_at)}</td>
+                            </tr>
+                        </table>
+                        
+                        <div style="border-top: 2px solid #dbe4ee; margin: 15px 0; padding-top: 15px;">
+                            <p style="font-size: 0.9rem; color: #6c757d;">
+                                Для получения более подробной информации обратитесь в дежурную часть УГИБДД.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-row" style="justify-content: flex-end;">
+                        <button id="closeKuspInfoBtn" class="secondary">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Обработчики
+        modal.querySelector('.modal-close').onclick = () => modal.remove();
+        document.getElementById('closeKuspInfoBtn').onclick = () => modal.remove();
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.remove();
+        };
+    }
+
+    function showGuestAppeals() {
+        const clone = UI.loadTemplate('guestAppeals');
+        UI.clearMain();
+        document.getElementById('mainApp').appendChild(clone);
+
+        document.getElementById('findAppealBtn').onclick = async () => {
+            const number = document.getElementById('appealNumber').value.trim();
+            if (!number) {
+                UI.showNotification('Введите номер талона-уведомления', 'warning');
+                return;
+            }
+
+            // Показываем индикатор загрузки
+            const btn = document.getElementById('findAppealBtn');
+            const originalText = btn.textContent;
+            btn.textContent = '⏳ Поиск...';
+            btn.disabled = true;
+
+            try {
+                const result = await findKuspByTicketNumber(number);
+
+                if (result.error) {
+                    UI.showNotification(result.error, 'error');
+                    document.getElementById('appealResult').innerHTML = `
+                        <div style="background: #fff0f0; padding: 15px; border-radius: 8px; color: #dc3545;">
+                            ${result.error}
+                        </div>
+                    `;
+                } else {
+                    showKuspInfoForGuest(result.data);
+                    document.getElementById('appealResult').innerHTML = `
+                        <div style="background: #e8f4e8; padding: 15px; border-radius: 8px; color: #28a745;">
+                            ✓ Дело найдено. Информация отображена в окне.
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                UI.showNotification('Ошибка при поиске', 'error');
+            } finally {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        };
+
+        UI.setActiveTab(elements.guestNavAppeals);
+    }
+
+    function showGuestInfo() {
+        const clone = UI.loadTemplate('guestInfo');
+        UI.clearMain();
+        document.getElementById('mainApp').appendChild(clone);
+        UI.setActiveTab(elements.guestNavInfo);
+    }
+
+    return {
+        init
+    };
+})();
+
+// Запуск при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => App.init());

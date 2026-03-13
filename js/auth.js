@@ -128,36 +128,41 @@ const Auth = (function () {
 
     // -------------------- Режим сотрудника --------------------
     async function login(nickname, password) {
-        const email = `${nickname}@app.local`;
-        const { data: authData, error: authError } = await supabaseClient.auth.signInWithPassword({
-            email, password
-        });
+		const email = `${nickname}@app.local`;
+		const { data: authData, error: authError } = await supabaseClient.auth.signInWithPassword({
+			email, password
+		});
 
-        if (authError || !authData.user) {
-            const localizedError = ErrorHandler.localizeError(authError, 'Неверные данные для входа');
-            throw new Error(localizedError);
-        }
+		if (authError || !authData.user) {
+			const localizedError = ErrorHandler.localizeError(authError, 'Неверные данные для входа');
+			throw new Error(localizedError);
+		}
 
-        const userId = authData.user.id;
-        const { data, error } = await supabaseClient
-            .from('employees')
-            .select('*')
-            .eq('auth_user_id', userId)
-            .maybeSingle();
+		const userId = authData.user.id;
+		const { data, error } = await supabaseClient
+			.from('employees')
+			.select('*')
+			.eq('auth_user_id', userId)
+			.maybeSingle();
 
-        if (error) {
-            const localizedError = ErrorHandler.localizeError(error, 'Ошибка базы данных');
-            throw new Error(localizedError);
-        }
+		if (error) {
+			const localizedError = ErrorHandler.localizeError(error, 'Ошибка базы данных');
+			throw new Error(localizedError);
+		}
 
-        if (!data) throw new Error('Пользователь не найден в системе');
+		if (!data) throw new Error('Пользователь не найден в системе');
 
-        saveSession(data);
+		// Добавляем position, fullname и signature_data если они есть в метаданных
+		if (authData.user.user_metadata) {
+			data.position = authData.user.user_metadata.position;
+			data.fullname = authData.user.user_metadata.fullname;
+			data.signature_data = authData.user.user_metadata.signature_data;
+		}
 
+		saveSession(data);
 
-
-        return data;
-    }
+		return data;
+	}
 
     async function register({ nickname, password, rank, department, category }) {
         const email = `${nickname}@app.local`;
@@ -211,32 +216,32 @@ const Auth = (function () {
     }
 
     function restoreSession() {
-        if (currentMode === 'guest') {
-            return currentUser;
-        }
+		if (currentMode === 'guest') {
+			return currentUser;
+		}
 
-        const saved = localStorage.getItem('user');
-        if (!saved) return null;
+		const saved = localStorage.getItem('user');
+		if (!saved) return null;
 
-        if (checkInactivityOnLoad()) {
-            logout();
-            return null;
-        }
+		if (checkInactivityOnLoad()) {
+			logout();
+			return null;
+		}
 
-        try {
-            const user = JSON.parse(saved);
-            currentUser = user;
-            currentMode = 'employee';
+		try {
+			const user = JSON.parse(saved);
+			currentUser = user;
+			currentMode = 'employee';
 
-            if (currentUser) {
-                setupActivityListeners();
-                resetInactivityTimer();
-            }
-            return currentUser;
-        } catch {
-            return null;
-        }
-    }
+			if (currentUser) {
+				setupActivityListeners();
+				resetInactivityTimer();
+			}
+			return currentUser;
+		} catch {
+			return null;
+		}
+	}
 
     function getCurrentUser() { return currentUser; }
     function ping() { resetInactivityTimer(); }

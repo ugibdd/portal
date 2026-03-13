@@ -1055,27 +1055,29 @@ const Protocol = (function () {
                                 </div>
                                 
                                 <!-- Вкладка 3: Транспорт -->
-                                <div class="tab-content hidden" data-tab="vehicle">
-                                    <h4>Данные транспортного средства</h4>
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                                        <div class="form-group" style="grid-column: span 2;">
-                                            <label>Марка и модель ТС <span class="required">*</span></label>
-                                            <input type="text" id="vehicle_make_model" required value="" placeholder="Toyota Camry">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Госномер <span class="required">*</span></label>
-                                            <input type="text" id="vehicle_license_plate" required value="" placeholder="А123ВС 77">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Владелец ТС (фамилия, имя, отчество, организация)</label>
-                                            <input type="text" id="vehicle_owner" value="" placeholder="Иванов И.И.">
-                                        </div>
-                                        <div class="form-group" style="grid-column: span 2;">
-                                            <label>ТС состоит на учете</label>
-                                            <input type="text" id="vehicle_registered_info" value="" placeholder="МРЭО УГИБДД МВД по г. Мирный">
-                                        </div>
-                                    </div>
-                                </div>
+								<div class="tab-content hidden" data-tab="vehicle">
+									<h4>Данные транспортного средства</h4>
+									<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+										<div class="form-group" style="grid-column: span 2;">
+											<label>Марка и модель ТС <span class="required">*</span></label>
+											<input type="text" id="vehicle_make_model" required value="" 
+												   placeholder="Начните вводить или выберите из списка"
+												   class="vehicle-searchable" autocomplete="off">
+										</div>
+										<div class="form-group">
+											<label>Госномер <span class="required">*</span></label>
+											<input type="text" id="vehicle_license_plate" required value="" placeholder="А123ВС 77">
+										</div>
+										<div class="form-group">
+											<label>Владелец ТС (фамилия, имя, отчество, организация)</label>
+											<input type="text" id="vehicle_owner" value="" placeholder="Иванов И.И.">
+										</div>
+										<div class="form-group" style="grid-column: span 2;">
+											<label>ТС состоит на учете</label>
+											<input type="text" id="vehicle_registered_info" value="" placeholder="МРЭО УГИБДД МВД по г. Мирный">
+										</div>
+									</div>
+								</div>
                                 
                                 <!-- Вкладка 4: Правонарушения -->
                                 <div class="tab-content hidden" data-tab="offense">
@@ -1207,7 +1209,69 @@ const Protocol = (function () {
             `;
 
             document.body.appendChild(modal);
+			if (window.initVehicleSearchableFields) {
+				setTimeout(() => {
+					initVehicleSearchableFields();
+				}, 100);
+			}
 
+			const user = Auth.getCurrentUser();
+				
+				// Если у пользователя есть данные в профиле, подставляем их в формате:
+				// (должность), (звание с маленькой буквы) (фамилия инициалы)
+				if (user.position && user.fullname) {
+					setTimeout(() => {
+						const officialNameField = document.getElementById('official_name');
+						if (officialNameField && !officialNameField.value) {
+							// Преобразуем звание в нижний регистр
+							const rankLowerCase = user.rank ? user.rank.toLowerCase() : '';
+							// Формируем строку должностного лица в нужном формате
+							officialNameField.value = `${user.position}, ${rankLowerCase} ${user.fullname}`;
+						}
+					}, 100);
+				} else if (user.fullname) {
+					// Если должность не указана, подставляем только звание и фамилию
+					setTimeout(() => {
+						const officialNameField = document.getElementById('official_name');
+						if (officialNameField && !officialNameField.value) {
+							// Преобразуем звание в нижний регистр
+							const rankLowerCase = user.rank ? user.rank.toLowerCase() : '';
+							officialNameField.value = `${rankLowerCase} ${user.fullname}`;
+						}
+					}, 100);
+				}
+				
+				// Если у пользователя есть подпись, добавляем её
+				if (user.signature_data) {
+					setTimeout(() => {
+						const signatureInput = document.getElementById('signature_data');
+						if (signatureInput) {
+							signatureInput.value = user.signature_data;
+							
+							// Также отображаем подпись на canvas
+							const canvas = document.getElementById('signatureCanvas');
+							if (canvas) {
+								const ctx = canvas.getContext('2d');
+								const img = new Image();
+								img.onload = () => {
+									ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+									// Обновляем предпросмотр
+									const previewCanvas = document.getElementById('signaturePreviewCanvas');
+									const noSignatureMessage = document.getElementById('noSignatureMessage');
+									if (previewCanvas) {
+										previewCanvas.width = 200;
+										previewCanvas.height = 80;
+										const previewCtx = previewCanvas.getContext('2d');
+										previewCtx.drawImage(canvas, 0, 0, 200, 80);
+										previewCanvas.style.display = 'block';
+										if (noSignatureMessage) noSignatureMessage.style.display = 'none';
+									}
+								};
+								img.src = user.signature_data;
+							}
+						}
+					}, 100);
+				}			
             // Настройка навигации по вкладкам
             const tabs = ['main', 'violator', 'vehicle', 'offense', 'additional'];
             let currentTabIndex = 0;
@@ -1538,27 +1602,29 @@ const Protocol = (function () {
                                 </div>
                                 
                                 <!-- Вкладка 3: Транспорт -->
-                                <div class="tab-content hidden" data-tab="vehicle">
-                                    <h4>Данные транспортного средства</h4>
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                                        <div class="form-group" style="grid-column: span 2;">
-                                            <label>Марка и модель ТС <span class="required">*</span></label>
-                                            <input type="text" id="vehicle_make_model" required value="${escapeHtml(protocol?.vehicle_make_model || '')}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Госномер <span class="required">*</span></label>
-                                            <input type="text" id="vehicle_license_plate" required value="${escapeHtml(protocol?.vehicle_license_plate || '')}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Владелец ТС (фамилия, имя, отчество, организация)</label>
-                                            <input type="text" id="vehicle_owner" value="${escapeHtml(protocol?.vehicle_owner || '')}">
-                                        </div>
-                                        <div class="form-group" style="grid-column: span 2;">
-                                            <label>ТС состоит на учете</label>
-                                            <input type="text" id="vehicle_registered_info" value="${escapeHtml(protocol?.vehicle_registered_info || '')}">
-                                        </div>
-                                    </div>
-                                </div>
+								<div class="tab-content hidden" data-tab="vehicle">
+									<h4>Данные транспортного средства</h4>
+									<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+										<div class="form-group" style="grid-column: span 2;">
+											<label>Марка и модель ТС <span class="required">*</span></label>
+											<input type="text" id="vehicle_make_model" required value="${escapeHtml(protocol?.vehicle_make_model || '')}" 
+												   placeholder="Начните вводить или выберите из списка"
+												   class="vehicle-searchable" autocomplete="off">
+										</div>
+										<div class="form-group">
+											<label>Госномер <span class="required">*</span></label>
+											<input type="text" id="vehicle_license_plate" required value="${escapeHtml(protocol?.vehicle_license_plate || '')}" placeholder="А123ВС 77">
+										</div>
+										<div class="form-group">
+											<label>Владелец ТС (фамилия, имя, отчество, организация)</label>
+											<input type="text" id="vehicle_owner" value="${escapeHtml(protocol?.vehicle_owner || '')}" placeholder="Иванов И.И.">
+										</div>
+										<div class="form-group" style="grid-column: span 2;">
+											<label>ТС состоит на учете</label>
+											<input type="text" id="vehicle_registered_info" value="${escapeHtml(protocol?.vehicle_registered_info || '')}" placeholder="МРЭО УГИБДД МВД по г. Мирный">
+										</div>
+									</div>
+								</div>
                                 
                                 <!-- Вкладка 4: Правонарушение -->
                                 <div class="tab-content hidden" data-tab="offense">
@@ -1666,6 +1732,11 @@ const Protocol = (function () {
             `;
 
             document.body.appendChild(modal);
+			if (window.initVehicleSearchableFields) {
+				setTimeout(() => {
+					initVehicleSearchableFields();
+				}, 100);
+			}
 
             // Инициализация подписи с загрузкой существующей
             initSignatureCanvas(protocol?.signature_data);
@@ -1881,7 +1952,7 @@ const Protocol = (function () {
         } else if (mode === 'view' && protocol) {
             // РЕЖИМ ПРОСМОТРА
             modal.innerHTML = `
-                <div class="modal-container protocol-document-modal" style="max-width: 800px; width: 90%;">
+                <div class="modal-container protocol-document-modal" style="max-width: 950px; width: 90%;">
                     <div class="modal-header">
                         <h3>${escapeHtml(title)}</h3>
                         <button class="modal-close">&times;</button>
@@ -1916,7 +1987,8 @@ const Protocol = (function () {
                 };
             }
         }
-    }
+    
+	}
 
     // Функция рендеринга документа протокола для просмотра
     function renderProtocolDocument(protocol) {
