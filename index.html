@@ -138,14 +138,115 @@
 	<template id="profileTemplate">
 		<div>
 			<h2>Профиль сотрудника</h2>
-			<div class="info-row"><span class="info-label">Логин</span><span class="info-value"
-					id="profileNickname"></span></div>
-			<div class="info-row"><span class="info-label">Звание</span><span class="info-value"
-					id="profileRank"></span></div>
-			<div class="info-row"><span class="info-label">Отдел</span><span class="info-value"
-					id="profileDepartment"></span></div>
-			<div class="info-row"><span class="info-label">Категория</span><span class="info-value"
-					id="profileCategory"></span></div>
+			
+			<!-- Режим просмотра -->
+			<div id="profileViewMode">
+				<div class="info-row"><span class="info-label">Логин</span><span class="info-value" id="profileNickname"></span></div>
+				<div class="info-row"><span class="info-label">Звание</span><span class="info-value" id="profileRank"></span></div>
+				<div class="info-row"><span class="info-label">Отдел</span><span class="info-value" id="profileDepartment"></span></div>
+				<div class="info-row"><span class="info-label">Категория</span><span class="info-value" id="profileCategory"></span></div>
+				<div class="info-row"><span class="info-label">Должность</span><span class="info-value" id="profilePosition"></span></div>
+				<div class="info-row"><span class="info-label">Фамилия и инициалы</span><span class="info-value" id="profileFullName"></span></div>
+				
+				<!-- Подпись -->
+				<div class="info-row" style="flex-direction: column; align-items: flex-start;">
+					<span class="info-label">Подпись</span>
+					<div id="profileSignaturePreview" style="margin-top: 10px; border: 1px solid #d8e2ed; border-radius: 8px; padding: 10px; background: white; min-height: 60px;">
+						<!-- Подпись будет отображаться здесь -->
+					</div>
+				</div>
+				
+				<button id="editProfileBtn" style="margin-top: 20px;">✏️ Редактировать профиль</button>
+			</div>
+			
+			<!-- Режим редактирования -->
+			<div id="profileEditMode" style="display: none;">
+				<h3>Редактирование профиля</h3>
+				
+				<form id="profileEditForm">
+					<div class="form-group">
+						<label for="edit_position">Должность</label>
+						<input type="text" id="edit_position" placeholder="Например: Инспектор ДПС">
+						<small class="field-hint">Например: Инспектор ОСБ ДПС УГИБДД</small>
+					</div>
+					
+					<div class="form-group">
+						<label for="edit_fullname">Фамилия и инициалы <span class="required">*</span></label>
+						<input type="text" id="edit_fullname" required placeholder="Например: Иванов И.И.">
+						<small class="field-hint">Будет отображаться в протоколах как "Иванов И.И."</small>
+					</div>
+					
+					<div class="form-group signature-section" style="margin-top: 20px; border-top: 1px solid #d8e2ed; padding-top: 20px;">
+						<h4>Подпись должностного лица</h4>
+						
+						<!-- Вкладки для выбора способа создания подписи -->
+						<div style="display: flex; gap: 10px; margin-bottom: 20px;">
+							<button type="button" id="signatureDrawTabBtn" class="small active">✏️ Нарисовать</button>
+							<button type="button" id="signatureUploadTabBtn" class="small">📁 Загрузить PNG</button>
+						</div>
+						
+						<!-- Режим рисования -->
+						<div id="signatureDrawMode">
+							<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; align-items: start;">
+								<div>
+									<label>Нарисуйте подпись:</label>
+									<div style="border: 2px dashed #1e3a5f; border-radius: 8px; padding: 5px; background: #fff; margin-top: 5px;">
+										<canvas id="profileSignatureCanvas" width="250" height="120" style="width: 100%; height: auto; background: white; border: 1px solid #d8e2ed; border-radius: 4px; cursor: crosshair;"></canvas>
+									</div>
+									<div style="display: flex; gap: 8px; margin-top: 10px;">
+										<button type="button" id="clearProfileSignatureBtn" class="small secondary">🧹 Очистить</button>
+									</div>
+								</div>
+								
+								<div>
+									<label>Предпросмотр:</label>
+									<div style="border: 1px solid #d8e2ed; border-radius: 8px; padding: 15px; background: #f8fafd; margin-top: 5px; min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+										<canvas id="profileSignaturePreviewCanvas" width="200" height="80" style="width: 100%; height: auto; background: white; border: 1px solid #d8e2ed; border-radius: 4px; display: none;"></canvas>
+										<div id="profileNoSignatureMessage" style="color: #6b7f99; text-align: center;">
+											⚠️ Подпись не добавлена
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Режим загрузки PNG -->
+						<div id="signatureUploadMode" style="display: none;">
+							<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; align-items: start;">
+								<div>
+									<label>Загрузите PNG файл с подписью:</label>
+									<div style="border: 2px dashed #28a745; border-radius: 8px; padding: 20px; background: #f0fff0; margin-top: 5px; text-align: center;">
+										<input type="file" id="signatureFileInput" accept="image/png" style="display: none;">
+										<button type="button" id="selectFileBtn" class="secondary">📁 Выбрать файл</button>
+										<div id="selectedFileName" style="margin-top: 10px; color: #28a745; font-size: 0.9rem;"></div>
+										<div style="margin-top: 15px; font-size: 0.85rem; color: #6b7f99;">
+											Рекомендуемый размер: ширина до 250px, высота до 120px<br>
+											Фон должен быть прозрачным
+										</div>
+									</div>
+								</div>
+								
+								<div>
+									<label>Предпросмотр загруженной подписи:</label>
+									<div style="border: 1px solid #d8e2ed; border-radius: 8px; padding: 15px; background: #f8fafd; margin-top: 5px; min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+										<img id="uploadedSignaturePreview" style="max-width: 100%; max-height: 100px; display: none;">
+										<div id="uploadNoSignatureMessage" style="color: #6b7f99; text-align: center;">
+											⚠️ Файл не выбран
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<input type="hidden" id="profile_signature_data" value="">
+					</div>
+					
+					<div class="flex-row" style="justify-content: flex-end; margin-top: 24px; gap: 12px;">
+						<button type="button" id="cancelProfileEditBtn" class="secondary">Отмена</button>
+						<button type="submit" id="saveProfileBtn" class="primary">💾 Сохранить</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</template>
 
@@ -530,6 +631,7 @@
 	<script src="js/driver-license.js"></script>
 	<script src="js/tsu.js"></script>
 	<script src="js/app.js"></script>
+	<script src="js/vehicles.js"></script>
 </body>
 
 </html>
