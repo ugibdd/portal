@@ -536,30 +536,8 @@ const App = (function () {
 		}
 
 		try {
-			const { data: { session: adminSession } } = await supabaseClient.auth.getSession();
-
-			if (!adminSession) {
-				throw new Error('Сессия не найдена');
-			}
-
-			// Обновляем метаданные в auth
-			await SupabaseAdmin.updateUserMetadata(user.auth_user_id, {
-				nickname: user.nickname,
-				rank: user.rank,
-				department: user.department,
-				category: user.category,
-				position: position,
-				fullname: fullname,
-				signature_data: signatureData
-			});
-
-			// Восстанавливаем сессию администратора
-			await supabaseClient.auth.setSession({
-				access_token: adminSession.access_token,
-				refresh_token: adminSession.refresh_token
-			});
-
-			// Обновляем данные в таблице employees
+			// ИСПРАВЛЕНИЕ: Не используем админский клиент для обычного пользователя
+			// Просто обновляем данные в таблице employees
 			const { error: dbError } = await supabaseClient
 				.from('employees')
 				.update({
