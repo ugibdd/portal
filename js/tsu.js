@@ -346,105 +346,110 @@ const TSU = (function () {
     }
 
     // Отображение списка наводок
-    // Отображение списка наводок
-function renderTsuList(filteredList) {
-    const container = document.getElementById('tsuList');
-    if (!container) return;
+	function renderTsuList(filteredList) {
+		const container = document.getElementById('tsuList');
+		if (!container) return;
 
-    container.innerHTML = '';
+		container.innerHTML = '';
 
-    if (!filteredList.length) {
-        container.innerHTML = '<div class="list-item" style="justify-content: center; color: #6b7f99;">Нет наводок</div>';
-        return;
-    }
+		if (!filteredList.length) {
+			container.innerHTML = '<div class="list-item" style="justify-content: center; color: #6b7f99;">Нет наводок</div>';
+			return;
+		}
 
-    // --- СОРТИРОВКА: выполненные вниз, остальные по дате истечения ---
-    const sortedList = [...filteredList].sort((a, b) => {
-        // 1. Сначала сравниваем по статусу: completed всегда в конце
-        if (a.status === 'completed' && b.status !== 'completed') return 1; // a после b
-        if (a.status !== 'completed' && b.status === 'completed') return -1; // a перед b
-        
-        // 2. Если оба completed или оба не completed, сортируем по дате истечения
-        const dateA = a.expires_at ? new Date(a.expires_at).getTime() : Infinity;
-        const dateB = b.expires_at ? new Date(b.expires_at).getTime() : Infinity;
-        return dateA - dateB; // По возрастанию (сначала ближайшие)
-    });
+		// --- СОРТИРОВКА: выполненные вниз, остальные по дате истечения ---
+		const sortedList = [...filteredList].sort((a, b) => {
+			// 1. Сначала сравниваем по статусу: completed всегда в конце
+			if (a.status === 'completed' && b.status !== 'completed') return 1; // a после b
+			if (a.status !== 'completed' && b.status === 'completed') return -1; // a перед b
+			
+			// 2. Если оба completed или оба не completed, сортируем по дате истечения
+			const dateA = a.expires_at ? new Date(a.expires_at).getTime() : Infinity;
+			const dateB = b.expires_at ? new Date(b.expires_at).getTime() : Infinity;
+			return dateA - dateB; // По возрастанию (сначала ближайшие)
+		});
 
-    sortedList.forEach(t => {
-        const div = document.createElement('div');
-        div.className = 'list-item';
+		sortedList.forEach(t => {
+			const div = document.createElement('div');
+			div.className = 'list-item';
 
-        const canEdit = canEditTSU(t);
-        const canDelete = canDeleteTSU(t);
-        const canComplete = canCompleteTSU(t) && t.status === 'active';
+			const canEdit = canEditTSU(t);
+			const canDelete = canDeleteTSU(t);
+			const canComplete = canCompleteTSU(t) && t.status === 'active';
 
-        // Определяем цель для отображения
-        let target = t.target_nick || t.car_plate || '—';
-        if (t.type === 'wanted_car' || t.type === 'wanted_car_remove') {
-            target = `${t.car_plate || '—'} ${t.car_region || ''}`.trim();
-        }
+			// Определяем цель для отображения
+			let target = t.target_nick || t.car_plate || '—';
+			if (t.type === 'wanted_car' || t.type === 'wanted_car_remove') {
+				target = `${t.car_plate || '—'} ${t.car_region || ''}`.trim();
+			}
 
-        // Дополнительные параметры
-        let params = '';
-        if (t.type === 'fine' && t.amount) params = ` · Сумма: ${t.amount}`;
-        if (t.type === 'license' && t.days !== null && t.days !== undefined) params = ` · Дней: ${t.days}`;
-        if (t.type === 'wanted_person' && t.stars) params = ` · Звёзд: ${t.stars}`;
+			// Дополнительные параметры
+			let params = '';
+			if (t.type === 'fine' && t.amount) params = ` · Сумма: ${t.amount}`;
+			if (t.type === 'license' && t.days !== null && t.days !== undefined) params = ` · Дней: ${t.days}`;
+			if (t.type === 'wanted_person' && t.stars) params = ` · Звёзд: ${t.stars}`;
 
-        const statusClass = getStatusBadgeClass(t.status);
-        const statusText = getStatusText(t.status);
+			const statusClass = getStatusBadgeClass(t.status);
+			const statusText = getStatusText(t.status);
 
-        div.innerHTML = `
-            <div style="flex:1;">
-                <div class="item-title">
-                    ${getTypeText(t.type)} 
-                    <span class="badge ${statusClass}">${statusText}</span>
-                </div>
-                <div class="item-meta">
-                    <strong>Нарушитель: ${escapeHtml(target)}</strong>${params}<br>
-                    <small>Причина: ${escapeHtml(t.reason || '—')}</small><br>
-                    <small>Инициатор: ${escapeHtml(t.initiator_nick || '—')} · 
-                    Создал: ${escapeHtml(t.created_by_name || '—')} · 
-                    Срок: до ${formatDate(t.expires_at)}</small>
-                </div>
-            </div>
-            <div class="flex-row" style="gap: 4px; flex-wrap: wrap;">
-                <button class="small" data-id="${t.id}" data-action="copy">📋 Копировать</button>
-                ${t.status === 'active'
-                    ? `<button class="small" style="background:#3498db;" data-id="${t.id}" data-action="complete">✅ Отметить выполненным</button>`
-                    : `<button class="small" style="background:#ffc107;" data-id="${t.id}" data-action="reopen">🔄 Вернуть в работу</button>`
-                }
-                ${canEdit ? `<button class="small" data-id="${t.id}" data-action="edit">✏️</button>` : ''}
-                ${canDelete ? `<button class="small secondary" data-id="${t.id}" data-action="delete">🗑️</button>` : ''}
-            </div>
-        `;
-        container.appendChild(div);
-    });
+			// Формируем HTML с примечанием, если оно есть
+			let notesHtml = '';
+			if (t.notes) {
+				notesHtml = `<br><small style="color: #28a745;">📝 Примечание: ${escapeHtml(t.notes)}</small>`;
+			}
 
-    // Обработчики для кнопок
-    container.querySelectorAll('button[data-action="copy"]').forEach(btn => {
-        btn.onclick = () => {
-            const tsu = sortedList.find(t => t.id == btn.dataset.id);
-            if (tsu) copyCommand(tsu);
-        };
-    });
+			div.innerHTML = `
+				<div style="flex:1;">
+					<div class="item-title">
+						${getTypeText(t.type)} 
+						<span class="badge ${statusClass}">${statusText}</span>
+					</div>
+					<div class="item-meta">
+						<strong>Нарушитель: ${escapeHtml(target)}</strong>${params}<br>
+						<small>Причина: ${escapeHtml(t.reason || '—')}</small>${notesHtml}<br>
+						<small>Инициатор: ${escapeHtml(t.initiator_nick || '—')} · 
+						Создал: ${escapeHtml(t.created_by_name || '—')} · 
+						Срок: до ${formatDate(t.expires_at)}</small>
+					</div>
+				</div>
+				<div class="flex-row" style="gap: 4px; flex-wrap: wrap;">
+					<button class="small" data-id="${t.id}" data-action="copy">📋 Копировать</button>
+					${t.status === 'active'
+						? `<button class="small" style="background:#3498db;" data-id="${t.id}" data-action="complete">✅ Отметить выполненным</button>`
+						: `<button class="small" style="background:#ffc107;" data-id="${t.id}" data-action="reopen">🔄 Вернуть в работу</button>`
+					}
+					${canEdit ? `<button class="small" data-id="${t.id}" data-action="edit">✏️</button>` : ''}
+					${canDelete ? `<button class="small secondary" data-id="${t.id}" data-action="delete">🗑️</button>` : ''}
+				</div>
+			`;
+			container.appendChild(div);
+		});
 
-    container.querySelectorAll('button[data-action="complete"]').forEach(btn => {
-        btn.onclick = () => completeTsu(btn.dataset.id);
-    });
+		// Обработчики для кнопок (без изменений)
+		container.querySelectorAll('button[data-action="copy"]').forEach(btn => {
+			btn.onclick = () => {
+				const tsu = sortedList.find(t => t.id == btn.dataset.id);
+				if (tsu) copyCommand(tsu);
+			};
+		});
 
-    container.querySelectorAll('button[data-action="reopen"]').forEach(btn => {
-        btn.onclick = () => reopenTsu(btn.dataset.id);
-    });
+		container.querySelectorAll('button[data-action="complete"]').forEach(btn => {
+			btn.onclick = () => completeTsu(btn.dataset.id);
+		});
 
-    container.querySelectorAll('button[data-action="edit"]').forEach(btn => {
-        btn.onclick = () => openTsuForm(btn.dataset.id);
-    });
+		container.querySelectorAll('button[data-action="reopen"]').forEach(btn => {
+			btn.onclick = () => reopenTsu(btn.dataset.id);
+		});
 
-    container.querySelectorAll('button[data-action="delete"]').forEach(btn => {
-        btn.onclick = () => deleteTsu(btn.dataset.id);
-    });
-}
-	
+		container.querySelectorAll('button[data-action="edit"]').forEach(btn => {
+			btn.onclick = () => openTsuForm(btn.dataset.id);
+		});
+
+		container.querySelectorAll('button[data-action="delete"]').forEach(btn => {
+			btn.onclick = () => deleteTsu(btn.dataset.id);
+		});
+	}
+
     // Фильтрация и отображение списка
     function filterAndRenderTsu() {
         const search = document.getElementById('tsuSearch')?.value.toLowerCase() || '';
@@ -526,218 +531,223 @@ function renderTsuList(filteredList) {
 
     // Открытие формы создания/редактирования
     async function openTsuForm(id = null) {
-        Auth.ping();
+		Auth.ping();
 
-        const user = Auth.getCurrentUser();
-        let tsu = null;
+		const user = Auth.getCurrentUser();
+		let tsu = null;
 
-        if (id) {
-            tsu = tsuCache.find(t => t.id == id);
-            if (!tsu) return;
+		if (id) {
+			tsu = tsuCache.find(t => t.id == id);
+			if (!tsu) return;
 
-            if (!canEditTSU(tsu)) {
-                UI.showNotification('У вас нет прав на редактирование этой наводки', 'error');
-                return;
-            }
-        }
+			if (!canEditTSU(tsu)) {
+				UI.showNotification('У вас нет прав на редактирование этой наводки', 'error');
+				return;
+			}
+		}
 
-        const clone = UI.loadTemplate('tsuForm');
-        if (!clone) {
-            UI.showNotification('Ошибка загрузки шаблона', 'error');
-            return;
-        }
+		const clone = UI.loadTemplate('tsuForm');
+		if (!clone) {
+			UI.showNotification('Ошибка загрузки шаблона', 'error');
+			return;
+		}
 
-        UI.clearMain();
-        document.getElementById('mainApp').appendChild(clone);
+		UI.clearMain();
+		document.getElementById('mainApp').appendChild(clone);
 
-        // Устанавливаем заголовок
-        const title = document.getElementById('tsuFormTitle');
-        if (title) {
-            title.textContent = tsu ? `Редактирование наводки` : `Новая наводка`;
-        }
+		// Устанавливаем заголовок
+		const title = document.getElementById('tsuFormTitle');
+		if (title) {
+			title.textContent = tsu ? `Редактирование наводки` : `Новая наводка`;
+		}
 
-        // Рассчитываем дату истечения (текущая + 14 дней)
-        const expiresAt = new Date();
-        expiresAt.setDate(expiresAt.getDate() + EXPIRATION_DAYS);
-        document.getElementById('tsu_expires_at').value = expiresAt.toISOString().split('T')[0];
+		// Рассчитываем дату истечения (текущая + 14 дней)
+		const expiresAt = new Date();
+		expiresAt.setDate(expiresAt.getDate() + EXPIRATION_DAYS);
+		document.getElementById('tsu_expires_at').value = expiresAt.toISOString().split('T')[0];
 
-        const defaultExpiresAt = new Date();
-        defaultExpiresAt.setDate(defaultExpiresAt.getDate() + EXPIRATION_DAYS);
+		const defaultExpiresAt = new Date();
+		defaultExpiresAt.setDate(defaultExpiresAt.getDate() + EXPIRATION_DAYS);
 
-        // Если редактируем существующую наводку, используем её дату, иначе дефолтную
-        if (tsu && tsu.expires_at) {
-            document.getElementById('tsu_expires_at').value = tsu.expires_at.split('T')[0];
-        } else {
-            document.getElementById('tsu_expires_at').value = defaultExpiresAt.toISOString().split('T')[0];
-        }
+		// Если редактируем существующую наводку, используем её дату, иначе дефолтную
+		if (tsu && tsu.expires_at) {
+			document.getElementById('tsu_expires_at').value = tsu.expires_at.split('T')[0];
+		} else {
+			document.getElementById('tsu_expires_at').value = defaultExpiresAt.toISOString().split('T')[0];
+		}
 
-        // Если редактируем, заполняем поля
-        if (tsu) {
-            document.getElementById('tsu_type').value = tsu.type || '';
-            document.getElementById('tsu_target_nick').value = tsu.target_nick || '';
-            document.getElementById('tsu_amount').value = tsu.amount || '';
-            document.getElementById('tsu_days').value = tsu.days || '';
-            document.getElementById('tsu_stars').value = tsu.stars || '';
-            document.getElementById('tsu_car_plate').value = tsu.car_plate || '';
-            document.getElementById('tsu_car_region').value = tsu.car_region || '';
-            document.getElementById('tsu_reason').value = tsu.reason || '';
-            document.getElementById('tsu_initiator_nick').value = tsu.initiator_nick || '';
-            document.getElementById('tsu_expires_at').value = tsu.expires_at ? tsu.expires_at.split('T')[0] : expiresAt.toISOString().split('T')[0];
-        }
+		// Если редактируем, заполняем поля
+		if (tsu) {
+			document.getElementById('tsu_type').value = tsu.type || '';
+			document.getElementById('tsu_target_nick').value = tsu.target_nick || '';
+			document.getElementById('tsu_amount').value = tsu.amount || '';
+			document.getElementById('tsu_days').value = tsu.days || '';
+			document.getElementById('tsu_stars').value = tsu.stars || '';
+			document.getElementById('tsu_car_plate').value = tsu.car_plate || '';
+			document.getElementById('tsu_car_region').value = tsu.car_region || '';
+			document.getElementById('tsu_reason').value = tsu.reason || '';
+			document.getElementById('tsu_notes').value = tsu.notes || ''; // НОВОЕ ПОЛЕ
+			document.getElementById('tsu_initiator_nick').value = tsu.initiator_nick || '';
+			document.getElementById('tsu_expires_at').value = tsu.expires_at ? tsu.expires_at.split('T')[0] : expiresAt.toISOString().split('T')[0];
+		}
 
-        // Функция обновления видимости полей в зависимости от типа
-        function updateFieldsVisibility() {
-            const type = document.getElementById('tsu_type').value;
+		// Функция обновления видимости полей в зависимости от типа
+		function updateFieldsVisibility() {
+			const type = document.getElementById('tsu_type').value;
 
-            document.getElementById('tsu_amount_field').style.display = 'none';
-            document.getElementById('tsu_days_field').style.display = 'none';
-            document.getElementById('tsu_stars_field').style.display = 'none';
-            document.getElementById('tsu_plate_field').style.display = 'none';
-            document.getElementById('tsu_region_field').style.display = 'none';
+			document.getElementById('tsu_amount_field').style.display = 'none';
+			document.getElementById('tsu_days_field').style.display = 'none';
+			document.getElementById('tsu_stars_field').style.display = 'none';
+			document.getElementById('tsu_plate_field').style.display = 'none';
+			document.getElementById('tsu_region_field').style.display = 'none';
 
-            if (type === 'fine') {
-                document.getElementById('tsu_amount_field').style.display = 'block';
-            } else if (type === 'license') {
-                document.getElementById('tsu_days_field').style.display = 'block';
-            } else if (type === 'wanted_person') {
-                document.getElementById('tsu_stars_field').style.display = 'block';
-            } else if (type === 'wanted_car' || type === 'wanted_car_remove') {
-                document.getElementById('tsu_plate_field').style.display = 'block';
-                document.getElementById('tsu_region_field').style.display = 'block';
-            }
-        }
+			if (type === 'fine') {
+				document.getElementById('tsu_amount_field').style.display = 'block';
+			} else if (type === 'license') {
+				document.getElementById('tsu_days_field').style.display = 'block';
+			} else if (type === 'wanted_person') {
+				document.getElementById('tsu_stars_field').style.display = 'block';
+			} else if (type === 'wanted_car' || type === 'wanted_car_remove') {
+				document.getElementById('tsu_plate_field').style.display = 'block';
+				document.getElementById('tsu_region_field').style.display = 'block';
+			}
+		}
 
-        document.getElementById('tsu_type').addEventListener('change', updateFieldsVisibility);
-        updateFieldsVisibility();
+		document.getElementById('tsu_type').addEventListener('change', updateFieldsVisibility);
+		updateFieldsVisibility();
 
-        // Обработчик формы
-        document.getElementById('tsuForm').onsubmit = async (e) => {
-            e.preventDefault();
+		// Обработчик формы
+		document.getElementById('tsuForm').onsubmit = async (e) => {
+			e.preventDefault();
 
-            const type = document.getElementById('tsu_type').value;
-            const targetNick = document.getElementById('tsu_target_nick').value.trim();
-            const reason = document.getElementById('tsu_reason').value.trim();
-            const initiatorNick = document.getElementById('tsu_initiator_nick').value.trim();
-            const expiresAt = document.getElementById('tsu_expires_at').value;
+			const type = document.getElementById('tsu_type').value;
+			const targetNick = document.getElementById('tsu_target_nick').value.trim();
+			const reason = document.getElementById('tsu_reason').value.trim();
+			const notes = document.getElementById('tsu_notes')?.value.trim() || null; // НОВОЕ ПОЛЕ
+			const initiatorNick = document.getElementById('tsu_initiator_nick').value.trim();
+			const expiresAt = document.getElementById('tsu_expires_at').value;
 
-            if (!type || !reason || !initiatorNick) {
-                UI.showNotification('Заполните все обязательные поля', 'error');
-                return;
-            }
+			if (!type || !reason || !initiatorNick) {
+				UI.showNotification('Заполните все обязательные поля', 'error');
+				return;
+			}
 
-            // Валидация в зависимости от типа
-            if (type === 'fine') {
-                const amount = document.getElementById('tsu_amount').value;
-                if (!amount || amount <= 0) {
-                    UI.showNotification('Введите корректную сумму штрафа', 'error');
-                    return;
-                }
-            } else if (type === 'license') {
-                const days = document.getElementById('tsu_days').value;
-                if (days === '' || days < 0 || days > 4) {
-                    UI.showNotification('Введите количество дней от 0 до 4', 'error');
-                    return;
-                }
-            } else if (type === 'wanted_person') {
-                const stars = document.getElementById('tsu_stars').value;
-                if (!stars || stars < 1 || stars > 6) {
-                    UI.showNotification('Введите количество звёзд от 1 до 6', 'error');
-                    return;
-                }
-            } else if (type === 'wanted_car' || type === 'wanted_car_remove') {
-                const plate = document.getElementById('tsu_car_plate').value.trim();
-                const region = document.getElementById('tsu_car_region').value.trim();
-                if (!plate) {
-                    UI.showNotification('Введите госномер', 'error');
-                    return;
-                }
-                if (!region || region.length !== 2 || !/^\d+$/.test(region)) {
-                    UI.showNotification('Введите корректный регион (2 цифры)', 'error');
-                    return;
-                }
-            }
+			// Валидация в зависимости от типа
+			if (type === 'fine') {
+				const amount = document.getElementById('tsu_amount').value;
+				if (!amount || amount <= 0) {
+					UI.showNotification('Введите корректную сумму штрафа', 'error');
+					return;
+				}
+			} else if (type === 'license') {
+				const days = document.getElementById('tsu_days').value;
+				if (days === '' || days < 0 || days > 4) {
+					UI.showNotification('Введите количество дней от 0 до 4', 'error');
+					return;
+				}
+			} else if (type === 'wanted_person') {
+				const stars = document.getElementById('tsu_stars').value;
+				if (!stars || stars < 1 || stars > 6) {
+					UI.showNotification('Введите количество звёзд от 1 до 6', 'error');
+					return;
+				}
+			} else if (type === 'wanted_car' || type === 'wanted_car_remove') {
+				const plate = document.getElementById('tsu_car_plate').value.trim();
+				const region = document.getElementById('tsu_car_region').value.trim();
+				if (!plate) {
+					UI.showNotification('Введите госномер', 'error');
+					return;
+				}
+				if (!region || region.length !== 2 || !/^\d+$/.test(region)) {
+					UI.showNotification('Введите корректный регион (2 цифры)', 'error');
+					return;
+				}
+			}
 
-            const formData = {
-                type: type,
-                target_nick: targetNick || null,
-                amount: type === 'fine' ? parseInt(document.getElementById('tsu_amount').value) : null,
-                days: type === 'license' ? parseInt(document.getElementById('tsu_days').value) : null,
-                stars: type === 'wanted_person' ? parseInt(document.getElementById('tsu_stars').value) : null,
-                car_plate: (type === 'wanted_car' || type === 'wanted_car_remove') ? document.getElementById('tsu_car_plate').value.trim() : null,
-                car_region: (type === 'wanted_car' || type === 'wanted_car_remove') ? document.getElementById('tsu_car_region').value.trim() : null,
-                reason: reason,
-                initiator_nick: initiatorNick,
-                expires_at: expiresAt,
-                status: 'active'
-            };
+			const formData = {
+				type: type,
+				target_nick: targetNick || null,
+				amount: type === 'fine' ? parseInt(document.getElementById('tsu_amount').value) : null,
+				days: type === 'license' ? parseInt(document.getElementById('tsu_days').value) : null,
+				stars: type === 'wanted_person' ? parseInt(document.getElementById('tsu_stars').value) : null,
+				car_plate: (type === 'wanted_car' || type === 'wanted_car_remove') ? document.getElementById('tsu_car_plate').value.trim() : null,
+				car_region: (type === 'wanted_car' || type === 'wanted_car_remove') ? document.getElementById('tsu_car_region').value.trim() : null,
+				reason: reason,
+				notes: notes, // НОВОЕ ПОЛЕ
+				initiator_nick: initiatorNick,
+				expires_at: expiresAt,
+				status: 'active'
+			};
 
-            const saveBtn = document.getElementById('tsuFormSubmit');
-            const originalText = saveBtn.textContent;
-            saveBtn.textContent = '⏳ Сохранение...';
-            saveBtn.disabled = true;
+			const saveBtn = document.getElementById('tsuFormSubmit');
+			const originalText = saveBtn.textContent;
+			saveBtn.textContent = '⏳ Сохранение...';
+			saveBtn.disabled = true;
 
-            try {
-                let error;
-                if (tsu) {
-                    // Обновление
-                    const { error: updateError } = await supabaseClient
-                        .from('tsu_orders')
-                        .update(formData)
-                        .eq('id', tsu.id);
-                    error = updateError;
+			try {
+				let error;
+				if (tsu) {
+					// Обновление
+					const { error: updateError } = await supabaseClient
+						.from('tsu_orders')
+						.update(formData)
+						.eq('id', tsu.id);
+					error = updateError;
 
-                    if (!error) {
-                        Logger.log('tsu_update', {
-                            tsu_id: tsu.id,
-                            type: type,
-                            target: targetNick || formData.car_plate,
-                            updated_by: user.nickname
-                        }, 'tsu', tsu.id);
-                    }
-                } else {
-                    // Создание
-                    const { error: insertError } = await supabaseClient
-                        .from('tsu_orders')
-                        .insert([{
-                            ...formData,
-                            created_by_id: user.auth_user_id,
-                            created_by_name: user.nickname
-                        }]);
-                    error = insertError;
+					if (!error) {
+						Logger.log('tsu_update', {
+							tsu_id: tsu.id,
+							type: type,
+							target: targetNick || formData.car_plate,
+							updated_by: user.nickname,
+							has_notes: !!notes
+						}, 'tsu', tsu.id);
+					}
+				} else {
+					// Создание
+					const { error: insertError } = await supabaseClient
+						.from('tsu_orders')
+						.insert([{
+							...formData,
+							created_by_id: user.auth_user_id,
+							created_by_name: user.nickname
+						}]);
+					error = insertError;
 
-                    if (!error) {
-                        Logger.log('tsu_create', {
-                            type: type,
-                            target: targetNick || formData.car_plate,
-                            reason: reason,
-                            created_by: user.nickname
-                        }, 'tsu', null);
-                    }
-                }
+					if (!error) {
+						Logger.log('tsu_create', {
+							type: type,
+							target: targetNick || formData.car_plate,
+							reason: reason,
+							created_by: user.nickname,
+							has_notes: !!notes
+						}, 'tsu', null);
+					}
+				}
 
-                if (error) {
-                    console.error('Save error:', error);
-                    UI.showNotification('Ошибка: ' + error.message, 'error');
-                    return;
-                }
+				if (error) {
+					console.error('Save error:', error);
+					UI.showNotification('Ошибка: ' + error.message, 'error');
+					return;
+				}
 
-                UI.showNotification(tsu ? 'Наводка обновлена' : 'Наводка создана', 'success');
-                await loadTsuList();
-                initTsuList();
-            } catch (error) {
-                console.error('Error saving tsu:', error);
-                UI.showNotification('Ошибка при сохранении', 'error');
-            } finally {
-                saveBtn.textContent = originalText;
-                saveBtn.disabled = false;
-            }
-        };
+				UI.showNotification(tsu ? 'Наводка обновлена' : 'Наводка создана', 'success');
+				await loadTsuList();
+				initTsuList();
+			} catch (error) {
+				console.error('Error saving tsu:', error);
+				UI.showNotification('Ошибка при сохранении', 'error');
+			} finally {
+				saveBtn.textContent = originalText;
+				saveBtn.disabled = false;
+			}
+		};
 
-        document.getElementById('tsuFormCancel').onclick = () => {
-            initTsuList();
-        };
-    }
-
+		document.getElementById('tsuFormCancel').onclick = () => {
+			initTsuList();
+		};
+	}
+	
     // Инициализация списка наводок
     async function initTsuList() {
         try {
